@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+---
+
+<Layout title="For Admins - CalorieBot">
+  <main class="pt-20">
+    <section class="bg-dark text-white py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h1 class="text-4xl font-bold mb-6">Server Administration Made Simple</h1>
+        <p class="text-xl mb-12">Powerful tools to manage your fitness community with ease</p>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <FeatureCard
+            title="Member Analytics"
+            description="Track engagement, activity levels, and community growth with detailed analytics."
+            icon="📊"
+          />
+          <FeatureCard
+            title="Custom Permissions"
+            description="Set granular permissions for different roles and manage access levels easily."
+            icon="🔒"
+          />
+          <FeatureCard
+            title="Automated Reports"
+            description="Get weekly insights about your community's fitness progress and engagement."
+            icon="📈"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

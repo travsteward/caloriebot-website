@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+---
+
+<Layout title="For Coaches - CalorieBot">
+  <main class="pt-20">
+    <section class="bg-dark text-white py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h1 class="text-4xl font-bold mb-6">Empower Your Coaching Business</h1>
+        <p class="text-xl mb-12">Tools and features designed specifically for fitness professionals</p>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <FeatureCard
+            title="Client Management"
+            description="Track multiple clients' progress, set individual goals, and manage nutrition plans efficiently."
+            icon="👥"
+          />
+          <FeatureCard
+            title="Progress Tracking"
+            description="Monitor your clients' workout consistency and nutrition adherence in real-time."
+            icon="📱"
+          />
+          <FeatureCard
+            title="Custom Programs"
+            description="Create and assign personalized workout and nutrition programs for your clients."
+            icon="💪"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

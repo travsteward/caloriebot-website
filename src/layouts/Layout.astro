@@ -1,4 +1,7 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title: string;
 }
@@ -18,7 +21,11 @@ const { title } = Astro.props;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body class="bg-dark font-sans">
-    <slot />
+    <Navigation />
+    <div class="pt-16">
+      <slot />
+    </div>
+    <Footer />
   </body>
 </html>
 
