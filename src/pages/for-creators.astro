@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+---
+
+<Layout title="For Creators - CalorieBot">
+  <main class="pt-20">
+    <section class="bg-dark text-white py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h1 class="text-4xl font-bold mb-6">Grow Your Fitness Community</h1>
+        <p class="text-xl mb-12">Tools and features designed for content creators and fitness influencers</p>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <FeatureCard
+            title="Community Growth"
+            description="Build and nurture your fitness community with engagement tools and analytics designed for creators."
+            icon="📈"
+          />
+          <FeatureCard
+            title="Content Integration"
+            description="Seamlessly integrate your fitness content and programs into your Discord community."
+            icon="🎥"
+          />
+          <FeatureCard
+            title="Monetization Tools"
+            description="Multiple revenue streams with subscription tiers, premium content, and coaching services."
+            icon="💰"
+          />
+        </div>
+
+        <div class="mt-16">
+          <h2 class="text-3xl font-bold mb-8">Creator-Specific Features</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4">Community Management</h3>
+              <ul class="space-y-3 text-gray-300">
+                <li>• Automated member onboarding</li>
+                <li>• Engagement tracking and analytics</li>
+                <li>• Custom roles and permissions</li>
+                <li>• Content scheduling tools</li>
+              </ul>
+            </div>
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4">Content Creation</h3>
+              <ul class="space-y-3 text-gray-300">
+                <li>• Program builder tools</li>
+                <li>• Content library management</li>
+                <li>• Challenge creation system</li>
+                <li>• Automated content distribution</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16">
+          <h2 class="text-3xl font-bold mb-8">Growth & Monetization</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4">Revenue Streams</h3>
+              <ul class="space-y-3 text-gray-300">
+                <li>• Subscription tiers</li>
+                <li>• Premium content access</li>
+                <li>• One-on-one coaching</li>
+                <li>• Digital product sales</li>
+              </ul>
+            </div>
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4">Growth Tools</h3>
+              <ul class="space-y-3 text-gray-300">
+                <li>• Member acquisition analytics</li>
+                <li>• Retention strategies</li>
+                <li>• Community insights</li>
+                <li>• Growth optimization tools</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
