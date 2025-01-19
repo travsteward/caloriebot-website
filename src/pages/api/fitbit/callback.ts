@@ -11,7 +11,7 @@ export const GET: APIRoute = async ({ request }) => {
 
   try {
     // Option 1: Forward to bot's API endpoint
-    const botResponse = await fetch('https://your-bot-api.herokuapp.com/fitbit/callback', {
+    const botResponse = await fetch('https://plate-method-discord-bot.herokuapp.com/fitbit/callback', {
       method: 'POST',
       body: JSON.stringify({ code, state }),
       headers: {
