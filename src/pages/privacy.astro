@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const today = new Date().toLocaleDateString('en-US', { 
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric' 
+});
+---
+
+<Layout title="Privacy Policy - CalorieBot">
+  <main class="pt-20">
+    <div class="container mx-auto px-4 max-w-4xl py-12">
+      <h1 class="text-3xl font-bold text-white mb-4">CalorieBot Privacy Policy</h1>
+      <p class="text-gray-400 mb-8">Last Updated: {today}</p>
+      
+      <div class="prose prose-invert">
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">1. Introduction</h2>
+        <p class="text-gray-300 mb-4">
+          CalorieBot ("we," "us," or "our") is committed to protecting your privacy. This policy explains how we collect, use, and protect your data when you use our Discord-based nutrition and fitness tracking service.
+        </p>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">2. Information We Collect and How We Use It</h2>
+        
+        <h3 class="text-xl font-bold text-white mt-6 mb-3">2.1 Essential Service Data</h3>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Discord User ID and username: To link your activity and data to your account</li>
+          <li>Server membership information: To manage server-based access and permissions</li>
+          <li>Profile settings and preferences: To customize your experience</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-white mt-6 mb-3">2.2 Nutrition and Fitness Data</h3>
+        <p class="text-gray-300 mb-2">We collect:</p>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Food photos and descriptions</li>
+          <li>Meal logs and nutritional information</li>
+          <li>Workout records and personal records (PRs)</li>
+          <li>Weight, steps, and other fitness metrics</li>
+          <li>Challenge participation data</li>
+        </ul>
+
+        <p class="text-gray-300 mb-2">This data is used to:</p>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Provide real-time nutrition tracking</li>
+          <li>Generate workout recommendations</li>
+          <li>Enable challenge participation</li>
+          <li>Create progress reports and insights</li>
+          <li>Improve our AI recognition systems</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-white mt-6 mb-3">2.3 Third-Party Integration Data</h3>
+        <p class="text-gray-300 mb-2">When you connect services like Fitbit or Garmin, we:</p>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Only collect data necessary for requested features</li>
+          <li>Sync only the metrics you explicitly authorize</li>
+          <li>Update data at intervals you specify</li>
+          <li>Never sell or share this data with other third parties</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-white mt-6 mb-3">2.4 AI and Photo Processing</h3>
+        <p class="text-gray-300 mb-2">For food photos:</p>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Photos are temporarily stored for immediate analysis only</li>
+          <li>Deleted from our servers within 24 hours</li>
+          <li>Used anonymously to improve our AI model</li>
+          <li>Never shared with external parties</li>
+          <li>Never used for marketing purposes</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">3. How We Protect Your Data</h2>
+        <p class="text-gray-300 mb-2">We implement industry-standard security measures including:</p>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>End-to-end encryption for data transmission</li>
+          <li>Regular security audits</li>
+          <li>Access controls and authentication</li>
+          <li>Secure cloud storage with [Provider Name]</li>
+          <li>Regular backup procedures</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">4. Data Sharing and Usage</h2>
+        <p class="text-gray-300 mb-2">We will:</p>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Share your challenge progress with server members when you opt-in</li>
+          <li>Display your username on leaderboards when participating in challenges</li>
+          <li>Use anonymized data for service improvement</li>
+          <li>Share basic metrics with connected third-party services you authorize</li>
+        </ul>
+
+        <p class="text-gray-300 mb-2">We will never:</p>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Sell your personal data to third parties</li>
+          <li>Share your health data with advertisers</li>
+          <li>Use your photos for marketing without explicit consent</li>
+          <li>Expose your private logs to other users without permission</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">5. Your Rights and Controls</h2>
+        <p class="text-gray-300 mb-2">You can:</p>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Access all your data through our /export command</li>
+          <li>Delete your account and data using /delete_account</li>
+          <li>Modify privacy settings via /privacy</li>
+          <li>Opt-out of AI training usage</li>
+          <li>Control what information is visible to other users</li>
+          <li>Revoke third-party access at any time</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">6. Data Retention</h2>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Active accounts: Data retained until account deletion</li>
+          <li>Deleted accounts: Data permanently removed within 30 days</li>
+          <li>Backup retention: Maximum 90 days</li>
+          <li>Anonymous usage data: Retained indefinitely for service improvement</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">7. Children's Privacy</h2>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Users must be 13 or older</li>
+          <li>We do not knowingly collect data from users under 13</li>
+          <li>Parents can request data deletion for users under 13</li>
+          <li>Age verification required for certain features</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">8. International Data Transfers</h2>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Data stored on servers in [Location]</li>
+          <li>GDPR-compliant data transfer mechanisms in place</li>
+          <li>Standard contractual clauses with service providers</li>
+          <li>Regular compliance audits</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">9. Changes to This Policy</h2>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>We'll notify users of material changes via Discord</li>
+          <li>30-day notice before significant changes</li>
+          <li>Continued use constitutes acceptance</li>
+          <li>Previous versions available upon request</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">10. Contact Us</h2>
+        <p class="text-gray-300 mb-2">For privacy-related matters:</p>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Email: privacy@caloriebot.app</li>
+          <li>Response time: Within 48 hours</li>
+          <li>Data requests handled within 30 days</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">11. Specific Feature Guidelines</h2>
+        
+        <h3 class="text-xl font-bold text-white mt-6 mb-3">11.1 Photo Upload Guidelines</h3>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Accepted formats: JPG, PNG</li>
+          <li>Maximum file size: 10MB</li>
+          <li>No inappropriate content</li>
+          <li>Personal information should not be visible</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-white mt-6 mb-3">11.2 AI Interaction Rules</h3>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Conversations logged for training</li>
+          <li>Personal information automatically redacted</li>
+          <li>Training data anonymized</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-white mt-6 mb-3">11.3 Challenge Participation</h3>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Performance metrics visible to participants</li>
+          <li>Opt-out available at any time</li>
+          <li>Historical data retained unless deleted</li>
+          <li>Privacy controls for individual metrics</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">12. Compliance Frameworks</h2>
+        
+        <h3 class="text-xl font-bold text-white mt-6 mb-3">GDPR Compliance:</h3>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Data processing agreements in place</li>
+          <li>Right to be forgotten honored</li>
+          <li>Data portability supported</li>
+          <li>Processing records maintained</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-white mt-6 mb-3">CCPA Compliance:</h3>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>California privacy rights honored</li>
+          <li>Do Not Sell My Info supported</li>
+          <li>Annual privacy notice provided</li>
+          <li>Verification procedures in place</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4">13. Dispute Resolution</h2>
+        <ul class="text-gray-300 mb-4 list-disc ml-6">
+          <li>Initial resolution through support channels</li>
+          <li>Escalation process available</li>
+          <li>Independent mediation option</li>
+          <li>Binding arbitration as last resort</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</Layout>

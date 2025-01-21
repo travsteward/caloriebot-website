@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+---
+
+<Layout title="CalorieBot - Your All-in-One Digital Gym for Discord">
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-dark text-white py-20">
+      <div class="container mx-auto px-4 max-w-4xl text-center">
+        <h1 class="text-5xl font-bold mb-6">Your All-in-One Digital Gym for Discord</h1>
+        <p class="text-xl mb-8">Supercharge Your Discord with Fitness & Community</p>
+        <a href="#" class="bg-discord hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors">
+          Add to Discord
+        </a>
+      </div>
+    </section>
+
+    <!-- Rest of the sections remain unchanged -->
+    <!-- AI-Powered Nutrition Section -->
+    <section class="py-16 bg-secondary">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-12">AI-Powered Nutrition Tracking</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <FeatureCard
+            title="Photo Calorie Counting"
+            description="Snap a photo of your meal, and our AI instantly calculates calories and macros. No guesswork, no hassle."
+            icon="📸"
+          />
+          <FeatureCard
+            title="Auto-Logging & Tracking"
+            description="Every meal is automatically logged and tracked in your personal dashboard, giving you real-time insights into your nutrition."
+            icon="📊"
+          />
+          <FeatureCard
+            title="Conversational Input"
+            description="Speak to it like a personal assistant. Say, '100g bacon and 2 pieces of toast,' and it'll log your calories instantly."
+            icon="💬"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Workout Features Section -->
+    <section class="py-16 bg-dark">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-12">Built-In Workout Functionality</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <FeatureCard
+            title="Guided Workouts"
+            description="Like iOS workout apps, TOURNAMENT's native Discord feature guides you through workouts with step-by-step instructions."
+            icon="💪"
+          />
+          <FeatureCard
+            title="Track & Compare PRs"
+            description="Log your personal records (PRs) and compare them with friends to stay motivated and push your limits."
+            icon="📈"
+          />
+          <FeatureCard
+            title="Share Completed Workouts"
+            description="Celebrate your wins by sharing completed workouts with the community, fostering camaraderie and accountability."
+            icon="🎉"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenge Integration Section -->
+    <section class="py-16 bg-secondary">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-12">Seamless Challenge Integration 🔄</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <FeatureCard
+            title="Auto-Pull Progress Data"
+            description="Since nutrition and workouts are native to the platform, challenges automatically pull in your progress data."
+            icon="🔄"
+          />
+          <FeatureCard
+            title="Hit Daily Targets"
+            description="Track the four pillars of progress together: calorie deficit, workouts, steps, and protein. Celebrate wins and support each other daily."
+            icon="🎯"
+          />
+          <FeatureCard
+            title="Gamified Accountability"
+            description="Weekly challenges keep members accountable through competition and camaraderie. Miss a target? Complete community-approved redemption challenges."
+            icon="🎮"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 bg-dark">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-12">Simple, Transparent Pricing</h2>
+        <div class="grid gap-6 mx-auto">
+          <!-- Starter -->
+          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
+              <p class="text-3xl font-bold text-discord mb-2">$29<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 3 active members</p>
+            </div>
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <p class="text-gray-300">Perfect for small fitness groups</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>All core features included</li>
+                <li>AI photo tracking</li>
+                <li>Guided workouts</li>
+                <li>Challenge system</li>
+              </ul>
+            </div>
+            <div class="md:w-1/4 text-center">
+              <a href="#" class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+                Get Started
+              </a>
+            </div>
+          </div>
+
+          <!-- Growth -->
+          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">Growth</h3>
+              <p class="text-3xl font-bold text-discord mb-2">$99<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 15 active members</p>
+            </div>
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <p class="text-gray-300">For growing communities</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>Everything in Starter +</li>
+                <li>Retention analytics</li>
+                <li>Group coaching tools</li>
+              </ul>
+            </div>
+            <div class="md:w-1/4 text-center">
+              <a href="#" class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+                Get Started
+              </a>
+            </div>
+          </div>
+
+          <!-- Pro -->
+          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">Pro</h3>
+              <p class="text-3xl font-bold text-discord mb-2">$249<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 50 active members</p>
+            </div>
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <p class="text-gray-300">For established communities</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>Everything in Growth +</li>
+                <li>1-1 Coaching Tools</li>
+                <li>Advanced reporting</li>
+              </ul>
+            </div>
+            <div class="md:w-1/4 text-center">
+              <a href="#" class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+                Get Started
+              </a>
+            </div>
+          </div>
+
+          <!-- Elite -->
+          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">Elite</h3>
+              <p class="text-3xl font-bold text-discord mb-2">$999<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 250 active members</p>
+            </div>
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <p class="text-gray-300">For large communities</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>Everything in Pro +</li>
+                <li>Custom features requests</li>
+                <li>Premium support</li>
+                <li>Growth mentorship discord</li>
+              </ul>
+            </div>
+            <div class="md:w-1/4 text-center">
+              <a href="#" class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+                Get Started
+              </a>
+            </div>
+          </div>
+
+          <!-- Partner -->
+          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">Partner</h3>
+              <p class="text-3xl font-bold text-discord mb-2">Custom<span class="text-sm text-gray-400"> pricing</span></p>
+              <p class="text-gray-400">For large fitness coaching communities</p>
+            </div>
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>Partnership % pricing model</li>
+                <li>Full server design & branding</li>
+                <li>1-1 Growth mentorship</li>
+                <li>Priority support</li>
+              </ul>
+            </div>
+            <div class="md:w-1/4 text-center">
+              <a href="#" class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

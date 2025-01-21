@@ -1,0 +1,43 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="CalorieBot - Your All-in-One Discord Fitness Companion" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-dark font-sans">
+    <Navigation />
+    <div class="pt-16">
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --font-family: 'Inter', system-ui, sans-serif;
+  }
+  html {
+    font-family: var(--font-family);
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+  }
+</style>
