@@ -9,6 +9,19 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const { priceId } = await request.json();
 
+    // Only allow Pro plan price ID
+    if (priceId !== 'price_pro_id') {
+      return new Response(
+        JSON.stringify({ error: 'Invalid price ID' }),
+        {
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+    }
+
     // Create Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
