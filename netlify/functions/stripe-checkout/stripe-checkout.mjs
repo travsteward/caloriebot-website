@@ -2,6 +2,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
   console.log('Function started');
+  console.log('Request body:', event.body);
 
   if (event.httpMethod !== 'POST') {
     return {
@@ -17,24 +18,7 @@ exports.handler = async (event) => {
     const { priceId } = JSON.parse(event.body);
     console.log('Price ID received:', priceId);
 
-    // Price ID mapping - using exact IDs from pricing.astro
-    const PRICE_IDS = {
-      price_starter_id: 'price_starter_id',
-      price_growth_id: 'price_growth_id',
-      price_pro_id: 'price_pro_id',
-      price_elite_id: 'price_elite_id'
-    };
-
-    // Validate price ID
-    if (!priceId || !PRICE_IDS[priceId]) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Invalid price ID' }),
-      };
-    }
-
-    // Create Checkout Session
-    console.log('Creating checkout session...');
+    // Create Checkout Session with the actual price ID
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
@@ -48,7 +32,7 @@ exports.handler = async (event) => {
       cancel_url: `${process.env.PUBLIC_SITE_URL}/cancel`,
     });
 
-    console.log('Session created:', session.id);
+    console.log('Session created successfully');
     return {
       statusCode: 200,
       headers: {
@@ -65,8 +49,7 @@ exports.handler = async (event) => {
       },
       body: JSON.stringify({
         error: error.message,
-        type: error.type,
-        stack: error.stack
+        type: error.type
       })
     };
   }
