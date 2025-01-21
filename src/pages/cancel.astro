@@ -2,20 +2,20 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Payment Successful - CalorieBot">
+<Layout title="Payment Cancelled - CalorieBot">
   <main class="min-h-screen bg-dark flex items-center justify-center">
     <div class="container mx-auto px-4 max-w-lg text-center">
       <div class="bg-secondary p-8 rounded-lg shadow-lg">
-        <div class="text-5xl mb-6">🎉</div>
-        <h1 class="text-3xl font-bold text-discord mb-4">Payment Successful!</h1>
+        <div class="text-5xl mb-6">❌</div>
+        <h1 class="text-3xl font-bold text-white mb-4">Payment Cancelled</h1>
         <p class="text-gray-300 mb-6">
-          Thank you for subscribing to CalorieBot. Your account has been activated.
+          Your payment was cancelled. No charges were made.
         </p>
         <a 
-          href="/"
+          href="/pricing"
           class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
         >
-          Return to Dashboard
+          Return to Pricing
         </a>
       </div>
     </div>
