@@ -2,12 +2,14 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
   console.log('Function started');
-  console.log('Request body:', event.body);
 
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
-      body: JSON.stringify({ message: 'Method not allowed' }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ error: 'Method not allowed' })
     };
   }
 
@@ -49,16 +51,23 @@ exports.handler = async (event) => {
     console.log('Session created:', session.id);
     return {
       statusCode: 200,
-      body: JSON.stringify({ sessionId: session.id }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ sessionId: session.id })
     };
   } catch (error) {
     console.error('Detailed error:', error);
     return {
       statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         error: error.message,
+        type: error.type,
         stack: error.stack
-      }),
+      })
     };
   }
 };

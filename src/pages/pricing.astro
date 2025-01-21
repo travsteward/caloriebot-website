@@ -1,127 +1,134 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { loadStripe } from '@stripe/stripe-js';
+import Layout from "../layouts/Layout.astro";
+import { loadStripe } from "@stripe/stripe-js";
 
 // Initialize Stripe
 const stripe = await loadStripe(import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 const plans = [
   {
-    name: 'Starter',
+    name: "Starter",
     price: 29,
-    period: '/month',
-    description: 'Perfect for friends & family',
+    period: "/month",
+    description: "Perfect for friends & family",
     features: [
-      'All core features included',
-      'AI photo tracking',
-      'Guided workouts',
-      'Challenge system'
+      "All core features included",
+      "AI photo tracking",
+      "Guided workouts",
+      "Challenge system",
     ],
-    priceId: 'price_starter_id',
-    hasCheckout: false
+    priceId: "price_starter_id",
+    hasCheckout: false,
   },
   {
-    name: 'Growth',
+    name: "Growth",
     price: 99,
-    period: '/month',
-    description: 'For growing communities',
+    period: "/month",
+    description: "For growing communities",
     features: [
-      'Everything in Starter +',
-      'Retention analytics',
-      'Group coaching tools'
+      "Everything in Starter +",
+      "Retention analytics",
+      "Group coaching tools",
     ],
-    priceId: 'price_growth_id',
-    hasCheckout: false
+    priceId: "price_growth_id",
+    hasCheckout: false,
   },
   {
-    name: 'Pro',
+    name: "Pro",
     price: 249,
-    period: '/month',
-    description: 'For thriving communities',
+    period: "/month",
+    description: "For thriving communities",
     features: [
-      'Everything in Growth +',
-      '1-1 Coaching Tools',
-      'Advanced reporting'
+      "Everything in Growth +",
+      "1-1 Coaching Tools",
+      "Advanced reporting",
     ],
-    priceId: 'price_pro_id',
-    hasCheckout: true
+    priceId: "price_pro_id",
+    hasCheckout: true,
   },
   {
-    name: 'Elite',
+    name: "Elite",
     price: 999,
-    period: '/month',
-    description: 'For large communities',
+    period: "/month",
+    description: "For large communities",
     features: [
-      'Everything in Pro +',
-      'Custom features requests',
-      'Premium support',
-      'Growth mentorship discord'
+      "Everything in Pro +",
+      "Custom features requests",
+      "Premium support",
+      "Growth mentorship discord",
     ],
-    priceId: 'price_elite_id',
-    hasCheckout: false
+    priceId: "price_elite_id",
+    hasCheckout: false,
   },
   {
-    name: 'Partner',
-    price: 'Custom',
-    period: ' pricing',
-    description: 'For large fitness coaching communities',
+    name: "Partner",
+    price: "Custom",
+    period: " pricing",
+    description: "For large fitness coaching communities",
     features: [
-      'Partnership % pricing model',
-      'Full server design & branding',
-      '1-1 Growth mentorship',
-      'Priority support'
+      "Partnership % pricing model",
+      "Full server design & branding",
+      "1-1 Growth mentorship",
+      "Priority support",
     ],
-    hasCheckout: false
-  }
+    hasCheckout: false,
+  },
 ];
-
 ---
 
 <Layout title="Pricing - CalorieBot">
   <main class="pt-20">
     <section class="bg-dark">
       <div class="container mx-auto px-4 max-w-5xl py-16">
-        <h1 class="text-3xl font-bold text-white text-center mb-12">Simple, Transparent Pricing</h1>
+        <h1 class="text-3xl font-bold text-white text-center mb-12">
+          Simple, Transparent Pricing
+        </h1>
 
         <div class="grid gap-6 mx-auto">
-          {plans.map(plan => (
-            <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
-              <div class="md:w-1/4 text-center md:text-left">
-                <h3 class="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                <p class="text-3xl font-bold text-discord mb-2">
-                  {typeof plan.price === 'number' ? `$${plan.price}` : plan.price}
-                  <span class="text-sm text-gray-400">{plan.period}</span>
-                </p>
-                <p class="text-gray-400">{plan.description}</p>
-              </div>
+          {
+            plans.map((plan) => (
+              <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+                <div class="md:w-1/4 text-center md:text-left">
+                  <h3 class="text-2xl font-bold text-white mb-2">
+                    {plan.name}
+                  </h3>
+                  <p class="text-3xl font-bold text-discord mb-2">
+                    {typeof plan.price === "number"
+                      ? `$${plan.price}`
+                      : plan.price}
+                    <span class="text-sm text-gray-400">{plan.period}</span>
+                  </p>
+                  <p class="text-gray-400">{plan.description}</p>
+                </div>
 
-              <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-                <ul class="text-gray-300 list-disc list-inside">
-                  {plan.features.map(feature => (
-                    <li>{feature}</li>
-                  ))}
-                </ul>
-              </div>
+                <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+                  <ul class="text-gray-300 list-disc list-inside">
+                    {plan.features.map((feature) => (
+                      <li>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
 
-              <div class="md:w-1/4 text-center">
-                {plan.hasCheckout ? (
-                  <button
-                    class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                    data-price-id={plan.priceId}
-                  >
-                    Get Started
-                  </button>
-                ) : (
-                  <a
-                    href="mailto:contact@caloriebot.ai"
-                    class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                  >
-                    Contact Us
-                  </a>
-                )}
+                <div class="md:w-1/4 text-center">
+                  {plan.hasCheckout ? (
+                    <button
+                      class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                      data-price-id={plan.priceId}
+                    >
+                      Get Started
+                    </button>
+                  ) : (
+                    <a
+                      href="mailto:contact@caloriebot.ai"
+                      class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                    >
+                      Contact Us
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </section>
@@ -129,47 +136,60 @@ const plans = [
 </Layout>
 
 <script>
-  document.querySelectorAll('.checkout-button').forEach(button => {
-    button.addEventListener('click', async (e) => {
+  document.querySelectorAll(".checkout-button").forEach((button) => {
+    button.addEventListener("click", async (e) => {
       const button = e.target as HTMLButtonElement;
       button.disabled = true;
-      button.textContent = 'Loading...';
+      button.textContent = "Loading...";
 
       try {
-        console.log('Starting checkout process...');
-        const response = await fetch('/.netlify/functions/stripe-checkout', {
-          method: 'POST',
+        console.log("Starting checkout process...");
+        const response = await fetch("/.netlify/functions/stripe-checkout", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             priceId: button.dataset.priceId,
           }),
         });
 
-        const data = await response.json();
+        const text = await response.text();
+        console.log("Raw response:", text);
+
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch (e) {
+          console.error("Failed to parse JSON:", e);
+          throw new Error("Invalid response from server");
+        }
 
         if (!response.ok) {
-          console.error('Server error:', data);
-          throw new Error(data.error || 'Failed to create checkout session');
+          console.error("Server error:", data);
+          throw new Error(data.error || "Failed to create checkout session");
         }
 
-        console.log('Got session ID:', data.sessionId);
+        console.log("Got session ID:", data.sessionId);
 
-        const stripe = await loadStripe(import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY);
+        const stripe = await loadStripe(
+          import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY,
+        );
         if (!stripe) {
-          throw new Error('Failed to load Stripe');
+          throw new Error("Failed to load Stripe");
         }
 
-        const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
+        const { error } = await stripe.redirectToCheckout({
+          sessionId: data.sessionId,
+        });
         if (error) {
-          console.error('Stripe redirect error:', error);
+          console.error("Stripe redirect error:", error);
           throw error;
         }
       } catch (error) {
-        console.error('Detailed error:', error);
-        button.textContent = 'Error - Try Again';
-        alert('Error: ' + error.message);
+        console.error("Detailed error:", error);
+        button.textContent = "Error - Try Again";
+        alert("Error: " + error.message);
       } finally {
         button.disabled = false;
       }
