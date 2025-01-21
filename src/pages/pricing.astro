@@ -129,7 +129,6 @@ const plans = [
 </Layout>
 
 <script>
-  // Handle checkout button clicks
   document.querySelectorAll('.checkout-button').forEach(button => {
     button.addEventListener('click', async (e) => {
       const button = e.target as HTMLButtonElement;
@@ -137,7 +136,7 @@ const plans = [
       button.textContent = 'Loading...';
 
       try {
-        // Update the fetch URL to point to the Netlify function
+        console.log('Starting checkout process...');
         const response = await fetch('/.netlify/functions/stripe-checkout', {
           method: 'POST',
           headers: {
@@ -148,22 +147,29 @@ const plans = [
           }),
         });
 
+        const data = await response.json();
+
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          console.error('Server error:', data);
+          throw new Error(data.error || 'Failed to create checkout session');
         }
 
-        const { sessionId } = await response.json();
+        console.log('Got session ID:', data.sessionId);
 
-        // Redirect to Stripe Checkout
         const stripe = await loadStripe(import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY);
-        const { error } = await stripe!.redirectToCheckout({ sessionId });
+        if (!stripe) {
+          throw new Error('Failed to load Stripe');
+        }
 
+        const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
         if (error) {
+          console.error('Stripe redirect error:', error);
           throw error;
         }
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Detailed error:', error);
         button.textContent = 'Error - Try Again';
+        alert('Error: ' + error.message);
       } finally {
         button.disabled = false;
       }
