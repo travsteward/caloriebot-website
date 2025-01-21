@@ -1,9 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { loadStripe } from "@stripe/stripe-js";
-
-// Initialize Stripe
-const stripe = await loadStripe(import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 const plans = [
   {
@@ -136,6 +132,8 @@ const plans = [
 </Layout>
 
 <script>
+  import { loadStripe } from "@stripe/stripe-js";
+
   document.querySelectorAll(".checkout-button").forEach((button) => {
     button.addEventListener("click", async (e) => {
       const button = e.target as HTMLButtonElement;
