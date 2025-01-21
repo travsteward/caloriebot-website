@@ -137,8 +137,8 @@ const plans = [
       button.textContent = 'Loading...';
 
       try {
-        // Create checkout session
-        const response = await fetch('/api/create-checkout-session', {
+        // Update the fetch URL to point to the Netlify function
+        const response = await fetch('/.netlify/functions/stripe-checkout', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
