@@ -5,13 +5,15 @@ import Layout from '../layouts/Layout.astro';
 const url = new URL(Astro.request.url);
 const sessionId = url.searchParams.get('session_id') || '';
 
-// Bot authorization URL - no state needed, just add bot to server
-const BOT_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
+// Discord OAuth2 URL with proper scopes and redirect
+const DISCORD_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
   client_id: '1239994870123466752',
-  scope: 'bot applications.commands identify',  // Added identify to get user ID
+  response_type: 'code',  // Required for auth code flow
+  scope: 'bot applications.commands identify email',
   permissions: '395137251392',
-  disable_guild_select: 'false',
-  state: sessionId  // Pass session_id to link with subscription
+  redirect_uri: 'https://caloriebot.ai/oauth/discord/callback',  // Changed to auth callback endpoint
+  state: sessionId,
+  prompt: 'consent'  // Force consent screen
 }).toString();
 ---
 
@@ -25,7 +27,7 @@ const BOT_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchPara
           Thank you for subscribing to CalorieBot. Add it to any server you'd like:
         </p>
         <a
-          href={BOT_AUTH_URL}
+          href={DISCORD_AUTH_URL}
           class="block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
         >
           Add to Server
