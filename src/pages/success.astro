@@ -3,11 +3,7 @@ import Layout from '../layouts/Layout.astro';
 
 // Get session_id from URL
 const url = new URL(Astro.request.url);
-const sessionId = url.searchParams.get('session_id');
-
-if (!sessionId) {
-  return new Response('Missing session ID', { status: 400 });
-}
+const sessionId = url.searchParams.get('session_id') || '';
 
 // Get Discord OAuth2 URL with state parameter
 const DISCORD_REDIRECT_URI = `${import.meta.env.PUBLIC_SITE_URL}/api/discord/callback`;
