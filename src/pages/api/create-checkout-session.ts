@@ -9,6 +9,10 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const { priceId } = await request.json();
 
+    // Add logging
+    console.log('PUBLIC_SITE_URL:', import.meta.env.PUBLIC_SITE_URL);
+    console.log('Success URL:', `${import.meta.env.PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`);
+
     // Only allow Pro plan price ID
     if (priceId !== 'price_pro_id') {
       return new Response(
@@ -35,6 +39,10 @@ export const POST: APIRoute = async ({ request }) => {
       success_url: `${import.meta.env.PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${import.meta.env.PUBLIC_SITE_URL}/cancel`,
     });
+
+    // Add logging
+    console.log('Created session:', session.id);
+    console.log('Full session:', session);
 
     return new Response(
       JSON.stringify({ sessionId: session.id }),
