@@ -15,7 +15,7 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { priceId } = JSON.parse(event.body);
+    const { priceId, discordId } = JSON.parse(event.body);
     console.log('Price ID received:', priceId);
 
     // Create Checkout Session with the actual price ID
@@ -30,6 +30,9 @@ exports.handler = async (event) => {
       mode: 'subscription',
       success_url: `${process.env.PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.PUBLIC_SITE_URL}/cancel`,
+      metadata: {
+        discord_id: discordId
+      }
     });
 
     console.log('Session created successfully');
