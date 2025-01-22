@@ -11,9 +11,11 @@ const DISCORD_OAUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearc
   response_type: 'code',
   client_id: '1239994870123466752',
   scope: 'identify email bot applications.commands',
+  permissions: '395137251392',  // The bot's required permissions
   state: sessionId,
   redirect_uri: DISCORD_REDIRECT_URI,
   prompt: 'consent',
+  guild_select: 'true',  // Allow server selection
   integration_type: '0'  // GUILD_INSTALL for server installation
 }).toString();
 ---
