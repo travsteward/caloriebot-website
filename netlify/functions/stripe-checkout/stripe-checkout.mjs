@@ -28,7 +28,7 @@ exports.handler = async (event) => {
         },
       ],
       mode: 'subscription',
-      success_url: `${process.env.PUBLIC_SITE_URL}/success`,
+      success_url: `${process.env.PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.PUBLIC_SITE_URL}/cancel`,
     });
 
