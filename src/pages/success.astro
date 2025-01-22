@@ -7,7 +7,7 @@ const sessionId = url.searchParams.get('session_id') || '';
 
 // Get Discord OAuth2 URL with state parameter
 const DISCORD_REDIRECT_URI = `${import.meta.env.PUBLIC_SITE_URL}/api/discord/callback`;
-const DISCORD_OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=1239994870123466752&permissions=395137251392&response_type=code&redirect_uri=${encodeURIComponent(DISCORD_REDIRECT_URI)}&integration_type=0&scope=email+bot+identify+applications.commands&state=${encodeURIComponent(sessionId)}`;
+const DISCORD_OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=${import.meta.env.DISCORD_CLIENT_ID}&permissions=395137251392&response_type=code&redirect_uri=${encodeURIComponent(DISCORD_REDIRECT_URI)}&scope=email+bot+identify+applications.commands&state=${encodeURIComponent(sessionId)}`;
 ---
 
 <Layout title="Payment Successful - CalorieBot">

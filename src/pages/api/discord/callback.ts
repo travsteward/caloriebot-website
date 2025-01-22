@@ -8,7 +8,7 @@ const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
-  const stripeSessionId = url.searchParams.get('state');
+  const stripeSessionId = url.searchParams.get('state') || url.searchParams.get('session_id');
 
   if (!code || !stripeSessionId) {
     return new Response('Missing required parameters', { status: 400 });
