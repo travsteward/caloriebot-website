@@ -28,7 +28,7 @@ export const GET: APIRoute = async ({ request }) => {
         client_secret: import.meta.env.DISCORD_CLIENT_SECRET,
         code,
         grant_type: 'authorization_code',
-        redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/api/discord/callback`,
+        redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/oauth/discord/callback`,
       }),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -50,9 +50,15 @@ export const GET: APIRoute = async ({ request }) => {
       },
     });
 
+    if (!userResponse.ok) {
+      const error = await userResponse.text();
+      console.error('Discord user info error:', error);
+      throw new Error('Failed to get Discord user info');
+    }
+
     const userData = await userResponse.json();
 
-    // Send subscription data to CalorieBot's Heroku app
+    // Send subscription data to CalorieBot's API
     const botResponse = await fetch(`${import.meta.env.CALORIEBOT_API_URL}/subscriptions/link`, {
       method: 'POST',
       headers: {
@@ -70,6 +76,8 @@ export const GET: APIRoute = async ({ request }) => {
     });
 
     if (!botResponse.ok) {
+      const error = await botResponse.text();
+      console.error('Bot API error:', error);
       throw new Error('Failed to link subscription with CalorieBot');
     }
 
@@ -77,11 +85,16 @@ export const GET: APIRoute = async ({ request }) => {
     return new Response(null, {
       status: 302,
       headers: {
-        Location: '/dashboard',
+        Location: '/dashboard?setup=complete',
       },
     });
   } catch (error) {
     console.error('Discord callback error:', error);
-    return new Response('Failed to process Discord connection', { status: 500 });
+    return new Response(null, {
+      status: 302,
+      headers: {
+        Location: '/error?message=failed-to-link-account',
+      },
+    });
   }
 };
