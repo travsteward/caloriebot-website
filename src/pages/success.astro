@@ -5,6 +5,8 @@ import Layout from '../layouts/Layout.astro';
 const url = new URL(Astro.request.url);
 const sessionId = url.searchParams.get('session_id') || '';
 
+console.log('Session ID:', sessionId);
+
 // Discord OAuth2 URL with proper scopes and redirect
 const DISCORD_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
   client_id: '1239994870123466752',
@@ -15,6 +17,8 @@ const DISCORD_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearch
   state: sessionId,
   prompt: 'consent'  // Force consent screen
 }).toString();
+
+console.log('Discord Auth URL:', DISCORD_AUTH_URL);
 ---
 
 <Layout title="Payment Successful - CalorieBot">
