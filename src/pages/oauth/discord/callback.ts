@@ -8,7 +8,9 @@ const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
-  const state = url.searchParams.get('state');
+  const guildId = url.searchParams.get('guild_id');
+  const permissions = url.searchParams.get('permissions');
+  const state = url.searchParams.get('state'); // This is our stripe session ID from earlier
 
   if (!code || !state) {
     console.error('Missing parameters:', { code, state });
@@ -72,6 +74,8 @@ export const GET: APIRoute = async ({ request }) => {
         stripe_email: stripeEmail,
         stripe_session_id: state,
         stripe_subscription_id: stripeSession.subscription,
+        guild_id: guildId,
+        permissions: permissions
       }),
     });
 
