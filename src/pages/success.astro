@@ -9,11 +9,11 @@ console.log('Session ID:', sessionId);
 
 // Discord OAuth2 URL with proper scopes and redirect
 const DISCORD_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
-  client_id: '1239994870123466752',
+  client_id: import.meta.env.DISCORD_CLIENT_ID || '1239994870123466752',
   response_type: 'code',  // Required for auth code flow
   scope: 'bot applications.commands identify email',
   permissions: '395137251392',
-  redirect_uri: 'https://caloriebot.ai/oauth/discord/callback',  // Changed to auth callback endpoint
+  redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/oauth/discord/callback`,  // Using env var but keeping same path
   state: sessionId,
   prompt: 'consent'  // Force consent screen
 }).toString();
