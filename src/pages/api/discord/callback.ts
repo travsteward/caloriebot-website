@@ -8,10 +8,18 @@ const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
-  const stripeSessionId = url.searchParams.get('state') || url.searchParams.get('session_id');
+  const guild_id = url.searchParams.get('guild_id');
+  const referrer = request.headers.get('referer') || '';
+  const sessionId = new URL(referrer).searchParams.get('session_id');
+  const stripeSessionId = sessionId || url.searchParams.get('state');
 
-  if (!code || !stripeSessionId) {
+  if (!code) {
     return new Response('Missing required parameters', { status: 400 });
+  }
+
+  if (!stripeSessionId) {
+    console.error('No session ID found in state or referrer');
+    return new Response('Missing session ID', { status: 400 });
   }
 
   try {
