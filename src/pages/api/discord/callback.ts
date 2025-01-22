@@ -8,26 +8,19 @@ const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
-  const guild_id = url.searchParams.get('guild_id');
-  const referrer = request.headers.get('referer') || '';
-  const sessionId = new URL(referrer).searchParams.get('session_id');
-  const stripeSessionId = sessionId || url.searchParams.get('state');
+  const state = url.searchParams.get('state');
 
-  if (!code) {
+  if (!code || !state) {
+    console.error('Missing parameters:', { code, state });
     return new Response('Missing required parameters', { status: 400 });
   }
 
-  if (!stripeSessionId) {
-    console.error('No session ID found in state or referrer');
-    return new Response('Missing session ID', { status: 400 });
-  }
-
   try {
-    // Get Stripe session data to get customer email
-    const stripeSession = await stripe.checkout.sessions.retrieve(stripeSessionId);
+    // First, validate the state parameter matches our session ID
+    const stripeSession = await stripe.checkout.sessions.retrieve(state);
     const stripeEmail = stripeSession.customer_details?.email;
 
-    // Exchange code for Discord token
+    // Exchange code for Discord token using proper authentication
     const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
       method: 'POST',
       body: new URLSearchParams({
@@ -36,12 +29,17 @@ export const GET: APIRoute = async ({ request }) => {
         code,
         grant_type: 'authorization_code',
         redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/api/discord/callback`,
-        scope: 'identify email',
       }),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     });
+
+    if (!tokenResponse.ok) {
+      const error = await tokenResponse.text();
+      console.error('Discord token error:', error);
+      throw new Error('Failed to exchange code for token');
+    }
 
     const tokenData = await tokenResponse.json();
 
@@ -66,7 +64,7 @@ export const GET: APIRoute = async ({ request }) => {
         discord_email: userData.email,
         discord_username: userData.username,
         stripe_email: stripeEmail,
-        stripe_session_id: stripeSessionId,
+        stripe_session_id: state,
         stripe_subscription_id: stripeSession.subscription,
       }),
     });

@@ -5,9 +5,17 @@ import Layout from '../layouts/Layout.astro';
 const url = new URL(Astro.request.url);
 const sessionId = url.searchParams.get('session_id') || '';
 
-// Get Discord OAuth2 URL with state parameter
+// Construct Discord OAuth URL according to documentation
 const DISCORD_REDIRECT_URI = `${import.meta.env.PUBLIC_SITE_URL}/api/discord/callback`;
-const DISCORD_OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=1239994870123466752&permissions=395137251392&response_type=code&redirect_uri=${encodeURIComponent(DISCORD_REDIRECT_URI)}&scope=email+bot+identify+applications.commands&state=${encodeURIComponent(sessionId)}`;
+const DISCORD_OAUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
+  response_type: 'code',
+  client_id: '1239994870123466752',
+  scope: 'identify email bot applications.commands',
+  state: sessionId,
+  redirect_uri: DISCORD_REDIRECT_URI,
+  prompt: 'consent',
+  integration_type: '0'  // GUILD_INSTALL for server installation
+}).toString();
 ---
 
 <Layout title="Payment Successful - CalorieBot">
