@@ -10,7 +10,8 @@ const BOT_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchPara
   client_id: '1239994870123466752',
   scope: 'bot applications.commands identify',  // Added identify to get user ID
   permissions: '395137251392',
-  disable_guild_select: 'false'
+  disable_guild_select: 'false',
+  state: sessionId  // Pass session_id to link with subscription
 }).toString();
 ---
 
