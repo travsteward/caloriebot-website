@@ -5,21 +5,12 @@ import Layout from '../layouts/Layout.astro';
 const url = new URL(Astro.request.url);
 const sessionId = url.searchParams.get('session_id') || '';
 
-// Bot authorization URL (simpler, no callback needed)
+// Bot authorization URL - no state needed, just add bot to server
 const BOT_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
   client_id: '1239994870123466752',
-  scope: 'bot applications.commands',
+  scope: 'bot applications.commands identify',  // Added identify to get user ID
   permissions: '395137251392',
   disable_guild_select: 'false'
-}).toString();
-
-// User authentication URL (with callback and state)
-const USER_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
-  response_type: 'code',
-  client_id: '1239994870123466752',
-  scope: 'identify email',
-  state: sessionId,
-  redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/api/discord/callback`,
 }).toString();
 ---
 
@@ -30,24 +21,16 @@ const USER_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchPar
         <div class="text-5xl mb-6">🎉</div>
         <h1 class="text-3xl font-bold text-discord mb-4">Payment Successful!</h1>
         <p class="text-gray-300 mb-6">
-          Thank you for subscribing to CalorieBot. Two quick steps to get started:
+          Thank you for subscribing to CalorieBot. Add it to any server you'd like:
         </p>
-        <div class="space-y-4">
-          <a
-            href={BOT_AUTH_URL}
-            class="block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-          >
-            1. Add Bot to Server
-          </a>
-          <a
-            href={USER_AUTH_URL}
-            class="block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-          >
-            2. Connect Your Account
-          </a>
-        </div>
+        <a
+          href={BOT_AUTH_URL}
+          class="block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+        >
+          Add to Server
+        </a>
         <p class="text-sm text-gray-400 mt-4">
-          We'll link your Discord account to activate your subscription.
+          You can use CalorieBot on any server where it's installed!
         </p>
       </div>
     </div>
