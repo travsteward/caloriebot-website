@@ -1,5 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Get session_id from URL
+const url = new URL(Astro.request.url);
+const sessionId = url.searchParams.get('session_id');
+
+// Get Discord OAuth2 URL with email scope and state parameter
+const DISCORD_REDIRECT_URI = `${import.meta.env.PUBLIC_SITE_URL}/api/discord/callback`;
+const state = sessionId ? encodeURIComponent(sessionId) : '';
+const DISCORD_OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=1239994870123466752&permissions=395137251392&response_type=code&redirect_uri=${encodeURIComponent(DISCORD_REDIRECT_URI)}&integration_type=0&scope=email+bot+identify+applications.commands&state=${state}`;
 ---
 
 <Layout title="Payment Successful - CalorieBot">
@@ -9,14 +18,17 @@ import Layout from '../layouts/Layout.astro';
         <div class="text-5xl mb-6">🎉</div>
         <h1 class="text-3xl font-bold text-discord mb-4">Payment Successful!</h1>
         <p class="text-gray-300 mb-6">
-          Thank you for subscribing to CalorieBot. Your account has been activated.
+          Thank you for subscribing to CalorieBot. One final step to get started:
         </p>
         <a
-          href="/"
+          href={DISCORD_OAUTH_URL}
           class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
         >
-          Return to Dashboard
+          Connect with Discord
         </a>
+        <p class="text-sm text-gray-400 mt-4">
+          We'll link your Discord account to activate your subscription.
+        </p>
       </div>
     </div>
   </main>

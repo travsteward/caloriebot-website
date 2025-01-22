@@ -32,7 +32,7 @@ export const POST: APIRoute = async ({ request }) => {
         },
       ],
       mode: 'subscription',
-      success_url: `${import.meta.env.PUBLIC_SITE_URL}/success`,
+      success_url: `${import.meta.env.PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${import.meta.env.PUBLIC_SITE_URL}/cancel`,
     });
 
