@@ -5,18 +5,21 @@ import Layout from '../layouts/Layout.astro';
 const url = new URL(Astro.request.url);
 const sessionId = url.searchParams.get('session_id') || '';
 
-// Construct Discord OAuth URL according to documentation
-const DISCORD_REDIRECT_URI = `${import.meta.env.PUBLIC_SITE_URL}/api/discord/callback`;
-const DISCORD_OAUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
+// Bot authorization URL (simpler, no callback needed)
+const BOT_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
+  client_id: '1239994870123466752',
+  scope: 'bot applications.commands',
+  permissions: '395137251392',
+  disable_guild_select: 'false'
+}).toString();
+
+// User authentication URL (with callback and state)
+const USER_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
   response_type: 'code',
   client_id: '1239994870123466752',
-  scope: 'identify email bot applications.commands',
-  permissions: '395137251392',  // The bot's required permissions
+  scope: 'identify email',
   state: sessionId,
-  redirect_uri: DISCORD_REDIRECT_URI,
-  prompt: 'consent',
-  guild_select: 'true',  // Allow server selection
-  integration_type: '0'  // GUILD_INSTALL for server installation
+  redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/api/discord/callback`,
 }).toString();
 ---
 
@@ -27,14 +30,22 @@ const DISCORD_OAUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearc
         <div class="text-5xl mb-6">🎉</div>
         <h1 class="text-3xl font-bold text-discord mb-4">Payment Successful!</h1>
         <p class="text-gray-300 mb-6">
-          Thank you for subscribing to CalorieBot. One final step to get started:
+          Thank you for subscribing to CalorieBot. Two quick steps to get started:
         </p>
-        <a
-          href={DISCORD_OAUTH_URL}
-          class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-        >
-          Connect with Discord
-        </a>
+        <div class="space-y-4">
+          <a
+            href={BOT_AUTH_URL}
+            class="block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+          >
+            1. Add Bot to Server
+          </a>
+          <a
+            href={USER_AUTH_URL}
+            class="block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+          >
+            2. Connect Your Account
+          </a>
+        </div>
         <p class="text-sm text-gray-400 mt-4">
           We'll link your Discord account to activate your subscription.
         </p>
