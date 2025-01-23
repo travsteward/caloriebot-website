@@ -8,9 +8,7 @@ const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
-  const guildId = url.searchParams.get('guild_id');
-  const permissions = url.searchParams.get('permissions');
-  const priceId = url.searchParams.get('state'); // This is now our price ID
+  const priceId = url.searchParams.get('state');
 
   if (!code || !priceId) {
     console.error('Missing parameters:', { code, priceId });
@@ -61,14 +59,13 @@ export const GET: APIRoute = async ({ request }) => {
       mode: 'subscription',
       payment_method_types: ['card'],
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${import.meta.env.PUBLIC_SITE_URL}/success?guild_id=${guildId}&permissions=${permissions}`,
+      success_url: `${import.meta.env.PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}&discord_token=${tokenData.access_token}`,
       cancel_url: `${import.meta.env.PUBLIC_SITE_URL}/cancel`,
       metadata: {
         discord_id: userData.id,
         discord_email: userData.email,
         discord_username: userData.username,
-        guild_id: guildId,
-        permissions: permissions
+        discord_token: tokenData.access_token
       }
     });
 
