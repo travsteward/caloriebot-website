@@ -67,7 +67,7 @@ export const handler = async (event, context) => {
     const userData = await userResponse.json();
 
     // Call Stripe checkout function
-    const response = await fetch('/.netlify/functions/stripe-checkout', {
+    const response = await fetch('https://caloriebot.ai/.netlify/functions/stripe-checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
