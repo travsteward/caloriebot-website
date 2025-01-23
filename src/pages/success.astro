@@ -1,41 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Get session_id and guild_id from URL
-const url = new URL(Astro.request.url);
-const sessionId = url.searchParams.get('session_id');
-const guildId = url.searchParams.get('guild_id');
-const permissions = url.searchParams.get('permissions');
-
 // Construct bot invite URL (simplified for bot installation)
 const BOT_INVITE_URL = `https://discord.com/api/oauth2/authorize?` + new URLSearchParams({
   client_id: import.meta.env.DISCORD_CLIENT_ID,
-  guild_id: guildId || '',
-  permissions: permissions || '395137251392',
+  permissions: '395137251392',
   scope: 'bot applications.commands'
 }).toString();
-
-// If we have both sessionId and guildId, update the subscription
-if (sessionId && guildId) {
-  try {
-    const response = await fetch('/.netlify/functions/update-guild', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        sessionId,
-        guildId,
-      })
-    });
-
-    if (!response.ok) {
-      console.error('Failed to update guild');
-    }
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
 ---
 
 <Layout title="Payment Successful - CalorieBot">
