@@ -146,8 +146,7 @@ const plans = [
       const params = new URLSearchParams({
         client_id: DISCORD_CLIENT_ID,
         response_type: 'code',
-        scope: 'bot applications.commands identify email',
-        permissions: '395137251392',
+        scope: 'identify email',
         redirect_uri: `${window.location.origin}/oauth/discord/callback`,
         state: priceId,
         prompt: 'consent'
