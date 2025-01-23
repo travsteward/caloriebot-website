@@ -1,36 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Get session_id and other params from URL
+// Get session_id and guild_id from URL
 const url = new URL(Astro.request.url);
 const sessionId = url.searchParams.get('session_id');
 const guildId = url.searchParams.get('guild_id');
 const permissions = url.searchParams.get('permissions');
 
-// Verify the session and get subscription details
-let subscriptionDetails;
-if (sessionId) {
-  try {
-    const response = await fetch('/.netlify/functions/verify-subscription', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ sessionId })
-    });
-    subscriptionDetails = await response.json();
-  } catch (error) {
-    console.error('Failed to verify subscription:', error);
-  }
-}
-
-// Construct bot invite URL
+// Construct bot invite URL with return URL
 const BOT_INVITE_URL = `https://discord.com/api/oauth2/authorize?` + new URLSearchParams({
   client_id: import.meta.env.DISCORD_CLIENT_ID,
   guild_id: guildId || '',
   permissions: permissions || '395137251392',
-  scope: 'bot applications.commands'
+  scope: 'bot applications.commands',
+  redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/success`,
+  response_type: 'code'
 }).toString();
+
+// If we have both sessionId and guildId, update the subscription
+if (sessionId && guildId) {
+  try {
+    const response = await fetch('/.netlify/functions/update-guild', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sessionId,
+        guildId,
+      })
+    });
+
+    if (!response.ok) {
+      console.error('Failed to update guild');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
 ---
 
 <Layout title="Payment Successful - CalorieBot">
