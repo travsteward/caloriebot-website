@@ -1,9 +1,4 @@
 import type { APIRoute } from 'astro';
-import Stripe from 'stripe';
-
-const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2023-10-16'
-});
 
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
@@ -39,7 +34,7 @@ export const GET: APIRoute = async ({ request }) => {
 
     const tokenData = await tokenResponse.json();
 
-    // Get user info and save to DB (implement your DB logic here)
+    // Get Discord user info
     const userResponse = await fetch('https://discord.com/api/users/@me', {
       headers: {
         Authorization: `Bearer ${tokenData.access_token}`,
@@ -52,25 +47,29 @@ export const GET: APIRoute = async ({ request }) => {
 
     const userData = await userResponse.json();
 
-    // TODO: Save userData to your database here
-    console.log('Discord user data:', userData);
-
-    // Create Stripe session with just the price ID
-    const session = await stripe.checkout.sessions.create({
-      mode: 'subscription',
-      payment_method_types: ['card'],
-      line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${import.meta.env.PUBLIC_SITE_URL}/success`,
-      cancel_url: `${import.meta.env.PUBLIC_SITE_URL}/cancel`,
-      metadata: {
-        discord_id: userData.id  // Just pass the discord ID for reference
-      }
+    // Call our Stripe checkout function
+    const response = await fetch('/.netlify/functions/stripe-checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        priceId: priceId,
+        discordId: userData.id
+      })
     });
 
+    if (!response.ok) {
+      throw new Error('Failed to create checkout session');
+    }
+
+    const { sessionId } = await response.json();
+
+    // Redirect to Stripe checkout
     return new Response(null, {
       status: 302,
       headers: {
-        Location: session.url || '/error',
+        Location: `/checkout?session_id=${sessionId}`,
       },
     });
   } catch (error) {
