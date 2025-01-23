@@ -91,11 +91,11 @@ export const handler = async (event, context) => {
       throw new Error('No session ID in response');
     }
 
-    // Redirect to Stripe checkout
+    // Redirect directly to Stripe's checkout URL
     return {
       statusCode: 302,
       headers: {
-        Location: `/checkout?session_id=${responseData.sessionId}`,
+        Location: `https://checkout.stripe.com/pay/${responseData.sessionId}`,
       },
     };
   } catch (error) {
