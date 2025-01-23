@@ -61,7 +61,7 @@ const plans = [
     ],
     priceId: "price_1QjsCxLK64haKytl3dgiSxIK",
     hasCheckout: true,
-    memberLimit: "Up to 150 active members"
+    memberLimit: "Up to 150 active members",
   },
   {
     name: "Partner",
@@ -102,6 +102,7 @@ const plans = [
                     <span class="text-sm text-gray-400">{plan.period}</span>
                   </p>
                   <p class="text-gray-400">{plan.description}</p>
+                  {plan.memberLimit && <p class="text-gray-400 mt-2">{plan.memberLimit}</p>}
                 </div>
 
                 <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
