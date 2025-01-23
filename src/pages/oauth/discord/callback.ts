@@ -1,21 +1,18 @@
 import type { APIRoute } from 'astro';
-import Stripe from 'stripe';
-
-const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2023-10-16'
-});
 
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
-  const priceId = url.searchParams.get('state');
 
-  if (!code || !priceId) {
-    console.error('Missing parameters:', { code, priceId });
+  console.log('Received callback with code:', code);
+
+  if (!code) {
+    console.error('Missing code parameter');
     return new Response('Missing required parameters', { status: 400 });
   }
 
   try {
+    console.log('Exchanging code for token...');
     // Exchange code for Discord token
     const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
       method: 'POST',
@@ -38,6 +35,7 @@ export const GET: APIRoute = async ({ request }) => {
     }
 
     const tokenData = await tokenResponse.json();
+    console.log('Got token data:', tokenData);
 
     // Get Discord user info
     const userResponse = await fetch('https://discord.com/api/users/@me', {
@@ -54,26 +52,11 @@ export const GET: APIRoute = async ({ request }) => {
 
     const userData = await userResponse.json();
 
-    // Create Stripe checkout session with Discord data
-    const session = await stripe.checkout.sessions.create({
-      mode: 'subscription',
-      payment_method_types: ['card'],
-      line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${import.meta.env.PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}&discord_token=${tokenData.access_token}`,
-      cancel_url: `${import.meta.env.PUBLIC_SITE_URL}/cancel`,
-      metadata: {
-        discord_id: userData.id,
-        discord_email: userData.email,
-        discord_username: userData.username,
-        discord_token: tokenData.access_token
-      }
-    });
-
-    // Redirect to Stripe checkout
+    // Redirect back to pricing page with Discord data
     return new Response(null, {
       status: 302,
       headers: {
-        Location: session.url || '/error',
+        Location: `/pricing?discord_id=${userData.id}&discord_token=${tokenData.access_token}`,
       },
     });
   } catch (error) {
