@@ -20,7 +20,7 @@ export const GET: APIRoute = async ({ request }) => {
   console.log('Parsed values:', { code, priceId });
 
   if (!code || !priceId) {
-    const errorMessage = `Missing required parameters - Received: code=${code}, priceId=${priceId}. Full URL: ${CALLBACK_URL}`;
+    const errorMessage = `Missing required parameters - Received: code=${code}, priceId=${priceId}. Full URL: ${request.url}`;
     console.error(errorMessage);
     return new Response(errorMessage, {
       status: 400,
