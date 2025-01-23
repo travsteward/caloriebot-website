@@ -5,11 +5,17 @@ export const GET: APIRoute = async ({ request }) => {
   const code = url.searchParams.get('code');
   const priceId = url.searchParams.get('state');
 
-  console.log('Received callback:', { code, priceId });  // Debug log
+  console.log('Received callback with:', { code, priceId });
 
   if (!code || !priceId) {
-    console.error('Missing code or priceId');
-    return new Response('Missing required parameters', { status: 400 });
+    const errorMessage = `Missing required parameters - Received: code=${code}, priceId=${priceId}`;
+    console.error(errorMessage);
+    return new Response(errorMessage, {
+      status: 400,
+      headers: {
+        'Content-Type': 'text/plain'
+      }
+    });
   }
 
   try {
