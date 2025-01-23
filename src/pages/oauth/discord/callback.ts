@@ -1,14 +1,18 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async ({ request }) => {
+  console.log('Full request URL:', request.url);  // Log the full URL
+
   const url = new URL(request.url);
+  console.log('Search params:', url.searchParams.toString());  // Log all search params
+
   const code = url.searchParams.get('code');
   const priceId = url.searchParams.get('state');
 
-  console.log('Received callback with:', { code, priceId });
+  console.log('Parsed values:', { code, priceId });
 
   if (!code || !priceId) {
-    const errorMessage = `Missing required parameters - Received: code=${code}, priceId=${priceId}`;
+    const errorMessage = `Missing required parameters - Received: code=${code}, priceId=${priceId}. Full URL: ${request.url}`;
     console.error(errorMessage);
     return new Response(errorMessage, {
       status: 400,
