@@ -10,19 +10,15 @@ export const GET: APIRoute = async ({ request }) => {
   const code = url.searchParams.get('code');
   const guildId = url.searchParams.get('guild_id');
   const permissions = url.searchParams.get('permissions');
-  const state = url.searchParams.get('state'); // This is our stripe session ID from earlier
+  const priceId = url.searchParams.get('state'); // This is now our price ID
 
-  if (!code || !state) {
-    console.error('Missing parameters:', { code, state });
+  if (!code || !priceId) {
+    console.error('Missing parameters:', { code, priceId });
     return new Response('Missing required parameters', { status: 400 });
   }
 
   try {
-    // First, validate the state parameter matches our session ID
-    const stripeSession = await stripe.checkout.sessions.retrieve(state);
-    const stripeEmail = stripeSession.customer_details?.email;
-
-    // Exchange code for Discord token using proper authentication
+    // Exchange code for Discord token
     const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
       method: 'POST',
       body: new URLSearchParams({
@@ -45,7 +41,7 @@ export const GET: APIRoute = async ({ request }) => {
 
     const tokenData = await tokenResponse.json();
 
-    // Get Discord user info including email
+    // Get Discord user info
     const userResponse = await fetch('https://discord.com/api/users/@me', {
       headers: {
         Authorization: `Bearer ${tokenData.access_token}`,
@@ -60,36 +56,27 @@ export const GET: APIRoute = async ({ request }) => {
 
     const userData = await userResponse.json();
 
-    // Send subscription data to CalorieBot's API
-    const botResponse = await fetch(`${import.meta.env.CALORIEBOT_API_URL}/subscriptions/link`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${import.meta.env.CALORIEBOT_API_KEY}`
-      },
-      body: JSON.stringify({
+    // Create Stripe checkout session with Discord data
+    const session = await stripe.checkout.sessions.create({
+      mode: 'subscription',
+      payment_method_types: ['card'],
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: `${import.meta.env.PUBLIC_SITE_URL}/success?guild_id=${guildId}&permissions=${permissions}`,
+      cancel_url: `${import.meta.env.PUBLIC_SITE_URL}/cancel`,
+      metadata: {
         discord_id: userData.id,
         discord_email: userData.email,
         discord_username: userData.username,
-        stripe_email: stripeEmail,
-        stripe_session_id: state,
-        stripe_subscription_id: stripeSession.subscription,
         guild_id: guildId,
         permissions: permissions
-      }),
+      }
     });
 
-    if (!botResponse.ok) {
-      const error = await botResponse.text();
-      console.error('Bot API error:', error);
-      throw new Error('Failed to link subscription with CalorieBot');
-    }
-
-    // Redirect to dashboard
+    // Redirect to Stripe checkout
     return new Response(null, {
       status: 302,
       headers: {
-        Location: '/dashboard?setup=complete',
+        Location: session.url || '/error',
       },
     });
   } catch (error) {
@@ -97,7 +84,7 @@ export const GET: APIRoute = async ({ request }) => {
     return new Response(null, {
       status: 302,
       headers: {
-        Location: '/error?message=failed-to-link-account',
+        Location: '/error?message=failed-to-process',
       },
     });
   }

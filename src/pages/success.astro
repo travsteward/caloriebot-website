@@ -1,24 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Get session_id from URL
+// Get guild_id and permissions from URL
 const url = new URL(Astro.request.url);
-const sessionId = url.searchParams.get('session_id') || '';
+const guildId = url.searchParams.get('guild_id');
+const permissions = url.searchParams.get('permissions');
 
-console.log('Session ID:', sessionId);
-
-// Discord OAuth2 URL with proper scopes and redirect
-const DISCORD_AUTH_URL = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
-  client_id: import.meta.env.DISCORD_CLIENT_ID || '1239994870123466752',
-  response_type: 'code',  // Required for auth code flow
-  scope: 'bot applications.commands identify email',
-  permissions: '395137251392',
-  redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/oauth/discord/callback`,  // Using env var but keeping same path
-  state: sessionId,
-  prompt: 'consent'  // Force consent screen
+// Construct bot invite URL
+const BOT_INVITE_URL = `https://discord.com/api/oauth2/authorize?` + new URLSearchParams({
+  client_id: import.meta.env.DISCORD_CLIENT_ID,
+  guild_id: guildId || '',
+  permissions: permissions || '395137251392',
+  scope: 'bot applications.commands'
 }).toString();
-
-console.log('Discord Auth URL:', DISCORD_AUTH_URL);
 ---
 
 <Layout title="Payment Successful - CalorieBot">
@@ -28,17 +22,14 @@ console.log('Discord Auth URL:', DISCORD_AUTH_URL);
         <div class="text-5xl mb-6">🎉</div>
         <h1 class="text-3xl font-bold text-discord mb-4">Payment Successful!</h1>
         <p class="text-gray-300 mb-6">
-          Thank you for subscribing to CalorieBot. Add it to any server you'd like:
+          Thank you for subscribing to CalorieBot. Click below to complete setup:
         </p>
         <a
-          href={DISCORD_AUTH_URL}
+          href={BOT_INVITE_URL}
           class="block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
         >
           Add to Server
         </a>
-        <p class="text-sm text-gray-400 mt-4">
-          You can use CalorieBot on any server where it's installed!
-        </p>
       </div>
     </div>
   </main>

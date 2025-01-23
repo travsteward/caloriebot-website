@@ -132,65 +132,23 @@ const plans = [
 </Layout>
 
 <script>
-  import { loadStripe } from "@stripe/stripe-js";
-
   document.querySelectorAll(".checkout-button").forEach((button) => {
     button.addEventListener("click", async (e) => {
       const button = e.target as HTMLButtonElement;
-      button.disabled = true;
-      button.textContent = "Loading...";
+      const priceId = button.dataset.priceId;
 
-      try {
-        console.log("Starting checkout process...");
-        const response = await fetch("/.netlify/functions/stripe-checkout", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            priceId: button.dataset.priceId,
-          }),
-        });
+      // Construct Discord OAuth URL with priceId in state
+      const discordUrl = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
+        client_id: import.meta.env.DISCORD_CLIENT_ID,
+        response_type: 'code',
+        scope: 'bot applications.commands identify email',
+        permissions: '395137251392',
+        redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/oauth/discord/callback`,
+        state: priceId, // Pass priceId instead of session_id
+        prompt: 'consent'
+      }).toString();
 
-        const text = await response.text();
-        console.log("Raw response:", text);
-
-        let data;
-        try {
-          data = JSON.parse(text);
-        } catch (e) {
-          console.error("Failed to parse JSON:", e);
-          throw new Error("Invalid response from server");
-        }
-
-        if (!response.ok) {
-          console.error("Server error:", data);
-          throw new Error(data.error || "Failed to create checkout session");
-        }
-
-        console.log("Got session ID:", data.sessionId);
-
-        const stripe = await loadStripe(
-          import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY,
-        );
-        if (!stripe) {
-          throw new Error("Failed to load Stripe");
-        }
-
-        const { error } = await stripe.redirectToCheckout({
-          sessionId: data.sessionId,
-        });
-        if (error) {
-          console.error("Stripe redirect error:", error);
-          throw error;
-        }
-      } catch (error) {
-        console.error("Detailed error:", error);
-        button.textContent = "Error - Try Again";
-        alert("Error: " + error.message);
-      } finally {
-        button.disabled = false;
-      }
+      window.location.href = discordUrl;
     });
   });
 </script>
