@@ -95,7 +95,7 @@ export const handler = async (event, context) => {
     return {
       statusCode: 302,
       headers: {
-        Location: `https://checkout.stripe.com/pay/${responseData.sessionId}`,
+        Location: `https://checkout.stripe.com/c/pay/${responseData.sessionId}`,
       },
     };
   } catch (error) {
