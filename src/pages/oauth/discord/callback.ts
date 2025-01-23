@@ -1,19 +1,24 @@
 import type { APIRoute } from 'astro';
+import Stripe from 'stripe';
+
+const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2023-10-16'
+});
 
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
+  const priceId = url.searchParams.get('state');
 
-  console.log('Received callback with code:', code);
+  console.log('Received callback:', { code, priceId });  // Debug log
 
-  if (!code) {
-    console.error('Missing code parameter');
+  if (!code || !priceId) {
+    console.error('Missing code or priceId');
     return new Response('Missing required parameters', { status: 400 });
   }
 
   try {
-    console.log('Exchanging code for token...');
-    // Exchange code for Discord token
+    // Get Discord token
     const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
       method: 'POST',
       body: new URLSearchParams({
@@ -29,15 +34,12 @@ export const GET: APIRoute = async ({ request }) => {
     });
 
     if (!tokenResponse.ok) {
-      const error = await tokenResponse.text();
-      console.error('Discord token error:', error);
       throw new Error('Failed to exchange code for token');
     }
 
     const tokenData = await tokenResponse.json();
-    console.log('Got token data:', tokenData);
 
-    // Get Discord user info
+    // Get user info and save to DB (implement your DB logic here)
     const userResponse = await fetch('https://discord.com/api/users/@me', {
       headers: {
         Authorization: `Bearer ${tokenData.access_token}`,
@@ -45,22 +47,34 @@ export const GET: APIRoute = async ({ request }) => {
     });
 
     if (!userResponse.ok) {
-      const error = await userResponse.text();
-      console.error('Discord user info error:', error);
-      throw new Error('Failed to get Discord user info');
+      throw new Error('Failed to get user info');
     }
 
     const userData = await userResponse.json();
 
-    // Redirect back to pricing page with Discord data
+    // TODO: Save userData to your database here
+    console.log('Discord user data:', userData);
+
+    // Create Stripe session with just the price ID
+    const session = await stripe.checkout.sessions.create({
+      mode: 'subscription',
+      payment_method_types: ['card'],
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: `${import.meta.env.PUBLIC_SITE_URL}/success`,
+      cancel_url: `${import.meta.env.PUBLIC_SITE_URL}/cancel`,
+      metadata: {
+        discord_id: userData.id  // Just pass the discord ID for reference
+      }
+    });
+
     return new Response(null, {
       status: 302,
       headers: {
-        Location: `/pricing?discord_id=${userData.id}&discord_token=${tokenData.access_token}`,
+        Location: session.url || '/error',
       },
     });
   } catch (error) {
-    console.error('Discord callback error:', error);
+    console.error('Error:', error);
     return new Response(null, {
       status: 302,
       headers: {
