@@ -4,6 +4,7 @@ const navItems = [
   { href: '/for-creators', label: 'For Creators' },
   { href: '/for-coaches', label: 'For Coaches' },
   { href: '/for-admins', label: 'For Admins' },
+  { href: '/pricing', label: 'Pricing' },
 ];
 ---
 
@@ -17,7 +18,7 @@ const navItems = [
     {/* Desktop Navigation */}
     <div class="hidden md:flex gap-8">
       {navItems.map(item => (
-        <a 
+        <a
           href={item.href}
           class="text-gray-300 hover:text-white transition-colors"
         >
