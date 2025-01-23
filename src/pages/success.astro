@@ -7,14 +7,12 @@ const sessionId = url.searchParams.get('session_id');
 const guildId = url.searchParams.get('guild_id');
 const permissions = url.searchParams.get('permissions');
 
-// Construct bot invite URL with return URL
+// Construct bot invite URL (simplified for bot installation)
 const BOT_INVITE_URL = `https://discord.com/api/oauth2/authorize?` + new URLSearchParams({
   client_id: import.meta.env.DISCORD_CLIENT_ID,
   guild_id: guildId || '',
   permissions: permissions || '395137251392',
-  scope: 'bot applications.commands',
-  redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/success`,
-  response_type: 'code'
+  scope: 'bot applications.commands'
 }).toString();
 
 // If we have both sessionId and guildId, update the subscription
