@@ -1,26 +1,23 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async ({ request }) => {
-  console.log('Request details:', {
-    url: request.url,
-    origin: new URL(request.url).origin,
-    host: request.headers.get('host'),
-    referer: request.headers.get('referer'),
-  });
+  // Instead of using request.url, use the actual callback URL
+  const callbackUrl = 'https://caloriebot.ai/oauth/discord/callback' + new URL(request.url).search;
+  console.log('Full callback URL:', callbackUrl);
 
-  // Force the URL to be the production URL regardless of request
-  const CALLBACK_URL = 'https://caloriebot.ai/oauth/discord/callback';
-
-  const url = new URL(request.url);
-  console.log('Search params:', url.searchParams.toString());
-
+  const url = new URL(callbackUrl);
   const code = url.searchParams.get('code');
   const priceId = url.searchParams.get('state');
 
-  console.log('Parsed values:', { code, priceId });
+  console.log('Parsed values:', {
+    code,
+    priceId,
+    allParams: Object.fromEntries(url.searchParams.entries())
+  });
 
   if (!code || !priceId) {
-    const errorMessage = `Missing required parameters - Received: code=${code}, priceId=${priceId}. Full URL: ${request.url}`;
+    const errorMessage = `Missing required parameters - Received: code=${code}, priceId=${priceId}.
+    Full callback URL: ${callbackUrl}`;
     console.error(errorMessage);
     return new Response(errorMessage, {
       status: 400,
@@ -39,7 +36,7 @@ export const GET: APIRoute = async ({ request }) => {
         client_secret: import.meta.env.DISCORD_CLIENT_SECRET,
         code,
         grant_type: 'authorization_code',
-        redirect_uri: CALLBACK_URL,  // Use our forced production URL
+        redirect_uri: 'https://caloriebot.ai/oauth/discord/callback',  // Use our forced production URL
       }),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
