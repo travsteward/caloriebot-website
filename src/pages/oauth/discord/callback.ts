@@ -31,7 +31,7 @@ export const GET: APIRoute = async ({ request }) => {
         client_secret: import.meta.env.DISCORD_CLIENT_SECRET,
         code,
         grant_type: 'authorization_code',
-        redirect_uri: `${import.meta.env.PUBLIC_SITE_URL}/oauth/discord/callback`,
+        redirect_uri: 'https://caloriebot.ai/oauth/discord/callback',  // Hardcoded production URL
       }),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

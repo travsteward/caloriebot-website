@@ -147,7 +147,7 @@ const plans = [
         client_id: DISCORD_CLIENT_ID,
         response_type: 'code',
         scope: 'identify email',
-        redirect_uri: `${window.location.origin}/oauth/discord/callback`,
+        redirect_uri: 'https://caloriebot.ai/oauth/discord/callback',
         state: priceId,
         prompt: 'consent'
       });
