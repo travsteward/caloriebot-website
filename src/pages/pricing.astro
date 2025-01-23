@@ -134,8 +134,7 @@ const plans = [
   </main>
 </Layout>
 
-<script>
-  // Get the client ID from a data attribute
+<script define:vars={{ DISCORD_CLIENT_ID }}>
   const buttons = document.querySelectorAll(".checkout-button");
 
   buttons.forEach((button) => {
@@ -143,10 +142,9 @@ const plans = [
       e.preventDefault();
       const button = e.currentTarget;
       const priceId = button.getAttribute('data-price-id');
-      const clientId = '{import.meta.env.DISCORD_CLIENT_ID}';
 
       const params = new URLSearchParams({
-        client_id: clientId,
+        client_id: DISCORD_CLIENT_ID,
         response_type: 'code',
         scope: 'bot applications.commands identify email',
         permissions: '395137251392',
