@@ -134,24 +134,28 @@ const plans = [
   </main>
 </Layout>
 
-<script define:vars={{ DISCORD_CLIENT_ID }}>
-  document.querySelectorAll(".checkout-button").forEach((button) => {
-    button.addEventListener("click", async (e) => {
-      // Get the closest button element (handles clicks on child elements)
-      const button = e.currentTarget as HTMLButtonElement;
-      const priceId = button.dataset.priceId;
+<script>
+  // Get the client ID from a data attribute
+  const buttons = document.querySelectorAll(".checkout-button");
 
-      const discordUrl = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
-        client_id: DISCORD_CLIENT_ID,
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      const button = e.currentTarget;
+      const priceId = button.getAttribute('data-price-id');
+      const clientId = '{import.meta.env.DISCORD_CLIENT_ID}';
+
+      const params = new URLSearchParams({
+        client_id: clientId,
         response_type: 'code',
         scope: 'bot applications.commands identify email',
         permissions: '395137251392',
         redirect_uri: `${window.location.origin}/oauth/discord/callback`,
         state: priceId,
         prompt: 'consent'
-      }).toString();
+      });
 
-      window.location.href = discordUrl;
+      window.location.href = `https://discord.com/oauth2/authorize?${params}`;
     });
   });
 </script>
