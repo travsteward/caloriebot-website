@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import FeatureCard from '../components/FeatureCard.astro';
+
+// Add Discord client ID
+const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 ---
 
 <Layout title="For Admins - CalorieBot">
@@ -9,7 +12,7 @@ import FeatureCard from '../components/FeatureCard.astro';
       <div class="container mx-auto px-4 max-w-4xl">
         <h1 class="text-4xl font-bold mb-6">Bring Your Server to Life</h1>
         <p class="text-xl mb-12">Transform your Discord community with fitness-driven engagement</p>
-        
+
         <div class="grid md:grid-cols-3 gap-8 mb-16">
           <FeatureCard
             title="The Engagement Problem"
@@ -105,9 +108,12 @@ import FeatureCard from '../components/FeatureCard.astro';
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
-              <a href="#" class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+              <button
+                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                data-price-id="price_1QjsAmLK64haKytlJFI5Lngl"
+              >
                 Get Started
-              </a>
+              </button>
             </div>
           </div>
 
@@ -127,9 +133,12 @@ import FeatureCard from '../components/FeatureCard.astro';
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
-              <a href="#" class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+              <button
+                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                data-price-id="price_1QjsBKLK64haKytlJrjkCFbl"
+              >
                 Get Started
-              </a>
+              </button>
             </div>
           </div>
 
@@ -149,9 +158,12 @@ import FeatureCard from '../components/FeatureCard.astro';
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
-              <a href="#" class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+              <button
+                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                data-price-id="price_1QjnqALK64haKytlp5rd4LgD"
+              >
                 Get Started
-              </a>
+              </button>
             </div>
           </div>
 
@@ -172,9 +184,12 @@ import FeatureCard from '../components/FeatureCard.astro';
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
-              <a href="#" class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+              <button
+                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                data-price-id="price_1QjsCxLK64haKytl3dgiSxIK"
+              >
                 Get Started
-              </a>
+              </button>
             </div>
           </div>
 
@@ -194,7 +209,10 @@ import FeatureCard from '../components/FeatureCard.astro';
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
-              <a href="#" class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+              <a
+                href="mailto:contact@caloriebot.ai"
+                class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+              >
                 Contact Us
               </a>
             </div>
@@ -204,3 +222,25 @@ import FeatureCard from '../components/FeatureCard.astro';
     </section>
   </main>
 </Layout>
+
+<script define:vars={{ DISCORD_CLIENT_ID }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("[data-price-id]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const priceId = button.getAttribute("data-price-id");
+
+        const params = new URLSearchParams({
+          client_id: DISCORD_CLIENT_ID,
+          response_type: "code",
+          scope: "identify email",
+          redirect_uri: "https://caloriebot.ai/oauth/discord/callback",
+          state: priceId,
+          prompt: "consent",
+        });
+
+        const discordUrl = `https://discord.com/api/oauth2/authorize?${params}`;
+        window.location.href = discordUrl;
+      });
+    });
+  });
+</script>
