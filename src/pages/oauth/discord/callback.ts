@@ -1,5 +1,7 @@
 import type { APIRoute } from 'astro';
 
+export const prerender = false; // Prevents static build
+
 export const GET: APIRoute = async ({ request }) => {
   console.log('Environment:', {
     NODE_ENV: process.env.NODE_ENV,
