@@ -189,12 +189,17 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QkYErLK64haKytlQNHgb9r6"
-              >
-                Get Started
-              </button>
+              <div class="flex flex-col gap-4">
+                <button
+                  class="checkout-button w-full rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-white transition-all hover:bg-primary/90"
+                  data-price-id="price_1QkYErLK64haKytlQNHgb9r6"
+                >
+                  Get Started
+                </button>
+                <p class="text-center text-sm text-gray-500">
+                  No credit card required
+                </p>
+              </div>
             </div>
           </div>
 
