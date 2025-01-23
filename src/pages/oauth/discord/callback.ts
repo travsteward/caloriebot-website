@@ -1,6 +1,13 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async ({ request }) => {
+  console.log('Environment:', {
+    NODE_ENV: process.env.NODE_ENV,
+    SITE_URL: import.meta.env.SITE,
+    DEV: import.meta.env.DEV,
+    PROD: import.meta.env.PROD
+  });
+
   // Get the raw URL and its search parameters
   const searchParams = new URL(request.url).searchParams;
   const code = searchParams.get('code');
