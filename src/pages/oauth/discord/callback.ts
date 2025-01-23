@@ -60,16 +60,23 @@ export const GET: APIRoute = async ({ request }) => {
     });
 
     if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Stripe checkout error:', errorData);
       throw new Error('Failed to create checkout session');
     }
 
-    const { sessionId } = await response.json();
+    const responseData = await response.json();
+    console.log('Stripe response:', responseData);
+
+    if (!responseData.sessionId) {
+      throw new Error('No session ID in response');
+    }
 
     // Redirect to Stripe checkout
     return new Response(null, {
       status: 302,
       headers: {
-        Location: `/checkout?session_id=${sessionId}`,
+        Location: `/checkout?session_id=${responseData.sessionId}`,
       },
     });
   } catch (error) {
