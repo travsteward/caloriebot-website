@@ -1,37 +1,34 @@
 import type { APIRoute } from 'astro';
 
-export const prerender = false; // Prevents static build
+// Export a handler function for Netlify
+export const handler = async (event, context) => {
+  console.log('Raw Request URL:', event.rawUrl);
 
-export const GET: APIRoute = async ({ request }) => {
-  console.log('Environment:', {
-    NODE_ENV: process.env.NODE_ENV,
-    SITE_URL: import.meta.env.SITE,
-    DEV: import.meta.env.DEV,
-    PROD: import.meta.env.PROD
-  });
+  const url = new URL(event.rawUrl);
+  const searchParams = url.searchParams;
+  console.log('Search Params:', Array.from(searchParams.entries()));
 
-  // Get the raw URL and its search parameters
-  const searchParams = new URL(request.url).searchParams;
   const code = searchParams.get('code');
   const priceId = searchParams.get('state');
 
   console.log('Parsed from request:', {
     code,
     priceId,
-    fullUrl: request.url,
+    fullUrl: event.rawUrl,
     searchParams: searchParams.toString()
   });
 
   if (!code || !priceId) {
     const errorMessage = `Missing required parameters - Received: code=${code}, priceId=${priceId}.
-    Full URL: ${request.url}`;
+    Full URL: ${event.rawUrl}`;
     console.error(errorMessage);
-    return new Response(errorMessage, {
-      status: 400,
+    return {
+      statusCode: 400,
+      body: errorMessage,
       headers: {
         'Content-Type': 'text/plain'
       }
-    });
+    };
   }
 
   try {
@@ -39,11 +36,11 @@ export const GET: APIRoute = async ({ request }) => {
     const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
       method: 'POST',
       body: new URLSearchParams({
-        client_id: import.meta.env.DISCORD_CLIENT_ID,
-        client_secret: import.meta.env.DISCORD_CLIENT_SECRET,
+        client_id: process.env.DISCORD_CLIENT_ID,
+        client_secret: process.env.DISCORD_CLIENT_SECRET,
         code,
         grant_type: 'authorization_code',
-        redirect_uri: 'https://caloriebot.ai/oauth/discord/callback',  // Use our forced production URL
+        redirect_uri: 'https://caloriebot.ai/oauth/discord/callback',
       }),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -69,7 +66,7 @@ export const GET: APIRoute = async ({ request }) => {
 
     const userData = await userResponse.json();
 
-    // Call our Stripe checkout function
+    // Call Stripe checkout function
     const response = await fetch('/.netlify/functions/stripe-checkout', {
       method: 'POST',
       headers: {
@@ -95,19 +92,19 @@ export const GET: APIRoute = async ({ request }) => {
     }
 
     // Redirect to Stripe checkout
-    return new Response(null, {
-      status: 302,
+    return {
+      statusCode: 302,
       headers: {
         Location: `/checkout?session_id=${responseData.sessionId}`,
       },
-    });
+    };
   } catch (error) {
     console.error('Error:', error);
-    return new Response(null, {
-      status: 302,
+    return {
+      statusCode: 302,
       headers: {
         Location: '/error?message=failed-to-process',
       },
-    });
+    };
   }
 };
