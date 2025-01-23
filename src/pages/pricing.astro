@@ -137,10 +137,10 @@ const plans = [
 <script define:vars={{ DISCORD_CLIENT_ID }}>
   document.querySelectorAll(".checkout-button").forEach((button) => {
     button.addEventListener("click", async (e) => {
-      const button = e.target as HTMLButtonElement;
+      // Get the closest button element (handles clicks on child elements)
+      const button = e.currentTarget as HTMLButtonElement;
       const priceId = button.dataset.priceId;
 
-      // Use the passed DISCORD_CLIENT_ID instead of trying to access env directly
       const discordUrl = `https://discord.com/oauth2/authorize?` + new URLSearchParams({
         client_id: DISCORD_CLIENT_ID,
         response_type: 'code',
