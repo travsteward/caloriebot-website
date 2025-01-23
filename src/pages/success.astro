@@ -1,10 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Get guild_id and permissions from URL
+// Get session_id and other params from URL
 const url = new URL(Astro.request.url);
+const sessionId = url.searchParams.get('session_id');
 const guildId = url.searchParams.get('guild_id');
 const permissions = url.searchParams.get('permissions');
+
+// Verify the session and get subscription details
+let subscriptionDetails;
+if (sessionId) {
+  try {
+    const response = await fetch('/.netlify/functions/verify-subscription', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ sessionId })
+    });
+    subscriptionDetails = await response.json();
+  } catch (error) {
+    console.error('Failed to verify subscription:', error);
+  }
+}
 
 // Construct bot invite URL
 const BOT_INVITE_URL = `https://discord.com/api/oauth2/authorize?` + new URLSearchParams({

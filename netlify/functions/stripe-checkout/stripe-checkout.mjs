@@ -17,8 +17,9 @@ exports.handler = async (event) => {
   try {
     const { priceId, discordId } = JSON.parse(event.body);
     console.log('Price ID received:', priceId);
+    console.log('Discord ID received:', discordId);
 
-    // Create Checkout Session with the actual price ID
+    // Create Checkout Session with metadata
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
