@@ -135,24 +135,27 @@ const plans = [
 </Layout>
 
 <script define:vars={{ DISCORD_CLIENT_ID }}>
-  const buttons = document.querySelectorAll(".checkout-button");
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("Discord setup:", { clientId: DISCORD_CLIENT_ID }); // Debug log
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      const button = e.currentTarget;
-      const priceId = button.getAttribute('data-price-id');
+    document.querySelectorAll("[data-price-id]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const priceId = button.getAttribute("data-price-id");
+        console.log("Price button clicked:", { priceId });
 
-      const params = new URLSearchParams({
-        client_id: DISCORD_CLIENT_ID,
-        response_type: 'code',
-        scope: 'identify email',
-        redirect_uri: 'https://caloriebot.ai/oauth/discord/callback',
-        state: priceId,
-        prompt: 'consent'
+        const params = new URLSearchParams({
+          client_id: DISCORD_CLIENT_ID,
+          response_type: "code",
+          scope: "identify email",
+          redirect_uri: "https://caloriebot.ai/oauth/discord/callback",
+          state: priceId,
+          prompt: "consent",
+        });
+
+        const discordUrl = `https://discord.com/api/oauth2/authorize?${params}`;
+        console.log("Redirecting to Discord:", discordUrl); // Debug log
+        window.location.href = discordUrl;
       });
-
-      window.location.href = `https://discord.com/oauth2/authorize?${params}`;
     });
   });
 </script>
