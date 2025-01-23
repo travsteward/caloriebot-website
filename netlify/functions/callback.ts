@@ -98,11 +98,11 @@ export const handler = async (event, context) => {
         'Cache-Control': 'no-cache, no-store, must-revalidate',
         'Pragma': 'no-cache',
         'Expires': '0',
-        'Location': 'https://checkout.stripe.com/c/pay/' + responseData.sessionId,
+        'Location': responseData.url,  // Use Stripe's provided URL
         'Content-Type': 'text/plain',
         'Access-Control-Allow-Origin': '*'
       },
-      body: ''  // Empty body to prevent any data being appended
+      body: ''
     };
   } catch (error) {
     console.error('Error:', error);

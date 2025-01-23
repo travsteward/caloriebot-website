@@ -41,7 +41,10 @@ exports.handler = async (event) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ sessionId: session.id })
+      body: JSON.stringify({
+        sessionId: session.id,
+        url: session.url  // Return the Stripe-provided URL
+      })
     };
   } catch (error) {
     console.error('Detailed error:', error);
