@@ -91,12 +91,18 @@ export const handler = async (event, context) => {
       throw new Error('No session ID in response');
     }
 
-    // Redirect directly to Stripe's checkout URL
+    // Redirect to Stripe's checkout URL with strict headers
     return {
       statusCode: 302,
       headers: {
-        Location: `https://checkout.stripe.com/c/pay/${responseData.sessionId}`,
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+        'Location': 'https://checkout.stripe.com/c/pay/' + responseData.sessionId,
+        'Content-Type': 'text/plain',
+        'Access-Control-Allow-Origin': '*'
       },
+      body: ''  // Empty body to prevent any data being appended
     };
   } catch (error) {
     console.error('Error:', error);
