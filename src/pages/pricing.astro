@@ -16,7 +16,7 @@ const plans = [
       "Guided workouts",
       "Challenge system",
     ],
-    priceId: "price_1QjsAmLK64haKytlJFI5Lngl",
+    priceId: "price_1QjsjILK64haKytlUJnHI6bo",
     hasCheckout: true,
     memberLimit: "Up to 3 active members",
   },
@@ -30,7 +30,7 @@ const plans = [
       "Retention analytics",
       "Group coaching tools",
     ],
-    priceId: "price_1QjsBKLK64haKytlJrjkCFbl",
+    priceId: "price_1QjsjFLK64haKytlEccmqs7i",
     hasCheckout: true,
     memberLimit: "Up to 12 active members",
   },
@@ -44,7 +44,7 @@ const plans = [
       "1-1 Coaching Tools",
       "Advanced reporting",
     ],
-    priceId: "price_1QjnqALK64haKytlp5rd4LgD",
+    priceId: "price_1QjsjKLK64haKytlh1GJPwQb",
     hasCheckout: true,
     memberLimit: "Up to 35 active members",
   },
@@ -59,7 +59,7 @@ const plans = [
       "Premium support",
       "Growth mentorship discord",
     ],
-    priceId: "price_1QjsCxLK64haKytl3dgiSxIK",
+    priceId: "price_1QjsjBLK64haKytlmgH3MV3i",
     hasCheckout: true,
     memberLimit: "Up to 150 active members",
   },
@@ -102,7 +102,9 @@ const plans = [
                     <span class="text-sm text-gray-400">{plan.period}</span>
                   </p>
                   <p class="text-gray-400">{plan.description}</p>
-                  {plan.memberLimit && <p class="text-gray-400 mt-2">{plan.memberLimit}</p>}
+                  {plan.memberLimit && (
+                    <p class="text-gray-400 mt-2">{plan.memberLimit}</p>
+                  )}
                 </div>
 
                 <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
