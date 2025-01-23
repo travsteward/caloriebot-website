@@ -1,23 +1,21 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async ({ request }) => {
-  // Instead of using request.url, use the actual callback URL
-  const callbackUrl = 'https://caloriebot.ai/oauth/discord/callback' + new URL(request.url).search;
-  console.log('Full callback URL:', callbackUrl);
+  // Get the raw URL and its search parameters
+  const searchParams = new URL(request.url).searchParams;
+  const code = searchParams.get('code');
+  const priceId = searchParams.get('state');
 
-  const url = new URL(callbackUrl);
-  const code = url.searchParams.get('code');
-  const priceId = url.searchParams.get('state');
-
-  console.log('Parsed values:', {
+  console.log('Parsed from request:', {
     code,
     priceId,
-    allParams: Object.fromEntries(url.searchParams.entries())
+    fullUrl: request.url,
+    searchParams: searchParams.toString()
   });
 
   if (!code || !priceId) {
     const errorMessage = `Missing required parameters - Received: code=${code}, priceId=${priceId}.
-    Full callback URL: ${callbackUrl}`;
+    Full URL: ${request.url}`;
     console.error(errorMessage);
     return new Response(errorMessage, {
       status: 400,
