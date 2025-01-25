@@ -158,12 +158,18 @@ const plans = [
 
 <script define:vars={{ DISCORD_CLIENT_ID }}>
   document.addEventListener("DOMContentLoaded", () => {
-    console.log("Discord setup:", { clientId: DISCORD_CLIENT_ID }); // Debug log
-
     document.querySelectorAll("[data-price-id]").forEach((button) => {
       button.addEventListener("click", () => {
         const priceId = button.getAttribute("data-price-id");
-        console.log("Price button clicked:", { priceId });
+        const planName = button.closest('.bg-secondary').querySelector('h3').textContent;
+        const price = button.closest('.bg-secondary').querySelector('.text-3xl').textContent;
+
+        // Track checkout initiation
+        sa_event("checkout_page_visit", {
+          price_id: priceId,
+          plan_name: planName,
+          price: price
+        });
 
         const params = new URLSearchParams({
           client_id: DISCORD_CLIENT_ID,
@@ -175,7 +181,6 @@ const plans = [
         });
 
         const discordUrl = `https://discord.com/api/oauth2/authorize?${params}`;
-        console.log("Redirecting to Discord:", discordUrl); // Debug log
         window.location.href = discordUrl;
       });
     });

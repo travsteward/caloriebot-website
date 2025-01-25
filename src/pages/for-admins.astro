@@ -254,6 +254,16 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
     document.querySelectorAll("[data-price-id]").forEach((button) => {
       button.addEventListener("click", () => {
         const priceId = button.getAttribute("data-price-id");
+        const planName = button.closest('.bg-secondary').querySelector('h3').textContent;
+        const price = button.closest('.bg-secondary').querySelector('.text-3xl').textContent;
+
+        // Track checkout initiation
+        sa_event("checkout_page_visit", {
+          price_id: priceId,
+          plan_name: planName,
+          price: price,
+          page: 'admins'
+        });
 
         const params = new URLSearchParams({
           client_id: DISCORD_CLIENT_ID,

@@ -28,3 +28,13 @@ const BOT_INVITE_URL = `https://discord.com/api/oauth2/authorize?` + new URLSear
     </div>
   </main>
 </Layout>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const sessionId = urlParams.get('session_id');
+
+  // Track successful payment
+  sa_event("payment_success", {
+    session_id: sessionId
+  });
+</script>
