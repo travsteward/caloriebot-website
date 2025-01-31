@@ -103,53 +103,81 @@ const plans = [
         </h1>
 
         <div class="grid gap-6 mx-auto">
-          {
-            plans.map((plan) => (
-              <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
-                <div class="md:w-1/4 text-center md:text-left">
-                  <h3 class="text-2xl font-bold text-white mb-2">
-                    {plan.name}
-                  </h3>
-                  <p class="text-3xl font-bold text-discord mb-2">
-                    {typeof plan.price === "number"
-                      ? `$${plan.price}`
-                      : plan.price}
-                    <span class="text-sm text-gray-400">{plan.period}</span>
-                  </p>
-                  <p class="text-gray-400">{plan.description}</p>
-                  {plan.memberLimit && (
-                    <p class="text-gray-400 mt-2">{plan.memberLimit}</p>
-                  )}
-                </div>
+          {/* Free Trial Tier */}
+          <div class="bg-secondary rounded-lg p-4 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">
+                Free Trial
+              </h3>
+              <p class="text-3xl font-bold text-discord mb-2">
+                $0<span class="text-sm text-gray-400">/14 days</span>
+              </p>
+            </div>
 
-                <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-                  <ul class="text-gray-300 list-disc list-inside">
-                    {plan.features.map((feature) => (
-                      <li>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
+            <div class="md:w-2/4 text-center md:text-left my-2 md:my-0">
+              <p class="text-gray-300">Try all features free for 14 days</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>Up to 3 members</li>
+                <li>All core features included</li>
+              </ul>
+            </div>
 
-                <div class="md:w-1/4 text-center">
-                  {plan.hasCheckout ? (
-                    <button
-                      class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                      data-price-id={plan.priceId}
-                    >
-                      Get Started
-                    </button>
-                  ) : (
-                    <a
-                      href="mailto:contact@caloriebot.ai"
-                      class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                    >
-                      Contact Us
-                    </a>
-                  )}
-                </div>
+            <div class="md:w-1/4 text-center">
+              <a
+                href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+                class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+              >
+                Add to Server
+              </a>
+            </div>
+          </div>
+
+          {/* Existing Plans */}
+          {plans.map((plan) => (
+            <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+              <div class="md:w-1/4 text-center md:text-left">
+                <h3 class="text-2xl font-bold text-white mb-2">
+                  {plan.name}
+                </h3>
+                <p class="text-3xl font-bold text-discord mb-2">
+                  {typeof plan.price === "number"
+                    ? `$${plan.price}`
+                    : plan.price}
+                  <span class="text-sm text-gray-400">{plan.period}</span>
+                </p>
+                <p class="text-gray-400">{plan.description}</p>
+                {plan.memberLimit && (
+                  <p class="text-gray-400 mt-2">{plan.memberLimit}</p>
+                )}
               </div>
-            ))
-          }
+
+              <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+                <ul class="text-gray-300 list-disc list-inside">
+                  {plan.features.map((feature) => (
+                    <li>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="md:w-1/4 text-center">
+                {plan.hasCheckout ? (
+                  <button
+                    class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                    data-price-id={plan.priceId}
+                  >
+                    Get Started
+                  </button>
+                ) : (
+                  <a
+                    href="mailto:contact@caloriebot.ai"
+                    class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                  >
+                    Contact Us
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
