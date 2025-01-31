@@ -1,59 +1,287 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+
+// Add Discord client ID
+const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 ---
 
 <Layout title="CalorieBot - Monetize Your Discord Community">
   <main class="pt-20">
     <section class="bg-dark text-white py-20">
       <div class="container mx-auto px-4 max-w-4xl">
-        <h1 class="text-4xl font-bold mb-6">How to Monetize with CalorieBot</h1>
-        <p class="text-xl mb-12">Bring CalorieBot to your server and instantly provide a fully managed fitness and weight-loss experience – like adding a private gym, personal trainer, and nutritionist to your community overnight.</p>
-
-        <div class="bg-secondary rounded-lg p-8 mb-12">
-          <p class="text-gray-300 mb-6">No longer just a place to hang out or play games, your Discord becomes a high-value wellness hub that members are eager to pay for.</p>
-
-          <p class="text-gray-300 mb-6">With CalorieBot, you can charge a recurring monthly membership fee (typically $20−$50 per user) for access to this premium experience. Unlike other platforms or private Discords that charge far more for less, CalorieBot delivers unmatched quality and functionality, allowing you to price based on your personal brand's goodwill and the exclusive value of your server's "digital gym."</p>
-        </div>
-
-        <h2 class="text-3xl font-bold mb-8">Why This Works:</h2>
-        <p class="text-gray-300 mb-6">As a creator or coach, you've already built a following around your unique ideology, values, and perspective. Your audience doesn't just want your advice – they want to connect with you and others who share their passion. CalorieBot transforms your server into a space where members can:</p>
-
-        <div class="grid gap-6 mb-12">
-          <div class="bg-secondary rounded-lg p-6">
-            <p class="text-gray-300">Build real-world bonds through shared fitness and nutrition goals.</p>
-          </div>
-          <div class="bg-secondary rounded-lg p-6">
-            <p class="text-gray-300">Strengthen trust and camaraderie with community challenges and progress tracking.</p>
-          </div>
-          <div class="bg-secondary rounded-lg p-6">
-            <p class="text-gray-300">Deepen their connection to your brand in a way that feels personal and impactful.</p>
+        {/* Hero Section */}
+        <div class="text-center mb-16">
+          <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-discord bg-clip-text text-transparent">How to Monetize with CalorieBot</h1>
+          <p class="text-2xl mb-8 text-gray-300">Transform your Discord into a premium fitness hub</p>
+          <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 p-8 rounded-lg border border-orange-500/30">
+            <p class="text-xl text-orange-400 font-semibold mb-4">Potential Monthly Revenue</p>
+            <div class="text-4xl font-bold text-white mb-4">$1,000 - $12,500+</div>
+            <p class="text-gray-300">Based on 50-250 members at $20-$50 per user</p>
           </div>
         </div>
 
-        <div class="bg-secondary rounded-lg p-8 mb-12">
-          <p class="text-gray-300">This isn't just a digital gym you're adding to your server – it's fundamental community cohesion software. By giving your audience something meaningful to do together, you create a high-trust, high-engagement ecosystem that makes your brand experience unforgettable – and potentially permanent.</p>
+        {/* Value Proposition Cards */}
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <FeatureCard
+            title="Premium Experience"
+            description="Offer a fully managed fitness and weight-loss experience – like adding a private gym, trainer, and nutritionist overnight."
+            icon="💪"
+          />
+          <FeatureCard
+            title="Recurring Revenue"
+            description="Generate predictable monthly income through membership fees, with flexible pricing based on your brand value."
+            icon="💰"
+          />
+          <FeatureCard
+            title="Community Growth"
+            description="Transform casual members into committed, long-term subscribers through meaningful fitness interactions."
+            icon="📈"
+          />
         </div>
 
-        <h2 class="text-3xl font-bold mb-8">Key Benefits for Monetization:</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-secondary rounded-lg p-6">
-            <h3 class="text-xl font-bold mb-4">Revenue & Growth</h3>
-            <ul class="space-y-3 text-gray-300">
-              <li>• Recurring Revenue: Charge monthly for access to your server's exclusive fitness hub.</li>
-              <li>• Increased Retention: Engaged members stay longer and spend more.</li>
-            </ul>
+        {/* Why It Works Section */}
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-center">Why This Works</h2>
+          <div class="bg-gradient-to-r from-discord/20 to-discord/10 p-8 rounded-lg mb-8">
+            <p class="text-xl text-gray-300">Your audience doesn't just want advice – they want to connect with you and others who share their passion. CalorieBot transforms your server into a space where members can thrive together.</p>
           </div>
-          <div class="bg-secondary rounded-lg p-6">
-            <h3 class="text-xl font-bold mb-4">Brand & Community</h3>
-            <ul class="space-y-3 text-gray-300">
-              <li>• Brand Loyalty: Strengthen your community's connection to your values and vision.</li>
-              <li>• Scalable Impact: Grow your revenue as your community grows.</li>
-            </ul>
+
+          <div class="grid gap-6">
+            <div class="bg-secondary rounded-lg p-6 transform hover:scale-105 transition-transform">
+              <h3 class="text-xl font-bold mb-4 text-discord">Build Real-World Bonds</h3>
+              <p class="text-gray-300">Members forge lasting connections through shared fitness goals and daily interactions.</p>
+            </div>
+            <div class="bg-secondary rounded-lg p-6 transform hover:scale-105 transition-transform">
+              <h3 class="text-xl font-bold mb-4 text-discord">Strengthen Community Trust</h3>
+              <p class="text-gray-300">Foster camaraderie through community challenges and progress tracking.</p>
+            </div>
+            <div class="bg-secondary rounded-lg p-6 transform hover:scale-105 transition-transform">
+              <h3 class="text-xl font-bold mb-4 text-discord">Deepen Brand Connection</h3>
+              <p class="text-gray-300">Create personal, impactful experiences that keep members engaged long-term.</p>
+            </div>
           </div>
         </div>
 
-        <div class="mt-12 text-center">
-          <p class="text-xl text-gray-300">With CalorieBot, you're not just building a fitness community – you're creating a lasting, revenue-generating asset that elevates your brand and transforms your followers' lives.</p>
+        {/* Benefits Section */}
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-center">Key Benefits for Monetization</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-secondary rounded-lg p-8">
+              <h3 class="text-2xl font-bold mb-6 text-discord">Revenue & Growth</h3>
+              <ul class="space-y-4 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-discord mr-2">✓</span>
+                  <span>Charge monthly for premium fitness hub access</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-discord mr-2">✓</span>
+                  <span>Increase member retention and lifetime value</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-discord mr-2">✓</span>
+                  <span>Scale revenue with community growth</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-secondary rounded-lg p-8">
+              <h3 class="text-2xl font-bold mb-6 text-discord">Brand & Community</h3>
+              <ul class="space-y-4 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-discord mr-2">✓</span>
+                  <span>Strengthen connection to your values</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-discord mr-2">✓</span>
+                  <span>Build a high-trust ecosystem</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-discord mr-2">✓</span>
+                  <span>Create lasting brand loyalty</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Final CTA */}
+        <div class="text-center mb-16">
+          <div class="bg-gradient-to-r from-discord/30 to-discord/20 rounded-lg p-8">
+            <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Community?</h2>
+            <p class="text-xl text-gray-300 mb-8">Create a lasting, revenue-generating asset that elevates your brand and transforms your followers' lives.</p>
+            <a
+              href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+              class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition-colors text-lg"
+            >
+              Get Started Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Pricing Section */}
+    <section id="pricing" class="py-12 bg-dark">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-12">
+          Simple, Transparent Pricing
+        </h2>
+
+        <div class="grid gap-6 mx-auto">
+          {/* Free Trial Box */}
+          <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all border border-orange-500/30">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">
+                Free Trial
+              </h3>
+              <p class="text-gray-400">Up to 5 members</p>
+            </div>
+
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <p class="text-orange-400">Try all features free for 7 days</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>All core features included</li>
+                <li>No credit card required</li>
+              </ul>
+            </div>
+
+            <div class="md:w-1/4 text-center">
+              <a
+                href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+                class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-2 px-6 rounded-full transition-colors"
+              >
+                Add to Server
+              </a>
+            </div>
+          </div>
+
+          {/* Starter */}
+          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
+              <p class="text-3xl font-bold text-discord mb-2">$29<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 5 active members</p>
+            </div>
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <p class="text-gray-300">Perfect for friends & family</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>All core features included</li>
+                <li>AI photo tracking</li>
+                <li>Guided workouts</li>
+                <li>Challenge system</li>
+              </ul>
+            </div>
+            <div class="md:w-1/4 text-center">
+              <button
+                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                data-price-id="price_1QjsjILK64haKytlUJnHI6bo"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          {/* Growth */}
+          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">Growth</h3>
+              <p class="text-3xl font-bold text-discord mb-2">$99<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 15 active members</p>
+            </div>
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <p class="text-gray-300">For growing communities</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>Everything in Starter +</li>
+                <li>Retention analytics</li>
+                <li>Group coaching tools</li>
+              </ul>
+            </div>
+            <div class="md:w-1/4 text-center">
+              <button
+                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                data-price-id="price_1QjsjFLK64haKytlEccmqs7i"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          {/* Plus */}
+          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">Plus</h3>
+              <p class="text-3xl font-bold text-discord mb-2">$259<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 45 active members</p>
+            </div>
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <p class="text-gray-300">For thriving communities</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>Everything in Growth +</li>
+                <li>1-1 Coaching Tools</li>
+                <li>Advanced reporting</li>
+              </ul>
+            </div>
+            <div class="md:w-1/4 text-center">
+              <button
+                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                data-price-id="price_1QjsjKLK64haKytlh1GJPwQb"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          {/* Pro */}
+          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">Pro</h3>
+              <p class="text-3xl font-bold text-discord mb-2">$459<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 100 active members</p>
+            </div>
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <p class="text-gray-300">For growing large communities</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>Everything in Plus +</li>
+                <li>Priority support</li>
+                <li>Custom onboarding</li>
+                <li>Advanced analytics</li>
+              </ul>
+            </div>
+            <div class="md:w-1/4 text-center">
+              <button
+                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                data-price-id="price_1QkYErLK64haKytlQNHgb9r6"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          {/* Elite */}
+          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
+            <div class="md:w-1/4 text-center md:text-left">
+              <h3 class="text-2xl font-bold text-white mb-2">Elite</h3>
+              <p class="text-3xl font-bold text-discord mb-2">$999<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 250 active members</p>
+            </div>
+            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
+              <p class="text-gray-300">For large communities</p>
+              <ul class="text-gray-300 list-disc list-inside">
+                <li>Everything in Pro +</li>
+                <li>Custom features requests</li>
+                <li>Premium support</li>
+                <li>Growth mentorship discord</li>
+              </ul>
+            </div>
+            <div class="md:w-1/4 text-center">
+              <button
+                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                data-price-id="price_1QjsjBLK64haKytlmgH3MV3i"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
