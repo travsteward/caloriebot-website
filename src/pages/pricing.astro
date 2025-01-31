@@ -9,6 +9,7 @@ const plans = [
     name: "Starter",
     price: 29,
     period: "/month",
+    pricePerUser: 5.80,
     description: "Perfect for friends & family",
     features: [
       "All core features included",
@@ -18,12 +19,13 @@ const plans = [
     ],
     priceId: "price_1QjsjILK64haKytlUJnHI6bo",
     hasCheckout: true,
-    memberLimit: "Up to 3 active members",
+    memberLimit: "Up to 5 active members",
   },
   {
     name: "Growth",
-    price: 99,
+    price: 79,
     period: "/month",
+    pricePerUser: 5.27,
     description: "For growing communities",
     features: [
       "Everything in Starter +",
@@ -32,12 +34,13 @@ const plans = [
     ],
     priceId: "price_1QjsjFLK64haKytlEccmqs7i",
     hasCheckout: true,
-    memberLimit: "Up to 12 active members",
+    memberLimit: "Up to 15 active members",
   },
   {
     name: "Plus",
-    price: 249,
+    price: 209,
     period: "/month",
+    pricePerUser: 4.64,
     description: "For thriving communities",
     features: [
       "Everything in Growth +",
@@ -46,12 +49,13 @@ const plans = [
     ],
     priceId: "price_1QjsjKLK64haKytlh1GJPwQb",
     hasCheckout: true,
-    memberLimit: "Up to 35 active members",
+    memberLimit: "Up to 45 active members",
   },
   {
     name: "Pro",
-    price: 459,
+    price: 419,
     period: "/month",
+    pricePerUser: 4.19,
     description: "For growing large communities",
     features: [
       "Everything in Plus +",
@@ -61,12 +65,13 @@ const plans = [
     ],
     priceId: "price_1QkYErLK64haKytlQNHgb9r6",
     hasCheckout: true,
-    memberLimit: "Up to 75 active members",
+    memberLimit: "Up to 100 active members",
   },
   {
     name: "Elite",
-    price: 999,
+    price: 949,
     period: "/month",
+    pricePerUser: 3.80,
     description: "For large communities",
     features: [
       "Everything in Pro +",
@@ -76,7 +81,7 @@ const plans = [
     ],
     priceId: "price_1QjsjBLK64haKytlmgH3MV3i",
     hasCheckout: true,
-    memberLimit: "Up to 200 active members",
+    memberLimit: "Up to 250 active members",
   },
   {
     name: "Partner",
@@ -147,6 +152,9 @@ const plans = [
                 {plan.memberLimit && (
                   <p class="text-gray-400 mt-2">{plan.memberLimit}</p>
                 )}
+                <p class="text-gray-400 text-sm">
+                  {plan.pricePerUser ? `$${plan.pricePerUser}/user` : ''}
+                </p>
               </div>
 
               <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
