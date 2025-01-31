@@ -92,24 +92,27 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
     </section>
 
     <!-- Pricing Section -->
-    <section class="bg-dark">
+    <section id="pricing" class="py-12 bg-dark">
       <div class="container mx-auto px-4 max-w-5xl">
-        <h2 class="text-3xl font-bold text-white text-center mb-12">Simple, Transparent Pricing</h2>
+        <h2 class="text-3xl font-bold text-white text-center mb-12">
+          Simple, Transparent Pricing
+        </h2>
         <div class="grid gap-6 mx-auto">
           <!-- Starter -->
           <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
             <div class="md:w-1/4 text-center md:text-left">
               <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
               <p class="text-3xl font-bold text-discord mb-2">$29<span class="text-sm text-gray-400">/month</span></p>
-              <p class="text-gray-400">Up to 3 active members</p>
+              <p class="text-gray-400">Up to 5 active members</p>
             </div>
             <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">Perfect for small fitness groups</p>
+              <p class="text-gray-300">Perfect for friends & family</p>
               <ul class="text-gray-300 list-disc list-inside">
                 <li>All core features included</li>
                 <li>AI photo tracking</li>
                 <li>Guided workouts</li>
                 <li>Challenge system</li>
+                <li>$5.80 per member</li>
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
@@ -126,8 +129,8 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
           <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
             <div class="md:w-1/4 text-center md:text-left">
               <h3 class="text-2xl font-bold text-white mb-2">Growth</h3>
-              <p class="text-3xl font-bold text-discord mb-2">$99<span class="text-sm text-gray-400">/month</span></p>
-              <p class="text-gray-400">Up to 12 active members</p>
+              <p class="text-3xl font-bold text-discord mb-2">$79<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 15 active members</p>
             </div>
             <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
               <p class="text-gray-300">For growing communities</p>
@@ -135,6 +138,7 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
                 <li>Everything in Starter +</li>
                 <li>Retention analytics</li>
                 <li>Group coaching tools</li>
+                <li>$5.27 per member</li>
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
@@ -147,19 +151,20 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
             </div>
           </div>
 
-          <!-- Plus (formerly Pro) -->
+          <!-- Plus -->
           <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
             <div class="md:w-1/4 text-center md:text-left">
               <h3 class="text-2xl font-bold text-white mb-2">Plus</h3>
-              <p class="text-3xl font-bold text-discord mb-2">$249<span class="text-sm text-gray-400">/month</span></p>
-              <p class="text-gray-400">Up to 35 active members</p>
+              <p class="text-3xl font-bold text-discord mb-2">$209<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 45 active members</p>
             </div>
             <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">For established communities</p>
+              <p class="text-gray-300">For thriving communities</p>
               <ul class="text-gray-300 list-disc list-inside">
                 <li>Everything in Growth +</li>
                 <li>1-1 Coaching Tools</li>
                 <li>Advanced reporting</li>
+                <li>$4.64 per member</li>
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
@@ -176,8 +181,8 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
           <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
             <div class="md:w-1/4 text-center md:text-left">
               <h3 class="text-2xl font-bold text-white mb-2">Pro</h3>
-              <p class="text-3xl font-bold text-discord mb-2">$459<span class="text-sm text-gray-400">/month</span></p>
-              <p class="text-gray-400">Up to 75 active members</p>
+              <p class="text-3xl font-bold text-discord mb-2">$419<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 100 active members</p>
             </div>
             <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
               <p class="text-gray-300">For growing large communities</p>
@@ -186,6 +191,7 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
                 <li>Priority support</li>
                 <li>Custom onboarding</li>
                 <li>Advanced analytics</li>
+                <li>$4.19 per member</li>
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
@@ -202,8 +208,8 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
           <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
             <div class="md:w-1/4 text-center md:text-left">
               <h3 class="text-2xl font-bold text-white mb-2">Elite</h3>
-              <p class="text-3xl font-bold text-discord mb-2">$999<span class="text-sm text-gray-400">/month</span></p>
-              <p class="text-gray-400">Up to 200 active members</p>
+              <p class="text-3xl font-bold text-discord mb-2">$949<span class="text-sm text-gray-400">/month</span></p>
+              <p class="text-gray-400">Up to 250 active members</p>
             </div>
             <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
               <p class="text-gray-300">For large communities</p>
@@ -212,6 +218,7 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
                 <li>Custom features requests</li>
                 <li>Premium support</li>
                 <li>Growth mentorship discord</li>
+                <li>$3.80 per member</li>
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
@@ -240,12 +247,12 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QjsAmLK64haKytlJFI5Lngl"
+              <a
+                href="mailto:contact@caloriebot.ai"
+                class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
               >
                 Contact Us
-              </button>
+              </a>
             </div>
           </div>
         </div>
