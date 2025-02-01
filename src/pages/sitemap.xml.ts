@@ -38,7 +38,7 @@ const blogPosts = [
   }
 ];
 
-const baseUrl = 'https://caloriebot.net';
+const baseUrl = 'https://caloriebot.ai';
 const siteName = 'CalorieBot - AI Fitness for Discord';
 
 async function getFileLastModified(filePath: string): Promise<string> {
@@ -97,7 +97,7 @@ export const GET: APIRoute = async () => {
               <image:loc>${baseUrl}${post.image}</image:loc>
               <image:title>${post.title}</image:title>
               <image:caption>${post.imageAlt}</image:caption>
-              <image:license>https://caloriebot.net/terms</image:license>
+              <image:license>https://caloriebot.ai/terms</image:license>
             </image:image>
           </url>
         `;
