@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import { netlify } from '@astrojs/netlify';
+import netlify from '@astrojs/netlify/functions';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 
@@ -8,9 +8,7 @@ export default defineConfig({
     tailwind(),
     mdx()
   ],
-  adapter: netlify({
-    imageCDN: true
-  }),
+  adapter: netlify(),
   site: 'https://caloriebot.ai',
   markdown: {
     shikiConfig: {
