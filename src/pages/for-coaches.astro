@@ -7,11 +7,21 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 ---
 
 <Layout title="CalorieBot - Complete Coaching Command Center">
-  <main class="pt-20">
-    <section class="bg-dark text-white py-20">
-      <div class="container mx-auto px-4 max-w-4xl">
-        <h1 class="text-4xl font-bold mb-6">The Complete Coaching Command Center</h1>
-        <p class="text-xl mb-12">Transform your coaching business with complete client visibility and engagement</p>
+  <main>
+    <section class="relative bg-dark text-white py-16 overflow-hidden">
+      <!-- Subtle decorative elements that match the theme -->
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="absolute top-0 right-0 w-1/3 h-48 bg-orange-600/5 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/3 h-48 bg-discord/5 blur-3xl"></div>
+      </div>
+
+      <div class="container mx-auto px-4 max-w-4xl relative">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          The Complete
+          <br />
+          <span class="text-orange-500">Coaching Command Center</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-12 text-gray-300">Transform your coaching business with complete client visibility and engagement</p>
 
         <div class="grid md:grid-cols-3 gap-8 mb-16">
           <FeatureCard
