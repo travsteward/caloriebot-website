@@ -10,6 +10,8 @@ interface Props {
   type?: 'website' | 'article';
   publishedDate?: string;
   modifiedDate?: string;
+  author?: string;
+  readingTime?: string;
 }
 
 const {
@@ -19,7 +21,9 @@ const {
   canonicalURL = Astro.url.href,
   type = 'website',
   publishedDate,
-  modifiedDate
+  modifiedDate,
+  author = "CalorieBot Team",
+  readingTime
 } = Astro.props;
 
 const siteName = "CalorieBot - AI Fitness for Discord";
@@ -55,8 +59,32 @@ const pageSchema = type === 'article' ? {
   "image": image,
   "datePublished": publishedDate,
   "dateModified": modifiedDate || publishedDate,
-  "publisher": organizationSchema
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+  "publisher": organizationSchema,
+  "timeRequired": readingTime
 } : null;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://caloriebot.net"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": title,
+      "item": canonicalURL
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -66,10 +94,17 @@ const pageSchema = type === 'article' ? {
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" />
+    <link rel="preload" href="/logo.png" as="image" />
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    {readingTime && <meta name="twitter:label1" property="Reading time" content={readingTime} />}
+    {readingTime && <meta name="twitter:data1" property="Reading time" content={readingTime} />}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />
@@ -93,9 +128,14 @@ const pageSchema = type === 'article' ? {
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="discord fitness bot, AI calorie tracking, discord gym community, fitness challenges, workout tracking discord, photo calorie counting, discord fitness community, AI fitness coach, discord workout bot, fitness community platform" />
 
+    <!-- Language variants - uncomment and modify when adding translations -->
+    <!-- <link rel="alternate" hreflang="en" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} /> -->
+
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     {pageSchema && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
