@@ -1,0 +1,102 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const pageTitle = "CalorieBot Blog - AI Fitness & Discord Community Tips";
+const pageDescription = "Expert insights on building fitness communities, AI nutrition tracking, and maximizing Discord server engagement for fitness coaches and community leaders.";
+
+// This will be replaced with actual blog posts
+const posts = [
+  {
+    title: "How to Build an Engaged Fitness Community on Discord",
+    slug: "build-engaged-fitness-community-discord",
+    description: "Learn the key strategies to create, grow, and maintain an active fitness community on Discord. From setting up channels to organizing challenges.",
+    publishedDate: "2024-03-20",
+    author: "CalorieBot Team",
+    authorImage: "/authors/team.jpg",
+    coverImage: "/blog/community-building.jpg",
+    tags: ["Community Building", "Discord Tips", "Engagement"]
+  },
+  {
+    title: "AI Photo Calorie Tracking: The Future of Nutrition Logging",
+    slug: "ai-photo-calorie-tracking-future",
+    description: "Discover how AI is revolutionizing nutrition tracking through photo recognition technology and why it's becoming the preferred method for fitness enthusiasts.",
+    publishedDate: "2024-03-18",
+    author: "CalorieBot Team",
+    authorImage: "/authors/team.jpg",
+    coverImage: "/blog/ai-tracking.jpg",
+    tags: ["AI Technology", "Nutrition", "Innovation"]
+  },
+  {
+    title: "Monetizing Your Fitness Community: A Complete Guide",
+    slug: "monetizing-fitness-community-guide",
+    description: "A comprehensive guide on turning your Discord fitness community into a sustainable business while maintaining authenticity and value.",
+    publishedDate: "2024-03-15",
+    author: "CalorieBot Team",
+    authorImage: "/authors/team.jpg",
+    coverImage: "/blog/monetization.jpg",
+    tags: ["Monetization", "Business Growth", "Community"]
+  }
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+>
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Fitness Community Insights
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+        Expert tips, guides, and insights on building thriving fitness communities and leveraging AI for better health outcomes.
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts.map(post => (
+        <article class="bg-secondary rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all">
+          <a href={`/blog/${post.slug}`} class="block">
+            <img
+              src={post.coverImage}
+              alt={post.title}
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="mb-4">
+                {post.tags.map(tag => (
+                  <span class="inline-block bg-orange-600/10 text-orange-500 rounded-full px-3 py-1 text-sm mr-2 mb-2">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h2 class="text-xl font-bold text-white mb-2 line-clamp-2">
+                {post.title}
+              </h2>
+              <p class="text-gray-400 mb-4 line-clamp-3">
+                {post.description}
+              </p>
+              <div class="flex items-center gap-3">
+                <img
+                  src={post.authorImage}
+                  alt={`${post.author}'s profile picture`}
+                  class="w-8 h-8 rounded-full object-cover"
+                />
+                <div class="text-sm">
+                  <div class="text-white">{post.author}</div>
+                  <time datetime={post.publishedDate} class="text-gray-400">
+                    {new Date(post.publishedDate).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </time>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://caloriebot.net/sitemap.xml
+
+# Disallow admin and success/cancel pages
+Disallow: /success
+Disallow: /cancel
+Disallow: /device-success

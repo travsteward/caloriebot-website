@@ -4,21 +4,102 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website' | 'article';
+  publishedDate?: string;
+  modifiedDate?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Transform your Discord server into an AI-powered fitness community. Track calories with photos, log workouts, and run engaging challenges.",
+  image = "/social-preview.jpg",
+  canonicalURL = Astro.url.href,
+  type = 'website',
+  publishedDate,
+  modifiedDate
+} = Astro.props;
+
+const siteName = "CalorieBot - AI Fitness for Discord";
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "CalorieBot",
+  "url": "https://caloriebot.net",
+  "logo": "https://caloriebot.net/logo.png",
+  "sameAs": [
+    "https://twitter.com/caloriebotai",
+    "https://discord.gg/caloriebot"
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": siteName,
+  "url": "https://caloriebot.net",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://caloriebot.net/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const pageSchema = type === 'article' ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": image,
+  "datePublished": publishedDate,
+  "dateModified": modifiedDate || publishedDate,
+  "publisher": organizationSchema
+} : null;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="CalorieBot - Your All-in-One Discord Fitness Companion" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Additional SEO Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="discord fitness bot, AI calorie tracking, discord gym community, fitness challenges, workout tracking discord, photo calorie counting, discord fitness community, AI fitness coach, discord workout bot, fitness community platform" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {pageSchema && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="generator" content={Astro.generator} />
   </head>
   <body class="bg-dark font-sans">
     <Navigation />
