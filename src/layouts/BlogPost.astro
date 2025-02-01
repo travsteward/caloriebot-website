@@ -22,11 +22,21 @@ const {
 } = Astro.props;
 
 // Ensure date is parsed correctly by creating a new Date object with the time set to noon UTC
-const formattedDate = new Date(`${publishedDate}T12:00:00Z`).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-});
+const formattedDate = (() => {
+  try {
+    const date = new Date(`${publishedDate}T12:00:00Z`);
+    if (isNaN(date.getTime())) {
+      return 'Date not available';
+    }
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  } catch (error) {
+    return 'Date not available';
+  }
+})();
 ---
 
 <Layout
