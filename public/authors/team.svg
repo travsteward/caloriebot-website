@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <circle cx="100" cy="100" r="100" fill="#F97316"/>
+
+  <!-- Team Icon -->
+  <g transform="translate(40, 60)">
+    <!-- Person 1 -->
+    <circle cx="30" cy="30" r="20" fill="white"/>
+    <path d="M10 80C10 68.9543 18.9543 60 30 60H30C41.0457 60 50 68.9543 50 80" stroke="white" stroke-width="12"/>
+
+    <!-- Person 2 -->
+    <circle cx="90" cy="30" r="20" fill="white"/>
+    <path d="M70 80C70 68.9543 78.9543 60 90 60H90C101.046 60 110 68.9543 110 80" stroke="white" stroke-width="12"/>
+
+    <!-- Person 3 -->
+    <circle cx="60" cy="10" r="20" fill="white"/>
+    <path d="M40 60C40 48.9543 48.9543 40 60 40H60C71.0457 40 80 48.9543 80 60" stroke="white" stroke-width="12"/>
+  </g>
+</svg>

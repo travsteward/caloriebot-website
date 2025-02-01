@@ -1,0 +1,42 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1A1D23"/>
+
+  <!-- Grid Pattern -->
+  <g opacity="0.1">
+    <rect x="50" y="50" width="80" height="80" rx="10" fill="#5865F2"/>
+    <rect x="150" y="50" width="80" height="80" rx="10" fill="#5865F2"/>
+    <rect x="250" y="50" width="80" height="80" rx="10" fill="#5865F2"/>
+    <rect x="50" y="150" width="80" height="80" rx="10" fill="#5865F2"/>
+    <rect x="150" y="150" width="80" height="80" rx="10" fill="#5865F2"/>
+    <rect x="250" y="150" width="80" height="80" rx="10" fill="#5865F2"/>
+  </g>
+
+  <!-- Main Content -->
+  <g transform="translate(500, 150)">
+    <!-- Camera Icon -->
+    <circle cx="100" cy="100" r="80" fill="#F97316" opacity="0.9"/>
+    <path d="M60 120 L140 120 L140 80 L120 60 L80 60 L60 80 Z" stroke="white" stroke-width="8" fill="none"/>
+    <circle cx="100" cy="90" r="20" stroke="white" stroke-width="8" fill="none"/>
+
+    <!-- AI Brain Icon -->
+    <circle cx="300" cy="100" r="80" fill="#5865F2" opacity="0.9"/>
+    <path d="M260 100 C260 60, 340 60, 340 100 C340 140, 260 140, 260 100" stroke="white" stroke-width="8" fill="none"/>
+    <path d="M280 80 L320 80 M280 100 L320 100 M280 120 L320 120" stroke="white" stroke-width="8"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="400" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="48" fill="white" font-weight="bold">
+    AI Photo Calorie Tracking
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="450" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#94A3B8">
+    The Future of Nutrition Logging
+  </text>
+
+  <!-- CalorieBot Branding -->
+  <text x="600" y="550" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#F97316" font-weight="bold">
+    CalorieBot
+  </text>
+</svg>

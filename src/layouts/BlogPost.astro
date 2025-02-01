@@ -16,12 +16,13 @@ const {
   description,
   publishedDate,
   author,
-  authorImage = "/default-author.jpg",
-  coverImage = "/default-blog-cover.jpg",
+  authorImage = "/authors/default-avatar.svg",
+  coverImage = "/blog/default-cover.svg",
   tags = []
 } = Astro.props;
 
-const formattedDate = new Date(publishedDate).toLocaleDateString('en-US', {
+// Ensure date is parsed correctly by creating a new Date object with the time set to noon UTC
+const formattedDate = new Date(`${publishedDate}T12:00:00Z`).toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
@@ -49,11 +50,12 @@ const formattedDate = new Date(publishedDate).toLocaleDateString('en-US', {
         <img
           src={authorImage}
           alt={`${author}'s profile picture`}
-          class="w-12 h-12 rounded-full object-cover"
+          class="w-12 h-12 rounded-full object-cover bg-gray-800"
+          onerror="this.src='/authors/default-avatar.svg'"
         />
         <div>
           <div class="font-medium text-white">{author}</div>
-          <time datetime={publishedDate}>{formattedDate}</time>
+          <time datetime={publishedDate} class="text-gray-400">{formattedDate}</time>
         </div>
       </div>
     </header>
@@ -62,13 +64,16 @@ const formattedDate = new Date(publishedDate).toLocaleDateString('en-US', {
       <img
         src={coverImage}
         alt={title}
-        class="w-full rounded-xl mb-8 object-cover"
+        class="w-full rounded-xl mb-8 object-cover bg-gray-800"
         style="max-height: 400px;"
+        onerror="this.src='/blog/default-cover.svg'"
       />
     )}
 
     <div class="prose prose-invert prose-lg max-w-none">
-      <slot />
+      <div class="prose-headings:text-white prose-a:text-orange-400 hover:prose-a:text-orange-300 prose-strong:text-white prose-code:text-orange-300 prose-blockquote:border-orange-500">
+        <slot />
+      </div>
     </div>
 
     <footer class="mt-12 pt-8 border-t border-gray-800">
@@ -101,8 +106,61 @@ const formattedDate = new Date(publishedDate).toLocaleDateString('en-US', {
   </article>
 </Layout>
 
-<style>
-  /* Add custom styles for Twitter and LinkedIn hover colors */
+<style is:global>
+  /* Custom styles for blog content */
+  .prose {
+    color: #94a3b8;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    color: white;
+    font-weight: 700;
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+
+  .prose code {
+    color: #fb923c;
+    background-color: rgba(251, 146, 60, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 0.25em;
+  }
+
+  .prose pre {
+    background-color: #1a1d23;
+    border-radius: 0.5em;
+    padding: 1em;
+    overflow-x: auto;
+  }
+
+  .prose pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+  }
+
+  .prose blockquote {
+    border-left-color: #f97316;
+    background-color: rgba(249, 115, 22, 0.1);
+    padding: 1em;
+    border-radius: 0.5em;
+  }
+
+  .prose a {
+    color: #f97316;
+    text-decoration: none;
+  }
+
+  .prose a:hover {
+    text-decoration: underline;
+  }
+
+  /* Social media colors */
   .hover\:text-twitter:hover {
     color: #1DA1F2;
   }

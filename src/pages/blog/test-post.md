@@ -4,8 +4,8 @@ title: "Test Post - Verifying Blog Setup"
 description: "A simple test post to verify that our blog setup is working correctly."
 publishedDate: "2024-02-01"
 author: "CalorieBot Team"
-authorImage: "/authors/team.jpg"
-coverImage: "/blog/test.jpg"
+authorImage: "/authors/team.svg"
+coverImage: "/blog/test.svg"
 tags: ["Test"]
 ---
 

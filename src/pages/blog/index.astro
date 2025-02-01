@@ -12,8 +12,8 @@ const posts = [
     description: "A simple test post to verify that our blog setup is working correctly.",
     publishedDate: "2024-02-01",
     author: "CalorieBot Team",
-    authorImage: "/authors/team.jpg",
-    coverImage: "/blog/test.jpg",
+    authorImage: "/authors/team.svg",
+    coverImage: "/blog/test.svg",
     tags: ["Test"]
   },
   {
@@ -22,8 +22,8 @@ const posts = [
     description: "Learn the key strategies to create, grow, and maintain an active fitness community on Discord. From setting up channels to organizing challenges.",
     publishedDate: "2024-03-20",
     author: "CalorieBot Team",
-    authorImage: "/authors/team.jpg",
-    coverImage: "/blog/community-building.jpg",
+    authorImage: "/authors/team.svg",
+    coverImage: "/blog/community-building.svg",
     tags: ["Community Building", "Discord Tips", "Engagement"]
   },
   {
@@ -32,8 +32,8 @@ const posts = [
     description: "Discover how AI is revolutionizing nutrition tracking through photo recognition technology and why it's becoming the preferred method for fitness enthusiasts.",
     publishedDate: "2024-03-18",
     author: "CalorieBot Team",
-    authorImage: "/authors/team.jpg",
-    coverImage: "/blog/ai-tracking.jpg",
+    authorImage: "/authors/team.svg",
+    coverImage: "/blog/ai-tracking.svg",
     tags: ["AI Technology", "Nutrition", "Innovation"]
   },
   {
@@ -42,15 +42,15 @@ const posts = [
     description: "A comprehensive guide on turning your Discord fitness community into a sustainable business while maintaining authenticity and value.",
     publishedDate: "2024-03-15",
     author: "CalorieBot Team",
-    authorImage: "/authors/team.jpg",
-    coverImage: "/blog/monetization.jpg",
+    authorImage: "/authors/team.svg",
+    coverImage: "/blog/monetization.svg",
     tags: ["Monetization", "Business Growth", "Community"]
   }
 ];
 
 // Sort posts by date (newest first)
 const sortedPosts = [...posts].sort((a, b) =>
-  new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+  new Date(`${b.publishedDate}T12:00:00Z`).getTime() - new Date(`${a.publishedDate}T12:00:00Z`).getTime()
 );
 ---
 
@@ -100,7 +100,7 @@ const sortedPosts = [...posts].sort((a, b) =>
                 <div class="text-sm">
                   <div class="text-white">{post.author}</div>
                   <time datetime={post.publishedDate} class="text-gray-400">
-                    {new Date(post.publishedDate).toLocaleDateString('en-US', {
+                    {new Date(`${post.publishedDate}T12:00:00Z`).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric'

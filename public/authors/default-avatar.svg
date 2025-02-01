@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <circle cx="100" cy="100" r="100" fill="#F97316"/>
+
+  <!-- Default Avatar Icon -->
+  <g transform="translate(50, 50)">
+    <!-- Head -->
+    <circle cx="50" cy="40" r="30" fill="white"/>
+
+    <!-- Body -->
+    <path d="M20 100C20 70, 80 70, 80 100" stroke="white" stroke-width="12" fill="none"/>
+  </g>
+</svg>
