@@ -4,8 +4,18 @@ import Layout from "../../layouts/Layout.astro";
 const pageTitle = "CalorieBot Blog - AI Fitness & Discord Community Tips";
 const pageDescription = "Expert insights on building fitness communities, AI nutrition tracking, and maximizing Discord server engagement for fitness coaches and community leaders.";
 
-// This will be replaced with actual blog posts
+// Blog posts array
 const posts = [
+  {
+    title: "Test Post - Verifying Blog Setup",
+    slug: "test-post",
+    description: "A simple test post to verify that our blog setup is working correctly.",
+    publishedDate: "2024-02-01",
+    author: "CalorieBot Team",
+    authorImage: "/authors/team.jpg",
+    coverImage: "/blog/test.jpg",
+    tags: ["Test"]
+  },
   {
     title: "How to Build an Engaged Fitness Community on Discord",
     slug: "build-engaged-fitness-community-discord",
@@ -37,6 +47,11 @@ const posts = [
     tags: ["Monetization", "Business Growth", "Community"]
   }
 ];
+
+// Sort posts by date (newest first)
+const sortedPosts = [...posts].sort((a, b) =>
+  new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+);
 ---
 
 <Layout
@@ -54,7 +69,7 @@ const posts = [
     </header>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {posts.map(post => (
+      {sortedPosts.map(post => (
         <article class="bg-secondary rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all">
           <a href={`/blog/${post.slug}`} class="block">
             <img
