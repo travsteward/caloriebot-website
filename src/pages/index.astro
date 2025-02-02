@@ -141,36 +141,36 @@ const pageDescription =
     <!-- Social Proof Section -->
     <section class="py-12 bg-dark">
       <div class="container mx-auto px-4 max-w-5xl">
-        <h2 class="text-3xl font-bold text-white text-center mb-12">
+        <h2 class="text-3xl font-bold text-white text-center mb-8 md:mb-12">
           What Our Users Are Saying
         </h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
           {
             testimonials.map((post) => (
-              <div class="bg-secondary rounded-xl p-6 text-white">
+              <div class="bg-secondary rounded-xl p-4 md:p-6 text-white">
                 <div class="flex items-start gap-3">
                   <img
                     src={post.avatar}
                     alt={`${post.author}'s avatar`}
                     width="48"
                     height="48"
-                    class="w-12 h-12 rounded-full object-cover bg-gray-600"
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover bg-gray-600 flex-shrink-0"
                   />
-                  <div class="flex-1">
-                    <div class="flex items-center gap-2">
-                      <span class="font-bold">{post.author}</span>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-1 md:gap-2 flex-wrap">
+                      <span class="font-bold text-sm md:text-base">{post.author}</span>
                       {post.verified && (
-                        <svg class="w-5 h-5 text-discord" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 text-discord" viewBox="0 0 24 24">
                           <path
                             fill="currentColor"
                             d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"
                           />
                         </svg>
                       )}
-                      <span class="text-gray-400">{post.handle}</span>
+                      <span class="text-gray-400 text-sm truncate">{post.handle}</span>
                     </div>
-                    <p class="mt-1 text-sm">{post.content}</p>
+                    <p class="mt-1 text-sm text-gray-300 break-words">{post.content}</p>
                   </div>
                 </div>
               </div>
