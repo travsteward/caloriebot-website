@@ -169,7 +169,9 @@ const plans = [
               <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
                 <ul class="text-gray-300 list-disc list-inside">
                   {plan.features.map((feature) => (
-                    <li>{feature}</li>
+                    <li class={feature.includes("coaching platform") ? "font-bold text-orange-500" : ""}>
+                      {feature}
+                    </li>
                   ))}
                 </ul>
               </div>
