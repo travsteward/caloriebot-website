@@ -1,6 +1,6 @@
 const { Resend } = require('resend');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend('re_HHTwoZh3_DqSqRi3QUL2xDUgmvGVTWtSM');
 
 exports.handler = async function(event, context) {
   // Only allow POST
@@ -24,8 +24,8 @@ exports.handler = async function(event, context) {
 
     // Send email using Resend
     await resend.emails.send({
-      from: 'CalorieBot <noreply@caloriebot.ai>',
-      to: ['contact@caloriebot.ai'],
+      from: 'onboarding@resend.dev', // We'll change this after domain verification
+      to: ['travis.steward@gmail.com'],
       subject: `New Contact Form Submission from ${name}`,
       reply_to: email,
       html: `
