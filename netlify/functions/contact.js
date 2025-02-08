@@ -24,8 +24,8 @@ exports.handler = async function(event, context) {
 
     // Send email using Resend
     await resend.emails.send({
-      from: 'onboarding@resend.dev', // We'll change this after domain verification
-      to: ['travis.steward@gmail.com'],
+      from: 'CalorieBot <noreply@caloriebot.ai>',
+      to: ['contact@caloriebot.ai'],
       subject: `New Contact Form Submission from ${name}`,
       reply_to: email,
       html: `
