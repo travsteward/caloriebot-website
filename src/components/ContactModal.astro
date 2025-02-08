@@ -98,11 +98,7 @@ const { id } = Astro.props;
         };
 
         try {
-          // Track contact form submission
-          sa_event("contact_form_submit", {
-            page: 'pricing'
-          });
-
+          // Send form data to the serverless function
           const response = await fetch('/.netlify/functions/contact', {
             method: 'POST',
             headers: {
