@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ContactModal from "../components/ContactModal.astro";
 
 // Make DISCORD_CLIENT_ID available to the frontend
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
@@ -102,6 +103,7 @@ const plans = [
 ---
 
 <Layout title="CalorieBot - Simple, Transparent Pricing">
+  <ContactModal id="contact-modal" />
   <main>
     <section class="relative bg-dark text-white py-16 overflow-hidden">
       <!-- Subtle decorative elements that match the theme -->
@@ -186,12 +188,12 @@ const plans = [
                     Get Started
                   </button>
                 ) : (
-                  <a
-                    href="mailto:contact@caloriebot.ai"
+                  <button
+                    onclick="window.openContactModal('contact-modal')"
                     class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
                   >
                     Contact Us
-                  </a>
+                  </button>
                 )}
               </div>
             </div>
@@ -232,4 +234,14 @@ const plans = [
       });
     });
   });
+</script>
+
+<script>
+  // Fix TypeScript error by declaring the global interface
+  declare global {
+    interface Window {
+      openContactModal: (modalId: string) => void;
+      sa_event: (eventName: string, properties?: Record<string, any>) => void;
+    }
+  }
 </script>
