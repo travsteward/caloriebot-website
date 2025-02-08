@@ -12,18 +12,22 @@ exports.handler = async function(event, context) {
   }
 
   try {
+    console.log('Received request body:', event.body);
     const { name, email, message } = JSON.parse(event.body);
 
     // Validate inputs
     if (!name || !email || !message) {
+      console.log('Missing fields:', { name, email, message });
       return {
         statusCode: 400,
         body: JSON.stringify({ error: 'Missing required fields' }),
       };
     }
 
+    console.log('Attempting to send email with data:', { name, email });
+
     // Send email using Resend
-    await resend.emails.send({
+    const result = await resend.emails.send({
       from: 'CalorieBot <noreply@caloriebot.ai>',
       to: ['contact@caloriebot.ai'],
       subject: `New Contact Form Submission from ${name}`,
@@ -37,6 +41,8 @@ exports.handler = async function(event, context) {
       `,
     });
 
+    console.log('Resend API response:', result);
+
     return {
       statusCode: 200,
       headers: {
@@ -46,14 +52,22 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({ message: 'Message sent successfully' }),
     };
   } catch (error) {
-    console.error('Error processing contact form:', error);
+    console.error('Detailed error:', {
+      message: error.message,
+      stack: error.stack,
+      details: error.response?.data || error.response || error
+    });
+
     return {
       statusCode: 500,
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
       },
-      body: JSON.stringify({ error: 'Internal server error' }),
+      body: JSON.stringify({
+        error: 'Internal server error',
+        details: error.message
+      }),
     };
   }
 };

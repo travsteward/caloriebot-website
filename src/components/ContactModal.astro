@@ -103,7 +103,6 @@ const { id } = Astro.props;
             page: 'pricing'
           });
 
-          // Updated to use Netlify function path
           const response = await fetch('/.netlify/functions/contact', {
             method: 'POST',
             headers: {
@@ -112,15 +111,18 @@ const { id } = Astro.props;
             body: JSON.stringify(data)
           });
 
+          const result = await response.json();
+
           if (response.ok) {
             alert('Thank you for your message. We\'ll get back to you soon!');
             modal.classList.add('hidden');
             (form as HTMLFormElement).reset();
           } else {
-            throw new Error('Failed to send message');
+            throw new Error(result.details || result.error || 'Failed to send message');
           }
         } catch (error) {
-          alert('Sorry, there was an error sending your message. Please try again later.');
+          console.error('Contact form error:', error);
+          alert(`Error sending message: ${error.message}`);
         }
       });
     }
