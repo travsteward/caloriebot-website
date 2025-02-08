@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import FeatureCard from '../components/FeatureCard.astro';
+import ContactModal from '../components/ContactModal.astro';
 
 // Add Discord client ID
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 ---
 
 <Layout title="CalorieBot - Monetize Your Fitness Community">
+  <ContactModal id="contact-modal" />
   <main>
     <section class="relative bg-dark text-white py-16 overflow-hidden">
       <!-- Subtle decorative elements that match the theme -->
@@ -287,12 +289,12 @@ const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
-              <a
-                href="mailto:contact@caloriebot.ai"
+              <button
+                onclick="window.openContactModal('contact-modal')"
                 class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
               >
                 Contact Us
-              </a>
+              </button>
             </div>
           </div>
         </div>
