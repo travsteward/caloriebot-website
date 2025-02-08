@@ -29,7 +29,7 @@ exports.handler = async function(event, context) {
     // Send email using Resend
     const result = await resend.emails.send({
       from: 'CalorieBot <noreply@caloriebot.ai>',
-      to: ['contact@caloriebot.ai'],
+      to: ['travis.steward@gmail.com'],
       subject: `New Contact Form Submission from ${name}`,
       reply_to: email,
       html: `
