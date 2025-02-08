@@ -1,15 +1,6 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
-// Configure email transport
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT),
-  secure: process.env.SMTP_PORT === "465",
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 exports.handler = async function(event, context) {
   // Only allow POST
@@ -31,30 +22,25 @@ exports.handler = async function(event, context) {
       };
     }
 
-    // Send email
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM,
-      to: process.env.CONTACT_EMAIL,
+    // Send email using Resend
+    await resend.emails.send({
+      from: 'CalorieBot <noreply@caloriebot.ai>',
+      to: ['contact@caloriebot.ai'],
       subject: `New Contact Form Submission from ${name}`,
-      text: `
-Name: ${name}
-Email: ${email}
-Message:
-${message}
-      `,
+      reply_to: email,
       html: `
-<h2>New Contact Form Submission</h2>
-<p><strong>Name:</strong> ${name}</p>
-<p><strong>Email:</strong> ${email}</p>
-<p><strong>Message:</strong></p>
-<p>${message.replace(/\n/g, '<br>')}</p>
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
       `,
     });
 
     return {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': '*', // Adjust this in production
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
       },
       body: JSON.stringify({ message: 'Message sent successfully' }),
@@ -64,7 +50,7 @@ ${message}
     return {
       statusCode: 500,
       headers: {
-        'Access-Control-Allow-Origin': '*', // Adjust this in production
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
       },
       body: JSON.stringify({ error: 'Internal server error' }),
