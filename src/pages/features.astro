@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Features - CalorieBot">
+    <main class="min-h-screen bg-gray-900">
+        <!-- Hero Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <h1 class="text-4xl font-bold text-center mb-16 text-white">Features</h1>
+
+            <!-- AI Photo Calorie Counting Section -->
+            <div class="flex flex-col md:flex-row items-start gap-12 mb-24">
+                <div class="flex-[0.45]">
+                    <div class="text-indigo-400 font-semibold mb-2">Smart Food Analysis</div>
+                    <h2 class="text-4xl font-semibold mb-4 text-white leading-tight">
+                        AI Photo Calorie<br/>Counting
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6 max-w-xl">
+                        Simply snap a photo of your meal and let our advanced AI instantly calculate the calories.
+                        Our technology recognizes food items, portions, and provides accurate nutritional information
+                        in seconds, making food logging effortless and precise.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Instant Analysis: Get detailed nutritional breakdown in seconds</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Smart Adjustments: Fine-tune entries with one-tap editing</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Enhanced Context: Add notes, ingredients, and meal details</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Scale Integration: Achieve precise measurements for accuracy</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Personalized Goals: Set and track custom nutrition targets</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Real-time Tracking: Monitor progress throughout your day</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-[0.55]">
+                    <div class="grid grid-cols-8 gap-3 h-[600px]">
+                        <!-- Left tall image - spans 5 columns -->
+                        <div class="col-span-5 bg-gray-800 p-3 rounded-xl shadow-xl h-full">
+                            <div class="w-full h-full relative">
+                                <img
+                                    src="/images/steak.png"
+                                    alt="AI Food Analysis Demo"
+                                    class="rounded-lg absolute inset-0 w-full h-full object-contain bg-gray-800"
+                                />
+                            </div>
+                        </div>
+                        <!-- Right column with two images - spans 3 columns -->
+                        <div class="col-span-3 flex flex-col gap-3 h-full">
+                            <div class="flex-[1.8] bg-gray-800 p-3 rounded-xl shadow-xl">
+                                <div class="w-full h-full relative">
+                                    <img
+                                        src="/images/scale.png"
+                                        alt="Food Logging Demo"
+                                        class="rounded-lg absolute inset-0 w-full h-full object-contain bg-gray-800"
+                                    />
+                                </div>
+                            </div>
+                            <div class="flex-[0.7] bg-gray-800 p-3 rounded-xl shadow-xl">
+                                <div class="w-full h-full relative">
+                                    <img
+                                        src="/images/daily_tally.png"
+                                        alt="Daily Calorie Tracking"
+                                        class="rounded-lg absolute inset-0 w-full h-full object-contain bg-gray-800"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    /* Add any additional custom styles here */
+</style>
