@@ -227,26 +227,75 @@ const pageDescription =
 
     <!-- Workout Features Section -->
     <section class="py-16 bg-dark">
-      <div class="container mx-auto px-4 max-w-6xl">
-        <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-8 md:mb-12">
-          Built-In Workout Functionality
-        </h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          <FeatureCard
-            title="Guided Workouts"
-            description="Like iOS workout apps, CalorieBot's native Discord feature guides you through workouts with step-by-step instructions."
-            icon="💪"
-          />
-          <FeatureCard
-            title="Track & Compare PRs"
-            description="Log your personal records (PRs) and compare them with friends to stay motivated and push your limits."
-            icon="📈"
-          />
-          <FeatureCard
-            title="Share Completed Workouts"
-            description="Celebrate your wins by sharing completed workouts with the community, fostering camaraderie and accountability."
-            icon="🎉"
-          />
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight">
+            Built-In Workout Functionality
+          </h2>
+        </div>
+        <div class="flex flex-col md:flex-row items-start gap-8 md:gap-12">
+            <!-- Text content -->
+            <div class="w-full md:flex-[0.5]">
+                <div class="text-indigo-400 font-semibold mb-2">Guided Fitness</div>
+                <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
+                    AI-Powered Workouts<br/>in Discord
+                </h2>
+                <p class="text-base md:text-lg text-gray-300 mb-6">
+                    Our built-in workout system provides guided exercises, progress tracking, and community sharing - all within your Discord server.
+                    Get step-by-step instructions, track your PRs, and celebrate your fitness journey with your community.
+                </p>
+                <ul class="space-y-3 text-gray-300 mb-8 md:mb-0">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Guided Workouts: Step-by-step exercise instructions</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>PR Tracking: Log and compare personal records</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Workout Sharing: Celebrate completed workouts</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Progress Tracking: Monitor your fitness journey</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- Image grid -->
+            <div class="w-full md:flex-[0.5]">
+                <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+                    <!-- Left image -->
+                    <div class="bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                        <div class="w-full h-full relative">
+                            <img
+                                src="/images/barbell_workout.png"
+                                alt="Barbell Workout Demo"
+                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                            />
+                        </div>
+                    </div>
+                    <!-- Right image -->
+                    <div class="bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                        <div class="w-full h-full relative">
+                            <img
+                                src="/images/stimulus_workout.png"
+                                alt="Stimulus Workout Demo"
+                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </section>
