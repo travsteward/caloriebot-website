@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SimpleContactModal from "../components/SimpleContactModal.astro";
 
 const pageTitle = "404: Page Not Found - CalorieBot";
 const pageDescription = "The page you're looking for doesn't exist. But don't worry, we'll help you find what you need.";
@@ -19,6 +20,8 @@ const commonPages = [
 <Layout title={pageTitle} description={pageDescription}>
   <!-- Add noindex meta tag -->
   {noIndex && <meta name="robots" content="noindex" slot="head" />}
+
+  <SimpleContactModal id="simple-contact-modal" />
 
   <main class="min-h-[80vh] flex items-center">
     <div class="container mx-auto px-4 py-16 text-center">
@@ -75,7 +78,7 @@ const commonPages = [
         <!-- Search Suggestion -->
         <p class="mt-8 text-gray-400">
           Can't find what you're looking for? <button
-            onclick="window.openContactModal('contact-modal')"
+            onclick="window.openContactModal('simple-contact-modal')"
             class="text-orange-400 hover:text-orange-300 underline"
           >
             Contact us
