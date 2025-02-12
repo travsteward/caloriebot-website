@@ -112,7 +112,7 @@ const pageDescription =
                         <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        <span>Personalized Goals: Set and track custom nutrition targets</span>
+                        <span>Label Reading: Scan nutrition labels for accurate tracking</span>
                     </li>
                     <li class="flex items-start gap-2">
                         <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -144,6 +144,71 @@ const pageDescription =
                                 class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
                             />
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conversational AI Calorie Tracking Section -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+            <!-- Text content -->
+            <div class="w-full md:flex-[0.5]">
+                <div class="text-indigo-400 font-semibold mb-2">Natural Language Input</div>
+                <h2 class="text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-white leading-tight">
+                    Chat-Based<br/>Calorie Tracking
+                </h2>
+                <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
+                    Skip the manual data entry and complicated food searches. Simply type what you ate
+                    in natural language, and our AI instantly calculates the nutritional information.
+                </p>
+                <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Natural language understanding for quick entries</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Instant calorie and macro calculations</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Smart portion size interpretation</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>No more scrolling through endless food databases</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- Chat demo box -->
+            <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+                <div class="bg-gray-800 rounded-xl p-6 shadow-xl h-[290px] md:h-[375px] flex flex-col">
+                    <!-- Chat interface -->
+                    <div class="flex-1 mb-4 flex items-end">
+                        <div id="typing-demo" class="w-full p-4 bg-gray-700/50 rounded-lg text-gray-300 font-mono">
+                            <span class="typing-text"></span>
+                            <span class="typing-cursor">|</span>
+                        </div>
+                    </div>
+                    <!-- Input box design -->
+                    <div class="bg-gray-700/50 p-4 rounded-lg flex items-center gap-3">
+                        <div class="flex-1 h-6 bg-gray-600/50 rounded"></div>
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -736,6 +801,50 @@ const pageDescription =
   });
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const phrases = [
+      "2 eggs and 3 strips of bacon",
+      "250g ribeye steak, 180g potatoes"
+    ];
+
+    const typingDemo = document.querySelector('.typing-text');
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function typeText() {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        typingDemo.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+      } else {
+        typingDemo.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 100;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        isDeleting = true;
+        typingSpeed = 1000; // Pause before deleting
+      }
+
+      if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typingSpeed = 500; // Pause before typing next phrase
+      }
+
+      setTimeout(typeText, typingSpeed);
+    }
+
+    typeText();
+  });
+</script>
+
 <style>
   .image-glow {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
@@ -767,5 +876,14 @@ const pageDescription =
     .section-spacing {
       padding: 4rem 0;
     }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .typing-cursor {
+    animation: blink 1s step-end infinite;
   }
 </style>
