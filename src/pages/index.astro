@@ -39,7 +39,7 @@ const pageDescription =
           <div class="mt-10">
             <a
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-              class="group interactive-button inline-flex items-center gap-2 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
+              class="group inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
               aria-label="Add CalorieBot to your Discord server"
             >
               Add to Server
@@ -508,7 +508,7 @@ const pageDescription =
             <div class="md:w-1/4 text-center">
               <a
                 href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-                class="interactive-button inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-2 px-6 rounded-full transition-colors"
               >
                 Add to Server
               </a>
@@ -694,7 +694,7 @@ const pageDescription =
             <div class="md:w-1/4 text-center">
               <button
                 onclick="window.openContactModal('contact-modal')"
-                class="interactive-button inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+                class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
               >
                 Contact Us
               </button>
@@ -729,22 +729,6 @@ const pageDescription =
   });
 </script>
 
-<script>
-  const sections = document.querySelectorAll('.scroll-animate');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-fade-up');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-</script>
-
 <style>
   .image-glow {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
@@ -763,26 +747,5 @@ const pageDescription =
     .section-spacing {
       padding: 4rem 0;
     }
-  }
-
-  .interactive-button {
-    transition: all 0.3s ease;
-    background: linear-gradient(45deg, #ff6b6b, #ffa500);
-  }
-
-  .interactive-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-  }
-
-  .scroll-animate {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
-  }
-
-  .animate-fade-up {
-    opacity: 1;
-    transform: translateY(0);
   }
 </style>
