@@ -12,6 +12,46 @@ const pageTitle =
 const pageDescription =
   "Transform your Discord server into a thriving fitness community. CalorieBot uses AI to track calories from food photos, guide workouts, and run engaging challenges - perfect for monetizing your fitness community.";
 
+// Add FAQ schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is included in the free trial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The free trial includes all core features for up to 5 members for 7 days. No credit card is required to start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the pricing work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer tiered pricing based on the number of active members, starting from $29/month for up to 5 members. Each tier includes additional features and better per-user pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What features are included in all plans?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All plans include core features like AI photo calorie tracking, guided workouts, challenge system, and basic community engagement tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer custom pricing for large communities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we offer custom partnership pricing models for large fitness coaching communities, including full server design & branding, 1-1 growth mentorship, and priority support."
+      }
+    }
+  ]
+};
+
 // Add structured data properties
 const ratingValue = 4.8;
 const ratingCount = 127;
@@ -25,6 +65,7 @@ const startingPrice = "29.00";
   ratingCount={ratingCount}
   price={startingPrice}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <ContactModal id="contact-modal" />
   <main>
     <!-- Hero Section -->

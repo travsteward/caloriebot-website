@@ -2,10 +2,41 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://caloriebot.net/sitemap.xml
-
-# Disallow admin and success/cancel pages
+# Explicitly disallow private/admin areas
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /oauth/
+Disallow: /admin/
 Disallow: /success
 Disallow: /cancel
 Disallow: /device-success
+
+# Allow all bots to crawl important content
+Allow: /blog/
+Allow: /pricing
+Allow: /for-creators
+Allow: /for-coaches
+Allow: /for-admins
+Allow: /monetize
+
+# Sitemap location
+Sitemap: https://caloriebot.ai/sitemap.xml
+
+# Crawl-delay for rate limiting
+Crawl-delay: 1
+
+# Special rules for specific bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Allow Google Images to index images
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
