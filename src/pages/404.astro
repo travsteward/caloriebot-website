@@ -1,8 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const pageTitle = "Page Not Found - CalorieBot";
+const pageTitle = "404: Page Not Found - CalorieBot";
 const pageDescription = "The page you're looking for doesn't exist. But don't worry, we'll help you find what you need.";
+
+// Add noindex meta tag for 404 page
+const noIndex = true;
 
 const commonPages = [
   { name: "Home", url: "/" },
@@ -15,6 +18,9 @@ const commonPages = [
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
+  <!-- Add noindex meta tag -->
+  {noIndex && <meta name="robots" content="noindex" slot="head" />}
+
   <main class="min-h-[80vh] flex items-center">
     <div class="container mx-auto px-4 py-16 text-center">
       <div class="max-w-2xl mx-auto">
