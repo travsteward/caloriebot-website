@@ -301,27 +301,76 @@ const pageDescription =
     </section>
 
     <!-- Challenge Integration Section -->
-    <section class="py-12 bg-secondary">
-      <div class="container mx-auto px-4 max-w-6xl">
-        <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-8 md:mb-12">
-          Challenge Motivation System 🔄
-        </h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          <FeatureCard
-            title="Auto-Pull Progress Data"
-            description="Since nutrition and workouts are native to the platform, challenges automatically pull in your progress data."
-            icon="🔄"
-          />
-          <FeatureCard
-            title="Hit Daily Targets"
-            description="Track the four pillars of progress together: calorie deficit, workouts, steps, and protein. Celebrate wins and support each other daily."
-            icon="🎯"
-          />
-          <FeatureCard
-            title="Gamified Accountability"
-            description="Weekly challenges keep members accountable through competition and camaraderie. Miss a target? Complete community-approved redemption challenges."
-            icon="🎮"
-          />
+    <section class="py-16 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight">
+            Challenge Motivation System
+          </h2>
+        </div>
+        <div class="flex flex-col md:flex-row items-start gap-8 md:gap-12">
+            <!-- Text content -->
+            <div class="w-full md:flex-[0.5]">
+                <div class="text-indigo-400 font-semibold mb-2">Gamified Fitness</div>
+                <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
+                    Weekly Challenges<br/>Built for Engagement
+                </h2>
+                <p class="text-base md:text-lg text-gray-300 mb-6">
+                    Our challenge system keeps your community motivated through friendly competition and accountability.
+                    Set weekly goals, track progress, and celebrate wins together - all seamlessly integrated with your Discord server.
+                </p>
+                <ul class="space-y-3 text-gray-300 mb-8 md:mb-0">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Auto-Pull Progress: Challenges automatically track nutrition and workout data</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Daily Targets: Track calories, workouts, steps, and protein</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Redemption Challenges: Miss a target? Complete community-approved tasks</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2 d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Leaderboards: Friendly competition to keep everyone motivated</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- Image grid -->
+            <div class="w-full md:flex-[0.5]">
+                <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+                    <!-- Left image -->
+                    <div class="bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                        <div class="w-full h-full relative">
+                            <img
+                                src="/images/challenge_embed.png"
+                                alt="Challenge Embed Demo"
+                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                            />
+                        </div>
+                    </div>
+                    <!-- Right image -->
+                    <div class="bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                        <div class="w-full h-full relative">
+                            <img
+                                src="/images/results_embed.png"
+                                alt="Results Embed Demo"
+                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </section>
