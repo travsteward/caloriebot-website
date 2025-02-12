@@ -5,7 +5,8 @@ description: "Learn the key strategies to create, grow, and maintain an active f
 publishedDate: "2024-03-20"
 author: "CalorieBot Team"
 authorImage: "/authors/team.svg"
-coverImage: "/blog/community-building.svg"
+coverImage: "/blog/covers/thriving_community.png"
+coverImageAlt: "A thriving fitness community sharing their progress and supporting each other"
 tags: ["Community Building", "Discord Tips", "Engagement"]
 ---
 

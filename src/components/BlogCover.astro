@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: string;
+  alt: string;
+  position?: string;
+}
+
+const {
+  src,
+  alt,
+  position = "center" // default to center if not specified
+} = Astro.props;
+
+// Ensure we have a fallback alt text
+const imageAlt = alt || "Blog post cover image";
+
+// For local development with public images, ensure proper path
+const imageSrc = src.startsWith('/') ? src : `/${src}`;
+
+// Debug log the image path
+console.log('BlogCover: Image path:', {
+  originalSrc: src,
+  processedSrc: imageSrc,
+  fullUrl: new URL(imageSrc, Astro.url.origin).toString()
+});
+---
+
+<div class="blog-cover-container">
+  <img
+    src={imageSrc}
+    alt={imageAlt}
+    width="1200"
+    height="400"
+    class="blog-cover-image"
+    style={`object-position: ${position};`}
+  />
+</div>
+
+<style>
+  .blog-cover-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background-color: rgb(31, 41, 55);
+    margin-bottom: 2rem;
+  }
+
+  .blog-cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<script>
+  // Add client-side debugging
+  document.addEventListener('DOMContentLoaded', () => {
+    const image = document.querySelector('.blog-cover-image');
+    if (image) {
+      console.log('BlogCover: Image element found with src:', image.getAttribute('src'));
+    }
+  });
+</script>

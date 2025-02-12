@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import BlogCover from '../components/BlogCover.astro';
 
 interface Props {
   title: string;
@@ -8,6 +9,7 @@ interface Props {
   author: string;
   authorImage?: string;
   coverImage?: string;
+  coverImageAlt?: string;
   tags?: string[];
 }
 
@@ -17,7 +19,8 @@ const {
   publishedDate,
   author,
   authorImage = "/authors/default-avatar.svg",
-  coverImage = "/blog/default-cover.svg",
+  coverImage = "/blog/covers/thriving_community.png",
+  coverImageAlt = "",
   tags = []
 } = Astro.props;
 
@@ -71,13 +74,7 @@ const formattedDate = (() => {
     </header>
 
     {coverImage && (
-      <img
-        src={coverImage}
-        alt={title}
-        class="w-full rounded-xl mb-8 object-cover bg-gray-800"
-        style="max-height: 400px;"
-        onerror="this.src='/blog/default-cover.svg'"
-      />
+      <BlogCover src={coverImage} alt={coverImageAlt || title} />
     )}
 
     <div class="prose prose-invert prose-lg max-w-none">
