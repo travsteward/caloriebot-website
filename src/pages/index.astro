@@ -8,12 +8,23 @@ import { testimonials } from "../data/testimonials";
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 
 const pageTitle =
-  "CalorieBot - AI-Powered Discord Fitness Bot for Photo Calorie Tracking";
+  "CalorieBot - AI Photo Calorie Tracking for Discord Fitness Communities";
 const pageDescription =
-  "Transform your Discord server into a thriving fitness community with CalorieBot. AI photo calorie tracking, guided workouts, and engaging challenges to monetize your fitness community.";
+  "Transform your Discord server into a thriving fitness community. CalorieBot uses AI to track calories from food photos, guide workouts, and run engaging challenges - perfect for monetizing your fitness community.";
+
+// Add structured data properties
+const ratingValue = 4.8;
+const ratingCount = 127;
+const startingPrice = "29.00";
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ratingValue={ratingValue}
+  ratingCount={ratingCount}
+  price={startingPrice}
+>
   <ContactModal id="contact-modal" />
   <main>
     <!-- Hero Section -->

@@ -12,6 +12,9 @@ interface Props {
   modifiedDate?: string;
   author?: string;
   readingTime?: string;
+  price?: string;
+  ratingValue?: number;
+  ratingCount?: number;
 }
 
 const {
@@ -23,7 +26,10 @@ const {
   publishedDate,
   modifiedDate,
   author = "CalorieBot Team",
-  readingTime
+  readingTime,
+  price,
+  ratingValue,
+  ratingCount
 } = Astro.props;
 
 const siteName = "CalorieBot - AI Fitness for Discord";
@@ -33,6 +39,7 @@ const organizationSchema = {
   "name": "CalorieBot",
   "url": "https://caloriebot.ai",
   "logo": "https://caloriebot.ai/logo.png",
+  "description": "AI-powered Discord fitness bot for photo calorie tracking and community engagement",
   "sameAs": [
     "https://twitter.com/caloriebotai",
     "https://discord.gg/caloriebot"
@@ -44,12 +51,32 @@ const websiteSchema = {
   "@type": "WebSite",
   "name": siteName,
   "url": "https://caloriebot.ai",
+  "description": description,
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://caloriebot.ai/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 };
+
+const softwareSchema = type === 'website' ? {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CalorieBot",
+  "applicationCategory": "HealthAndFitnessApplication",
+  "operatingSystem": "Discord",
+  "description": description,
+  "offers": price ? {
+    "@type": "Offer",
+    "price": price,
+    "priceCurrency": "USD"
+  } : undefined,
+  "aggregateRating": ratingValue && ratingCount ? {
+    "@type": "AggregateRating",
+    "ratingValue": ratingValue,
+    "ratingCount": ratingCount
+  } : undefined
+} : null;
 
 const pageSchema = type === 'article' ? {
   "@context": "https://schema.org",
@@ -75,7 +102,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://caloriebot.net"
+      "item": "https://caloriebot.ai"
     },
     {
       "@type": "ListItem",
@@ -126,7 +153,7 @@ const breadcrumbSchema = {
 
     <!-- Additional SEO Tags -->
     <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="discord fitness bot, AI calorie tracking, discord gym community, fitness challenges, workout tracking discord, photo calorie counting, discord fitness community, AI fitness coach, discord workout bot, fitness community platform" />
+    <meta name="keywords" content="discord fitness bot, AI calorie tracking, discord gym community, fitness challenges, workout tracking discord, photo calorie counting, discord fitness community, AI fitness coach, discord workout bot, fitness community platform, AI photo calorie tracking, fitness discord server" />
 
     <!-- Language variants - uncomment and modify when adding translations -->
     <!-- <link rel="alternate" hreflang="en" href={canonicalURL} />
@@ -137,6 +164,7 @@ const breadcrumbSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     {pageSchema && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}
+    {softwareSchema && <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />}
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="generator" content={Astro.generator} />
