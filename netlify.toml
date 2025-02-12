@@ -38,6 +38,12 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
+# Temporarily noindex blog until ready
+[[headers]]
+  for = "/blog/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
 # Force HTTPS with stronger configuration
 [[redirects]]
   from = "http://*"
