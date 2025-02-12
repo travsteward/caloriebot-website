@@ -5,9 +5,25 @@ import ContactModal from '../components/ContactModal.astro';
 
 // Add Discord client ID
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
+
+const pageTitle = "Monetize Your Fitness Community | CalorieBot for Creators";
+const pageDescription = "Turn your Discord fitness community into a profitable business. CalorieBot helps creators automate nutrition tracking, workouts, and challenges while generating monthly recurring revenue.";
+
+// Add structured data properties
+const ratingValue = 4.8;
+const ratingCount = 127;
+const startingPrice = "29.00";
 ---
 
-<Layout title="CalorieBot - Monetize Your Fitness Community">
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ratingValue={ratingValue}
+  ratingCount={ratingCount}
+  price={startingPrice}
+  type="website"
+  image="/images/for-creators-preview.jpg"
+>
   <ContactModal id="contact-modal" />
   <main>
     <section class="relative bg-dark text-white py-16 overflow-hidden">

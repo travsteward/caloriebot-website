@@ -5,6 +5,9 @@ import ContactModal from "../components/ContactModal.astro";
 // Make DISCORD_CLIENT_ID available to the frontend
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 
+const pageTitle = "CalorieBot Pricing | Simple, Transparent Plans for Discord Fitness";
+const pageDescription = "Choose the perfect plan for your Discord fitness community. Starting at $29/month with AI photo calorie tracking, guided workouts, and challenge systems. No hidden fees.";
+
 const plans = [
   {
     name: "Starter",
@@ -100,9 +103,22 @@ const plans = [
     hasCheckout: false,
   },
 ];
+
+// Create structured data for pricing
+const priceRange = {
+  minPrice: 29,
+  maxPrice: 999
+};
+
 ---
 
-<Layout title="CalorieBot - Simple, Transparent Pricing">
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  type="website"
+  image="/images/pricing-preview.jpg"
+  price={`${priceRange.minPrice}.00`}
+>
   <ContactModal id="contact-modal" />
   <main>
     <section class="relative bg-dark text-white py-16 overflow-hidden">

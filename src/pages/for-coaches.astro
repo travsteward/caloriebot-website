@@ -5,9 +5,58 @@ import ContactModal from '../components/ContactModal.astro';
 
 // Add Discord client ID
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
+
+const pageTitle = "Fitness Coach Platform | CalorieBot for Online Coaches";
+const pageDescription = "Scale your online fitness coaching with CalorieBot's AI-powered platform. Automate client tracking, manage multiple programs, and grow your coaching business on Discord.";
+
+// Add structured data properties
+const ratingValue = 4.8;
+const ratingCount = 127;
+const startingPrice = "99.00"; // Starting with Growth plan which includes coaching features
+
+// Add FAQ structured data
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How can CalorieBot help me scale my coaching business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CalorieBot automates client nutrition tracking, workout logging, and progress monitoring, allowing you to efficiently manage more clients. The platform includes group coaching features, automated check-ins, and client analytics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What coaching features are included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CalorieBot includes AI photo food logging, automated progress tracking, workout programming, client analytics, group coaching tools, and 1-on-1 coaching features. Plus, you get engagement tools like challenges and accountability systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many clients can I manage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our plans scale with your business, starting from 20 clients with the Growth plan up to 300+ clients with Elite plans. Custom solutions available for larger coaching businesses."
+      }
+    }
+  ]
+};
 ---
 
-<Layout title="CalorieBot - Complete Coaching Command Center">
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ratingValue={ratingValue}
+  ratingCount={ratingCount}
+  price={startingPrice}
+  type="website"
+  image="/images/for-coaches-preview.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <ContactModal id="contact-modal" />
   <main>
     <section class="relative bg-dark text-white py-16 overflow-hidden">

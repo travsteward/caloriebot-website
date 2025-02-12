@@ -4,9 +4,86 @@ import FeatureCard from '../components/FeatureCard.astro';
 
 // Add Discord client ID
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
+
+// Optimize meta information
+const pageTitle = "Monetize Your Discord Community | CalorieBot Revenue Platform";
+const pageDescription = "Transform your Discord fitness community into a profitable business. Generate $1,000-$12,500+ monthly with CalorieBot's premium features, automated tracking, and engagement tools.";
+
+// Add structured data properties
+const ratingValue = 4.8;
+const ratingCount = 127;
+const startingPrice = "29.00";
+
+// Add monetization structured data
+const monetizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "CalorieBot Discord Monetization Platform",
+  "description": "Premium Discord fitness community monetization platform with AI-powered features",
+  "brand": {
+    "@type": "Brand",
+    "name": "CalorieBot"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "29.00",
+    "highPrice": "999.00",
+    "priceCurrency": "USD",
+    "offerCount": "6"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": ratingValue,
+    "ratingCount": ratingCount,
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+
+// Add FAQ structured data
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much can I earn with CalorieBot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Based on a community of 50-250 members paying $20-$50 per user, you can earn $1,000-$12,500+ monthly. Revenue scales with your community size and pricing structure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What monetization features does CalorieBot offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CalorieBot offers premium features like AI photo tracking, automated progress monitoring, group challenges, and engagement tools that help create a premium fitness experience worth paying for."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does CalorieBot help with member retention?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CalorieBot enhances member retention through daily engagement features, progress tracking, community challenges, and automated check-ins that keep members active and committed."
+      }
+    }
+  ]
+};
 ---
 
-<Layout title="CalorieBot - Monetize Your Discord Community">
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ratingValue={ratingValue}
+  ratingCount={ratingCount}
+  price={startingPrice}
+  type="website"
+  image="/images/monetize-preview.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(monetizationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <main>
     <section class="relative bg-dark text-white py-16 overflow-hidden">
       <!-- Subtle decorative elements that match the theme -->

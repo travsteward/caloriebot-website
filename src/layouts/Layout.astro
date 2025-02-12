@@ -19,7 +19,7 @@ interface Props {
 
 const {
   title,
-  description = "Transform your Discord server into an AI-powered fitness community. Track calories with photos, log workouts, and run engaging challenges.",
+  description = "Transform your Discord server with AI photo calorie tracking, guided workouts, challenges, and coaching tools. Perfect for fitness communities with features like scale integration, workout builder, and progress sharing.",
   image = "/social-preview.jpg",
   canonicalURL = Astro.url.href,
   type = 'website',
@@ -66,6 +66,19 @@ const softwareSchema = type === 'website' ? {
   "applicationCategory": "HealthAndFitnessApplication",
   "operatingSystem": "Discord",
   "description": description,
+  "featureList": [
+    "AI Photo Calorie Tracking",
+    "Scale Integration",
+    "Nutrition Label Scanning",
+    "Custom Workout Builder",
+    "Progress Sharing",
+    "Challenge System",
+    "Group Coaching Platform",
+    "1-1 Coaching Tools",
+    "Redemption Challenges",
+    "Weekly Check-ins",
+    "Inactivity Alerts"
+  ],
   "offers": price ? {
     "@type": "Offer",
     "price": price,
@@ -112,6 +125,49 @@ const breadcrumbSchema = {
     }
   ]
 };
+
+const featuresSchema = type === 'website' ? {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "AI Photo Calorie Tracking",
+      "description": "Instantly calculate calories from food photos using advanced AI technology"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Scale Integration",
+      "description": "Achieve precise measurements with smart scale integration"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Nutrition Label Scanning",
+      "description": "Scan nutrition labels for accurate food tracking"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Custom Workout Builder",
+      "description": "AI-powered workout generation based on equipment and goals"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Challenge System",
+      "description": "Engage community with automated fitness challenges and leaderboards"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Coaching Platform",
+      "description": "Comprehensive tools for both group and 1-1 coaching"
+    }
+  ]
+} : null;
 ---
 
 <!doctype html>
@@ -153,7 +209,7 @@ const breadcrumbSchema = {
 
     <!-- Additional SEO Tags -->
     <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="discord fitness bot, AI calorie tracking, discord gym community, fitness challenges, workout tracking discord, photo calorie counting, discord fitness community, AI fitness coach, discord workout bot, fitness community platform, AI photo calorie tracking, fitness discord server" />
+    <meta name="keywords" content="discord fitness bot, AI calorie tracking, discord gym community, fitness challenges, workout tracking discord, photo calorie counting, discord fitness community, AI fitness coach, discord workout bot, fitness community platform, AI photo calorie tracking, fitness discord server, scale integration, workout builder, nutrition label scanning, redemption challenges, group coaching platform, 1-1 coaching platform, fitness progress sharing, custom workout plans, AI workout generation" />
 
     <!-- Language variants - uncomment and modify when adding translations -->
     <!-- <link rel="alternate" hreflang="en" href={canonicalURL} />
@@ -165,6 +221,7 @@ const breadcrumbSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     {pageSchema && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}
     {softwareSchema && <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />}
+    {featuresSchema && <script type="application/ld+json" set:html={JSON.stringify(featuresSchema)} />}
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="generator" content={Astro.generator} />
