@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "Page Not Found - CalorieBot";
+const pageDescription = "The page you're looking for doesn't exist. But don't worry, we'll help you find what you need.";
+
+const commonPages = [
+  { name: "Home", url: "/" },
+  { name: "Features", url: "/features" },
+  { name: "Pricing", url: "/pricing" },
+  { name: "For Creators", url: "/for-creators" },
+  { name: "For Admins", url: "/for-admins" },
+  { name: "Blog", url: "/blog" }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <main class="min-h-[80vh] flex items-center">
+    <div class="container mx-auto px-4 py-16 text-center">
+      <div class="max-w-2xl mx-auto">
+        <!-- 404 Header -->
+        <h1 class="text-6xl md:text-7xl font-bold text-white mb-4">
+          4<span class="text-orange-500">0</span>4
+        </h1>
+
+        <!-- Message -->
+        <p class="text-xl md:text-2xl text-gray-300 mb-8">
+          Oops! This page seems to have disappeared like calories after a workout.
+        </p>
+
+        <!-- Helpful Navigation -->
+        <div class="mb-12">
+          <h2 class="text-xl font-semibold text-white mb-4">
+            Popular Pages
+          </h2>
+          <div class="flex flex-wrap justify-center gap-3">
+            {commonPages.map((page) => (
+              <a
+                href={page.url}
+                class="px-4 py-2 bg-secondary hover:bg-secondary/80 text-white rounded-full transition-colors"
+              >
+                {page.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Back Home Button -->
+        <div>
+          <a
+            href="/"
+            class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Back to Home
+          </a>
+        </div>
+
+        <!-- Search Suggestion -->
+        <p class="mt-8 text-gray-400">
+          Can't find what you're looking for? <button
+            onclick="window.openContactModal('contact-modal')"
+            class="text-orange-400 hover:text-orange-300 underline"
+          >
+            Contact us
+          </button>
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .container {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
