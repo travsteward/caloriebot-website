@@ -61,7 +61,7 @@ export const GET: APIRoute = async () => {
         const lastmod = await getFileLastModified(filePath);
         return `
           <url>
-            <loc>${baseUrl}/${page}</loc>
+            <loc>${baseUrl}/${page}${page ? '/' : ''}</loc>
             <lastmod>${lastmod}</lastmod>
             <changefreq>${page === '' ? 'daily' : 'weekly'}</changefreq>
             <priority>${page === '' ? '1.0' : '0.8'}</priority>
@@ -79,7 +79,7 @@ export const GET: APIRoute = async () => {
 
         return `
           <url>
-            <loc>${baseUrl}/blog/${post.slug}</loc>
+            <loc>${baseUrl}/blog/${post.slug}/</loc>
             <lastmod>${lastmod}</lastmod>
             <changefreq>monthly</changefreq>
             <priority>0.7</priority>

@@ -44,35 +44,39 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
-# Force HTTPS with stronger configuration
+# Primary redirect rules
 [[redirects]]
-  from = "http://*"
-  to = "https://:splat"
+  from = "http://:hostname/*"
+  to = "https://:hostname/:splat"
   status = 301
   force = true
 
-# Redirect www to non-www
 [[redirects]]
   from = "https://www.caloriebot.ai/*"
   to = "https://caloriebot.ai/:splat"
   status = 301
   force = true
 
-# Handle direct page requests first
+# Handle trailing slashes consistently
 [[redirects]]
-  from = "/for-admins"
-  to = "/for-admins/index.html"
+  from = "/:page"
+  to = "/:page/"
+  status = 301
+  force = true
+  conditions = {Path = {match = "^/[^.]+$"}}
+
+# Exclude specific paths from trailing slash redirect
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
   status = 200
+  force = true
 
 [[redirects]]
-  from = "/for-creators"
-  to = "/for-creators/index.html"
+  from = "/robots.txt"
+  to = "/robots.txt"
   status = 200
-
-[[redirects]]
-  from = "/privacy"
-  to = "/privacy/index.html"
-  status = 200
+  force = true
 
 # Custom 404 handling
 [[redirects]]
