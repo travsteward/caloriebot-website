@@ -44,13 +44,14 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
-# Primary redirect rules
+# Force all traffic to HTTPS first
 [[redirects]]
-  from = "http://:hostname/*"
-  to = "https://:hostname/:splat"
+  from = "http://*.caloriebot.ai/*"
+  to = "https://:splat"
   status = 301
   force = true
 
+# Then force www to non-www
 [[redirects]]
   from = "https://www.caloriebot.ai/*"
   to = "https://caloriebot.ai/:splat"
@@ -83,13 +84,6 @@
   from = "/*"
   to = "/404"
   status = 404
-  force = false
-
-# SPA fallback - should be last and only trigger for existing routes
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
   force = false
 
 [build.processing]
