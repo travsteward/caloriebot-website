@@ -19,28 +19,28 @@
 
 # Noindex for legal pages and utility endpoints
 [[headers]]
-  for = "/privacy/*"
+  for = "/privacy/"
   [headers.values]
     X-Robots-Tag = "noindex"
 
 [[headers]]
-  for = "/terms/*"
+  for = "/terms/"
   [headers.values]
     X-Robots-Tag = "noindex"
 
 [[headers]]
-  for = "/.netlify/functions/*"
+  for = "/.netlify/functions/"
   [headers.values]
     X-Robots-Tag = "noindex"
 
 [[headers]]
-  for = "/oauth/*"
+  for = "/oauth/"
   [headers.values]
     X-Robots-Tag = "noindex"
 
 # Temporarily noindex blog until ready
 [[headers]]
-  for = "/blog/*"
+  for = "/blog/"
   [headers.values]
     X-Robots-Tag = "noindex"
 
@@ -55,6 +55,13 @@
 [[redirects]]
   from = "https://www.caloriebot.ai/*"
   to = "https://caloriebot.ai/:splat"
+  status = 301
+  force = true
+
+# Redirect search URLs to homepage
+[[redirects]]
+  from = "/search/"
+  to = "/"
   status = 301
   force = true
 
@@ -82,7 +89,7 @@
 # Custom 404 handling
 [[redirects]]
   from = "/*"
-  to = "/404"
+  to = "/404/"
   status = 404
   force = false
 
