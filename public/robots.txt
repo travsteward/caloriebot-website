@@ -7,17 +7,19 @@ Disallow: /dashboard/
 Disallow: /api/
 Disallow: /oauth/
 Disallow: /admin/
-Disallow: /success
-Disallow: /cancel
-Disallow: /device-success
+Disallow: /success/
+Disallow: /cancel/
+Disallow: /device-success/
 
 # Allow all bots to crawl important content
-Allow: /blog/
-Allow: /pricing
-Allow: /for-creators
-Allow: /for-coaches
-Allow: /for-admins
-Allow: /monetize
+Allow: /pricing/
+Allow: /for-creators/
+Allow: /for-coaches/
+Allow: /for-admins/
+Allow: /monetize/
+
+# Temporarily noindex blog until ready
+Disallow: /blog/
 
 # Sitemap location
 Sitemap: https://caloriebot.ai/sitemap.xml
