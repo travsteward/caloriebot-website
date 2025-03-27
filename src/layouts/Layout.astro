@@ -204,7 +204,7 @@ const jsonLd = {
     <meta name="author" content={author} />
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="discord fitness bot, calorie tracking, AI food recognition, fitness community, workout tracking, fitness challenges, discord server monetization" />
-    <link rel="canonical" href={canonicalURL} />
+    <link rel="canonical" href={canonicalURL.replace('www.', '')} />
     {readingTime && <meta name="twitter:label1" property="Reading time" content={readingTime} />}
     {readingTime && <meta name="twitter:data1" property="Reading time" content={readingTime} />}
 

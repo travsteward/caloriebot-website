@@ -336,11 +336,12 @@ const startingPrice = "29.00";
           page: 'creators'
         });
 
+        const redirectUri = "https://caloriebot.ai/oauth/discord/callback";
         const params = new URLSearchParams({
           client_id: DISCORD_CLIENT_ID,
           response_type: "code",
           scope: "identify email",
-          redirect_uri: "https://caloriebot.ai/oauth/discord/callback",
+          redirect_uri: redirectUri,
           state: priceId,
           prompt: "consent",
         });

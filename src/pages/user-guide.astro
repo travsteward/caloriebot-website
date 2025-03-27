@@ -1,0 +1,178 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+const pageTitle = "User Guide | CalorieBot";
+const pageDescription = "Learn how to use CalorieBot with our detailed guides and tutorials. Follow along with video instructions to get the most out of your CalorieBot experience.";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  type="website"
+  image="/images/user-guide-preview.jpg"
+>
+  <ContactModal id="contact-modal" />
+  <main>
+    <section class="relative bg-dark text-white py-16 overflow-hidden">
+      <!-- Subtle decorative elements that match the theme -->
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="absolute top-0 right-0 w-1/3 h-48 bg-orange-600/5 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/3 h-48 bg-discord/5 blur-3xl"></div>
+      </div>
+
+      <div class="container mx-auto px-4 max-w-4xl relative">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          CalorieBot
+          <span class="text-orange-500">User Guide</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-12 text-gray-300">
+          Everything you need to know to get the most out of CalorieBot
+        </p>
+
+        <!-- Video Tutorials Section -->
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8">Video Tutorials</h2>
+
+          <div class="grid md:grid-cols-1 gap-8 mb-12">
+            <div class="bg-secondary rounded-lg p-6 overflow-hidden">
+              <h3 class="text-2xl font-bold mb-4">Server Setup</h3>
+              <div class="aspect-video w-full bg-dark rounded-lg mb-4">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/_DeB859vREM"
+                  title="CalorieBot Server Setup"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <p class="text-gray-300">
+                This tutorial covers the basics of setting up CalorieBot in your Discord server,
+                configuring user permissions, and getting your community started with the basic features.
+              </p>
+            </div>
+
+            <div class="bg-secondary rounded-lg p-6 overflow-hidden">
+              <h3 class="text-2xl font-bold mb-4">Food Logging</h3>
+              <div class="aspect-video w-full bg-dark rounded-lg mb-4">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/kXD2s0Vp8MU"
+                  title="CalorieBot Food Logging"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <p class="text-gray-300">
+                Learn how to use the AI-powered photo calorie tracking feature to log your meals quickly and accurately.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8">Nutrition Resources</h2>
+
+          <div class="grid md:grid-cols-1 gap-8">
+            <div class="bg-secondary rounded-lg p-6 overflow-hidden hover:bg-secondary/80 transition-all border border-orange-500/30">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="text-3xl">📝</div>
+                <h3 class="text-2xl font-bold">Low Calorie Eating Guide</h3>
+              </div>
+              <p class="text-gray-300 mb-4">
+                Comprehensive guide to low-calorie eating strategies, food choices, and meal planning to help you achieve your nutrition goals.
+              </p>
+              <a
+                href="https://mellow-art-246.notion.site/Low-Calorie-Eating-Guide-b0cc55136e0740a5a58f322598c5f275?pvs=4"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white font-bold py-2 px-6 rounded-full transition-colors"
+              >
+                View Guide
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQs Section -->
+        <div>
+          <h2 class="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+
+          <div class="space-y-6">
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-2">How does CalorieBot's AI food logging work?</h3>
+              <p class="text-gray-300">
+                Members snap a meal photo or type food names/quantities to get instant calorie/macro estimates. The AI automatically tallies daily totals and stores meal history.
+              </p>
+            </div>
+
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-2">Can I customize nutrition goals for my community members?</h3>
+              <p class="text-gray-300">
+                Yes. Use the built-in calorie calculator to set personalized targets, or adjust goals individually via 1:1 coaching profiles.
+              </p>
+            </div>
+
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-2">What makes CalorieBot better than other fitness bots?</h3>
+              <p class="text-gray-300">
+                Three key advantages:<br>
+                <br>
+                • AI photo analysis (no manual logging)<br>
+                <br>
+                • Automated challenges that run themselves<br>
+                <br>
+                • Monetization-ready tools (premium roles, coaching tiers)
+              </p>
+            </div>
+
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-2">How does CalorieBot help me charge premium membership fees ($20-50/user)?</h3>
+              <p class="text-gray-300">
+                It delivers a full-service fitness hub (AI nutritionist + trainer + challenges) that justifies pricing through exclusive brand access and proven retention tools.
+              </p>
+            </div>
+
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-2">Why is there only a free trial and no permanent free tier?</h3>
+              <p class="text-gray-300">
+                CalorieBot's advanced AI features (like photo-based calorie analysis) incur real operational costs every time they're used. Unlike simpler bots, we can't offer a free tier without losing money.<br>
+                <br>
+                The 7-day trial gives you full access to:<br>
+                <br>
+                • Test all features risk-free<br>
+                <br>
+                • See how it transforms your server's engagement<br>
+                <br>
+                • Evaluate its revenue potential for your community<br>
+                <br>
+                After the trial, you'll understand why top creators happily pay for these premium tools.
+              </p>
+            </div>
+
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-2">How do I get help if I have a problem?</h3>
+              <p class="text-gray-300">
+                You can reach our support team through the Discord command /support or by joining our official
+                <a href="https://discord.com/invite/ccqssmvYN8" class="text-orange-400 hover:text-orange-300">support server</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  // Any client-side scripts can go here
+</script>

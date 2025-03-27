@@ -5,7 +5,7 @@ description: "Discover how AI is revolutionizing nutrition tracking through phot
 publishedDate: "2024-03-18"
 author: "CalorieBot Team"
 authorImage: "/authors/team.svg"
-coverImage: "/blog/ai-tracking.svg"
+coverImage: "/blog/covers/ai_photo_tracking.png"
 tags: ["AI Technology", "Nutrition", "Innovation"]
 ---
 
