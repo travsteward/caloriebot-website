@@ -204,7 +204,7 @@ const jsonLd = {
     <meta name="author" content={author} />
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="discord fitness bot, calorie tracking, AI food recognition, fitness community, workout tracking, fitness challenges, discord server monetization" />
-    <link rel="canonical" href={canonicalURL.replace('www.', '')} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, 'https://caloriebot.ai').href} />
     {readingTime && <meta name="twitter:label1" property="Reading time" content={readingTime} />}
     {readingTime && <meta name="twitter:data1" property="Reading time" content={readingTime} />}
 
@@ -215,7 +215,7 @@ const jsonLd = {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content={siteName} />
-    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, 'https://caloriebot.ai').href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image, Astro.site)} />
@@ -223,7 +223,7 @@ const jsonLd = {
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:url" content={new URL(Astro.url.pathname, 'https://caloriebot.ai').href} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.site)} />

@@ -2,6 +2,14 @@
 User-agent: *
 Allow: /
 
+# Explicitly allow all important content
+Allow: /pricing/
+Allow: /for-creators/
+Allow: /for-coaches/
+Allow: /for-admins/
+Allow: /monetize/
+Allow: /sitemap.xml
+
 # Explicitly disallow private/admin areas
 Disallow: /dashboard/
 Disallow: /api/
@@ -11,13 +19,6 @@ Disallow: /success/
 Disallow: /cancel/
 Disallow: /device-success/
 Disallow: /search/
-
-# Allow all bots to crawl important content
-Allow: /pricing/
-Allow: /for-creators/
-Allow: /for-coaches/
-Allow: /for-admins/
-Allow: /monetize/
 
 # Temporarily noindex blog until ready
 Disallow: /blog/

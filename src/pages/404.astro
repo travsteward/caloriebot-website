@@ -8,6 +8,19 @@ const pageDescription = "The page you're looking for doesn't exist. But don't wo
 // Add noindex meta tag for 404 page
 const noIndex = true;
 
+// Current path
+const currentPath = Astro.url.pathname;
+
+// Log 404 errors for important pages (this will appear in server logs for troubleshooting)
+const importantPaths = ['/for-coaches', '/for-creators', '/for-admins', '/pricing', '/monetize'];
+const isImportantPath = importantPaths.some(path =>
+  currentPath.startsWith(path) || currentPath.startsWith(path + '/')
+);
+
+if (isImportantPath) {
+  console.error(`404 error for important page: ${currentPath}`);
+}
+
 const commonPages = [
   { name: "Home", url: "/" },
   { name: "Pricing", url: "/pricing" },

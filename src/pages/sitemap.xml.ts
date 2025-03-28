@@ -43,6 +43,10 @@ const siteName = 'CalorieBot - AI Fitness for Discord';
 
 async function getFileLastModified(filePath: string): Promise<string> {
   try {
+    if (filePath.endsWith('blog.astro')) {
+      filePath = filePath.replace('blog.astro', 'blog/index.astro');
+    }
+
     const stats = await fs.stat(filePath);
     return stats.mtime.toISOString();
   } catch (error) {
@@ -58,7 +62,11 @@ export const GET: APIRoute = async () => {
             xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
       ${await Promise.all(pages.map(async page => {
         const filePath = path.join(process.cwd(), 'src', 'pages', page ? `${page}.astro` : 'index.astro');
-        const lastmod = await getFileLastModified(filePath);
+        const fixedFilePath = page === 'blog'
+          ? path.join(process.cwd(), 'src', 'pages', 'blog', 'index.astro')
+          : filePath;
+
+        const lastmod = await getFileLastModified(fixedFilePath);
         return `
           <url>
             <loc>${baseUrl}/${page}${page ? '/' : ''}</loc>
