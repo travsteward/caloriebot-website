@@ -16,40 +16,40 @@ const pageDescription =
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
+  mainEntity: [
     {
       "@type": "Question",
-      "name": "What is included in the free trial?",
-      "acceptedAnswer": {
+      name: "What is included in the free trial?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "The free trial includes all core features for up to 5 members for 7 days. No credit card is required to start."
-      }
+        text: "The free trial includes all core features for up to 5 members for 7 days. No credit card is required to start.",
+      },
     },
     {
       "@type": "Question",
-      "name": "How does the pricing work?",
-      "acceptedAnswer": {
+      name: "How does the pricing work?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "We offer tiered pricing based on the number of active members, starting from $29/month for up to 5 members. Each tier includes additional features and better per-user pricing."
-      }
+        text: "We offer tiered pricing based on the number of active members, starting from $29/month for up to 5 members. Each tier includes additional features and better per-user pricing.",
+      },
     },
     {
       "@type": "Question",
-      "name": "What features are included in all plans?",
-      "acceptedAnswer": {
+      name: "What features are included in all plans?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "All plans include core features like AI photo calorie tracking, guided workouts, challenge system, and basic community engagement tools."
-      }
+        text: "All plans include core features like AI photo calorie tracking, guided workouts, challenge system, and basic community engagement tools.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Do you offer custom pricing for large communities?",
-      "acceptedAnswer": {
+      name: "Do you offer custom pricing for large communities?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes, we offer custom partnership pricing models for large fitness coaching communities, including full server design & branding, 1-1 growth mentorship, and priority support."
-      }
-    }
-  ]
+        text: "Yes, we offer custom partnership pricing models for large fitness coaching communities, including full server design & branding, 1-1 growth mentorship, and priority support.",
+      },
+    },
+  ],
 };
 
 // Add structured data properties
@@ -80,13 +80,17 @@ const startingPrice = "29.00";
 
       <div class="container mx-auto px-4 max-w-4xl text-center relative">
         <div class="space-y-8">
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1
+            class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          >
             <span class="inline-block">Monetize Your</span>
             <span class="inline-block">Discord with</span>
             <span class="text-orange-500 inline-block">AI-Powered Fitness</span>
           </h1>
           <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300">
-            CalorieBot runs on autopilot to deliver spectacular transformations and high server engagement. Add to your community to skyrocket retention and MRR.
+            CalorieBot runs on autopilot to deliver spectacular transformations
+            and high server engagement. Add to your community to skyrocket
+            retention and MRR.
           </p>
           <div class="mt-10">
             <a
@@ -118,87 +122,165 @@ const startingPrice = "29.00";
     <section class="py-12 md:py-20 bg-secondary">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+          >
             AI-Powered Nutrition in Discord
           </h2>
         </div>
         <!-- AI Photo Calorie Counting Section -->
         <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
-            <!-- Text content -->
-            <div class="w-full md:flex-[0.5]">
-                <div class="text-indigo-400 font-semibold mb-2">Smart Food Analysis</div>
-                <h2 class="text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-white leading-tight">
-                    AI Photo Calorie<br/>Counting
-                </h2>
-                <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
-                    Simply snap a photo of your meal and let our advanced AI instantly calculate the calories.
-                    Our technology recognizes food items, portions, and provides accurate nutritional information
-                    in seconds, making food logging effortless and precise.
-                </p>
-                <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Instant Analysis: Get detailed nutritional breakdown in seconds</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Smart Adjustments: Fine-tune entries with one-tap editing</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Enhanced Context: Add notes, ingredients, and meal details</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Scale Integration: Achieve precise measurements for accuracy</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Label Reading: Scan nutrition labels for accurate tracking</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Real-time Tracking: Monitor progress throughout your day</span>
-                    </li>
-                </ul>
+          <!-- Text content -->
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">
+              Smart Food Analysis
             </div>
-            <!-- Image grid -->
-            <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-                <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-                    <!-- Left image -->
-                    <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                        <div class="w-full h-full relative">
-                            <img
-                                src="/images/steak.png"
-                                alt="AI Food Analysis Demo"
-                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                            />
-                        </div>
-                    </div>
-                    <!-- Right image -->
-                    <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                        <div class="w-full h-full relative">
-                            <img
-                                src="/images/scale.png"
-                                alt="Food Logging Demo"
-                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                            />
-                        </div>
-                    </div>
+            <h2
+              class="text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-white leading-tight"
+            >
+              AI Photo Calorie<br />Counting
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
+              Simply snap a photo of your meal and let our advanced AI instantly
+              calculate the calories. Our technology recognizes food items,
+              portions, and provides accurate nutritional information in
+              seconds, making food logging effortless and precise.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Instant Analysis: Get detailed nutritional breakdown in
+                  seconds</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Smart Adjustments: Fine-tune entries with one-tap editing</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Enhanced Context: Add notes, ingredients, and meal details</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Scale Integration: Achieve precise measurements for accuracy</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Label Reading: Scan nutrition labels for accurate tracking</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Real-time Tracking: Monitor progress throughout your day</span
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Image grid -->
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+              <!-- Left image -->
+              <div
+                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
+              >
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/steak.png"
+                    alt="AI Food Analysis Demo"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
                 </div>
+              </div>
+              <!-- Right image -->
+              <div
+                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
+              >
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/scale.png"
+                    alt="Food Logging Demo"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </section>
@@ -208,62 +290,119 @@ const startingPrice = "29.00";
     <section class="py-12 md:py-20 bg-secondary">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
-            <!-- Text content -->
-            <div class="w-full md:flex-[0.5]">
-                <div class="text-indigo-400 font-semibold mb-2">Natural Language Input</div>
-                <h2 class="text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-white leading-tight">
-                    Chat-Based<br/>Calorie Tracking
-                </h2>
-                <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
-                    Skip the manual data entry and complicated food searches. Simply type what you ate
-                    in natural language, and our AI instantly calculates the nutritional information.
-                </p>
-                <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Natural language understanding for quick entries</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Instant calorie and macro calculations</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Smart portion size interpretation</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>No more scrolling through endless food databases</span>
-                    </li>
-                </ul>
+          <!-- Text content -->
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">
+              Natural Language Input
             </div>
-            <!-- Chat demo box -->
-            <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-                <div class="bg-gray-800 rounded-xl p-6 shadow-xl h-[290px] md:h-[375px] flex flex-col">
-                    <!-- Chat interface -->
-                    <div class="flex-1 mb-4 flex items-end">
-                        <div id="typing-demo" class="w-full p-4 bg-gray-700/50 rounded-lg text-gray-300 font-mono">
-                            <span class="typing-text"></span>
-                            <span class="typing-cursor">|</span>
-                        </div>
-                    </div>
-                    <!-- Input box design -->
-                    <div class="bg-gray-700/50 p-4 rounded-lg flex items-center gap-3">
-                        <div class="flex-1 h-6 bg-gray-600/50 rounded"></div>
-                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
-                        </svg>
-                    </div>
+            <h2
+              class="text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-white leading-tight"
+            >
+              Chat-Based<br />Calorie Tracking
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
+              Skip the manual data entry and complicated food searches. Simply
+              type what you ate in natural language, and our AI instantly
+              calculates the nutritional information.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Natural language understanding for quick entries</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Instant calorie and macro calculations</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Smart portion size interpretation</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>No more scrolling through endless food databases</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Chat demo box -->
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div
+              class="bg-gray-800 rounded-xl p-6 shadow-xl h-[290px] md:h-[375px] flex flex-col"
+            >
+              <!-- Chat interface -->
+              <div class="flex-1 mb-4 flex items-end">
+                <div
+                  id="typing-demo"
+                  class="w-full p-4 bg-gray-700/50 rounded-lg text-gray-300 font-mono"
+                >
+                  <span class="typing-text"></span>
+                  <span class="typing-cursor">|</span>
                 </div>
+              </div>
+              <!-- Input box design -->
+              <div
+                class="bg-gray-700/50 p-4 rounded-lg flex items-center gap-3"
+              >
+                <div class="flex-1 h-6 bg-gray-600/50 rounded"></div>
+                <svg
+                  class="w-5 h-5 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                </svg>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </section>
@@ -273,73 +412,129 @@ const startingPrice = "29.00";
     <section class="py-12 md:py-20 bg-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+          >
             Social Sharing & Community Engagement
           </h2>
         </div>
         <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
-            <!-- Text content -->
-            <div class="w-full md:flex-[0.5]">
-                <div class="text-indigo-400 font-semibold mb-2">Community Connection</div>
-                <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
-                    Share Your Progress<br/>Celebrate Together
-                </h2>
-                <p class="text-base md:text-lg text-gray-300 mb-6">
-                    Our social sharing features make it easy to celebrate wins, share progress, and stay motivated together.
-                    From daily tallies to meal photos, keep your community engaged and inspired.
-                </p>
-                <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Daily Progress Sharing: Automatically share your daily totals</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Meal Inspiration: Share your food photos for community ideas</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Milestone Celebrations: Automatically highlight big achievements</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Community Support: Get encouragement from your fitness family</span>
-                    </li>
-                </ul>
+          <!-- Text content -->
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">
+              Community Connection
             </div>
-            <!-- Image grid -->
-            <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-                <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-                    <!-- Left image -->
-                    <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                        <div class="w-full h-full relative">
-                            <img
-                                src="/images/tally_sharing.png"
-                                alt="Daily Tally Sharing Demo"
-                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                            />
-                        </div>
-                    </div>
-                    <!-- Right image -->
-                    <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                        <div class="w-full h-full relative">
-                            <img
-                                src="/images/food_sharing.png"
-                                alt="Food Sharing Demo"
-                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                            />
-                        </div>
-                    </div>
+            <h2
+              class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight"
+            >
+              Share Your Progress<br />Celebrate Together
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-6">
+              Our social sharing features make it easy to celebrate wins, share
+              progress, and stay motivated together. From daily tallies to meal
+              photos, keep your community engaged and inspired.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Daily Progress Sharing: Automatically share your daily totals</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Meal Inspiration: Share your food photos for community ideas</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Milestone Celebrations: Automatically highlight big
+                  achievements</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Community Support: Get encouragement from your fitness family</span
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Image grid -->
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+              <!-- Left image -->
+              <div
+                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
+              >
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/tally_sharing.png"
+                    alt="Daily Tally Sharing Demo"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
                 </div>
+              </div>
+              <!-- Right image -->
+              <div
+                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
+              >
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/food_sharing.png"
+                    alt="Food Sharing Demo"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </section>
@@ -349,73 +544,119 @@ const startingPrice = "29.00";
     <section class="py-12 md:py-20 bg-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+          >
             Built-In Workout Functionality
           </h2>
         </div>
         <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
-            <!-- Text content -->
-            <div class="w-full md:flex-[0.5]">
-                <div class="text-indigo-400 font-semibold mb-2">Guided Fitness</div>
-                <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
-                    AI-Powered Workouts<br/>in Discord
-                </h2>
-                <p class="text-base md:text-lg text-gray-300 mb-6">
-                    Our built-in workout system provides guided exercises, progress tracking, and community sharing - all within your Discord server.
-                    Get step-by-step instructions, track your PRs, and celebrate your fitness journey with your community.
-                </p>
-                <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Guided Workouts: Step-by-step exercise instructions</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>PR Tracking: Log and compare personal records</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Workout Sharing: Celebrate completed workouts</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Progress Tracking: Monitor your fitness journey</span>
-                    </li>
-                </ul>
-            </div>
-            <!-- Image grid -->
-            <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-                <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-                    <!-- Left image -->
-                    <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                        <div class="w-full h-full relative">
-                            <img
-                                src="/images/barbell_workout.png"
-                                alt="Barbell Workout Demo"
-                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                            />
-                        </div>
-                    </div>
-                    <!-- Right image -->
-                    <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                        <div class="w-full h-full relative">
-                            <img
-                                src="/images/workouts_start.png"
-                                alt="Workout Start Demo"
-                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                            />
-                        </div>
-                    </div>
+          <!-- Text content -->
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">Guided Fitness</div>
+            <h2
+              class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight"
+            >
+              AI-Powered Workouts<br />in Discord
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-6">
+              Our built-in workout system provides guided exercises, progress
+              tracking, and community sharing - all within your Discord server.
+              Get step-by-step instructions, track your PRs, and celebrate your
+              fitness journey with your community.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Guided Workouts: Step-by-step exercise instructions</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>PR Tracking: Log and compare personal records</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Workout Sharing: Celebrate completed workouts</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Progress Tracking: Monitor your fitness journey</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Image grid -->
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+              <!-- Left image -->
+              <div
+                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
+              >
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/barbell_workout.png"
+                    alt="Barbell Workout Demo"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
                 </div>
+              </div>
+              <!-- Right image -->
+              <div
+                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
+              >
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/workouts_start.png"
+                    alt="Workout Start Demo"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </section>
@@ -425,61 +666,117 @@ const startingPrice = "29.00";
     <section class="py-12 md:py-20 bg-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+          >
             Build Your Perfect Workout
           </h2>
         </div>
         <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
-            <!-- Text content -->
-            <div class="w-full md:flex-[0.5]">
-                <div class="text-indigo-400 font-semibold mb-2">AI-Powered Customization</div>
-                <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
-                    Personalized Workouts<br/>On Demand
-                </h2>
-                <p class="text-base md:text-lg text-gray-300 mb-6">
-                    Simply tell our AI what equipment you have, your fitness goals, and how much time you have.
-                    We'll generate the perfect workout tailored to your needs - whether you're at a fully-equipped gym,
-                    traveling with limited equipment, or working out at home.
-                </p>
-                <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Equipment-Based: Works with any setup, from full gyms to bodyweight only</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Time-Efficient: Get workouts tailored to your available time</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Goal-Oriented: Focus on strength, endurance, or specific muscle groups</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Travel-Friendly: Perfect for hotel rooms, parks, or on-the-go workouts</span>
-                    </li>
-                </ul>
+          <!-- Text content -->
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">
+              AI-Powered Customization
             </div>
-            <!-- Single image box -->
-            <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-                <div class="bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-[400px] md:h-[500px]">
-                    <div class="w-full h-full relative p-4">
-                        <img
-                            src="/images/build_workout.png"
-                            alt="AI Workout Builder Demo"
-                            class="rounded-lg w-full h-full object-contain bg-gray-800"
-                        />
-                    </div>
-                </div>
+            <h2
+              class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight"
+            >
+              Personalized Workouts<br />On Demand
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-6">
+              Simply tell our AI what equipment you have, your fitness goals,
+              and how much time you have. We'll generate the perfect workout
+              tailored to your needs - whether you're at a fully-equipped gym,
+              traveling with limited equipment, or working out at home.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Equipment-Based: Works with any setup, from full gyms to
+                  bodyweight only</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Time-Efficient: Get workouts tailored to your available time</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Goal-Oriented: Focus on strength, endurance, or specific
+                  muscle groups</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Travel-Friendly: Perfect for hotel rooms, parks, or on-the-go
+                  workouts</span
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Single image box -->
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div
+              class="bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-[400px] md:h-[500px]"
+            >
+              <div class="w-full h-full relative p-4">
+                <img
+                  src="/images/build_workout.png"
+                  alt="AI Workout Builder Demo"
+                  class="rounded-lg w-full h-full object-contain bg-gray-800"
+                />
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </section>
@@ -489,73 +786,131 @@ const startingPrice = "29.00";
     <section class="py-12 md:py-20 bg-secondary">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+          >
             Challenge Motivation System
           </h2>
         </div>
         <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
-            <!-- Text content -->
-            <div class="w-full md:flex-[0.5]">
-                <div class="text-indigo-400 font-semibold mb-2">Gamified Fitness</div>
-                <h2 class="text-3xl md:text-4xl font-semibold mb-3 text-white leading-tight">
-                    Weekly Challenges<br/>Built for Engagement
-                </h2>
-                <p class="text-base md:text-lg text-gray-300 mb-3">
-                    Our challenge system keeps your community motivated through friendly competition and accountability.
-                    Set weekly goals, track progress, and celebrate wins together - all seamlessly integrated with your Discord server.
-                </p>
-                <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Auto-Pull Progress: Challenges automatically track nutrition and workout data</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Daily Targets: Track calories, workouts, steps, and protein</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Redemption Challenges: Miss a target? Complete community-approved tasks</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Leaderboards: Friendly competition to keep everyone motivated</span>
-                    </li>
-                </ul>
+          <!-- Text content -->
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">
+              Gamified Fitness
             </div>
-            <!-- Image grid -->
-            <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-                <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-                    <!-- Left image -->
-                    <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                        <div class="w-full h-full relative">
-                            <img
-                                src="/images/challenge_embed.png"
-                                alt="Challenge Embed Demo"
-                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                            />
-                        </div>
-                    </div>
-                    <!-- Right image -->
-                    <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                        <div class="w-full h-full relative">
-                            <img
-                                src="/images/results_embed.png"
-                                alt="Results Embed Demo"
-                                class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                            />
-                        </div>
-                    </div>
+            <h2
+              class="text-3xl md:text-4xl font-semibold mb-3 text-white leading-tight"
+            >
+              Weekly Challenges<br />Built for Engagement
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-3">
+              Our challenge system keeps your community motivated through
+              friendly competition and accountability. Set weekly goals, track
+              progress, and celebrate wins together - all seamlessly integrated
+              with your Discord server.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Auto-Pull Progress: Challenges automatically track nutrition
+                  and workout data</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Daily Targets: Track calories, workouts, steps, and protein</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Redemption Challenges: Miss a target? Complete
+                  community-approved tasks</span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-indigo-400 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Leaderboards: Friendly competition to keep everyone motivated</span
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Image grid -->
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+              <!-- Left image -->
+              <div
+                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
+              >
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/challenge_embed.png"
+                    alt="Challenge Embed Demo"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
                 </div>
+              </div>
+              <!-- Right image -->
+              <div
+                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
+              >
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/results_embed.png"
+                    alt="Results Embed Demo"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </section>
@@ -564,7 +919,9 @@ const startingPrice = "29.00";
     <div class="section-divider"></div>
     <section class="py-12 md:py-20 bg-dark">
       <div class="container mx-auto px-4 max-w-7xl">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-6 md:mb-12">
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-6 md:mb-12"
+        >
           What Our Users Are Saying
         </h2>
 
@@ -582,18 +939,27 @@ const startingPrice = "29.00";
                   />
                   <div class="flex-1 min-w-0">
                     <div class="flex items-center gap-1 md:gap-2 flex-wrap">
-                      <span class="font-bold text-base md:text-lg">{post.author}</span>
+                      <span class="font-bold text-base md:text-lg">
+                        {post.author}
+                      </span>
                       {post.verified && (
-                        <svg class="w-4 h-4 md:w-5 md:h-5 text-discord" viewBox="0 0 24 24">
+                        <svg
+                          class="w-4 h-4 md:w-5 md:h-5 text-discord"
+                          viewBox="0 0 24 24"
+                        >
                           <path
                             fill="currentColor"
                             d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"
                           />
                         </svg>
                       )}
-                      <span class="text-gray-400 text-sm md:text-base truncate">{post.handle}</span>
+                      <span class="text-gray-400 text-sm md:text-base truncate">
+                        {post.handle}
+                      </span>
                     </div>
-                    <p class="mt-1 text-base text-gray-300 break-words">{post.content}</p>
+                    <p class="mt-1 text-base text-gray-300 break-words">
+                      {post.content}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -607,7 +973,9 @@ const startingPrice = "29.00";
     <div class="section-divider"></div>
     <section id="pricing" class="pt-12 md:pt-20 pb-0 bg-dark">
       <div class="container mx-auto px-4 max-w-5xl -mb-6">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-6 md:mb-12">
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-6 md:mb-12"
+        >
           Simple, Transparent Pricing
         </h2>
 
@@ -685,7 +1053,9 @@ const startingPrice = "29.00";
               <p class="text-gray-300">For growing communities</p>
               <ul class="text-gray-300 list-disc list-inside">
                 <li>Everything in Starter +</li>
-                <li class="font-bold text-orange-500">Group coaching platform</li>
+                <li class="font-bold text-orange-500">
+                  Group coaching platform
+                </li>
                 <li>Weekly check-in system</li>
                 <li>Inactivity alerts</li>
                 <li>$4.95 per user</li>
@@ -701,7 +1071,7 @@ const startingPrice = "29.00";
             </div>
           </div>
 
-          <!-- Plus -->
+          <!-- Plus
           <div
             class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all"
           >
@@ -731,8 +1101,9 @@ const startingPrice = "29.00";
               </button>
             </div>
           </div>
+          -->
 
-          <!-- Pro -->
+          <!-- Pro
           <div
             class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all"
           >
@@ -762,8 +1133,9 @@ const startingPrice = "29.00";
               </button>
             </div>
           </div>
+          -->
 
-          <!-- Elite -->
+          <!-- Elite
           <div
             class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all"
           >
@@ -793,6 +1165,7 @@ const startingPrice = "29.00";
               </button>
             </div>
           </div>
+          -->
 
           <!-- Partner -->
           <div
@@ -809,10 +1182,15 @@ const startingPrice = "29.00";
             </div>
             <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
               <ul class="text-gray-300 list-disc list-inside">
-                <li>Partnership % pricing model</li>
-                <li>Full server design & branding</li>
-                <li>1-1 Growth mentorship</li>
-                <li>Priority support</li>
+                <li class="font-bold text-orange-500">
+                  Enterprise coaching platform suite
+                </li>
+                <li>Revenue-sharing partnership model</li>
+                <li>Custom server design & branding</li>
+                <li>Advanced client monitoring dashboard</li>
+                <li>Detailed client progress reports</li>
+                <li>Dedicated account manager</li>
+                <li>Custom feature development</li>
               </ul>
             </div>
             <div class="md:w-1/4 text-center">
@@ -854,13 +1232,13 @@ const startingPrice = "29.00";
 </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const phrases = [
       "2 eggs and 3 strips of bacon",
-      "250g ribeye steak, 180g potatoes"
+      "250g ribeye steak, 180g potatoes",
     ];
 
-    const typingDemo = document.querySelector('.typing-text');
+    const typingDemo = document.querySelector(".typing-text");
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -913,10 +1291,11 @@ const startingPrice = "29.00";
 
   .section-divider {
     height: 2px;
-    background: linear-gradient(90deg,
-      rgba(255,255,255,0) 0%,
-      rgba(255,255,255,0.05) 50%,
-      rgba(255,255,255,0) 100%
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
     );
     margin: 0 auto;
     width: 100%;
@@ -931,8 +1310,13 @@ const startingPrice = "29.00";
   }
 
   @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 
   .typing-cursor {

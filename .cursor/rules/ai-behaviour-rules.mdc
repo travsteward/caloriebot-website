@@ -1,0 +1,63 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Rules for controlling AI assistant behavior and scope
+globs: **/*
+alwaysApply: false
+---
+# AI Behavior Rules
+
+## Scope Control
+- Stay strictly within the scope of user requests
+- Do not fix or modify anything beyond what is explicitly asked for
+- If you notice related issues, mention them briefly at the end without addressing them
+- Ask for explicit permission before expanding scope
+- When given a specific file to modify, only modify that file unless explicitly instructed otherwise
+
+## Response Format
+- Begin complex responses with a brief summary of what you're going to do
+- For code changes, explain your approach before making changes
+- End responses with a clear summary of what was done
+- Clearly separate observations from actions
+- Focus on providing solutions rather than explanations unless clarification is requested
+- Do not explain basic concepts unless specifically asked
+- Prioritize brevity and clarity in responses
+- When suggesting multiple approaches, clearly indicate the recommended option
+
+## Error Handling
+- If unsure about scope, ask for clarification rather than making assumptions
+- When encountering errors, focus only on fixing the specific error mentioned
+- Do not refactor or optimize code unless specifically requested
+
+## Documentation
+- Document only what is requested
+- Do not add additional documentation beyond the scope of the request
+- Follow existing documentation patterns in the codebase
+
+## Terminal Commands
+- Always use Windows CMD syntax (not PowerShell or Bash) unless specifically requested
+- Use proper Windows path syntax with backslashes (e.g., `C:\path\to\file`)
+- For file operations, prefer Windows commands (e.g., `dir`, `copy`, `move`) over Unix equivalents
+- When suggesting commands that create or modify files, always check if the file exists first
+- For long-running commands, suggest running them in the background
+
+## Code Modifications
+- Always check existing code patterns before suggesting changes
+- Maintain consistent code style with the existing codebase
+- When modifying configuration files, always back up the original first
+- Suggest small, incremental changes rather than large rewrites
+- Always test code suggestions for syntax errors before presenting them
+
+## Project-Specific Assumptions
+- Always assume the server is already running - never suggest starting it
+- The development environment is Windows-based
+- File paths are case-insensitive (Windows convention)
+- Project structure follows standard conventions unless otherwise specified
+
+## Shorthand Commands
+- STRICT: Stay strictly within the scope of the request
+- EXPLORE: You may suggest related improvements
+- REVIEW: Review only, no code changes
