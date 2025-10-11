@@ -6,6 +6,7 @@ publishedDate: "2024-03-18"
 author: "CalorieBot Team"
 authorImage: "/authors/team.svg"
 coverImage: "/blog/covers/ai_photo_tracking.png"
+coverImageAlt: "AI analyzing a food photo to calculate calories and nutrition information"
 tags: ["AI Technology", "Nutrition", "Innovation"]
 ---
 
@@ -79,4 +80,4 @@ For optimal results:
 
 AI photo tracking is more than just a convenience—it's a paradigm shift in how we approach nutrition monitoring. By removing barriers to consistent tracking while improving accuracy, it's helping more people achieve their fitness goals with less friction.
 
-Ready to experience the future of nutrition tracking? [Add CalorieBot to your Discord server](/pricing) and start tracking your meals with AI today.
+Ready to experience the future of nutrition tracking? [Add CalorieBot to your Discord server](/pricing) and start tracking your meals with AI today. Learn how to [build an engaged fitness community](/blog/build-engaged-fitness-community-discord/) and [monetize it effectively](/blog/monetizing-fitness-community-guide/).

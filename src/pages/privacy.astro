@@ -1,19 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const today = new Date().toLocaleDateString('en-US', { 
-  year: 'numeric', 
-  month: 'long', 
-  day: 'numeric' 
+const today = new Date().toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
 });
 ---
 
-<Layout title="Privacy Policy - CalorieBot">
+<Layout
+  title="Privacy Policy - CalorieBot"
+  description="CalorieBot's privacy policy covering data collection, usage, and protection for our AI-powered Discord fitness tracking service."
+>
   <main class="pt-20">
     <div class="container mx-auto px-4 max-w-4xl py-12">
       <h1 class="text-3xl font-bold text-white mb-4">CalorieBot Privacy Policy</h1>
       <p class="text-gray-400 mb-8">Last Updated: {today}</p>
-      
+
       <div class="prose prose-invert">
         <h2 class="text-2xl font-bold text-white mt-8 mb-4">1. Introduction</h2>
         <p class="text-gray-300 mb-4">
@@ -21,7 +24,7 @@ const today = new Date().toLocaleDateString('en-US', {
         </p>
 
         <h2 class="text-2xl font-bold text-white mt-8 mb-4">2. Information We Collect and How We Use It</h2>
-        
+
         <h3 class="text-xl font-bold text-white mt-6 mb-3">2.1 Essential Service Data</h3>
         <ul class="text-gray-300 mb-4 list-disc ml-6">
           <li>Discord User ID and username: To link your activity and data to your account</li>
@@ -146,7 +149,7 @@ const today = new Date().toLocaleDateString('en-US', {
         </ul>
 
         <h2 class="text-2xl font-bold text-white mt-8 mb-4">11. Specific Feature Guidelines</h2>
-        
+
         <h3 class="text-xl font-bold text-white mt-6 mb-3">11.1 Photo Upload Guidelines</h3>
         <ul class="text-gray-300 mb-4 list-disc ml-6">
           <li>Accepted formats: JPG, PNG</li>
@@ -171,7 +174,7 @@ const today = new Date().toLocaleDateString('en-US', {
         </ul>
 
         <h2 class="text-2xl font-bold text-white mt-8 mb-4">12. Compliance Frameworks</h2>
-        
+
         <h3 class="text-xl font-bold text-white mt-6 mb-3">GDPR Compliance:</h3>
         <ul class="text-gray-300 mb-4 list-disc ml-6">
           <li>Data processing agreements in place</li>

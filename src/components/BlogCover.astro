@@ -19,12 +19,7 @@ const imageAlt = alt || "Blog post cover image";
 // For local development with public images, ensure proper path
 const imageSrc = src.startsWith('/') ? src : `/${src}`;
 
-// Debug log the image path
-console.log('BlogCover: Image path:', {
-  originalSrc: src,
-  processedSrc: imageSrc,
-  fullUrl: new URL(imageSrc, Astro.url.origin).toString()
-});
+// Process image path for proper display
 ---
 
 <div class="blog-cover-container">
@@ -55,13 +50,3 @@ console.log('BlogCover: Image path:', {
     object-fit: cover;
   }
 </style>
-
-<script>
-  // Add client-side debugging
-  document.addEventListener('DOMContentLoaded', () => {
-    const image = document.querySelector('.blog-cover-image');
-    if (image) {
-      console.log('BlogCover: Image element found with src:', image.getAttribute('src'));
-    }
-  });
-</script>

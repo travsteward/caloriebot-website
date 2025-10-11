@@ -1,8 +1,10 @@
 import type { APIRoute } from 'astro';
 import fs from 'fs/promises';
 import path from 'path';
+import { glob } from 'glob';
 
-const pages = [
+// Static pages that should always be included
+const staticPages = [
   '',
   'pricing',
   'for-admins',
@@ -11,32 +13,20 @@ const pages = [
   'monetize',
   'terms',
   'privacy',
-  'blog'
+  'user-guide',
+  'blog',
+  'enterprise',
+  'affiliate',
+  'success',
+  'cancel',
+  'device-success',
+  'stripe-success',
+  'social-test',
+  'user-guide'
 ];
 
-const blogPosts = [
-  {
-    slug: 'build-engaged-fitness-community-discord',
-    image: '/blog/community-building.svg',
-    title: 'How to Build an Engaged Fitness Community on Discord',
-    imageAlt: 'Building a Discord fitness community illustration',
-    category: 'Community Building'
-  },
-  {
-    slug: 'ai-photo-calorie-tracking-future',
-    image: '/blog/ai-tracking.svg',
-    title: 'The Future of AI Photo Calorie Tracking',
-    imageAlt: 'AI-powered food recognition illustration',
-    category: 'Technology'
-  },
-  {
-    slug: 'monetizing-fitness-community-guide',
-    image: '/blog/monetization.svg',
-    title: 'Complete Guide to Monetizing Your Fitness Community',
-    imageAlt: 'Fitness community monetization strategies illustration',
-    category: 'Business'
-  }
-];
+// Blog post metadata cache
+const blogPostsCache = new Map();
 
 const baseUrl = 'https://caloriebot.ai';
 const siteName = 'CalorieBot - AI Fitness for Discord';
@@ -55,18 +45,115 @@ async function getFileLastModified(filePath: string): Promise<string> {
   }
 }
 
+async function discoverAllPages(): Promise<string[]> {
+  try {
+    // Find all .astro files in pages directory
+    const astroFiles = await glob('src/pages/**/*.astro', { cwd: process.cwd() });
+
+    const pages = astroFiles
+      .map(file => {
+        // Normalize path separators and convert file path to URL path
+        const normalizedFile = file.replace(/\\/g, '/');
+        let urlPath = normalizedFile.replace('src/pages/', '').replace('.astro', '');
+
+        // Handle index files
+        if (urlPath.endsWith('/index')) {
+          urlPath = urlPath.replace('/index', '');
+        }
+
+        // Skip API routes and special files
+        if (urlPath.includes('.xml') || urlPath.includes('.json') || urlPath.includes('.txt')) {
+          return null;
+        }
+
+        return urlPath || '';
+      })
+      .filter(Boolean) as string[];
+
+    // Remove duplicates and sort
+    return [...new Set([...staticPages, ...pages])].sort();
+  } catch (error) {
+    console.error('Error discovering pages:', error);
+    return staticPages;
+  }
+}
+
+async function discoverBlogPosts(): Promise<any[]> {
+  try {
+    // Find all .md files in blog directory
+    const blogFiles = await glob('src/pages/blog/*.md', { cwd: process.cwd() });
+
+    const posts = await Promise.all(blogFiles.map(async (file) => {
+      const slug = path.basename(file, '.md');
+
+      // Skip test posts
+      if (slug.includes('test')) {
+        return null;
+      }
+
+      try {
+        // Read frontmatter from markdown file
+        const content = await fs.readFile(path.join(process.cwd(), file), 'utf-8');
+        const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+
+        if (frontmatterMatch) {
+          const frontmatter = frontmatterMatch[1];
+          const titleMatch = frontmatter.match(/title:\s*["']?([^"'\n]+)["']?/);
+          const imageMatch = frontmatter.match(/image:\s*["']?([^"'\n]+)["']?/);
+          const categoryMatch = frontmatter.match(/category:\s*["']?([^"'\n]+)["']?/);
+
+          return {
+            slug,
+            title: titleMatch ? titleMatch[1] : slug.replace(/-/g, ' '),
+            image: imageMatch ? imageMatch[1] : '/blog/default.svg',
+            imageAlt: titleMatch ? titleMatch[1] : slug.replace(/-/g, ' '),
+            category: categoryMatch ? categoryMatch[1] : 'General'
+          };
+        }
+      } catch (error) {
+        console.error(`Error reading blog post ${file}:`, error);
+      }
+
+      // Fallback metadata
+      return {
+        slug,
+        title: slug.replace(/-/g, ' '),
+        image: '/blog/default.svg',
+        imageAlt: slug.replace(/-/g, ' '),
+        category: 'General'
+      };
+    }));
+
+    return posts.filter(Boolean);
+  } catch (error) {
+    console.error('Error discovering blog posts:', error);
+    return [];
+  }
+}
+
 export const GET: APIRoute = async () => {
+  // Discover all pages and blog posts dynamically
+  const pages = await discoverAllPages();
+  const blogPosts = await discoverBlogPosts();
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
             xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
             xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
       ${await Promise.all(pages.map(async page => {
-        const filePath = path.join(process.cwd(), 'src', 'pages', page ? `${page}.astro` : 'index.astro');
-        const fixedFilePath = page === 'blog'
-          ? path.join(process.cwd(), 'src', 'pages', 'blog', 'index.astro')
-          : filePath;
+        // Handle special cases for file paths
+        let filePath;
+        if (page === '') {
+          filePath = path.join(process.cwd(), 'src', 'pages', 'index.astro');
+        } else if (page === 'blog') {
+          filePath = path.join(process.cwd(), 'src', 'pages', 'blog', 'index.astro');
+        } else if (page === 'docs') {
+          filePath = path.join(process.cwd(), 'src', 'pages', 'docs', 'index.astro');
+        } else {
+          filePath = path.join(process.cwd(), 'src', 'pages', `${page}.astro`);
+        }
 
-        const lastmod = await getFileLastModified(fixedFilePath);
+        const lastmod = await getFileLastModified(filePath);
         return `
           <url>
             <loc>${baseUrl}/${page}${page ? '/' : ''}</loc>

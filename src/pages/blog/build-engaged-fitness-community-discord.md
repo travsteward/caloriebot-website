@@ -124,4 +124,4 @@ Building an engaged fitness community on Discord takes time and effort, but with
 
 Remember that engagement is a two-way street. The more value you provide to your community, the more engaged they'll become, creating a positive feedback loop that benefits everyone involved.
 
-Ready to take your Discord fitness community to the next level? [Get started with CalorieBot](/pricing) and see how our AI-powered tools can help you build and maintain an engaged fitness community.
+Ready to take your Discord fitness community to the next level? [Get started with CalorieBot](/pricing) and see how our AI-powered tools can help you build and maintain an engaged fitness community. Once you've built your community, learn how to [monetize it effectively](/blog/monetizing-fitness-community-guide/) and explore the [future of AI photo calorie tracking](/blog/ai-photo-calorie-tracking-future/).

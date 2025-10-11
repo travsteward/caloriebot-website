@@ -2,27 +2,19 @@
 import Layout from './Layout.astro';
 import BlogCover from '../components/BlogCover.astro';
 
-interface Props {
-  title: string;
-  description: string;
-  publishedDate: string;
-  author: string;
-  authorImage?: string;
-  coverImage?: string;
-  coverImageAlt?: string;
-  tags?: string[];
-}
+// Access frontmatter from the markdown/mdx file
+const { frontmatter } = Astro.props;
 
 const {
-  title,
-  description,
-  publishedDate,
-  author,
+  title = "Untitled",
+  description = "No description available",
+  publishedDate = "2024-01-01",
+  author = "CalorieBot Team",
   authorImage = "/authors/default-avatar.svg",
   coverImage = "/blog/covers/thriving_community.png",
   coverImageAlt = "",
   tags = []
-} = Astro.props;
+} = frontmatter || {};
 
 // Ensure date is parsed correctly by creating a new Date object with the time set to noon UTC
 const formattedDate = (() => {

@@ -8,9 +8,9 @@ import { testimonials } from "../data/testimonials";
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 
 const pageTitle =
-  "CalorieBot - AI Photo Calorie Tracking for Discord Fitness Communities";
+  "CalorieBot - Monetize Your Discord Server with AI-Powered Fitness";
 const pageDescription =
-  "Transform your Discord server into a thriving fitness community. CalorieBot uses AI to track calories from food photos, guide workouts, and run engaging challenges - perfect for monetizing your fitness community.";
+  "Earn 60% commission on every user subscription. Add CalorieBot free to your Discord server, users pay $19.99/month, you earn $12. Transform your community into a profitable fitness hub with AI photo tracking and workout features.";
 
 // Add FAQ schema
 const faqSchema = {
@@ -27,10 +27,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How does the pricing work?",
+      name: "How does the affiliate commission work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We offer tiered pricing based on the number of active members, starting from $29/month for up to 5 members. Each tier includes additional features and better per-user pricing.",
+        text: "Users pay $19.99/month for CalorieBot access. As an admin, you earn 60% commission ($12/month) for every user who subscribes in your server. You keep 60%, we keep 40%.",
       },
     },
     {
@@ -43,10 +43,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Do you offer custom pricing for large communities?",
+      name: "How do I set up affiliate payments?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, we offer custom partnership pricing models for large fitness coaching communities, including full server design & branding, 1-1 growth mentorship, and priority support.",
+        text: "Simply connect your Stripe account through our affiliate setup process. Once connected, you'll automatically receive 60% commission on every user subscription in your server.",
       },
     },
   ],
@@ -55,7 +55,7 @@ const faqSchema = {
 // Add structured data properties
 const ratingValue = 4.8;
 const ratingCount = 127;
-const startingPrice = "29.00";
+const startingPrice = "19.99";
 ---
 
 <Layout
@@ -83,14 +83,14 @@ const startingPrice = "29.00";
           <h1
             class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
-            <span class="inline-block">Monetize Your</span>
-            <span class="inline-block">Discord with</span>
-            <span class="text-orange-500 inline-block">AI-Powered Fitness</span>
+            <span class="inline-block">Earn 60% Commission</span>
+            <span class="inline-block">on Every User</span>
+            <span class="text-orange-500 inline-block">$12/month per subscriber</span>
           </h1>
           <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300">
-            CalorieBot runs on autopilot to deliver spectacular transformations
-            and high server engagement. Add to your community to skyrocket
-            retention and MRR.
+            Add CalorieBot free to your Discord server. Users pay $19.99/month,
+            you earn $12. Transform your community into a profitable fitness hub
+            with <a href="/blog/ai-photo-calorie-tracking-future/" class="text-orange-400 hover:text-orange-300 underline">AI photo tracking</a> and workout features.
           </p>
           <div class="mt-10">
             <a
@@ -98,7 +98,7 @@ const startingPrice = "29.00";
               class="group inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
               aria-label="Add CalorieBot to your Discord server"
             >
-              Add to Server
+              Add Bot Free
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1"
@@ -807,7 +807,7 @@ const startingPrice = "29.00";
               Our challenge system keeps your community motivated through
               friendly competition and accountability. Set weekly goals, track
               progress, and celebrate wins together - all seamlessly integrated
-              with your Discord server.
+              with your Discord server. Learn more about <a href="/blog/build-engaged-fitness-community-discord/" class="text-orange-400 hover:text-orange-300 underline">building engaged fitness communities</a>.
             </p>
             <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
               <li class="flex items-start gap-2">
@@ -969,238 +969,95 @@ const startingPrice = "29.00";
       </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Affiliate Commission Section -->
     <div class="section-divider"></div>
-    <section id="pricing" class="pt-12 md:pt-20 pb-0 bg-dark">
+    <section id="affiliate" class="pt-12 md:pt-20 pb-0 bg-dark">
       <div class="container mx-auto px-4 max-w-5xl -mb-6">
         <h2
           class="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-6 md:mb-12"
         >
-          Simple, Transparent Pricing
+          How Affiliate Commissions Work
         </h2>
 
         <div class="grid gap-6 mx-auto">
-          <!-- Free Trial Box -->
+          <!-- Commission Structure -->
           <div
-            class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all border border-orange-500/30"
+            class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-8 border border-orange-500/30"
           >
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Free Trial</h3>
-              <p class="text-gray-400">Up to 5 members</p>
+            <div class="text-center mb-8">
+              <h3 class="text-3xl font-bold text-white mb-4">Simple Commission Structure</h3>
+              <p class="text-xl text-gray-300">Users pay $19.99/month • You earn $12/month • We keep $7.99/month</p>
             </div>
 
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-orange-400">Try all features free for 7 days</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>All core features included</li>
-                <li>No credit card required</li>
-              </ul>
-            </div>
-
-            <div class="md:w-1/4 text-center">
-              <a
-                href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-                class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-2 px-6 rounded-full transition-colors"
-              >
-                Add to Server
-              </a>
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+              <div class="bg-gray-800/50 rounded-lg p-6">
+                <div class="text-2xl font-bold text-orange-400 mb-2">$19.99</div>
+                <div class="text-gray-300">User pays monthly</div>
+              </div>
+              <div class="bg-gray-800/50 rounded-lg p-6">
+                <div class="text-2xl font-bold text-green-400 mb-2">$12</div>
+                <div class="text-gray-300">You earn (60%)</div>
+              </div>
+              <div class="bg-gray-800/50 rounded-lg p-6">
+                <div class="text-2xl font-bold text-blue-400 mb-2">$7.99</div>
+                <div class="text-gray-300">We keep (40%)</div>
+              </div>
             </div>
           </div>
 
-          <!-- Starter -->
-          <div
-            class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all"
-          >
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
-              <p class="text-3xl font-bold text-discord mb-2">
-                $29<span class="text-sm text-gray-400">/month</span>
-              </p>
-              <p class="text-gray-400">Up to 5 active members</p>
-            </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">Perfect for friends & family</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>All core features included</li>
-                <li>AI photo tracking</li>
-                <li>Guided workouts</li>
-                <li>Challenge system</li>
-                <li>$5.80 per user</li>
-              </ul>
-            </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QjsjILK64haKytlUJnHI6bo"
-              >
-                Get Started
-              </button>
+          <!-- Earnings Examples -->
+          <div class="bg-secondary rounded-lg p-8">
+            <h3 class="text-2xl font-bold text-white mb-6 text-center">Monthly Earnings Examples</h3>
+            <p class="text-gray-300 text-center mb-6">Learn more about <a href="/blog/monetizing-fitness-community-guide/" class="text-orange-400 hover:text-orange-300 underline">monetizing your fitness community</a> with proven strategies.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-orange-400 mb-2">$600</div>
+                <div class="text-gray-300 mb-2">50 subscribers</div>
+                <div class="text-sm text-gray-400">$12 × 50 users</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-orange-400 mb-2">$1,200</div>
+                <div class="text-gray-300 mb-2">100 subscribers</div>
+                <div class="text-sm text-gray-400">$12 × 100 users</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-orange-400 mb-2">$2,400</div>
+                <div class="text-gray-300 mb-2">200 subscribers</div>
+                <div class="text-sm text-gray-400">$12 × 200 users</div>
+              </div>
             </div>
           </div>
 
-          <!-- Growth -->
-          <div
-            class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all"
-          >
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Growth</h3>
-              <p class="text-3xl font-bold text-discord mb-2">
-                $99<span class="text-sm text-gray-400">/month</span>
-              </p>
-              <p class="text-gray-400">Up to 20 active members</p>
-            </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">For growing communities</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>Everything in Starter +</li>
-                <li class="font-bold text-orange-500">
-                  Group coaching platform
-                </li>
-                <li>Weekly check-in system</li>
-                <li>Inactivity alerts</li>
-                <li>$4.95 per user</li>
-              </ul>
-            </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QjsjFLK64haKytlEccmqs7i"
-              >
-                Get Started
-              </button>
+          <!-- Setup Process -->
+          <div class="bg-secondary rounded-lg p-8">
+            <h3 class="text-2xl font-bold text-white mb-6 text-center">Easy Setup Process</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="text-center">
+                <div class="text-4xl mb-4">🤖</div>
+                <h4 class="text-lg font-bold text-white mb-2">1. Add Bot Free</h4>
+                <p class="text-gray-300 text-sm">Add CalorieBot to your Discord server at no cost</p>
+              </div>
+              <div class="text-center">
+                <div class="text-4xl mb-4">💳</div>
+                <h4 class="text-lg font-bold text-white mb-2">2. Connect Stripe</h4>
+                <p class="text-gray-300 text-sm">Link your Stripe account for automatic commission payouts</p>
+              </div>
+              <div class="text-center">
+                <div class="text-4xl mb-4">💰</div>
+                <h4 class="text-lg font-bold text-white mb-2">3. Earn Commissions</h4>
+                <p class="text-gray-300 text-sm">Users subscribe for $19.99/month, you earn $12 automatically</p>
+              </div>
             </div>
           </div>
 
-          <!-- Plus
-          <div
-            class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all"
-          >
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Plus</h3>
-              <p class="text-3xl font-bold text-discord mb-2">
-                $249<span class="text-sm text-gray-400">/month</span>
-              </p>
-              <p class="text-gray-400">Up to 60 active members</p>
-            </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">For thriving communities</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>Everything in Growth +</li>
-                <li class="font-bold text-orange-500">1-1 coaching platform</li>
-                <li>Assignable coaches</li>
-                <li>Priority support</li>
-                <li>$4.15 per user</li>
-              </ul>
-            </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QjsjKLK64haKytlh1GJPwQb"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-          -->
-
-          <!-- Pro
-          <div
-            class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all"
-          >
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Pro</h3>
-              <p class="text-3xl font-bold text-discord mb-2">
-                $459<span class="text-sm text-gray-400">/month</span>
-              </p>
-              <p class="text-gray-400">Up to 130 active members</p>
-            </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">For growing large communities</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>Everything in Plus +</li>
-                <li>Priority feature requests</li>
-                <li>Discount per user</li>
-                <li>Setup onboarding</li>
-                <li>$3.53 per user</li>
-              </ul>
-            </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QkYErLK64haKytlQNHgb9r6"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-          -->
-
-          <!-- Elite
-          <div
-            class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all"
-          >
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Elite</h3>
-              <p class="text-3xl font-bold text-discord mb-2">
-                $999<span class="text-sm text-gray-400">/month</span>
-              </p>
-              <p class="text-gray-400">Up to 300 active members</p>
-            </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">For large communities</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>Everything in Pro +</li>
-                <li>Custom features requests</li>
-                <li>Premium support</li>
-                <li>Growth mentorship discord</li>
-                <li>$3.33 per user</li>
-              </ul>
-            </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QjsjBLK64haKytlmgH3MV3i"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-          -->
-
-          <!-- Partner -->
-          <div
-            class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all"
-          >
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Partner</h3>
-              <p class="text-3xl font-bold text-discord mb-2">
-                Custom<span class="text-sm text-gray-400"> pricing</span>
-              </p>
-              <p class="text-gray-400">
-                For large fitness coaching communities
-              </p>
-            </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <ul class="text-gray-300 list-disc list-inside">
-                <li class="font-bold text-orange-500">
-                  Enterprise coaching platform suite
-                </li>
-                <li>Revenue-sharing partnership model</li>
-                <li>Custom server design & branding</li>
-                <li>Advanced client monitoring dashboard</li>
-                <li>Detailed client progress reports</li>
-                <li>Dedicated account manager</li>
-                <li>Custom feature development</li>
-              </ul>
-            </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                onclick="window.openContactModal('contact-modal')"
-                class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-              >
-                Contact Us
-              </button>
-            </div>
+          <!-- CTA -->
+          <div class="text-center">
+            <a
+              href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+              class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+            >
+              Start Earning Today
+            </a>
           </div>
         </div>
       </div>

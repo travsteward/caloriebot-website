@@ -1,0 +1,349 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+// Add Discord client ID
+const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
+
+const pageTitle = "CalorieBot Affiliate Program | Earn 60% Commission on Discord Fitness Subscriptions";
+const pageDescription = "Join CalorieBot's affiliate program and earn $12/month for every user who subscribes in your Discord server. Users pay $19.99/month, you keep 60% commission. Start earning passive income today.";
+
+// Add structured data properties
+const ratingValue = 4.8;
+const ratingCount = 127;
+const startingPrice = "19.99";
+
+// Add affiliate structured data
+const affiliateSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "CalorieBot Affiliate Program",
+  "description": "Discord fitness bot affiliate program with 60% commission on user subscriptions",
+  "brand": {
+    "@type": "Brand",
+    "name": "CalorieBot"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "19.99",
+    "priceCurrency": "USD",
+    "description": "Users pay $19.99/month, affiliates earn $12/month (60% commission)"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": ratingValue,
+    "ratingCount": ratingCount,
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+
+// Add FAQ structured data
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much can I earn as a CalorieBot affiliate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You earn $12/month for every user who subscribes in your Discord server. With 50 users, that's $600/month. With 100 users, that's $1,200/month. Your earnings scale with your community size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get paid my affiliate commissions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commissions are paid automatically through Stripe Connect. You'll receive 60% of every user subscription directly to your connected Stripe account on a monthly basis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I need to become a CalorieBot affiliate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You need a Discord server with at least 50+ members, a Stripe account for payments, and the ability to promote CalorieBot to your community. The bot is free to add to your server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do users subscribe to CalorieBot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Users subscribe directly through Discord using /subscribe command. They pay $19.99/month and get access to AI photo calorie tracking, workouts, and community features."
+      }
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ratingValue={ratingValue}
+  ratingCount={ratingCount}
+  price={startingPrice}
+  type="website"
+  image="/images/affiliate-preview.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(affiliateSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <ContactModal id="contact-modal" />
+  <main>
+    <section class="relative bg-dark text-white py-16 overflow-hidden">
+      <!-- Subtle decorative elements that match the theme -->
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="absolute top-0 right-0 w-1/3 h-48 bg-orange-600/5 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/3 h-48 bg-discord/5 blur-3xl"></div>
+      </div>
+
+      <div class="container mx-auto px-4 max-w-4xl relative">
+        <div class="text-center mb-12">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            CalorieBot
+            <br />
+            <span class="text-orange-500">Affiliate Program</span>
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 text-gray-300">
+            Earn 60% commission on every user subscription in your Discord server. Learn more about <a href="/blog/monetizing-fitness-community-guide/" class="text-orange-400 hover:text-orange-300 underline">monetizing fitness communities</a> and <a href="/blog/build-engaged-fitness-community-discord/" class="text-orange-400 hover:text-orange-300 underline">building engaged communities</a>.
+          </p>
+
+          <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 p-8 rounded-lg border border-orange-500/30 mb-12">
+            <div class="text-center">
+              <p class="text-2xl text-orange-400 font-semibold mb-4">Commission Structure</p>
+              <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <div class="text-3xl font-bold text-white mb-2">$19.99</div>
+                  <div class="text-gray-300">User pays monthly</div>
+                </div>
+                <div>
+                  <div class="text-3xl font-bold text-green-400 mb-2">$12</div>
+                  <div class="text-gray-300">You earn (60%)</div>
+                </div>
+                <div>
+                  <div class="text-3xl font-bold text-blue-400 mb-2">$7.99</div>
+                  <div class="text-gray-300">We keep (40%)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Earnings Calculator */}
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-center">Earnings Calculator</h2>
+          <div class="bg-secondary rounded-lg p-8">
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="text-xl font-bold mb-4 text-orange-400">Monthly Earnings Examples</h3>
+                <div class="space-y-4">
+                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                    <span class="text-gray-300">25 subscribers</span>
+                    <span class="text-2xl font-bold text-orange-400">$300</span>
+                  </div>
+                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                    <span class="text-gray-300">50 subscribers</span>
+                    <span class="text-2xl font-bold text-orange-400">$600</span>
+                  </div>
+                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                    <span class="text-gray-300">100 subscribers</span>
+                    <span class="text-2xl font-bold text-orange-400">$1,200</span>
+                  </div>
+                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                    <span class="text-gray-300">200 subscribers</span>
+                    <span class="text-2xl font-bold text-orange-400">$2,400</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-4 text-orange-400">Annual Earnings</h3>
+                <div class="space-y-4">
+                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                    <span class="text-gray-300">25 subscribers</span>
+                    <span class="text-2xl font-bold text-orange-400">$3,600</span>
+                  </div>
+                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                    <span class="text-gray-300">50 subscribers</span>
+                    <span class="text-2xl font-bold text-orange-400">$7,200</span>
+                  </div>
+                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                    <span class="text-gray-300">100 subscribers</span>
+                    <span class="text-2xl font-bold text-orange-400">$14,400</span>
+                  </div>
+                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                    <span class="text-gray-300">200 subscribers</span>
+                    <span class="text-2xl font-bold text-orange-400">$28,800</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* How It Works */}
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-center">How It Works</h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <FeatureCard
+              title="1. Add Bot Free"
+              description="Add CalorieBot to your Discord server at no cost. No upfront fees or monthly charges."
+              icon="🤖"
+            />
+            <FeatureCard
+              title="2. Connect Stripe"
+              description="Link your Stripe account through our secure setup process. Payments are automatic and reliable."
+              icon="💳"
+            />
+            <FeatureCard
+              title="3. Promote & Earn"
+              description="Share CalorieBot with your community. Every user who subscribes earns you $12/month."
+              icon="💰"
+            />
+          </div>
+        </div>
+
+        {/* Requirements */}
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-center">Requirements</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-secondary rounded-lg p-8">
+              <h3 class="text-2xl font-bold mb-6 text-orange-400">Server Requirements</h3>
+              <ul class="space-y-4 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Discord server with 50+ active members</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Server owner or administrator permissions</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Active community interested in fitness/health</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Ability to promote new features to members</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-secondary rounded-lg p-8">
+              <h3 class="text-2xl font-bold mb-6 text-orange-400">Account Requirements</h3>
+              <ul class="space-y-4 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Valid Stripe account for commission payments</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Completed Stripe Connect onboarding</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Valid payment method for receiving funds</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Compliance with Discord Terms of Service</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Benefits */}
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-center">Why Join Our Affiliate Program?</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-secondary rounded-lg p-8">
+              <h3 class="text-2xl font-bold mb-6 text-orange-400">For Your Community</h3>
+              <ul class="space-y-4 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>AI-powered photo calorie tracking</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Guided workout plans and exercises</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Community challenges and leaderboards</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Progress tracking and analytics</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-secondary rounded-lg p-8">
+              <h3 class="text-2xl font-bold mb-6 text-orange-400">For You</h3>
+              <ul class="space-y-4 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>60% commission on every subscription</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Automatic monthly payouts via Stripe</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>No upfront costs or monthly fees</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Passive income that scales with your community</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ */}
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold text-white mb-3">How do I get started as an affiliate?</h3>
+              <p class="text-gray-300">Simply add CalorieBot to your Discord server, connect your Stripe account, and start promoting to your community. Users can subscribe directly through Discord commands.</p>
+            </div>
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold text-white mb-3">When do I get paid my commissions?</h3>
+              <p class="text-gray-300">Commissions are paid monthly through Stripe Connect. You'll receive your 60% share automatically for all active subscriptions in your server.</p>
+            </div>
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold text-white mb-3">What happens if a user cancels their subscription?</h3>
+              <p class="text-gray-300">Your commission stops when a user cancels. However, if they resubscribe later, you'll start earning commissions again automatically.</p>
+            </div>
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Is there a minimum payout threshold?</h3>
+              <p class="text-gray-300">No minimum payout threshold. You'll receive commissions for every user subscription, regardless of the amount.</p>
+            </div>
+            <div class="bg-secondary rounded-lg p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Can I be an affiliate for multiple Discord servers?</h3>
+              <p class="text-gray-300">Yes! You can earn commissions from multiple Discord servers you own or administer. Each server is treated separately for commission tracking.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Final CTA */}
+        <div class="text-center">
+          <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-10 border border-orange-500/30">
+            <h2 class="text-3xl font-bold mb-6">Ready to Start Earning?</h2>
+            <p class="text-xl text-orange-400 mb-10">Join thousands of Discord server owners who are already earning passive income with CalorieBot.</p>
+            <a
+              href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+              class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+            >
+              Become an Affiliate Today
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

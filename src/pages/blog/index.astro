@@ -7,16 +7,6 @@ const pageDescription = "Expert insights on building fitness communities, AI nut
 // Blog posts array
 const posts = [
   {
-    title: "Test Post - Verifying Blog Setup",
-    slug: "test-post",
-    description: "A simple test post to verify that our blog setup is working correctly.",
-    publishedDate: "2024-02-01",
-    author: "CalorieBot Team",
-    authorImage: "/authors/team.svg",
-    coverImage: "/blog/test.svg",
-    tags: ["Test"]
-  },
-  {
     title: "How to Build an Engaged Fitness Community on Discord",
     slug: "build-engaged-fitness-community-discord",
     description: "Learn the key strategies to create, grow, and maintain an active fitness community on Discord. From setting up channels to organizing challenges.",
@@ -24,6 +14,7 @@ const posts = [
     author: "CalorieBot Team",
     authorImage: "/authors/team.svg",
     coverImage: "/blog/covers/thriving_community.png",
+    coverImageAlt: "A thriving fitness community sharing their progress and supporting each other",
     tags: ["Community Building", "Discord Tips", "Engagement"]
   },
   {
@@ -34,6 +25,7 @@ const posts = [
     author: "CalorieBot Team",
     authorImage: "/authors/team.svg",
     coverImage: "/blog/covers/ai_photo_tracking.png",
+    coverImageAlt: "AI analyzing a food photo to calculate calories and nutrition information",
     tags: ["AI Technology", "Nutrition", "Innovation"]
   },
   {
@@ -44,6 +36,7 @@ const posts = [
     author: "CalorieBot Team",
     authorImage: "/authors/team.svg",
     coverImage: "/blog/covers/monetize_discord.png",
+    coverImageAlt: "Discord server monetization dashboard showing revenue streams and member engagement",
     tags: ["Monetization", "Business", "Community"]
   }
 ];
@@ -71,7 +64,7 @@ const sortedPosts = [...posts].sort((a, b) =>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {sortedPosts.map(post => (
         <article class="bg-secondary rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all">
-          <a href={`/blog/${post.slug}`} class="block">
+          <a href={`/blog/${post.slug}/`} class="block">
             <img
               src={post.coverImage}
               alt={post.title}

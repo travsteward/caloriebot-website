@@ -59,37 +59,9 @@ const websiteSchema = {
   }
 };
 
-const softwareSchema = type === 'website' ? {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "CalorieBot",
-  "applicationCategory": "HealthAndFitnessApplication",
-  "operatingSystem": "Discord",
-  "description": description,
-  "featureList": [
-    "AI Photo Calorie Tracking",
-    "Scale Integration",
-    "Nutrition Label Scanning",
-    "Custom Workout Builder",
-    "Progress Sharing",
-    "Challenge System",
-    "Group Coaching Platform",
-    "1-1 Coaching Tools",
-    "Redemption Challenges",
-    "Weekly Check-ins",
-    "Inactivity Alerts"
-  ],
-  "offers": price ? {
-    "@type": "Offer",
-    "price": price,
-    "priceCurrency": "USD"
-  } : undefined,
-  "aggregateRating": ratingValue && ratingCount ? {
-    "@type": "AggregateRating",
-    "ratingValue": ratingValue,
-    "ratingCount": ratingCount
-  } : undefined
-} : null;
+// SoftwareApplication schema removed to avoid Google Search Console errors
+// It required aggregateRating or review properties that we don't have
+const softwareSchema = null;
 
 const pageSchema = type === 'article' ? {
   "@context": "https://schema.org",
@@ -239,6 +211,13 @@ const jsonLd = {
     {featuresSchema && <script type="application/ld+json" set:html={JSON.stringify(featuresSchema)} />}
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Font display optimization */
+      @font-face {
+        font-family: 'Inter';
+        font-display: swap;
+      }
+    </style>
   </head>
   <body class="bg-dark font-sans">
     <Navigation />

@@ -6,13 +6,13 @@ import FeatureCard from '../components/FeatureCard.astro';
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 
 // Optimize meta information
-const pageTitle = "Monetize Your Discord Community | CalorieBot Revenue Platform";
-const pageDescription = "Transform your Discord fitness community into a profitable business. Generate $1,000-$12,500+ monthly with CalorieBot's premium features, automated tracking, and engagement tools.";
+const pageTitle = "Monetize Your Discord Community | CalorieBot Affiliate Program";
+const pageDescription = "Earn 60% commission on every user subscription. Add CalorieBot free to your Discord server, users pay $19.99/month, you earn $12. Transform your community into a profitable fitness hub.";
 
 // Add structured data properties
 const ratingValue = 4.8;
 const ratingCount = 127;
-const startingPrice = "29.00";
+const startingPrice = "19.99";
 
 // Add monetization structured data
 const monetizationSchema = {
@@ -95,16 +95,28 @@ const faqSchema = {
       <div class="container mx-auto px-4 max-w-4xl relative">
         <div class="text-center">
           <h1 class="text-5xl md:text-6xl font-bold mb-6">
-            How to
+            Earn 60% Commission
             <br />
-            <span class="text-orange-500">Monetize with CalorieBot</span>
+            <span class="text-orange-500">on Every User</span>
           </h1>
-          <p class="text-xl md:text-2xl mb-12 text-gray-300">Transform your Discord into a premium fitness hub</p>
+          <p class="text-xl md:text-2xl mb-12 text-gray-300">Users pay $19.99/month, you earn $12/month automatically. Read our complete guide on <a href="/blog/monetizing-fitness-community-guide/" class="text-orange-400 hover:text-orange-300 underline">monetizing fitness communities</a>.</p>
 
           <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 p-8 rounded-lg border border-orange-500/30 mb-12">
-            <p class="text-xl text-orange-400 font-semibold mb-4">Potential Monthly Revenue</p>
-            <div class="text-4xl font-bold text-white mb-4">$1,000 - $12,500+</div>
-            <p class="text-gray-300">Based on 50-250 members at $20-$50 per user</p>
+            <p class="text-xl text-orange-400 font-semibold mb-4">Monthly Earnings Examples</p>
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+              <div>
+                <div class="text-3xl font-bold text-white mb-2">$600</div>
+                <div class="text-gray-300">50 subscribers</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-white mb-2">$1,200</div>
+                <div class="text-gray-300">100 subscribers</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-white mb-2">$2,400</div>
+                <div class="text-gray-300">200 subscribers</div>
+              </div>
+            </div>
           </div>
 
           {/* Creator-Community Message */}
@@ -118,80 +130,88 @@ const faqSchema = {
         {/* Value Proposition Cards */}
         <div class="grid md:grid-cols-3 gap-8 mb-16">
           <FeatureCard
-            title="Premium Experience"
-            description="Offer a fully managed fitness and weight-loss experience – like adding a private gym, trainer, and nutritionist overnight."
-            icon="💪"
-          />
-          <FeatureCard
-            title="Recurring Revenue"
-            description="Generate predictable monthly income through membership fees, with flexible pricing based on your brand value."
+            title="60% Commission"
+            description="Earn $12/month for every user who subscribes in your Discord server. No upfront costs or monthly fees."
             icon="💰"
           />
           <FeatureCard
-            title="Community Growth"
-            description="Transform casual members into committed, long-term subscribers through meaningful fitness interactions."
+            title="Automatic Payouts"
+            description="Receive commissions automatically through Stripe Connect. No manual invoicing or payment processing."
+            icon="💳"
+          />
+          <FeatureCard
+            title="Passive Income"
+            description="Scale your earnings as your community grows. More subscribers = more monthly income."
             icon="📈"
           />
         </div>
 
-        {/* Why It Works Section */}
+        {/* How It Works Section */}
         <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-10 text-center">Why This Works</h2>
+          <h2 class="text-3xl font-bold mb-10 text-center">How It Works</h2>
           <div class="bg-gradient-to-r from-discord/20 to-discord/10 p-8 rounded-lg mb-10">
-            <p class="text-xl text-gray-300">Your audience doesn't just want advice – they want to connect with you and others who share their passion. CalorieBot transforms your server into a space where members can thrive together.</p>
+            <p class="text-xl text-gray-300">The affiliate program is designed to be simple and profitable. Add CalorieBot free, connect your Stripe account, and start earning commissions automatically.</p>
           </div>
 
           <div class="grid gap-8">
             <div class="bg-secondary rounded-lg p-8 transform hover:scale-105 transition-transform">
-              <h3 class="text-xl font-bold mb-4 text-discord">Build Real-World Bonds</h3>
-              <p class="text-gray-300">Members forge lasting connections through shared fitness goals and daily interactions.</p>
+              <h3 class="text-xl font-bold mb-4 text-orange-400">1. Add Bot Free</h3>
+              <p class="text-gray-300">Add CalorieBot to your Discord server at no cost. No upfront fees or monthly charges.</p>
             </div>
             <div class="bg-secondary rounded-lg p-8 transform hover:scale-105 transition-transform">
-              <h3 class="text-xl font-bold mb-4 text-discord">Strengthen Community Trust</h3>
-              <p class="text-gray-300">Foster camaraderie through community challenges and progress tracking.</p>
+              <h3 class="text-xl font-bold mb-4 text-orange-400">2. Connect Stripe Account</h3>
+              <p class="text-gray-300">Link your Stripe account through our secure setup process for automatic commission payouts.</p>
             </div>
             <div class="bg-secondary rounded-lg p-8 transform hover:scale-105 transition-transform">
-              <h3 class="text-xl font-bold mb-4 text-discord">Deepen Brand Connection</h3>
-              <p class="text-gray-300">Create personal, impactful experiences that keep members engaged long-term.</p>
+              <h3 class="text-xl font-bold mb-4 text-orange-400">3. Promote & Earn</h3>
+              <p class="text-gray-300">Share CalorieBot with your community. Every user who subscribes earns you $12/month automatically.</p>
             </div>
           </div>
         </div>
 
         {/* Benefits Section */}
         <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-10 text-center">Key Benefits for Monetization</h2>
+          <h2 class="text-3xl font-bold mb-10 text-center">Why Choose CalorieBot Affiliate Program</h2>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="bg-secondary rounded-lg p-8">
-              <h3 class="text-2xl font-bold mb-6 text-discord">Revenue & Growth</h3>
+              <h3 class="text-2xl font-bold mb-6 text-orange-400">Financial Benefits</h3>
               <ul class="space-y-4 text-gray-300">
                 <li class="flex items-start">
-                  <span class="text-discord mr-3 text-xl">✓</span>
-                  <span>Charge monthly for premium fitness hub access</span>
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>60% commission on every user subscription</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-discord mr-3 text-xl">✓</span>
-                  <span>Increase member retention and lifetime value</span>
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>No upfront costs or monthly fees</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-discord mr-3 text-xl">✓</span>
-                  <span>Scale revenue with community growth</span>
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Automatic monthly payouts via Stripe</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Passive income that scales with your community</span>
                 </li>
               </ul>
             </div>
             <div class="bg-secondary rounded-lg p-8">
-              <h3 class="text-2xl font-bold mb-6 text-discord">Brand & Community</h3>
+              <h3 class="text-2xl font-bold mb-6 text-orange-400">Community Benefits</h3>
               <ul class="space-y-4 text-gray-300">
                 <li class="flex items-start">
-                  <span class="text-discord mr-3 text-xl">✓</span>
-                  <span>Strengthen connection to your values</span>
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>AI-powered photo calorie tracking</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-discord mr-3 text-xl">✓</span>
-                  <span>Build a high-trust ecosystem</span>
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Guided workout plans and exercises</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-discord mr-3 text-xl">✓</span>
-                  <span>Create lasting brand loyalty</span>
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Community challenges and leaderboards</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span>Progress tracking and analytics</span>
                 </li>
               </ul>
             </div>
@@ -201,13 +221,13 @@ const faqSchema = {
         {/* Final CTA */}
         <div class="text-center">
           <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-10 border border-orange-500/30">
-            <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Community?</h2>
-            <p class="text-xl text-orange-400 mb-10">Create a lasting, revenue-generating asset that elevates your brand and transforms your followers' lives.</p>
+            <h2 class="text-3xl font-bold mb-6">Ready to Start Earning?</h2>
+            <p class="text-xl text-orange-400 mb-10">Join thousands of Discord server owners who are already earning passive income with CalorieBot.</p>
             <a
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
               class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
             >
-              Add to Server
+              Become an Affiliate Today
             </a>
           </div>
         </div>

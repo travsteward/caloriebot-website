@@ -1,0 +1,287 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactModal from '../components/ContactModal.astro';
+---
+
+<Layout title="CalorieBot Enterprise - Custom Solutions for Large Coaching Operations">
+  <main class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          Scale Your Coaching Business with
+          <span class="text-orange-500">CalorieBot</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          Custom Enterprise solutions for large coaching operations, gym chains, and corporate wellness programs.
+          Get unlimited clients, priority support, and custom integrations.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onclick="openContactModal('enterprise-contact-modal')"
+            class="bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-colors"
+          >
+            Get Custom Pricing
+          </button>
+          <a
+            href="#features"
+            class="border border-gray-400 text-gray-300 hover:text-white hover:border-white font-bold py-4 px-8 rounded-full text-lg transition-colors"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-white text-center mb-16">
+          Enterprise Features
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Unlimited Clients -->
+          <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+            <div class="text-orange-500 text-4xl mb-4">👥</div>
+            <h3 class="text-xl font-bold text-white mb-4">Unlimited Clients</h3>
+            <p class="text-gray-300">
+              Scale your coaching practice without limits. Serve hundreds or thousands of clients with no per-client fees.
+            </p>
+          </div>
+
+          <!-- Priority Support -->
+          <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+            <div class="text-orange-500 text-4xl mb-4">⚡</div>
+            <h3 class="text-xl font-bold text-white mb-4">Priority Support</h3>
+            <p class="text-gray-300">
+              Get dedicated support with faster response times and direct access to our technical team.
+            </p>
+          </div>
+
+          <!-- Custom Integrations -->
+          <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+            <div class="text-orange-500 text-4xl mb-4">🔧</div>
+            <h3 class="text-xl font-bold text-white mb-4">Custom Integrations</h3>
+            <p class="text-gray-300">
+              Connect CalorieBot with your existing systems, CRM, payment processors, and other tools.
+            </p>
+          </div>
+
+          <!-- White Label Options -->
+          <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+            <div class="text-orange-500 text-4xl mb-4">🎨</div>
+            <h3 class="text-xl font-bold text-white mb-4">White Label Options</h3>
+            <p class="text-gray-300">
+              Brand CalorieBot as your own with custom colors, logos, and domain names.
+            </p>
+          </div>
+
+          <!-- Advanced Analytics -->
+          <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+            <div class="text-orange-500 text-4xl mb-4">📊</div>
+            <h3 class="text-xl font-bold text-white mb-4">Advanced Analytics</h3>
+            <p class="text-gray-300">
+              Get detailed insights into client progress, engagement metrics, and business performance.
+            </p>
+          </div>
+
+          <!-- Partnership Opportunities -->
+          <div class="bg-gray-800 p-8 rounded-lg border border-gray-700">
+            <div class="text-orange-500 text-4xl mb-4">🤝</div>
+            <h3 class="text-xl font-bold text-white mb-4">Partnership Opportunities</h3>
+            <p class="text-gray-300">
+              Explore revenue-sharing models and strategic partnerships for mutual growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Comparison -->
+    <section class="py-20 px-4 bg-gray-800">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-white text-center mb-16">
+          Pricing Comparison
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Coach Tier -->
+          <div class="bg-gray-900 p-8 rounded-lg border border-gray-700">
+            <h3 class="text-2xl font-bold text-white mb-4">CalorieBot Coach</h3>
+            <div class="text-3xl font-bold text-orange-500 mb-4">$499/month</div>
+            <p class="text-gray-300 mb-6">Up to 20 clients</p>
+            <ul class="text-gray-300 space-y-2 mb-8">
+              <li>• Complete coaching infrastructure</li>
+              <li>• AI-powered food logging</li>
+              <li>• Progress tracking</li>
+              <li>• Client management</li>
+            </ul>
+            <div class="text-sm text-gray-400">
+              $24.95 per client
+            </div>
+          </div>
+
+          <!-- Studio Tier -->
+          <div class="bg-gray-900 p-8 rounded-lg border border-orange-500 relative">
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span class="bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                Most Popular
+              </span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">CalorieBot Studio</h3>
+            <div class="text-3xl font-bold text-orange-500 mb-4">$1,499/month</div>
+            <p class="text-gray-300 mb-6">Up to 50 clients</p>
+            <ul class="text-gray-300 space-y-2 mb-8">
+              <li>• All Coach features</li>
+              <li>• Higher client limits</li>
+              <li>• Priority support</li>
+              <li>• Advanced analytics</li>
+            </ul>
+            <div class="text-sm text-gray-400">
+              $29.98 per client
+            </div>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="bg-gray-900 p-8 rounded-lg border border-gray-700">
+            <h3 class="text-2xl font-bold text-white mb-4">Enterprise</h3>
+            <div class="text-3xl font-bold text-orange-500 mb-4">Custom</div>
+            <p class="text-gray-300 mb-6">50+ clients</p>
+            <ul class="text-gray-300 space-y-2 mb-8">
+              <li>• Unlimited clients</li>
+              <li>• White label options</li>
+              <li>• Custom integrations</li>
+              <li>• Partnership opportunities</li>
+            </ul>
+            <div class="text-sm text-gray-400">
+              Contact for pricing
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-white text-center mb-16">
+          Perfect For
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="text-orange-500 text-6xl mb-4">🏋️</div>
+            <h3 class="text-xl font-bold text-white mb-2">Large Gym Chains</h3>
+            <p class="text-gray-300">Serve thousands of members across multiple locations</p>
+          </div>
+
+          <div class="text-center">
+            <div class="text-orange-500 text-6xl mb-4">💼</div>
+            <h3 class="text-xl font-bold text-white mb-2">Corporate Wellness</h3>
+            <p class="text-gray-300">Employee health programs for large companies</p>
+          </div>
+
+          <div class="text-center">
+            <div class="text-orange-500 text-6xl mb-4">🎓</div>
+            <h3 class="text-xl font-bold text-white mb-2">Coaching Companies</h3>
+            <p class="text-gray-300">Multi-coach operations with hundreds of clients</p>
+          </div>
+
+          <div class="text-center">
+            <div class="text-orange-500 text-6xl mb-4">🏥</div>
+            <h3 class="text-xl font-bold text-white mb-2">Healthcare Systems</h3>
+            <p class="text-gray-300">Medical practices offering nutrition coaching</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="py-20 px-4 bg-gray-800">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-white mb-8">
+          Calculate Your ROI
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">
+          See how CalorieBot can transform your coaching business
+        </p>
+
+        <div class="bg-gray-900 p-8 rounded-lg border border-gray-700 max-w-2xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-8 text-left">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-4">Without CalorieBot</h3>
+              <ul class="text-gray-300 space-y-2">
+                <li>• Manual food review: 2-3 hours/day</li>
+                <li>• Multiple software subscriptions: $300/month</li>
+                <li>• Or hire assistant: $2,000+/month</li>
+                <li>• Limited scalability</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-4">With CalorieBot</h3>
+              <ul class="text-gray-300 space-y-2">
+                <li>• Automated AI analysis: 0 hours/day</li>
+                <li>• Single platform: $499-1,499/month</li>
+                <li>• Scales to unlimited clients</li>
+                <li>• Focus on coaching, not admin</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8 p-4 bg-orange-500 bg-opacity-20 rounded-lg">
+            <p class="text-orange-300 font-bold">
+              Example: Coach with 20 clients at $200/month each = $4,000/month revenue
+            </p>
+            <p class="text-white mt-2">
+              Pay $499/month for CalorieBot = 12.5% of revenue for complete infrastructure
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-white mb-8">
+          Ready to Scale Your Coaching Business?
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Get a custom Enterprise plan tailored to your needs
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onclick="openContactModal('enterprise-contact-modal')"
+            class="bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-colors"
+          >
+            Get Custom Pricing
+          </button>
+          <a
+            href="mailto:enterprise@caloriebot.ai"
+            class="border border-gray-400 text-gray-300 hover:text-white hover:border-white font-bold py-4 px-8 rounded-full text-lg transition-colors"
+          >
+            enterprise@caloriebot.ai
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Contact Modal -->
+  <ContactModal id="enterprise-contact-modal" />
+</Layout>
+
+<script>
+  // Pre-fill the contact form with enterprise context
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('enterprise-contact-modal');
+    if (modal) {
+      const messageField = modal.querySelector('#message');
+      if (messageField) {
+        messageField.value = 'Enterprise Private Server Inquiry\n\nI\'m interested in a custom Enterprise plan for my coaching business.\n\nBusiness Details:\n- Number of clients: \n- Business type: \n- Current monthly revenue: \n- Specific requirements: ';
+      }
+    }
+  });
+</script>

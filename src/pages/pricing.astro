@@ -5,8 +5,8 @@ import ContactModal from "../components/ContactModal.astro";
 // Make DISCORD_CLIENT_ID available to the frontend
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 
-const pageTitle = "CalorieBot Pricing | Simple, Transparent Plans for Discord Fitness";
-const pageDescription = "Choose the perfect plan for your Discord fitness community. Starting at $29/month with AI photo calorie tracking, guided workouts, and challenge systems. No hidden fees.";
+const pageTitle = "CalorieBot Affiliate Program | Earn 60% Commission";
+const pageDescription = "Join CalorieBot's affiliate program and earn $12/month for every user who subscribes in your Discord server. Users pay $19.99/month, you keep 60% commission.";
 
 const plans = [
   {
@@ -136,89 +136,95 @@ const priceRange = {
       <div class="container mx-auto px-4 max-w-5xl relative">
         <div class="text-center mb-12">
           <h1 class="text-5xl md:text-6xl font-bold mb-6">
-            Simple, Transparent
+            Affiliate Program
             <br />
-            <span class="text-orange-500">Pricing</span>
+            <span class="text-orange-500">Earn 60% Commission</span>
           </h1>
-          <p class="text-xl md:text-2xl text-gray-300">Choose the perfect plan for your community size and goals</p>
+          <p class="text-xl md:text-2xl text-gray-300">Users pay $19.99/month, you earn $12/month for every subscriber. Learn more about <a href="/blog/monetizing-fitness-community-guide/" class="text-orange-400 hover:text-orange-300 underline">monetizing your fitness community</a>.</p>
         </div>
 
         <div class="grid gap-6 mx-auto">
-          {/* Free Trial Tier */}
-          <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all border border-orange-500/30">
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">
-                Free Trial
-              </h3>
-              <p class="text-gray-400">Up to 5 members</p>
+          {/* Commission Structure */}
+          <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-8 border border-orange-500/30">
+            <div class="text-center mb-8">
+              <h3 class="text-3xl font-bold text-white mb-4">Commission Structure</h3>
+              <p class="text-xl text-gray-300">Users pay $19.99/month • You earn $12/month • We keep $7.99/month</p>
             </div>
 
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-orange-400">Try all features free for 7 days</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>All core features included</li>
-                <li>No credit card required</li>
-              </ul>
-            </div>
-
-            <div class="md:w-1/4 text-center">
-              <a
-                href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-                class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-2 px-6 rounded-full transition-colors"
-              >
-                Add to Server
-              </a>
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+              <div class="bg-gray-800/50 rounded-lg p-6">
+                <div class="text-2xl font-bold text-orange-400 mb-2">$19.99</div>
+                <div class="text-gray-300">User pays monthly</div>
+              </div>
+              <div class="bg-gray-800/50 rounded-lg p-6">
+                <div class="text-2xl font-bold text-green-400 mb-2">$12</div>
+                <div class="text-gray-300">You earn (60%)</div>
+              </div>
+              <div class="bg-gray-800/50 rounded-lg p-6">
+                <div class="text-2xl font-bold text-blue-400 mb-2">$7.99</div>
+                <div class="text-gray-300">We keep (40%)</div>
+              </div>
             </div>
           </div>
 
-          {/* Existing Plans */}
-          {plans.map((plan) => (
-            <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
-              <div class="md:w-1/4 text-center md:text-left">
-                <h3 class="text-2xl font-bold text-white mb-2">
-                  {plan.name}
-                </h3>
-                <p class="text-3xl font-bold text-discord mb-2">
-                  {typeof plan.price === "number"
-                    ? `$${plan.price}`
-                    : plan.price}
-                  <span class="text-sm text-gray-400">{plan.period}</span>
-                </p>
-                <p class="text-gray-400">{plan.description}</p>
-                {plan.memberLimit && (
-                  <p class="text-gray-400 mt-2">{plan.memberLimit}</p>
-                )}
+          {/* Earnings Examples */}
+          <div class="bg-secondary rounded-lg p-8">
+            <h3 class="text-2xl font-bold text-white mb-6 text-center">Monthly Earnings Examples</h3>
+            <div class="grid md:grid-cols-4 gap-6">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-orange-400 mb-2">$300</div>
+                <div class="text-gray-300 mb-2">25 subscribers</div>
+                <div class="text-sm text-gray-400">$12 × 25 users</div>
               </div>
-
-              <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-                <ul class="text-gray-300 list-disc list-inside">
-                  {plan.features.map((feature) => (
-                    <li class={feature.includes("coaching platform") ? "font-bold text-orange-500" : ""}>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-orange-400 mb-2">$600</div>
+                <div class="text-gray-300 mb-2">50 subscribers</div>
+                <div class="text-sm text-gray-400">$12 × 50 users</div>
               </div>
-
-              <div class="md:w-1/4 text-center">
-                {plan.hasCheckout ? (
-                  <button
-                    class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                    data-price-id={plan.priceId}
-                  >
-                    Get Started
-                  </button>
-                ) : (
-                  <button
-                    onclick="window.openContactModal('contact-modal')"
-                    class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                  >
-                    Contact Us
-                  </button>
-                )}
+              <div class="text-center">
+                <div class="text-3xl font-bold text-orange-400 mb-2">$1,200</div>
+                <div class="text-gray-300 mb-2">100 subscribers</div>
+                <div class="text-sm text-gray-400">$12 × 100 users</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-orange-400 mb-2">$2,400</div>
+                <div class="text-gray-300 mb-2">200 subscribers</div>
+                <div class="text-sm text-gray-400">$12 × 200 users</div>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Setup Process */}
+          <div class="bg-secondary rounded-lg p-8">
+            <h3 class="text-2xl font-bold text-white mb-6 text-center">How to Get Started</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="text-center">
+                <div class="text-4xl mb-4">🤖</div>
+                <h4 class="text-lg font-bold text-white mb-2">1. Add Bot Free</h4>
+                <p class="text-gray-300 text-sm">Add CalorieBot to your Discord server at no cost</p>
+              </div>
+              <div class="text-center">
+                <div class="text-4xl mb-4">💳</div>
+                <h4 class="text-lg font-bold text-white mb-2">2. Connect Stripe</h4>
+                <p class="text-gray-300 text-sm">Link your Stripe account for automatic commission payouts</p>
+              </div>
+              <div class="text-center">
+                <div class="text-4xl mb-4">💰</div>
+                <h4 class="text-lg font-bold text-white mb-2">3. Earn Commissions</h4>
+                <p class="text-gray-300 text-sm">Users subscribe for $19.99/month, you earn $12 automatically</p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div class="text-center">
+            <a
+              href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+              class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+            >
+              Start Earning Today
+            </a>
+          </div>
         </div>
       </div>
     </section>

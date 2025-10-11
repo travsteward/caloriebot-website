@@ -6,7 +6,7 @@
 [functions]
   node_bundler = "esbuild"
 
-# Security headers
+# Security and performance headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -16,17 +16,10 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "upgrade-insecure-requests"
     X-Robots-Tag = "all"
+    # Performance headers
+    Cache-Control = "public, max-age=31536000, immutable"
 
-# Noindex for legal pages and utility endpoints
-[[headers]]
-  for = "/privacy/"
-  [headers.values]
-    X-Robots-Tag = "noindex"
-
-[[headers]]
-  for = "/terms/"
-  [headers.values]
-    X-Robots-Tag = "noindex"
+# Noindex for utility endpoints only
 
 [[headers]]
   for = "/.netlify/functions/"
@@ -43,6 +36,44 @@
   for = "/blog/"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+# IndexNow key file
+[[headers]]
+  for = "/indexnow-key.txt"
+  [headers.values]
+    Content-Type = "text/plain"
+    Cache-Control = "public, max-age=86400"
+
+# Static assets caching
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
 # Force all traffic to HTTPS first
 [[redirects]]
@@ -83,6 +114,12 @@
 [[redirects]]
   from = "/robots.txt"
   to = "/robots.txt"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/indexnow-key.txt"
+  to = "/indexnow-key.txt"
   status = 200
   force = true
 

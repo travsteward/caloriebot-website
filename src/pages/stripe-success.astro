@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Get guild_id from URL parameters
+const urlParams = new URLSearchParams(Astro.url.search);
+const guildId = urlParams.get('guild_id');
+---
+
+<Layout title="CalorieBot - Stripe Connected Successfully!">
+  <main class="min-h-screen bg-dark flex items-center justify-center">
+    <div class="container mx-auto px-4 max-w-lg text-center">
+      <div class="bg-secondary p-8 rounded-lg shadow-lg">
+        <div class="text-5xl mb-6">🔗</div>
+        <h1 class="text-3xl font-bold text-green-400 mb-4">Stripe Connected Successfully!</h1>
+        <p class="text-gray-300 mb-6">
+          Your Stripe Connect account has been successfully linked to your CalorieBot server.
+          You can now start earning commissions from user subscriptions!
+        </p>
+
+        {guildId && (
+          <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mb-6">
+            <p class="text-green-300 text-sm">
+              <strong>Server ID:</strong> <code class="bg-gray-800 px-2 py-1 rounded">{guildId}</code>
+            </p>
+          </div>
+        )}
+
+        <div class="space-y-4">
+          <div class="bg-gray-800/50 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-white mb-2">🎯 What's Next?</h3>
+            <ul class="text-gray-300 text-sm space-y-1 text-left">
+              <li>• Return to Discord and use <code>/setup_2</code> to access your Make Money dashboard</li>
+              <li>• Invite users to your server to start earning commissions</li>
+              <li>• Monitor your earnings in the CalorieBot dashboard</li>
+              <li>• Manage your Stripe account at <a href="https://dashboard.stripe.com" class="text-blue-400 hover:underline" target="_blank">dashboard.stripe.com</a></li>
+            </ul>
+          </div>
+
+          <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-blue-300 mb-2">💰 Commission Details</h3>
+            <ul class="text-gray-300 text-sm space-y-1 text-left">
+              <li>• <strong>Commission Rate:</strong> 60% ($12.00 per user)</li>
+              <li>• <strong>Payment Schedule:</strong> Automatic via Stripe</li>
+              <li>• <strong>Minimum Payout:</strong> $25 (Stripe standard)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 space-y-3">
+          <a
+            href="https://discord.com/channels/@me"
+            class="block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+            target="_blank"
+          >
+            Return to Discord
+          </a>
+
+          <a
+            href="https://dashboard.stripe.com"
+            class="block bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+            target="_blank"
+          >
+            Open Stripe Dashboard
+          </a>
+        </div>
+
+        <p class="text-gray-400 text-xs mt-6">
+          Need help? Join our <a href="https://discord.gg/caloriebot" class="text-blue-400 hover:underline" target="_blank">Discord server</a> for support.
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Track successful Stripe connection
+  sa_event("stripe_connect_success", {
+    guild_id: new URLSearchParams(window.location.search).get('guild_id')
+  });
+</script>
