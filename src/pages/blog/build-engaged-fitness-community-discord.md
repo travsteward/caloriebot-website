@@ -8,6 +8,7 @@ authorImage: "/authors/team.svg"
 coverImage: "/blog/covers/thriving_community.png"
 coverImageAlt: "A thriving fitness community sharing their progress and supporting each other"
 tags: ["Community Building", "Discord Tips", "Engagement"]
+prerender: true
 ---
 
 Building a thriving fitness community on Discord requires more than just creating a server and hoping people will join. In this comprehensive guide, we'll walk you through proven strategies to create, grow, and maintain an engaged fitness community that delivers real value to its members.

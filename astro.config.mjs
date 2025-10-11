@@ -9,6 +9,7 @@ export default defineConfig({
     mdx(),
   ],
   adapter: netlify(),
+  output: 'static', // Static site generation for best performance
   site: 'https://caloriebot.ai',
   trailingSlash: 'always',
   outDir: './dist',

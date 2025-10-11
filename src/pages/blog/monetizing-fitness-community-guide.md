@@ -8,6 +8,7 @@ authorImage: "/authors/team.svg"
 coverImage: "/blog/covers/monetize_discord.png"
 coverImageAlt: "Discord server monetization dashboard showing revenue streams and member engagement"
 tags: ["Monetization", "Business", "Community"]
+prerender: true
 ---
 
 # Complete Guide to Monetizing Your Fitness Community

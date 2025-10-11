@@ -6,7 +6,19 @@
 [functions]
   node_bundler = "esbuild"
 
-# Security and performance headers
+# HTML pages - shorter cache for content updates
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "upgrade-insecure-requests"
+    X-Robots-Tag = "all"
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Default security headers for all other files
 [[headers]]
   for = "/*"
   [headers.values]
@@ -16,7 +28,6 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "upgrade-insecure-requests"
     X-Robots-Tag = "all"
-    # Performance headers
     Cache-Control = "public, max-age=31536000, immutable"
 
 # Noindex for utility endpoints only
