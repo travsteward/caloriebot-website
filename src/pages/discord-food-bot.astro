@@ -1,0 +1,559 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactModal from "../components/ContactModal.astro";
+
+// Add Discord client ID
+const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
+
+const pageTitle = "Discord Food Bot - AI Photo Calorie Tracking & Nutrition Logging";
+const pageDescription = "The ultimate Discord food bot for nutrition tracking. Features AI photo calorie counting, food logging, meal sharing, and nutrition analysis. Perfect for food communities, diet groups, and health-focused Discord servers.";
+
+// FAQ schema for Discord food bot
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is a Discord food bot?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A Discord food bot is an automated bot that helps Discord communities track food intake, calories, and nutrition. CalorieBot is the leading Discord food bot with AI-powered photo analysis for instant calorie counting.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does CalorieBot work as a food bot?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "CalorieBot uses AI to analyze food photos and instantly calculate calories, macros, and nutritional information. Members can also log meals through natural language input and share food photos with their Discord community.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What food tracking features does CalorieBot offer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "CalorieBot offers AI photo calorie counting, nutrition label scanning, scale integration, meal sharing, food database search, macro tracking, and community food inspiration - all integrated into Discord.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I share food photos with my Discord community?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes! CalorieBot makes it easy to share food photos, meal ideas, and nutrition progress with your Discord food community. Members can inspire each other with healthy meal ideas and celebrate food wins together.",
+      },
+    },
+  ],
+};
+
+const ratingValue = 4.8;
+const ratingCount = 127;
+const startingPrice = "19.99";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ratingValue={ratingValue}
+  ratingCount={ratingCount}
+  price={startingPrice}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <ContactModal id="contact-modal" />
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-dark text-white py-8 md:py-12 overflow-hidden">
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="absolute top-0 right-0 w-1/3 h-48 bg-orange-600/5 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/3 h-48 bg-discord/5 blur-3xl"></div>
+      </div>
+
+      <div class="container mx-auto px-4 max-w-4xl text-center relative">
+        <div class="space-y-8">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <span class="inline-block">The Ultimate</span>
+            <span class="text-orange-500 inline-block">Discord Food Bot</span>
+            <span class="inline-block">for Nutrition Tracking</span>
+          </h1>
+          <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300">
+            Transform your Discord server into a thriving food community with AI-powered calorie tracking,
+            meal sharing, nutrition analysis, and food inspiration. Perfect for diet groups, food communities, and health-focused servers.
+          </p>
+          <div class="mt-10">
+            <a
+              href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+              class="group inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
+              aria-label="Add CalorieBot Discord food bot to your server"
+            >
+              Add Food Bot Free
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose CalorieBot as Your Discord Food Bot -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 md:mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Why CalorieBot is the Best Discord Food Bot
+          </h2>
+          <p class="text-lg text-gray-300 mt-4 max-w-3xl mx-auto">
+            Unlike basic food bots, CalorieBot combines AI-powered nutrition analysis with comprehensive food tracking,
+            making it the complete solution for Discord food communities and diet groups.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">📸</div>
+            <h3 class="text-xl font-bold text-white mb-3">AI Photo Analysis</h3>
+            <p class="text-gray-300">
+              Simply snap a photo of your meal and get instant calorie calculations,
+              macro breakdowns, and nutritional information.
+            </p>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">🍎</div>
+            <h3 class="text-xl font-bold text-white mb-3">Smart Food Recognition</h3>
+            <p class="text-gray-300">
+              Advanced AI recognizes thousands of food items, portions, and ingredients
+              to provide accurate nutrition tracking for your Discord food community.
+            </p>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">📊</div>
+            <h3 class="text-xl font-bold text-white mb-3">Nutrition Tracking</h3>
+            <p class="text-gray-300">
+              Track calories, macros, vitamins, and minerals with detailed
+              nutrition analysis and progress monitoring.
+            </p>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">🍽️</div>
+            <h3 class="text-xl font-bold text-white mb-3">Meal Sharing</h3>
+            <p class="text-gray-300">
+              Share food photos, meal ideas, and nutrition progress with your
+              Discord food community for inspiration and accountability.
+            </p>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">⚖️</div>
+            <h3 class="text-xl font-bold text-white mb-3">Scale Integration</h3>
+            <p class="text-gray-300">
+              Connect smart scales for precise portion measurements and
+              accurate calorie calculations in your Discord food bot.
+            </p>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">🏷️</div>
+            <h3 class="text-xl font-bold text-white mb-3">Label Scanning</h3>
+            <p class="text-gray-300">
+              Scan nutrition labels for instant food logging and
+              accurate macro tracking in your Discord food community.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Photo Calorie Tracking -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">AI-Powered Food Analysis</div>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-white leading-tight">
+              Instant Calorie Counting<br />from Food Photos
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
+              Your Discord food bot members can simply snap a photo of their meal and get instant calorie calculations.
+              Our AI recognizes food items, portions, and provides accurate nutritional information - perfect for busy food communities.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Instant Analysis: Get detailed nutritional breakdown in seconds</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Smart Adjustments: Fine-tune entries with one-tap editing</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Enhanced Context: Add notes, ingredients, and meal details</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Real-time Tracking: Monitor progress throughout your day</span>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/steak.png"
+                    alt="AI Food Analysis for Discord Food Bot"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/scale.png"
+                    alt="Food Logging for Discord Food Communities"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Natural Language Food Logging -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">Natural Language Input</div>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-white leading-tight">
+              Chat-Based<br />Food Logging
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
+              Skip the manual data entry and complicated food searches. Simply type what you ate in natural language,
+              and our AI instantly calculates the nutritional information for your Discord food community.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Natural language understanding for quick food entries</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Instant calorie and macro calculations</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Smart portion size interpretation</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>No more scrolling through endless food databases</span>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="bg-gray-800 rounded-xl p-6 shadow-xl h-[290px] md:h-[375px] flex flex-col">
+              <div class="flex-1 mb-4 flex items-end">
+                <div class="w-full p-4 bg-gray-700/50 rounded-lg text-gray-300 font-mono">
+                  <span class="typing-text"></span>
+                  <span class="typing-cursor">|</span>
+                </div>
+              </div>
+              <div class="bg-gray-700/50 p-4 rounded-lg flex items-center gap-3">
+                <div class="flex-1 h-6 bg-gray-600/50 rounded"></div>
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Food Sharing & Community -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 md:mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Food Sharing & Community Features
+          </h2>
+        </div>
+        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">Community Connection</div>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
+              Share Your Meals<br />Inspire Your Community
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-6">
+              Our food sharing features make it easy for your Discord food community to celebrate healthy meals,
+              share food photos, and stay motivated together. From daily nutrition tallies to meal inspiration,
+              keep your community engaged and healthy.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Daily Nutrition Sharing: Automatically share your daily totals</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Meal Inspiration: Share your food photos for community ideas</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Nutrition Milestones: Celebrate healthy eating achievements</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Community Support: Get encouragement from your food community</span>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/tally_sharing.png"
+                    alt="Daily Nutrition Sharing for Discord Food Bot"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/food_sharing.png"
+                    alt="Food Sharing for Discord Food Communities"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Food Features -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 md:mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Advanced Food Tracking Features
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-gray-800/50 rounded-xl p-8">
+            <div class="text-4xl mb-4">⚖️</div>
+            <h3 class="text-2xl font-bold text-white mb-4">Smart Scale Integration</h3>
+            <p class="text-gray-300 mb-4">
+              Connect compatible smart scales for precise portion measurements and accurate calorie calculations.
+              Perfect for serious food tracking in your Discord food community.
+            </p>
+            <ul class="space-y-2 text-gray-300">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Automatic weight detection and logging</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Precise calorie calculations based on actual weight</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-8">
+            <div class="text-4xl mb-4">🏷️</div>
+            <h3 class="text-2xl font-bold text-white mb-4">Nutrition Label Scanning</h3>
+            <p class="text-gray-300 mb-4">
+              Scan nutrition labels for instant food logging and accurate macro tracking.
+              No more manual entry of nutrition facts for your Discord food bot community.
+            </p>
+            <ul class="space-y-2 text-gray-300">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Instant nutrition fact extraction</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Automatic macro and micronutrient logging</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-dark">
+      <div class="container mx-auto px-4 max-w-4xl text-center">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          Ready to Transform Your Discord Food Community?
+        </h2>
+        <p class="text-lg md:text-xl text-gray-300 mb-8">
+          Join thousands of Discord communities using CalorieBot as their food bot.
+          Add it free today and start building a healthier, more engaged food community.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+            class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
+          >
+            Add CalorieBot Free
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <a
+            href="/pricing"
+            class="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
+          >
+            View Pricing
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const phrases = [
+      "2 eggs and 3 strips of bacon",
+      "250g ribeye steak, 180g potatoes",
+    ];
+
+    const typingDemo = document.querySelector(".typing-text");
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function typeText() {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        typingDemo.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+      } else {
+        typingDemo.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 100;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        isDeleting = true;
+        typingSpeed = 1000;
+      }
+
+      if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typingSpeed = 500;
+      }
+
+      setTimeout(typeText, typingSpeed);
+    }
+
+    typeText();
+  });
+</script>
+
+<style>
+  .image-glow {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .image-glow:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+
+  .section-divider {
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    opacity: 0.7;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .typing-cursor {
+    animation: blink 1s step-end infinite;
+  }
+</style>

@@ -1,0 +1,590 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactModal from "../components/ContactModal.astro";
+
+// Add Discord client ID
+const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
+
+const pageTitle = "Fitness Bot - AI-Powered Workout & Nutrition Tracking";
+const pageDescription = "The ultimate fitness bot for communities. Features AI photo calorie tracking, guided workouts, progress monitoring, and health challenges. Perfect for fitness groups, gym communities, and health-focused platforms.";
+
+// FAQ schema for fitness bot
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is a fitness bot?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A fitness bot is an automated bot that helps communities track fitness activities, nutrition, workouts, and health metrics. CalorieBot is the leading fitness bot with AI-powered features for comprehensive health tracking.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does CalorieBot work as a fitness bot?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "CalorieBot uses AI to analyze food photos for calorie counting, provides guided workout instructions, tracks fitness progress, and creates community challenges. Members can log meals, workouts, and share progress.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What fitness features does CalorieBot offer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "CalorieBot offers AI photo calorie tracking, custom workout builder, progress photo sharing, challenge system with leaderboards, nutrition logging, and community engagement tools for comprehensive fitness tracking.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is CalorieBot free to use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, CalorieBot is free to add to any Discord server. Server admins can earn 60% commission ($12/month) for every member who subscribes to premium features.",
+      },
+    },
+  ],
+};
+
+const ratingValue = 4.8;
+const ratingCount = 127;
+const startingPrice = "19.99";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ratingValue={ratingValue}
+  ratingCount={ratingCount}
+  price={startingPrice}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <ContactModal id="contact-modal" />
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-dark text-white py-8 md:py-12 overflow-hidden">
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="absolute top-0 right-0 w-1/3 h-48 bg-orange-600/5 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/3 h-48 bg-discord/5 blur-3xl"></div>
+      </div>
+
+      <div class="container mx-auto px-4 max-w-4xl text-center relative">
+        <div class="space-y-8">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <span class="inline-block">The Ultimate</span>
+            <span class="text-orange-500 inline-block">Fitness Bot</span>
+            <span class="inline-block">for Your Community</span>
+          </h1>
+          <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300">
+            Transform your community into a thriving fitness hub with AI-powered calorie tracking,
+            guided workouts, challenges, and progress sharing. Perfect for fitness groups, gym communities, and health-focused platforms.
+          </p>
+          <div class="mt-10">
+            <a
+              href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+              class="group inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
+              aria-label="Add CalorieBot fitness bot to your community"
+            >
+              Add Fitness Bot Free
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose CalorieBot as Your Fitness Bot -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 md:mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Why CalorieBot is the Best Fitness Bot
+          </h2>
+          <p class="text-lg text-gray-300 mt-4 max-w-3xl mx-auto">
+            Unlike basic fitness bots, CalorieBot combines AI-powered nutrition tracking with comprehensive workout features,
+            making it the complete solution for fitness communities and health-focused platforms.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">🤖</div>
+            <h3 class="text-xl font-bold text-white mb-3">AI-Powered Intelligence</h3>
+            <p class="text-gray-300">
+              Advanced AI analyzes food photos and provides instant calorie calculations,
+              making nutrition tracking effortless for your fitness community.
+            </p>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">💪</div>
+            <h3 class="text-xl font-bold text-white mb-3">Complete Workout System</h3>
+            <p class="text-gray-300">
+              Built-in workout builder, exercise tracking, and PR logging -
+              everything your fitness community needs in one bot.
+            </p>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">🏆</div>
+            <h3 class="text-xl font-bold text-white mb-3">Community Challenges</h3>
+            <p class="text-gray-300">
+              Automated challenges, leaderboards, and progress sharing keep your
+              fitness community engaged and motivated.
+            </p>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">📊</div>
+            <h3 class="text-xl font-bold text-white mb-3">Progress Tracking</h3>
+            <p class="text-gray-300">
+              Comprehensive progress tracking with photos, measurements,
+              and detailed analytics for your fitness community.
+            </p>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">👥</div>
+            <h3 class="text-xl font-bold text-white mb-3">Social Features</h3>
+            <p class="text-gray-300">
+              Share meals, celebrate wins, and build accountability through
+              social features integrated with fitness tracking.
+            </p>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
+            <div class="text-4xl mb-4">💰</div>
+            <h3 class="text-xl font-bold text-white mb-3">Monetization Ready</h3>
+            <p class="text-gray-300">
+              Earn 60% commission on subscriptions while providing value to your
+              fitness community - it's a win-win for everyone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Photo Calorie Tracking -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">AI-Powered Nutrition</div>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-white leading-tight">
+              Smart Food Analysis<br />for Fitness Communities
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
+              Your fitness bot members can simply snap a photo of their meal and get instant calorie calculations.
+              Our AI recognizes food items, portions, and provides accurate nutritional information - perfect for busy fitness communities.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Instant Analysis: Get detailed nutritional breakdown in seconds</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Smart Adjustments: Fine-tune entries with one-tap editing</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Scale Integration: Achieve precise measurements for accuracy</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Label Reading: Scan nutrition labels for accurate tracking</span>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/steak.png"
+                    alt="AI Food Analysis for Fitness Bot"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/scale.png"
+                    alt="Food Logging for Fitness Communities"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workout Features -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 md:mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Complete Workout System for Fitness Bots
+          </h2>
+        </div>
+        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">Guided Fitness</div>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
+              AI-Powered Workouts<br />Built for Communities
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-6">
+              Unlike basic fitness bots, CalorieBot provides comprehensive workout functionality including
+              guided exercises, progress tracking, and community sharing - all integrated into your platform.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Guided Workouts: Step-by-step exercise instructions</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>PR Tracking: Log and compare personal records</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Workout Sharing: Celebrate completed workouts with your community</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Progress Tracking: Monitor your fitness journey over time</span>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/barbell_workout.png"
+                    alt="Barbell Workout Tracking for Fitness Bot"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/workouts_start.png"
+                    alt="Workout Start Demo for Fitness Communities"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Workout Builder -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 md:mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Build Your Perfect Workout
+          </h2>
+        </div>
+        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">AI-Powered Customization</div>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
+              Personalized Workouts<br />On Demand
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-6">
+              Simply tell our AI what equipment you have, your fitness goals, and how much time you have.
+              We'll generate the perfect workout tailored to your needs - whether you're at a fully-equipped gym,
+              traveling with limited equipment, or working out at home.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Equipment-Based: Works with any setup, from full gyms to bodyweight only</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Time-Efficient: Get workouts tailored to your available time</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Goal-Oriented: Focus on strength, endurance, or specific muscle groups</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Travel-Friendly: Perfect for hotel rooms, parks, or on-the-go workouts</span>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-[400px] md:h-[500px]">
+              <div class="w-full h-full relative p-4">
+                <img
+                  src="/images/build_workout.png"
+                  alt="AI Workout Builder Demo for Fitness Bot"
+                  class="rounded-lg w-full h-full object-contain bg-gray-800"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenge System -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 md:mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Challenge Motivation System
+          </h2>
+        </div>
+        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">Gamified Fitness</div>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-3 text-white leading-tight">
+              Weekly Challenges<br />Built for Engagement
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-3">
+              Our challenge system keeps your fitness community motivated through friendly competition and accountability.
+              Set weekly goals, track progress, and celebrate wins together - all seamlessly integrated with your platform.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Auto-Pull Progress: Challenges automatically track nutrition and workout data</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Daily Targets: Track calories, workouts, steps, and protein</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Redemption Challenges: Miss a target? Complete community-approved tasks</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Leaderboards: Friendly competition to keep everyone motivated</span>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/challenge_embed.png"
+                    alt="Challenge System for Fitness Bot"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/results_embed.png"
+                    alt="Challenge Results for Fitness Communities"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Sharing -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 md:mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Social Sharing & Community Engagement
+          </h2>
+        </div>
+        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+          <div class="w-full md:flex-[0.5]">
+            <div class="text-indigo-400 font-semibold mb-2">Community Connection</div>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
+              Share Your Progress<br />Celebrate Together
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 mb-6">
+              Our social sharing features make it easy for your fitness community to celebrate wins,
+              share progress, and stay motivated together. From daily tallies to meal photos, keep your community engaged and inspired.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Daily Progress Sharing: Automatically share your daily totals</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Meal Inspiration: Share your food photos for community ideas</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Milestone Celebrations: Automatically highlight big achievements</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Community Support: Get encouragement from your fitness family</span>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/tally_sharing.png"
+                    alt="Daily Tally Sharing for Fitness Bot"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
+                <div class="w-full h-full relative">
+                  <img
+                    src="/images/food_sharing.png"
+                    alt="Food Sharing for Fitness Communities"
+                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="section-divider"></div>
+    <section class="py-12 md:py-20 bg-dark">
+      <div class="container mx-auto px-4 max-w-4xl text-center">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          Ready to Transform Your Community?
+        </h2>
+        <p class="text-lg md:text-xl text-gray-300 mb-8">
+          Join thousands of communities using CalorieBot as their fitness bot.
+          Add it free today and start building a healthier, more engaged community.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+            class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
+          >
+            Add CalorieBot Free
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <a
+            href="/pricing"
+            class="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
+          >
+            View Pricing
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .image-glow {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .image-glow:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+
+  .section-divider {
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    opacity: 0.7;
+  }
+</style>

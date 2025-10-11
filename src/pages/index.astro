@@ -8,9 +8,9 @@ import { testimonials } from "../data/testimonials";
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 
 const pageTitle =
-  "CalorieBot - Monetize Your Discord Server with AI-Powered Fitness";
+  "CalorieBot - AI-Powered Discord Fitness Bot for Calorie Tracking & Workouts";
 const pageDescription =
-  "Earn 60% commission on every user subscription. Add CalorieBot free to your Discord server, users pay $19.99/month, you earn $12. Transform your community into a profitable fitness hub with AI photo tracking and workout features.";
+  "CalorieBot is the ultimate Discord fitness bot with AI photo calorie tracking, guided workouts, challenges, and community features. Monetize your Discord server with CalorieBot - add free and earn 60% commission on subscriptions.";
 
 // Add FAQ schema
 const faqSchema = {
@@ -83,22 +83,22 @@ const startingPrice = "19.99";
           <h1
             class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
-            <span class="inline-block">Earn 60% Commission</span>
-            <span class="inline-block">on Every User</span>
-            <span class="text-orange-500 inline-block">$12/month per subscriber</span>
+            <span class="inline-block">CalorieBot - The Ultimate</span>
+            <span class="text-orange-500 inline-block">Discord Fitness Bot</span>
+            <span class="inline-block">for Your Community</span>
           </h1>
           <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300">
-            Add CalorieBot free to your Discord server. Users pay $19.99/month,
-            you earn $12. Transform your community into a profitable fitness hub
-            with <a href="/blog/ai-photo-calorie-tracking-future/" class="text-orange-400 hover:text-orange-300 underline">AI photo tracking</a> and workout features.
+            Transform your Discord server with AI-powered calorie tracking, guided workouts, challenges, and community features.
+            Members can snap photos of meals for instant calorie calculations, track workouts, and participate in fitness challenges - all within Discord.
+            <span class="text-orange-400 font-semibold">Monetize your server</span> with CalorieBot and earn 60% commission on subscriptions.
           </p>
           <div class="mt-10">
             <a
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
               class="group inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
-              aria-label="Add CalorieBot to your Discord server"
+              aria-label="Add CalorieBot Discord fitness bot to your server"
             >
-              Add Bot Free
+              Add CalorieBot Free
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1"
