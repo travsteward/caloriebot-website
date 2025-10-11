@@ -24,13 +24,11 @@ const staticPages = [
   'privacy',
   'user-guide',
   'blog',
-  'enterprise',
   'affiliate',
   'success',
   'cancel',
   'device-success',
   'stripe-success',
-  'social-test',
   'user-guide'
 ];
 
@@ -62,6 +60,11 @@ async function discoverAllPages() {
         // Handle index files
         if (urlPath.endsWith('/index')) {
           urlPath = urlPath.replace('/index', '');
+        }
+
+        // Skip root index.astro file since it's handled by staticPages
+        if (urlPath === 'index') {
+          return null;
         }
 
         // Skip API routes and special files
