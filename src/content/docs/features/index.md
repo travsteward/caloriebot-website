@@ -9,22 +9,22 @@ Discover all the powerful features that make CalorieBot the perfect solution for
 
 ## Core Features
 
-- [AI Photo Calorie Tracking](/docs/features/photo-tracking)
-- [Natural Language Input](/docs/features/natural-language)
-- [Guided Workouts](/docs/features/workouts)
-- [Challenge System](/docs/features/challenges)
-- [Progress Tracking](/docs/features/progress)
+- **AI Photo Calorie Tracking**: Simply snap a photo of your meal and let our AI analyze it
+- **Natural Language Input**: Type what you ate in plain English
+- **Guided Workouts**: Get personalized workout plans
+- **Challenge System**: Keep your community engaged with weekly challenges
+- **Progress Tracking**: Monitor your community's fitness journey
 
 ## Community Features
 
-- [Leaderboards](/docs/features/leaderboards)
-- [Social Sharing](/docs/features/social)
-- [Community Challenges](/docs/features/community-challenges)
-- [Member Profiles](/docs/features/profiles)
+- **Leaderboards**: Track member progress and achievements
+- **Social Sharing**: Share accomplishments with the community
+- **Community Challenges**: Participate in group fitness challenges
+- **Member Profiles**: View detailed member progress and stats
 
 ## Advanced Features
 
-- [Custom Workout Builder](/docs/features/workout-builder)
-- [Analytics Dashboard](/docs/features/analytics)
-- [API Integration](/docs/features/api)
-- [Custom Branding](/docs/features/branding)
+- **Custom Workout Builder**: Create personalized workout routines
+- **Analytics Dashboard**: Comprehensive insights and reporting
+- **API Integration**: Connect with other fitness tools
+- **Custom Branding**: Customize the bot to match your community
