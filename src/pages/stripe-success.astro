@@ -4,9 +4,12 @@ import Layout from '../layouts/Layout.astro';
 // Get guild_id from URL parameters
 const urlParams = new URLSearchParams(Astro.url.search);
 const guildId = urlParams.get('guild_id');
+
+// Prevent search engine indexing for callback pages
+export const prerender = true;
 ---
 
-<Layout title="CalorieBot - Stripe Connected Successfully!">
+<Layout title="CalorieBot - Stripe Connected Successfully!" robots="noindex">
   <main class="min-h-screen bg-dark flex items-center justify-center">
     <div class="container mx-auto px-4 max-w-lg text-center">
       <div class="bg-secondary p-8 rounded-lg shadow-lg">

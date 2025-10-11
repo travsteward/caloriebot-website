@@ -16,6 +16,7 @@ interface Props {
   price?: string;
   ratingValue?: number;
   ratingCount?: number;
+  robots?: string;
 }
 
 const {
@@ -30,7 +31,8 @@ const {
   readingTime,
   price,
   ratingValue,
-  ratingCount
+  ratingCount,
+  robots = "index, follow"
 } = Astro.props;
 
 const siteName = "CalorieBot - AI Fitness for Discord";
@@ -175,7 +177,7 @@ const jsonLd = {
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
     <meta name="keywords" content="discord fitness bot, calorie tracking, AI food recognition, fitness community, workout tracking, fitness challenges, discord server monetization" />
     <link rel="canonical" href={new URL(Astro.url.pathname, 'https://caloriebot.ai').href} />
     {readingTime && <meta name="twitter:label1" property="Reading time" content={readingTime} />}

@@ -18,6 +18,7 @@ Disallow: /admin/
 Disallow: /success/
 Disallow: /cancel/
 Disallow: /device-success/
+Disallow: /stripe-success/
 Disallow: /search/
 
 # Temporarily noindex blog until ready

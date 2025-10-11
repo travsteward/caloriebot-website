@@ -19,7 +19,6 @@ const staticPages = [
   'success',
   'cancel',
   'device-success',
-  'stripe-success',
   'user-guide'
 ];
 
