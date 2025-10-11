@@ -22,7 +22,11 @@ const staticPages = [
   'device-success',
   'stripe-success',
   'social-test',
-  'user-guide'
+  'features',
+  'getting-started',
+  'commands',
+  'faq',
+  'docs'
 ];
 
 // Blog post metadata cache

@@ -1,0 +1,204 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "Getting Started with CalorieBot - Discord Fitness Bot Setup Guide";
+const pageDescription = "Learn how to set up CalorieBot in your Discord server. Complete guide for admins, configuration, permissions, and getting your fitness community started.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-dark text-white py-8 md:py-12 overflow-hidden">
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="absolute top-0 right-0 w-1/3 h-48 bg-orange-600/5 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/3 h-48 bg-discord/5 blur-3xl"></div>
+      </div>
+
+      <div class="container mx-auto px-4 max-w-4xl text-center relative">
+        <div class="space-y-8">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <span class="inline-block">Getting Started with</span>
+            <span class="text-orange-500 inline-block">CalorieBot</span>
+          </h1>
+          <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300">
+            Set up CalorieBot in your Discord server and start building an engaged fitness community.
+            Complete setup guide for server admins.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Setup Steps -->
+    <section class="py-12 md:py-20 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+          <!-- Step 1: Add Bot -->
+          <div class="bg-gray-800 rounded-xl p-8 shadow-xl">
+            <div class="text-orange-400 font-semibold mb-2">Step 1</div>
+            <h3 class="text-3xl font-bold text-white mb-4">Add CalorieBot to Your Server</h3>
+            <p class="text-gray-300 mb-6">
+              Click the button below to add CalorieBot to your Discord server. You'll need administrator permissions to add bots.
+            </p>
+            <a
+              href="https://discord.com/api/oauth2/authorize?client_id=123456789&permissions=395137251392&scope=bot%20applications.commands"
+              class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-full transition-colors"
+            >
+              Add CalorieBot
+            </a>
+            <div class="mt-6 p-4 bg-gray-700/50 rounded-lg">
+              <h4 class="text-white font-semibold mb-2">Required Permissions:</h4>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li>• Send Messages</li>
+                <li>• Embed Links</li>
+                <li>• Attach Files</li>
+                <li>• Use Slash Commands</li>
+                <li>• Manage Channels (for setup)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 2: Configuration -->
+          <div class="bg-gray-800 rounded-xl p-8 shadow-xl">
+            <div class="text-orange-400 font-semibold mb-2">Step 2</div>
+            <h3 class="text-3xl font-bold text-white mb-4">Configure Your Server</h3>
+            <p class="text-gray-300 mb-6">
+              Set up channels, configure settings, and customize CalorieBot for your community's needs.
+            </p>
+            <div class="space-y-4">
+              <div class="p-4 bg-gray-700/50 rounded-lg">
+                <h4 class="text-white font-semibold mb-2">Channel Setup</h4>
+                <p class="text-gray-300 text-sm">Create dedicated channels for food logging, workouts, and challenges.</p>
+              </div>
+              <div class="p-4 bg-gray-700/50 rounded-lg">
+                <h4 class="text-white font-semibold mb-2">Role Management</h4>
+                <p class="text-gray-300 text-sm">Assign appropriate roles and permissions for different user types.</p>
+              </div>
+              <div class="p-4 bg-gray-700/50 rounded-lg">
+                <h4 class="text-white font-semibold mb-2">Customization</h4>
+                <p class="text-gray-300 text-sm">Configure challenge settings, notification preferences, and community rules.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Invite Members -->
+          <div class="bg-gray-800 rounded-xl p-8 shadow-xl">
+            <div class="text-orange-400 font-semibold mb-2">Step 3</div>
+            <h3 class="text-3xl font-bold text-white mb-4">Invite Your Community</h3>
+            <p class="text-gray-300 mb-6">
+              Share CalorieBot with your community members and help them get started with fitness tracking.
+            </p>
+            <div class="space-y-4">
+              <div class="p-4 bg-gray-700/50 rounded-lg">
+                <h4 class="text-white font-semibold mb-2">Member Onboarding</h4>
+                <p class="text-gray-300 text-sm">Guide new members through their first food log and workout.</p>
+              </div>
+              <div class="p-4 bg-gray-700/50 rounded-lg">
+                <h4 class="text-white font-semibold mb-2">Community Guidelines</h4>
+                <p class="text-gray-300 text-sm">Establish clear rules for sharing progress and supporting each other.</p>
+              </div>
+              <div class="p-4 bg-gray-700/50 rounded-lg">
+                <h4 class="text-white font-semibold mb-2">Engagement Tips</h4>
+                <p class="text-gray-300 text-sm">Use challenges and social features to keep your community active.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Monetization -->
+          <div class="bg-gray-800 rounded-xl p-8 shadow-xl">
+            <div class="text-orange-400 font-semibold mb-2">Step 4</div>
+            <h3 class="text-3xl font-bold text-white mb-4">Enable Monetization</h3>
+            <p class="text-gray-300 mb-6">
+              Set up affiliate commissions and start earning from your engaged fitness community.
+            </p>
+            <div class="space-y-4">
+              <div class="p-4 bg-gray-700/50 rounded-lg">
+                <h4 class="text-white font-semibold mb-2">Connect Stripe</h4>
+                <p class="text-gray-300 text-sm">Link your Stripe account for automatic commission payouts.</p>
+              </div>
+              <div class="p-4 bg-gray-700/50 rounded-lg">
+                <h4 class="text-white font-semibold mb-2">Commission Structure</h4>
+                <p class="text-gray-300 text-sm">Earn 60% commission ($12/month) on every user subscription.</p>
+              </div>
+              <div class="p-4 bg-gray-700/50 rounded-lg">
+                <h4 class="text-white font-semibold mb-2">Payment Tracking</h4>
+                <p class="text-gray-300 text-sm">Monitor your earnings and subscriber growth in real-time.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Commands -->
+    <section class="py-12 md:py-20 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            Essential Commands
+          </h2>
+          <p class="text-lg text-gray-300">
+            Get started with these essential CalorieBot commands
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-gray-800 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-white mb-3">/log</h3>
+            <p class="text-gray-300 text-sm mb-3">Log your meals and track calories</p>
+            <code class="text-orange-400 text-sm">/log "2 eggs and bacon"</code>
+          </div>
+
+          <div class="bg-gray-800 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-white mb-3">/workout</h3>
+            <p class="text-gray-300 text-sm mb-3">Start a guided workout session</p>
+            <code class="text-orange-400 text-sm">/workout equipment:gym time:30</code>
+          </div>
+
+          <div class="bg-gray-800 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-white mb-3">/challenge</h3>
+            <p class="text-gray-300 text-sm mb-3">Join weekly fitness challenges</p>
+            <code class="text-orange-400 text-sm">/challenge join</code>
+          </div>
+
+          <div class="bg-gray-800 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-white mb-3">/progress</h3>
+            <p class="text-gray-300 text-sm mb-3">View your fitness progress</p>
+            <code class="text-orange-400 text-sm">/progress weekly</code>
+          </div>
+
+          <div class="bg-gray-800 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-white mb-3">/help</h3>
+            <p class="text-gray-300 text-sm mb-3">Get help and command list</p>
+            <code class="text-orange-400 text-sm">/help</code>
+          </div>
+
+          <div class="bg-gray-800 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-white mb-3">/setup</h3>
+            <p class="text-gray-300 text-sm mb-3">Configure CalorieBot settings</p>
+            <code class="text-orange-400 text-sm">/setup channels</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 md:py-20 bg-secondary">
+      <div class="container mx-auto px-4 max-w-4xl text-center">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          Ready to Get Started?
+        </h2>
+        <p class="text-lg md:text-xl text-gray-300 mb-8">
+          Add CalorieBot to your Discord server and start building your fitness community today.
+        </p>
+        <a
+          href="https://discord.com/api/oauth2/authorize?client_id=123456789&permissions=395137251392&scope=bot%20applications.commands"
+          class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+        >
+          Add CalorieBot Now
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

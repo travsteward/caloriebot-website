@@ -96,7 +96,59 @@
   status = 301
   force = true
 
-# Handle trailing slashes consistently
+# Redirect English locale URLs to non-locale versions with trailing slashes
+[[redirects]]
+  from = "/en/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/features/*"
+  to = "/features/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/getting-started/*"
+  to = "/getting-started/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/commands"
+  to = "/commands/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/faq"
+  to = "/faq/"
+  status = 301
+  force = true
+
+# Redirect missing feature pages to main features page
+[[redirects]]
+  from = "/features/*"
+  to = "/features/"
+  status = 301
+  force = true
+
+# Redirect missing getting-started pages to user-guide
+[[redirects]]
+  from = "/getting-started/*"
+  to = "/user-guide/"
+  status = 301
+  force = true
+
+# Redirect docs/features to main docs
+[[redirects]]
+  from = "/docs/features/*"
+  to = "/docs/"
+  status = 301
+  force = true
+
+# Handle trailing slashes consistently - redirect non-trailing to trailing
 [[redirects]]
   from = "/:page"
   to = "/:page/"
