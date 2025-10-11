@@ -155,7 +155,7 @@ async function generateSitemap() {
         } else if (page === 'blog') {
           filePath = path.join(projectRoot, 'src', 'pages', 'blog', 'index.astro');
         } else if (page === 'docs') {
-          filePath = path.join(projectRoot, 'src', 'pages', 'docs', 'index.astro');
+          // Docs page removed
         } else {
           filePath = path.join(projectRoot, 'src', 'pages', `${page}.astro`);
         }

@@ -148,7 +148,7 @@ export const GET: APIRoute = async () => {
         } else if (page === 'blog') {
           filePath = path.join(process.cwd(), 'src', 'pages', 'blog', 'index.astro');
         } else if (page === 'docs') {
-          filePath = path.join(process.cwd(), 'src', 'pages', 'docs', 'index.astro');
+          // Docs page removed
         } else {
           filePath = path.join(process.cwd(), 'src', 'pages', `${page}.astro`);
         }

@@ -45,9 +45,4 @@ Allow: /*.gif$
 Allow: /*.png$
 Allow: /*.webp$
 
-# Additional rules to prevent crawling of the docs section
-Disallow: /docs/
-Disallow: /getting-started/
-Disallow: /features/
-Disallow: /commands/
-Disallow: /faq/
+# Docs section removed
