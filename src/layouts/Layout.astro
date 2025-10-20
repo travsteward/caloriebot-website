@@ -49,110 +49,7 @@ const organizationSchema = {
   ]
 };
 
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": siteName,
-  "url": "https://caloriebot.ai",
-  "description": description,
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://caloriebot.ai/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-};
-
-// SoftwareApplication schema removed to avoid Google Search Console errors
-// It required aggregateRating or review properties that we don't have
-const softwareSchema = null;
-
-const pageSchema = type === 'article' ? {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": title,
-  "description": description,
-  "image": image,
-  "datePublished": publishedDate,
-  "dateModified": modifiedDate || publishedDate,
-  "author": {
-    "@type": "Person",
-    "name": author
-  },
-  "publisher": organizationSchema,
-  "timeRequired": readingTime
-} : null;
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://caloriebot.ai"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": title,
-      "item": canonicalURL
-    }
-  ]
-};
-
-const featuresSchema = type === 'website' ? {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "AI Photo Calorie Tracking",
-      "description": "Instantly calculate calories from food photos using advanced AI technology"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Scale Integration",
-      "description": "Achieve precise measurements with smart scale integration"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Nutrition Label Scanning",
-      "description": "Scan nutrition labels for accurate food tracking"
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "Custom Workout Builder",
-      "description": "AI-powered workout generation based on equipment and goals"
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "name": "Challenge System",
-      "description": "Engage community with automated fitness challenges and leaderboards"
-    },
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "name": "Coaching Platform",
-      "description": "Comprehensive tools for both group and 1-1 coaching"
-    }
-  ]
-} : null;
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "CalorieBot",
-  "description": description || "AI-powered calorie tracking and fitness community platform",
-  "url": "https://caloriebot.ai",
-  "logo": "https://caloriebot.ai/icon-512.png",
-  // ... rest of jsonLd ...
-};
+// Simplified schema for better performance - removed excessive markup
 ---
 
 <!doctype html>
@@ -204,26 +101,34 @@ const jsonLd = {
     <meta name="twitter:site" content="@caloriebotai" />
     <meta name="twitter:creator" content="@caloriebotai" />
 
-    <!-- Schema.org markup -->
+    <!-- Simplified Schema.org markup for better performance -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-    {softwareSchema && <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />}
-    {pageSchema && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-    {featuresSchema && <script type="application/ld+json" set:html={JSON.stringify(featuresSchema)} />}
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Ahrefs Analytics -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="g0xcQl1PmXzsJQB8EGLozA" async></script>
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SD2BXG767"></script>
+    <!-- Deferred Analytics for better performance -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-8SD2BXG767');
+      // Defer analytics loading until page is interactive
+      window.addEventListener('load', function() {
+        // Ahrefs Analytics
+        const ahrefs = document.createElement('script');
+        ahrefs.src = 'https://analytics.ahrefs.com/analytics.js';
+        ahrefs.setAttribute('data-key', 'g0xcQl1PmXzsJQB8EGLozA');
+        ahrefs.async = true;
+        document.head.appendChild(ahrefs);
+
+        // Google Analytics
+        const gtag = document.createElement('script');
+        gtag.src = 'https://www.googletagmanager.com/gtag/js?id=G-8SD2BXG767';
+        gtag.async = true;
+        gtag.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8SD2BXG767');
+        };
+        document.head.appendChild(gtag);
+      });
     </script>
 
     <style>

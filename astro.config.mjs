@@ -13,6 +13,11 @@ export default defineConfig({
   site: 'https://caloriebot.ai',
   trailingSlash: 'always',
   outDir: './dist',
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    }
+  },
   markdown: {
     shikiConfig: {
       theme: 'dracula',
