@@ -150,12 +150,14 @@ const priceRange = {
               <a
                 href="#affiliate-model"
                 class="px-6 py-3 rounded-lg font-semibold transition-all text-white bg-orange-600 hover:bg-orange-500"
+                onclick="trackPricingModelInterest('make_money_server', 'quick_nav')"
               >
                 💰 Make Money Server
               </a>
               <a
                 href="#private-model"
                 class="px-6 py-3 rounded-lg font-semibold transition-all text-white bg-discord hover:bg-blue-600"
+                onclick="trackPricingModelInterest('private_coaching_server', 'quick_nav')"
               >
                 🏠 Private Coaching Server
               </a>
@@ -247,6 +249,7 @@ const priceRange = {
               <a
                 href="/affiliate/"
                 class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+                onclick="trackFeatureInteraction('Affiliate Program', 'learn_more_click')"
               >
                 Learn About Affiliate Program
               </a>
@@ -333,6 +336,7 @@ const priceRange = {
               <a
                 href="/for-coaches/"
                 class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+                onclick="trackFeatureInteraction('Private Coaching Server', 'learn_more_click')"
               >
                 Start Coaching Business
               </a>
@@ -352,6 +356,89 @@ const priceRange = {
     interface Window {
       openContactModal: (modalId: string) => void;
       sa_event: (eventName: string, properties?: Record<string, any>) => void;
+      gtag: (command: string, targetId: string, parameters?: Record<string, any>) => void;
     }
   }
+
+  // GA4 Event Tracking Functions
+  function trackPricingModelInterest(modelType: string, source: string) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'pricing_model_interest', {
+        model_type: modelType,
+        source: source,
+        page_location: window.location.href,
+        timestamp: new Date().toISOString()
+      });
+    }
+  }
+
+  function trackSectionNavigation(fromSection: string, toSection: string, method: string) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'section_navigation', {
+        from_section: fromSection,
+        to_section: toSection,
+        navigation_method: method,
+        page_location: window.location.href
+      });
+    }
+  }
+
+  function trackFeatureInteraction(featureName: string, interactionType: string) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'feature_interaction', {
+        feature_name: featureName,
+        interaction_type: interactionType,
+        page_location: window.location.href
+      });
+    }
+  }
+
+  // Track pricing page discovery on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'pricing_discovery', {
+        discovery_method: getPricingDiscoveryMethod(),
+        referrer: document.referrer,
+        page_location: window.location.href
+      });
+    }
+  });
+
+  function getPricingDiscoveryMethod(): string {
+    const referrer = document.referrer;
+    const currentUrl = window.location.href;
+
+    // Check if direct navigation (no referrer or from external site)
+    if (!referrer || referrer === '') {
+      return 'direct_url';
+    }
+
+    // Check if from main navigation (internal navigation)
+    if (referrer.includes(window.location.hostname)) {
+      // Could be from nav or footer - this is a simplification
+      // In a real implementation, you'd want to pass this from the nav link
+      return 'main_nav_affiliate';
+    }
+
+    // External referrer
+    return 'external_referral';
+  }
+
+  // Track scroll depth and section visibility
+  let maxScrollDepth = 0;
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+
+    if (scrollPercent > maxScrollDepth && scrollPercent % 25 === 0) {
+      maxScrollDepth = scrollPercent;
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'scroll_depth', {
+          scroll_depth: scrollPercent,
+          page_location: window.location.href
+        });
+      }
+    }
+  });
 </script>

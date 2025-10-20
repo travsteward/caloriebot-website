@@ -99,6 +99,7 @@ const startingPrice = "19.99";
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
               class="group inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
               aria-label="Add CalorieBot Discord fitness bot to your server"
+              onclick="trackDiscordOAuthStart('homepage_hero', 'affiliate')"
             >
               Add CalorieBot Free
               <svg
@@ -1057,6 +1058,7 @@ const startingPrice = "19.99";
             <a
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
               class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+              onclick="trackDiscordOAuthStart('homepage_monetization_section', 'affiliate')"
             >
               Start Earning Today
             </a>
@@ -1132,6 +1134,24 @@ const startingPrice = "19.99";
 
     typeText();
   });
+
+  // GA4 Event Tracking Functions
+  function trackDiscordOAuthStart(location: string, intendedAction: string) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'discord_oauth_start', {
+        page_location: window.location.href,
+        intended_action: intendedAction,
+        button_location: location,
+        referrer: document.referrer,
+        timestamp: new Date().toISOString()
+      });
+    }
+  }
+
+  // Declare gtag for TypeScript
+  declare global {
+    function gtag(command: string, targetId: string, parameters?: Record<string, any>): void;
+  }
 </script>
 
 <style>

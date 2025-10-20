@@ -340,6 +340,7 @@ const faqSchema = {
             <a
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
               class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+              onclick="trackDiscordOAuthStart('affiliate_page_final_cta', 'affiliate')"
             >
               Become an Affiliate Today
             </a>
@@ -349,3 +350,34 @@ const faqSchema = {
     </section>
   </main>
 </Layout>
+
+<script>
+  // GA4 Event Tracking Functions for Affiliate Page
+  function trackDiscordOAuthStart(location: string, intendedAction: string) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'discord_oauth_start', {
+        page_location: window.location.href,
+        intended_action: intendedAction,
+        button_location: location,
+        referrer: document.referrer,
+        timestamp: new Date().toISOString()
+      });
+    }
+  }
+
+  // Track affiliate page view
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', {
+        page_title: 'CalorieBot Affiliate Program',
+        page_location: window.location.href,
+        content_group: 'affiliate_program'
+      });
+    }
+  });
+
+  // Declare gtag for TypeScript
+  declare global {
+    function gtag(command: string, targetId: string, parameters?: Record<string, any>): void;
+  }
+</script>
