@@ -7,8 +7,8 @@ import ContactModal from "../components/ContactModal.astro";
 // Make DISCORD_CLIENT_ID available to the frontend
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 
-const pageTitle = "CalorieBot Affiliate Program | Earn 60% Commission";
-const pageDescription = "Join CalorieBot's affiliate program and earn $12/month for every user who subscribes in your Discord server. Users pay $19.99/month, you keep 60% commission.";
+const pageTitle = "CalorieBot Revenue Models | Commissions & Premium Coaching";
+const pageDescription = "Choose between affiliate commissions or premium coaching business. Earn $12/month per subscriber or charge $80-250/month with 90% profit margins.";
 
 const plans = [
   {
@@ -138,94 +138,205 @@ const priceRange = {
       <div class="container mx-auto px-4 max-w-5xl relative">
         <div class="text-center mb-12">
           <h1 class="text-5xl md:text-6xl font-bold mb-6">
-            Affiliate Program
+            Choose Your
             <br />
-            <span class="text-orange-500">Earn 60% Commission</span>
+            <span class="text-orange-500">Revenue Model</span>
           </h1>
-          <p class="text-xl md:text-2xl text-gray-300">Users pay $19.99/month, you earn $12/month for every subscriber. Learn more about <a href="/blog/monetizing-fitness-community-guide/" class="text-orange-400 hover:text-orange-300 underline">monetizing your fitness community</a>.</p>
+          <p class="text-xl md:text-2xl text-gray-300 mb-8">Build passive income through commissions or create a premium coaching business</p>
+
+          <!-- Quick Nav Buttons -->
+          <div class="flex justify-center mb-12">
+            <div class="bg-secondary rounded-lg p-2 flex gap-4">
+              <a
+                href="#affiliate-model"
+                class="px-6 py-3 rounded-lg font-semibold transition-all text-white bg-orange-600 hover:bg-orange-500"
+              >
+                💰 Make Money Server
+              </a>
+              <a
+                href="#private-model"
+                class="px-6 py-3 rounded-lg font-semibold transition-all text-white bg-discord hover:bg-blue-600"
+              >
+                🏠 Private Coaching Server
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="grid gap-6 mx-auto">
-          {/* Commission Structure */}
-          <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-8 border border-orange-500/30">
-            <div class="text-center mb-8">
-              <h3 class="text-3xl font-bold text-white mb-4">Commission Structure</h3>
-              <p class="text-xl text-gray-300">Users pay $19.99/month • You earn $12/month • We keep $7.99/month</p>
+        <!-- Affiliate Commission Model -->
+        <div id="affiliate-model">
+          <div class="text-center mb-8">
+            <h2 class="text-4xl font-bold text-white mb-4">Make Money Server</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Add CalorieBot to any Discord community (anime, sports, trading, gaming, or any niche). Members subscribe individually and you earn $12/month (60% commission) per subscriber. Connect Stripe for automatic payouts while CalorieBot handles everything else. Add health tracking to boost engagement and monetize your community.</p>
+          </div>
+          <div class="grid gap-6 mx-auto mb-16">
+            {/* Commission Structure */}
+            <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-8 border border-orange-500/30">
+              <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold text-white mb-4">Commission Structure</h3>
+                <p class="text-xl text-gray-300">Users pay $20/month • You earn $12/month • We keep $8/month</p>
+              </div>
+
+              <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                  <div class="text-2xl font-bold text-orange-400 mb-2">$20</div>
+                  <div class="text-gray-300">User pays monthly</div>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                  <div class="text-2xl font-bold text-green-400 mb-2">$12</div>
+                  <div class="text-gray-300">You earn (60%)</div>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                  <div class="text-2xl font-bold text-blue-400 mb-2">$8</div>
+                  <div class="text-gray-300">We keep (40%)</div>
+                </div>
+              </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 text-center">
-              <div class="bg-gray-800/50 rounded-lg p-6">
-                <div class="text-2xl font-bold text-orange-400 mb-2">$19.99</div>
-                <div class="text-gray-300">User pays monthly</div>
+            {/* Earnings Examples */}
+            <div class="bg-secondary rounded-lg p-8">
+              <h3 class="text-2xl font-bold text-white mb-6 text-center">Monthly Earnings Examples</h3>
+              <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-orange-400 mb-2">$300</div>
+                  <div class="text-gray-300 mb-2">25 subscribers</div>
+                  <div class="text-sm text-gray-400">$12 × 25 users</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-orange-400 mb-2">$600</div>
+                  <div class="text-gray-300 mb-2">50 subscribers</div>
+                  <div class="text-sm text-gray-400">$12 × 50 users</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-orange-400 mb-2">$1,200</div>
+                  <div class="text-gray-300 mb-2">100 subscribers</div>
+                  <div class="text-sm text-gray-400">$12 × 100 users</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-orange-400 mb-2">$2,400</div>
+                  <div class="text-gray-300 mb-2">200 subscribers</div>
+                  <div class="text-sm text-gray-400">$12 × 200 users</div>
+                </div>
               </div>
-              <div class="bg-gray-800/50 rounded-lg p-6">
-                <div class="text-2xl font-bold text-green-400 mb-2">$12</div>
-                <div class="text-gray-300">You earn (60%)</div>
+            </div>
+
+            {/* Setup Process */}
+            <div class="bg-secondary rounded-lg p-8">
+              <h3 class="text-2xl font-bold text-white mb-6 text-center">How to Get Started</h3>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                  <div class="text-4xl mb-4">🤖</div>
+                  <h4 class="text-lg font-bold text-white mb-2">1. Add Bot Free</h4>
+                  <p class="text-gray-300 text-sm">Add CalorieBot to your Discord server at no cost</p>
+                </div>
+                <div class="text-center">
+                  <div class="text-4xl mb-4">💳</div>
+                  <h4 class="text-lg font-bold text-white mb-2">2. Connect Stripe</h4>
+                  <p class="text-gray-300 text-sm">Link your Stripe account for automatic commission payouts</p>
+                </div>
+                <div class="text-center">
+                  <div class="text-4xl mb-4">💰</div>
+                  <h4 class="text-lg font-bold text-white mb-2">3. Earn Commissions</h4>
+                  <p class="text-gray-300 text-sm">Users subscribe for $20/month, you earn $12 automatically</p>
+                </div>
               </div>
-              <div class="bg-gray-800/50 rounded-lg p-6">
-                <div class="text-2xl font-bold text-blue-400 mb-2">$7.99</div>
-                <div class="text-gray-300">We keep (40%)</div>
-              </div>
+            </div>
+
+            {/* CTA */}
+            <div class="text-center">
+              <a
+                href="/affiliate/"
+                class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+              >
+                Learn About Affiliate Program
+              </a>
             </div>
           </div>
+        </div>
 
-          {/* Earnings Examples */}
-          <div class="bg-secondary rounded-lg p-8">
-            <h3 class="text-2xl font-bold text-white mb-6 text-center">Monthly Earnings Examples</h3>
-            <div class="grid md:grid-cols-4 gap-6">
-              <div class="text-center">
-                <div class="text-3xl font-bold text-orange-400 mb-2">$300</div>
-                <div class="text-gray-300 mb-2">25 subscribers</div>
-                <div class="text-sm text-gray-400">$12 × 25 users</div>
+        <!-- Private Coaching Server Model -->
+        <div id="private-model">
+          <div class="text-center mb-8">
+            <h2 class="text-4xl font-bold text-white mb-4">Private Coaching Server</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Build a premium coaching business where you set your own prices and keep 90%+ of revenue. Buy seats from CalorieBot at wholesale rates ($20 first + $12 each additional), then charge clients premium rates ($80-250/month). Perfect for personal trainers, nutrition coaches, and fitness entrepreneurs.</p>
+          </div>
+          <div class="grid gap-6 mx-auto">
+            {/* Seat Pricing Structure */}
+            <div class="bg-gradient-to-r from-discord/40 to-blue-900/30 rounded-lg p-8 border border-discord/30">
+              <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold text-white mb-4">Seat Pricing Structure</h3>
+                <p class="text-xl text-gray-300">Buy seats wholesale, charge premium prices to clients</p>
               </div>
-              <div class="text-center">
-                <div class="text-3xl font-bold text-orange-400 mb-2">$600</div>
-                <div class="text-gray-300 mb-2">50 subscribers</div>
-                <div class="text-sm text-gray-400">$12 × 50 users</div>
-              </div>
-              <div class="text-center">
-                <div class="text-3xl font-bold text-orange-400 mb-2">$1,200</div>
-                <div class="text-gray-300 mb-2">100 subscribers</div>
-                <div class="text-sm text-gray-400">$12 × 100 users</div>
-              </div>
-              <div class="text-center">
-                <div class="text-3xl font-bold text-orange-400 mb-2">$2,400</div>
-                <div class="text-gray-300 mb-2">200 subscribers</div>
-                <div class="text-sm text-gray-400">$12 × 200 users</div>
+
+              <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                  <div class="text-2xl font-bold text-blue-400 mb-2">$20</div>
+                  <div class="text-gray-300">First seat cost</div>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                  <div class="text-2xl font-bold text-blue-400 mb-2">$12</div>
+                  <div class="text-gray-300">Each additional seat</div>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                  <div class="text-2xl font-bold text-green-400 mb-2">$80-250</div>
+                  <div class="text-gray-300">You charge clients</div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Setup Process */}
-          <div class="bg-secondary rounded-lg p-8">
-            <h3 class="text-2xl font-bold text-white mb-6 text-center">How to Get Started</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-              <div class="text-center">
-                <div class="text-4xl mb-4">🤖</div>
-                <h4 class="text-lg font-bold text-white mb-2">1. Add Bot Free</h4>
-                <p class="text-gray-300 text-sm">Add CalorieBot to your Discord server at no cost</p>
-              </div>
-              <div class="text-center">
-                <div class="text-4xl mb-4">💳</div>
-                <h4 class="text-lg font-bold text-white mb-2">2. Connect Stripe</h4>
-                <p class="text-gray-300 text-sm">Link your Stripe account for automatic commission payouts</p>
-              </div>
-              <div class="text-center">
-                <div class="text-4xl mb-4">💰</div>
-                <h4 class="text-lg font-bold text-white mb-2">3. Earn Commissions</h4>
-                <p class="text-gray-300 text-sm">Users subscribe for $19.99/month, you earn $12 automatically</p>
+            {/* Coaching Business Examples */}
+            <div class="bg-secondary rounded-lg p-8">
+              <h3 class="text-2xl font-bold text-white mb-6 text-center">Coaching Business Examples</h3>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-green-400 mb-2">$3,750/month</div>
+                  <div class="text-gray-300 mb-2">25 clients × $150 avg</div>
+                  <div class="text-sm text-gray-400">Seat cost: $320 ($3,430 profit)</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-green-400 mb-2">$8,750/month</div>
+                  <div class="text-gray-300 mb-2">50 clients × $175 avg</div>
+                  <div class="text-sm text-gray-400">Seat cost: $620 ($8,130 profit)</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-green-400 mb-2">$15,000/month</div>
+                  <div class="text-gray-300 mb-2">75 clients × $200 avg</div>
+                  <div class="text-sm text-gray-400">Seat cost: $920 ($14,080 profit)</div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* CTA */}
-          <div class="text-center">
-            <a
-              href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-              class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
-            >
-              Start Earning Today
-            </a>
+            {/* Setup Process */}
+            <div class="bg-secondary rounded-lg p-8">
+              <h3 class="text-2xl font-bold text-white mb-6 text-center">How to Start Coaching Business</h3>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                  <div class="text-4xl mb-4">🏠</div>
+                  <h4 class="text-lg font-bold text-white mb-2">1. Setup Private Server</h4>
+                  <p class="text-gray-300 text-sm">Create your Discord server and add CalorieBot</p>
+                </div>
+                <div class="text-center">
+                  <div class="text-4xl mb-4">💰</div>
+                  <h4 class="text-lg font-bold text-white mb-2">2. Buy Seats</h4>
+                  <p class="text-gray-300 text-sm">$20 first seat + $12 each additional seat</p>
+                </div>
+                <div class="text-center">
+                  <div class="text-4xl mb-4">👥</div>
+                  <h4 class="text-lg font-bold text-white mb-2">3. Charge Premium</h4>
+                  <p class="text-gray-300 text-sm">$80-250/month with 90%+ profit margins</p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div class="text-center">
+              <a
+                href="/for-coaches/"
+                class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+              >
+                Start Coaching Business
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -233,37 +344,7 @@ const priceRange = {
   </main>
 </Layout>
 
-<script define:vars={{ DISCORD_CLIENT_ID }}>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("[data-price-id]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const priceId = button.getAttribute("data-price-id");
-        const planName = button.closest('.bg-secondary').querySelector('h3').textContent;
-        const price = button.closest('.bg-secondary').querySelector('.text-3xl').textContent;
 
-        // Track checkout initiation
-        sa_event("checkout_page_visit", {
-          price_id: priceId,
-          plan_name: planName,
-          price: price,
-          page: 'pricing'
-        });
-
-        const params = new URLSearchParams({
-          client_id: DISCORD_CLIENT_ID,
-          response_type: "code",
-          scope: "identify email",
-          redirect_uri: "https://caloriebot.ai/oauth/discord/callback",
-          state: priceId,
-          prompt: "consent",
-        });
-
-        const discordUrl = `https://discord.com/api/oauth2/authorize?${params}`;
-        window.location.href = discordUrl;
-      });
-    });
-  });
-</script>
 
 <script>
   // Fix TypeScript error by declaring the global interface

@@ -8,13 +8,13 @@ import ContactModal from '../components/ContactModal.astro';
 // Add Discord client ID
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 
-const pageTitle = "Fitness Coach Platform | CalorieBot for Online Coaches";
-const pageDescription = "Scale your fitness coaching with CalorieBot's AI platform. Automate client tracking, manage programs, and grow your coaching business on Discord.";
+const pageTitle = "Fitness Coaching Platform | CalorieBot for Online Coaches";
+const pageDescription = "Scale your coaching business with premium pricing. Buy seats from CalorieBot, charge premium rates to clients, and keep the profit margin.";
 
 // Add structured data properties
 const ratingValue = 4.8;
 const ratingCount = 127;
-const startingPrice = "99.00"; // Starting with Growth plan which includes coaching features
+const startingPrice = "20.00"; // Coach buys first seat for $20
 
 // Add FAQ structured data
 const faqSchema = {
@@ -23,26 +23,26 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How can CalorieBot help me scale my coaching business?",
+      "name": "How does premium coaching pricing work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CalorieBot automates client nutrition tracking, workout logging, and progress monitoring, allowing you to efficiently manage more clients. The platform includes group coaching features, automated check-ins, and client analytics."
+        "text": "You buy seats from CalorieBot at wholesale per-seat rates ($20 for the first seat, $12 for each additional seat), then charge your clients premium prices ($80-349/month) using payment systems like paybotapp.com. You keep the profit margin while CalorieBot handles all the fitness tracking features."
       }
     },
     {
       "@type": "Question",
-      "name": "What coaching features are included?",
+      "name": "What coaching features does CalorieBot provide?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CalorieBot includes AI photo food logging, automated progress tracking, workout programming, client analytics, group coaching tools, and 1-on-1 coaching features. Plus, you get engagement tools like challenges and accountability systems."
+        "text": "CalorieBot includes AI photo food tracking, workout logging, progress monitoring, group coaching check-ins, 1-on-1 coaching features, and automated accountability systems. All integrated into your Discord server."
       }
     },
     {
       "@type": "Question",
-      "name": "How many clients can I manage?",
+      "name": "How much can I charge clients?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our plans scale with your business, starting from 20 clients with the Growth plan up to 300+ clients with Elite plans. Custom solutions available for larger coaching businesses."
+        "text": "You set your own premium pricing! Many coaches charge $80/month for basic access, $150/month for group coaching, and $200/month for premium 1-on-1 coaching. With CalorieBot's features, you can justify premium pricing for your expertise and coaching value."
       }
     }
   ]
@@ -70,27 +70,27 @@ const faqSchema = {
 
       <div class="container mx-auto px-4 max-w-4xl relative">
         <h1 class="text-5xl md:text-6xl font-bold mb-6">
-          The Complete
+          Premium Coaching
           <br />
-          <span class="text-orange-500">Coaching Command Center</span>
+          <span class="text-orange-500">Business Platform</span>
         </h1>
-        <p class="text-xl md:text-2xl mb-12 text-gray-300">Transform your coaching business with complete client visibility and engagement</p>
+        <p class="text-xl md:text-2xl mb-12 text-gray-300">Buy seats at wholesale rates, charge premium prices to clients, and scale your coaching business with CalorieBot's enterprise features.</p>
 
         <div class="grid md:grid-cols-3 gap-8 mb-16">
           <FeatureCard
-            title="Full Client Visibility"
-            description="No more piecing together data from multiple apps. See everything your clients do in one unified dashboard."
-            icon="👀"
+            title="Premium Pricing Control"
+            description="Buy seats at wholesale rates ($20 first seat + $12 each additional), then charge clients premium prices ($80-200/month) and keep the profit margin."
+            icon="💰"
           />
           <FeatureCard
-            title="Eliminate App Fatigue"
-            description="Your clients need just one platform, integrated into Discord where they already spend their time."
-            icon="📱"
+            title="Complete Coaching Suite"
+            description="Group coaching check-ins, 1-on-1 coaching features, automated accountability, and progress monitoring - all included."
+            icon="👥"
           />
           <FeatureCard
-            title="Enhanced Coaching"
-            description="Review food choices, track progress, and provide feedback all in one place."
-            icon="🛠️"
+            title="Payment Integration"
+            description="Connect Stripe via paybotapp.com or similar services to handle client payments and seat assignments seamlessly."
+            icon="💳"
           />
         </div>
 
@@ -149,205 +149,208 @@ const faqSchema = {
       </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-12 bg-dark">
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-12 bg-secondary">
       <div class="container mx-auto px-4 max-w-5xl">
         <h2 class="text-3xl font-bold text-white text-center mb-12">
-          Simple, Transparent Pricing
+          How Premium Coaching Works
         </h2>
 
-        <div class="grid gap-6 mx-auto">
-          <!-- Free Trial Box -->
-          <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all border border-orange-500/30">
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">
-                Free Trial
-              </h3>
-              <p class="text-gray-400">Up to 5 members</p>
+        <div class="grid gap-8 mx-auto">
+          <!-- Step 1: Buy Seats -->
+          <div class="bg-dark rounded-lg p-8 flex flex-col md:flex-row items-start gap-6 hover:bg-opacity-80 transition-all">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl">1</div>
             </div>
-
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-orange-400">Try all features free for 7 days</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>All core features included</li>
-                <li>No credit card required</li>
-              </ul>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-white mb-4">Buy Seats from CalorieBot</h3>
+              <p class="text-gray-300 mb-4">Purchase seat licenses at wholesale per-seat rates. $20 for your first seat, $12 for each additional seat.</p>
+              <div class="grid md:grid-cols-4 gap-4 mt-4">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-orange-400">$20</div>
+                  <div class="text-gray-400 text-sm">1 seat</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-orange-400">$32</div>
+                  <div class="text-gray-400 text-sm">2 seats</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-orange-400">$56</div>
+                  <div class="text-gray-400 text-sm">4 seats</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-orange-400">$116</div>
+                  <div class="text-gray-400 text-sm">9 seats</div>
+                </div>
+              </div>
+              <p class="text-gray-400 text-sm mt-4">Scale up by buying additional seats as your coaching business grows</p>
             </div>
-
-            <div class="md:w-1/4 text-center">
-              <a
-                href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-                class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-2 px-6 rounded-full transition-colors"
-              >
-                Add to Server
-              </a>
-            </div>
-          </div>
-
-          <!-- Starter -->
-          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
-              <p class="text-3xl font-bold text-discord mb-2">$29<span class="text-sm text-gray-400">/month</span></p>
-              <p class="text-gray-400">Up to 5 active members</p>
-            </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">Perfect for friends & family</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>All core features included</li>
-                <li>AI photo tracking</li>
-                <li>Guided workouts</li>
-                <li>Challenge system</li>
-                <li>$5.80 per user</li>
-              </ul>
-            </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QjsjILK64haKytlUJnHI6bo"
-              >
-                Get Started
-              </button>
+            <div class="flex-shrink-0">
+              <div class="bg-gray-700 px-4 py-2 rounded-lg">
+                <span class="text-orange-400">Wholesale Rates</span>
+              </div>
             </div>
           </div>
 
-          <!-- Growth -->
-          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Growth</h3>
-              <p class="text-3xl font-bold text-discord mb-2">$99<span class="text-sm text-gray-400">/month</span></p>
-              <p class="text-gray-400">Up to 20 active members</p>
+          <!-- Step 2: Set Premium Pricing -->
+          <div class="bg-dark rounded-lg p-8 flex flex-col md:flex-row items-start gap-6 hover:bg-opacity-80 transition-all">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl">2</div>
             </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">For growing communities</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>Everything in Starter +</li>
-                <li class="font-bold text-orange-500">Group coaching platform</li>
-                <li>Weekly check-in system</li>
-                <li>Inactivity alerts</li>
-                <li>$4.95 per user</li>
-              </ul>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-white mb-4">Set Your Premium Pricing</h3>
+              <p class="text-gray-300 mb-4">Use paybotapp.com or similar services to handle client payments at premium rates. You keep the difference between what clients pay vs. seat costs.</p>
+              <div class="grid md:grid-cols-3 gap-4 mt-4">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-green-400">$80</div>
+                  <div class="text-gray-400 text-sm">Basic coaching</div>
+                  <div class="text-orange-400 text-sm">+$51 profit</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-green-400">$190</div>
+                  <div class="text-gray-400 text-sm">Group coaching</div>
+                  <div class="text-orange-400 text-sm">+$91 profit</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-green-400">$349</div>
+                  <div class="text-gray-400 text-sm">1-on-1 coaching</div>
+                  <div class="text-orange-400 text-sm">+$100+ profit</div>
+                </div>
+              </div>
             </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QjsjFLK64haKytlEccmqs7i"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-
-          {/* Temporarily hidden plans */}
-          {/*
-          <!-- Plus -->
-          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Plus</h3>
-              <p class="text-3xl font-bold text-discord mb-2">$249<span class="text-sm text-gray-400">/month</span></p>
-              <p class="text-gray-400">Up to 60 active members</p>
-            </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">For thriving communities</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>Everything in Growth +</li>
-                <li class="font-bold text-orange-500">1-1 coaching platform</li>
-                <li>Assignable coaches</li>
-                <li>Priority support</li>
-                <li>$4.15 per user</li>
-              </ul>
-            </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QjsjKLK64haKytlh1GJPwQb"
-              >
-                Get Started
-              </button>
+            <div class="flex-shrink-0">
+              <div class="bg-gray-700 px-4 py-2 rounded-lg">
+                <span class="text-green-400">Your Pricing</span>
+              </div>
             </div>
           </div>
 
-          <!-- Pro -->
-          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Pro</h3>
-              <p class="text-3xl font-bold text-discord mb-2">$459<span class="text-sm text-gray-400">/month</span></p>
-              <p class="text-gray-400">Up to 130 active members</p>
+          <!-- Step 3: Coach & Scale -->
+          <div class="bg-dark rounded-lg p-8 flex flex-col md:flex-row items-start gap-6 hover:bg-opacity-80 transition-all">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl">3</div>
             </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">For growing large communities</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>Everything in Plus +</li>
-                <li>Priority feature requests</li>
-                <li>Discount per user</li>
-                <li>Setup onboarding</li>
-                <li>$3.53 per user</li>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-white mb-4">Coach & Scale Your Business</h3>
+              <p class="text-gray-300 mb-4">CalorieBot handles all the fitness tracking while you provide coaching. Use group check-ins, 1-on-1 features, and automated accountability to deliver premium value.</p>
+              <ul class="text-gray-300 space-y-2">
+                <li>• AI food photo analysis & calorie tracking</li>
+                <li>• Automated workout logging & PR tracking</li>
+                <li>• Group coaching check-in systems</li>
+                <li>• 1-on-1 coaching progress monitoring</li>
+                <li>• Automated accountability & milestone celebrations</li>
               </ul>
             </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QkYErLK64haKytlQNHgb9r6"
-              >
-                Get Started
-              </button>
+            <div class="flex-shrink-0">
+              <div class="text-blue-400 font-semibold">Enterprise Features</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profit Calculator -->
+        <div class="mt-16 bg-gradient-to-r from-green-900/20 to-green-800/20 rounded-lg p-8 border border-green-500/30">
+          <h3 class="text-2xl font-bold text-white text-center mb-6">Monthly Profit Potential</h3>
+          <p class="text-center text-gray-300 mb-8">Mix DIY ($80), group ($150), and premium 1-on-1 ($250) coaching tiers</p>
+
+          <div class="grid md:grid-cols-3 gap-6 text-center">
+            <!-- 25 Clients -->
+            <div class="bg-dark/50 rounded-lg p-6">
+              <h4 class="text-lg font-bold text-white mb-4">25 Clients</h4>
+
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-gray-300">5 DIY × $80</span>
+                  <span class="text-green-400">$400</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-300">10 group × $150</span>
+                  <span class="text-green-400">$1,500</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-300">10 premium × $250</span>
+                  <span class="text-green-400">$2,500</span>
+                </div>
+                <div class="text-center text-green-400 font-semibold py-2 text-base">Total Revenue: $4,400</div>
+                <div class="flex justify-between">
+                  <span class="text-gray-300">Seat cost (25 × $12 + $20)</span>
+                  <span class="text-red-400">-$320</span>
+                </div>
+                <div class="border-t border-gray-600 pt-3 mt-3">
+                  <div class="flex justify-between font-bold text-base">
+                    <span class="text-white">Monthly Profit</span>
+                    <span class="text-green-400">$4,080</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 50 Clients -->
+            <div class="bg-dark/50 rounded-lg p-6">
+              <h4 class="text-lg font-bold text-white mb-4">50 Clients</h4>
+
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-gray-300">15 DIY × $80</span>
+                  <span class="text-green-400">$1,200</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-300">20 group × $150</span>
+                  <span class="text-green-400">$3,000</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-300">15 premium × $250</span>
+                  <span class="text-green-400">$3,750</span>
+                </div>
+                <div class="text-center text-green-400 font-semibold py-2 text-base">Total Revenue: $7,950</div>
+                <div class="flex justify-between">
+                  <span class="text-gray-300">Seat cost (50 × $12 + $20)</span>
+                  <span class="text-red-400">-$620</span>
+                </div>
+                <div class="border-t border-gray-600 pt-3 mt-3">
+                  <div class="flex justify-between font-bold text-base">
+                    <span class="text-white">Monthly Profit</span>
+                    <span class="text-green-400">$7,330</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 100 Clients -->
+            <div class="bg-dark/50 rounded-lg p-6">
+              <h4 class="text-lg font-bold text-white mb-4">100 Clients</h4>
+
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-gray-300">40 DIY × $80</span>
+                  <span class="text-green-400">$3,200</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-300">35 group × $150</span>
+                  <span class="text-green-400">$5,250</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-300">25 premium × $250</span>
+                  <span class="text-green-400">$6,250</span>
+                </div>
+                <div class="text-center text-green-400 font-semibold py-2 text-base">Total Revenue: $14,700</div>
+                <div class="flex justify-between">
+                  <span class="text-gray-300">Seat cost (100 × $12 + $20)</span>
+                  <span class="text-red-400">-$1,220</span>
+                </div>
+                <div class="border-t border-gray-600 pt-3 mt-3">
+                  <div class="flex justify-between font-bold text-base">
+                    <span class="text-white">Monthly Profit</span>
+                    <span class="text-green-400">$13,480</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Elite -->
-          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Elite</h3>
-              <p class="text-3xl font-bold text-discord mb-2">$999<span class="text-sm text-gray-400">/month</span></p>
-              <p class="text-gray-400">Up to 300 active members</p>
-            </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <p class="text-gray-300">For large communities</p>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li>Everything in Pro +</li>
-                <li>Custom features requests</li>
-                <li>Premium support</li>
-                <li>Growth mentorship discord</li>
-                <li>$3.33 per user</li>
-              </ul>
-            </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                class="checkout-button bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-                data-price-id="price_1QjsjBLK64haKytlmgH3MV3i"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-          */}
-
-          <!-- Partner -->
-          <div class="bg-secondary rounded-lg p-6 flex flex-col md:flex-row items-center justify-between hover:bg-opacity-80 transition-all">
-            <div class="md:w-1/4 text-center md:text-left">
-              <h3 class="text-2xl font-bold text-white mb-2">Partner</h3>
-              <p class="text-3xl font-bold text-discord mb-2">Custom<span class="text-sm text-gray-400"> pricing</span></p>
-              <p class="text-gray-400">For large fitness coaching communities</p>
-            </div>
-            <div class="md:w-2/4 text-center md:text-left my-4 md:my-0">
-              <ul class="text-gray-300 list-disc list-inside">
-                <li class="font-bold text-orange-500">Enterprise coaching platform suite</li>
-                <li>Revenue-sharing partnership model</li>
-                <li>Custom server design & branding</li>
-                <li>Advanced client monitoring dashboard</li>
-                <li>Detailed client progress reports</li>
-                <li>Dedicated account manager</li>
-                <li>Custom feature development</li>
-              </ul>
-            </div>
-            <div class="md:w-1/4 text-center">
-              <button
-                onclick="window.openContactModal('contact-modal')"
-                class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
-              >
-                Contact Us
-              </button>
-            </div>
+          <div class="mt-8 p-4 bg-dark/30 rounded-lg">
+            <p class="text-center text-gray-300 text-base">
+              <strong>Profit Margins:</strong> 93% at 25 clients • 92% at 50 clients • 92% at 100 clients
+            </p>
           </div>
         </div>
       </div>
@@ -355,34 +358,18 @@ const faqSchema = {
   </main>
 </Layout>
 
-<script define:vars={{ DISCORD_CLIENT_ID }}>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("[data-price-id]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const priceId = button.getAttribute("data-price-id");
-        const planName = button.closest('.bg-secondary').querySelector('h3').textContent;
-        const price = button.closest('.bg-secondary').querySelector('.text-3xl').textContent;
+<script>
+  // TypeScript declarations for gtag
+  declare global {
+    function gtag(command: string, targetId: string, parameters?: Record<string, any>): void;
+  }
 
-        // Track checkout initiation
-        sa_event("checkout_page_visit", {
-          price_id: priceId,
-          plan_name: planName,
-          price: price,
-          page: 'coaches'
-        });
-
-        const params = new URLSearchParams({
-          client_id: DISCORD_CLIENT_ID,
-          response_type: "code",
-          scope: "identify email",
-          redirect_uri: "https://caloriebot.ai/oauth/discord/callback",
-          state: priceId,
-          prompt: "consent",
-        });
-
-        const discordUrl = `https://discord.com/api/oauth2/authorize?${params}`;
-        window.location.href = discordUrl;
-      });
+  // Track page view for analytics
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'page_view', {
+      page_title: 'Premium Coaching Business Platform',
+      page_location: window.location.href,
+      content_group: 'coaching'
     });
-  });
+  }
 </script>
