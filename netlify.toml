@@ -6,7 +6,7 @@
 [functions]
   node_bundler = "esbuild"
 
-# HTML pages - shorter cache for content updates
+# HTML pages - optimized cache headers for static site
 [[headers]]
   for = "/*.html"
   [headers.values]
@@ -16,7 +16,7 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "upgrade-insecure-requests"
     X-Robots-Tag = "all"
-    Cache-Control = "public, max-age=3600, must-revalidate"
+    Cache-Control = "public, max-age=0, s-maxage=31536000, must-revalidate"
 
 # Default security headers for all other files
 [[headers]]
@@ -157,6 +157,3 @@
 
 [build.processing.images]
   compress = true
-
-[[plugins]]
-package = "@netlify/plugin-lighthouse"

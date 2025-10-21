@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 
@@ -8,7 +7,6 @@ export default defineConfig({
     tailwind(),
     mdx(),
   ],
-  adapter: netlify(),
   output: 'static', // Static site generation for best performance
   site: 'https://caloriebot.ai',
   trailingSlash: 'always',
@@ -16,7 +14,17 @@ export default defineConfig({
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp'
-    }
+    },
+    domains: ['caloriebot.ai'],
+    remotePatterns: [{ protocol: 'https' }],
+  },
+  build: {
+    inlineStylesheets: 'auto',
+  },
+  compressHTML: true,
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
   },
   markdown: {
     shikiConfig: {
