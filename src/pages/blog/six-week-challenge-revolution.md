@@ -424,7 +424,7 @@ The infrastructure I built—the AI systems, the automation, the challenge machi
 
 You don't need:
 - ❌ Fitness industry experience
-- ❌ Nutrition certifications  
+- ❌ Nutrition certifications
 - ❌ Personal training licenses
 - ❌ $500k studio buildout
 - ❌ Expensive equipment
