@@ -43,7 +43,7 @@ const startingPrice = "20.00";
         </h1>
         <p class="text-xl md:text-2xl mb-12 text-gray-300">Turn your fitness community into a profitable business. Earn commissions from members or run your own coaching server.</p>
 
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
           <div class="bg-secondary rounded-lg p-8 text-center">
             <div class="text-4xl mb-4">💰</div>
             <h3 class="text-2xl font-bold text-white mb-4">Affiliate Commissions</h3>
@@ -87,6 +87,28 @@ const startingPrice = "20.00";
               Build Coaching Business
             </a>
           </div>
+
+          <div class="bg-secondary rounded-lg p-8 text-center">
+            <div class="text-4xl mb-4">🏋️</div>
+            <h3 class="text-2xl font-bold text-white mb-4">6-Week Challenge System</h3>
+            <p class="text-gray-300 mb-6">Run time-limited fitness challenges that drive massive engagement and one-time revenue ($97-297 per participant).</p>
+            <ul class="text-left text-gray-300 space-y-2 mb-6">
+              <li>• Low commitment for users (6 weeks only)</li>
+              <li>• AI automation (zero tracking burden)</li>
+              <li>• Run quarterly for recurring revenue</li>
+              <li>• Convert participants to monthly members</li>
+              <li>• Creates maximum "glue" between members</li>
+            </ul>
+            <div class="bg-dark/50 p-3 rounded-lg mb-4">
+              <p class="text-sm text-orange-400">Example: 40 participants × $197 = $7,880 per challenge</p>
+            </div>
+            <a
+              href="/six-week-challenges/"
+              class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 px-6 rounded-full transition-colors"
+            >
+              Run 6-Week Challenges
+            </a>
+          </div>
         </div>
 
         <!-- Comparison Table -->
@@ -98,39 +120,46 @@ const startingPrice = "20.00";
                 <tr>
                   <th class="px-6 py-4 text-left text-white font-bold">Feature</th>
                   <th class="px-6 py-4 text-center text-white font-bold">Affiliate Commissions</th>
-                  <th class="px-6 py-4 text-center text-white font-bold">Private Coaching Server</th>
+                  <th class="px-6 py-4 text-center text-white font-bold">Private Coaching</th>
+                  <th class="px-6 py-4 text-center text-white font-bold">6-Week Challenges</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-700">
                 <tr>
                   <td class="px-6 py-4 text-gray-300 font-semibold">Setup Required</td>
-                  <td class="px-6 py-4 text-center text-gray-300">Stripe Connect + community building</td>
-                  <td class="px-6 py-4 text-center text-green-400">Just add bot + set pricing</td>
+                  <td class="px-6 py-4 text-center text-gray-300 text-sm">Stripe Connect + community</td>
+                  <td class="px-6 py-4 text-center text-gray-300 text-sm">Add bot + set pricing</td>
+                  <td class="px-6 py-4 text-center text-green-400 text-sm">Create challenge in /setup</td>
                 </tr>
                 <tr>
-                  <td class="px-6 py-4 text-gray-300 font-semibold">Monthly Revenue</td>
-                  <td class="px-6 py-4 text-center text-orange-400">$12 × subscribers</td>
-                  <td class="px-6 py-4 text-center text-orange-400">$80-250 × clients (your pricing)</td>
+                  <td class="px-6 py-4 text-gray-300 font-semibold">Revenue Type</td>
+                  <td class="px-6 py-4 text-center text-orange-400 text-sm">$12/mo recurring</td>
+                  <td class="px-6 py-4 text-center text-orange-400 text-sm">$80-250/mo recurring</td>
+                  <td class="px-6 py-4 text-center text-orange-400 text-sm">$97-297 one-time</td>
                 </tr>
                 <tr>
                   <td class="px-6 py-4 text-gray-300 font-semibold">Profit Margins</td>
-                  <td class="px-6 py-4 text-center text-green-400">100% (pure profit)</td>
-                  <td class="px-6 py-4 text-center text-green-400">90%+ (minus seat costs)</td>
+                  <td class="px-6 py-4 text-center text-green-400 text-sm">100% (pure profit)</td>
+                  <td class="px-6 py-4 text-center text-green-400 text-sm">90%+ (minus seats)</td>
+                  <td class="px-6 py-4 text-center text-green-400 text-sm">60% (Make Money) or 100% (Coach)</td>
                 </tr>
                 <tr>
-                  <td class="px-6 py-4 text-gray-300 font-semibold">Client Acquisition</td>
-                  <td class="px-6 py-4 text-center text-gray-300">Community attracts members</td>
-                  <td class="px-6 py-4 text-center text-gray-300">Direct sales + marketing</td>
+                  <td class="px-6 py-4 text-gray-300 font-semibold">User Commitment</td>
+                  <td class="px-6 py-4 text-center text-gray-300 text-sm">Ongoing monthly</td>
+                  <td class="px-6 py-4 text-center text-gray-300 text-sm">Ongoing monthly</td>
+                  <td class="px-6 py-4 text-center text-green-400 text-sm">6 weeks only</td>
                 </tr>
                 <tr>
                   <td class="px-6 py-4 text-gray-300 font-semibold">Best For</td>
-                  <td class="px-6 py-4 text-center text-gray-300">Content creators, influencers</td>
-                  <td class="px-6 py-4 text-center text-gray-300">Coaches, consultants</td>
+                  <td class="px-6 py-4 text-center text-gray-300 text-sm">Content creators</td>
+                  <td class="px-6 py-4 text-center text-gray-300 text-sm">Coaches, consultants</td>
+                  <td class="px-6 py-4 text-center text-gray-300 text-sm">All (engagement tool)</td>
                 </tr>
                 <tr>
-                  <td class="px-6 py-4 text-gray-300 font-semibold">Income Potential</td>
-                  <td class="px-6 py-4 text-center text-gray-300">Scales with audience size</td>
-                  <td class="px-6 py-4 text-center text-gray-300">Limited by your sales effort</td>
+                  <td class="px-6 py-4 text-gray-300 font-semibold">Frequency</td>
+                  <td class="px-6 py-4 text-center text-gray-300 text-sm">Continuous</td>
+                  <td class="px-6 py-4 text-center text-gray-300 text-sm">Continuous</td>
+                  <td class="px-6 py-4 text-center text-gray-300 text-sm">Quarterly or monthly</td>
                 </tr>
               </tbody>
             </table>

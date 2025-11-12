@@ -1,0 +1,864 @@
+---
+export const prerender = true;
+
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+// Add Discord client ID
+const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
+
+const pageTitle = "6-Week Challenge System | Digital Fitness Studio for Discord";
+const pageDescription = "Transform a corner of your Discord server into an exclusive personal training studio. Run profitable 6-week fitness challenges that drive engagement and generate revenue.";
+
+// Add structured data properties
+const ratingValue = 4.8;
+const ratingCount = 127;
+const startingPrice = "20.00";
+
+// Add FAQ structured data
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do 6-week challenges generate revenue?",
+      "@type": "Answer",
+      "text": "Server owners can run challenges three ways: charge one-time fees ($97-297) directly to participants, offer free challenges to monthly members for retention, or coaches can run premium challenges ($200-500+) with full automation. The short commitment period makes sales easier while the structure drives results."
+    },
+    {
+      "@type": "Question",
+      "name": "What makes the 6-week challenge system special?",
+      "@type": "Answer",
+      "text": "Zero burden tracking - AI food photo analysis, automatic workout logging, progress tracking, and leaderboards all happen automatically. Users just post photos and follow workouts. The bot handles everything else. This is why participants finish instead of quitting."
+    },
+    {
+      "@type": "Question",
+      "name": "Can I run multiple challenges per year?",
+      "@type": "Answer",
+      "text": "Yes! Run challenges quarterly (Jan, Apr, Jul, Oct) or even monthly. Each cohort starts together, creating recurring revenue streams and continuous community engagement. Many users join multiple challenges throughout the year."
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ratingValue={ratingValue}
+  ratingCount={ratingCount}
+  price={startingPrice}
+  type="website"
+  image="/images/six-week-challenges-preview.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <ContactModal id="contact-modal" />
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-dark text-white py-16 overflow-hidden">
+      <!-- Subtle decorative elements -->
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="absolute top-0 right-0 w-1/3 h-48 bg-orange-600/5 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-1/3 h-48 bg-discord/5 blur-3xl"></div>
+      </div>
+
+      <div class="container mx-auto px-4 max-w-5xl relative">
+        <div class="text-center mb-12">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            Your Digital
+            <br />
+            <span class="text-orange-500">Personal Training Studio</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+            Transform a corner of your Discord server into an exclusive fitness studio. Run 6-week challenges that drive massive engagement, create tight-knit community bonds, and generate serious revenue.
+          </p>
+        </div>
+
+        <!-- Key Benefits Grid -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <FeatureCard
+            title="Big Money Maker"
+            description="One-time $97-297 purchases. No long-term commitment needed. Short timeline = easier sales. Run quarterly for recurring revenue."
+            icon="💰"
+          />
+          <FeatureCard
+            title="Maximum Engagement"
+            description="Weekly leaderboards, cohort threads, check-ins, and social proof. Creates the strongest 'glue' between members you've ever seen."
+            icon="🔥"
+          />
+          <FeatureCard
+            title="Zero Tracking Burden"
+            description="AI food photo analysis, automatic workout logging, progress tracking - all automated. Users just post photos. Bot handles everything."
+            icon="⚡"
+          />
+        </div>
+
+        <!-- The Complete System -->
+        <div class="bg-gradient-to-br from-orange-900/20 to-orange-800/20 rounded-lg p-8 border border-orange-500/30 mb-16">
+          <h2 class="text-3xl font-bold mb-6 text-center">The Complete Digital Studio Experience</h2>
+          <p class="text-gray-300 text-center mb-8 text-lg">
+            CalorieBot recreates the entire personal training studio + nutritionist experience. Everything automated.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-dark/50 rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4 text-orange-400">🍽️ AI Nutritionist</h3>
+              <ul class="space-y-2 text-gray-300">
+                <li>• Snap photos of meals → instant calorie/macro analysis</li>
+                <li>• Real-time tally throughout the day</li>
+                <li>• Personalized calorie targets from profile</li>
+                <li>• Zero typing, searching, or math</li>
+                <li>• Takes 5 seconds per meal vs. 10+ minutes</li>
+              </ul>
+            </div>
+
+            <div class="bg-dark/50 rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4 text-orange-400">💪 AI Personal Trainer</h3>
+              <ul class="space-y-2 text-gray-300">
+                <li>• Photo equipment extraction (snap gym photo)</li>
+                <li>• AI workout generation based on available equipment</li>
+                <li>• Avoids recently trained muscles</li>
+                <li>• Respects exercise preferences and exclusions</li>
+                <li>• Complete workout logging & PR tracking</li>
+              </ul>
+            </div>
+
+            <div class="bg-dark/50 rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4 text-orange-400">📊 Progress Tracking</h3>
+              <ul class="space-y-2 text-gray-300">
+                <li>• Weight tracking (scale photos or manual entry)</li>
+                <li>• AI body fat percentage estimation</li>
+                <li>• Auto-sync steps (Apple Health, Fitbit)</li>
+                <li>• Progress photo comparisons</li>
+                <li>• Complete dashboard in /profile command</li>
+              </ul>
+            </div>
+
+            <div class="bg-dark/50 rounded-lg p-6">
+              <h3 class="text-xl font-bold mb-4 text-orange-400">🏆 Social Accountability</h3>
+              <ul class="space-y-2 text-gray-300">
+                <li>• Weekly leaderboards (weight, consistency, steps)</li>
+                <li>• Cohort-based challenge threads</li>
+                <li>• Monday & Friday check-ins (automatic)</li>
+                <li>• Achievement badges for milestones</li>
+                <li>• Complete 6-week results summary</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why This Works Section -->
+    <section class="py-16 bg-secondary">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-12">
+          Why 6-Week Challenges Work So Well
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- For Server Owners/Coaches -->
+          <div class="bg-dark rounded-lg p-8">
+            <h3 class="text-2xl font-bold text-orange-400 mb-6">For You (Server Owner/Coach)</h3>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">✓</span>
+                <div>
+                  <strong>Easier to sell</strong> - 6 weeks feels achievable. Not a "lifetime commitment." Lower barrier to purchase.
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">✓</span>
+                <div>
+                  <strong>Recurring revenue</strong> - Run quarterly (Jan, Apr, Jul, Oct) or even monthly. New cohorts = new revenue.
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">✓</span>
+                <div>
+                  <strong>Ascend to memberships</strong> - Convert challenge finishers to $19.99/month long-term members. Natural upgrade path.
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">✓</span>
+                <div>
+                  <strong>Maximum engagement</strong> - Creates intense "glue" between members. Cohorts bond over shared experience.
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">✓</span>
+                <div>
+                  <strong>Zero admin overhead</strong> - Create challenge once, bot runs entire 6-week program automatically.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- For Their Users -->
+          <div class="bg-dark rounded-lg p-8">
+            <h3 class="text-2xl font-bold text-orange-400 mb-6">For Your Members</h3>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">✓</span>
+                <div>
+                  <strong>Low commitment</strong> - Just 6 weeks. Not "forever." Achievable timeline drives participation.
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">✓</span>
+                <div>
+                  <strong>Zero tracking burden</strong> - Snap photos, AI handles it. No spreadsheets, no manual entry. 5 seconds per meal.
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">✓</span>
+                <div>
+                  <strong>Real results</strong> - Average participant loses 12+ lbs in 6 weeks. Visible transformation.
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">✓</span>
+                <div>
+                  <strong>Cohort accountability</strong> - Started together, weekly leaderboards, social proof. Not alone.
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">✓</span>
+                <div>
+                  <strong>Habit building</strong> - By week 6, tracking is automatic. Built the habit without "trying."
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- The Magic Formula -->
+        <div class="bg-gradient-to-r from-green-900/20 to-green-800/20 rounded-lg p-8 border border-green-500/30">
+          <h3 class="text-2xl font-bold text-white text-center mb-6">The Magic Formula</h3>
+          <div class="grid md:grid-cols-3 gap-6 text-center">
+            <div>
+              <div class="text-4xl mb-3">⏱️</div>
+              <h4 class="font-bold text-white mb-2">Finite Timeline</h4>
+              <p class="text-gray-300">6 weeks. 42 days. Feels achievable. Not overwhelming.</p>
+            </div>
+            <div>
+              <div class="text-4xl mb-3">🤖</div>
+              <h4 class="font-bold text-white mb-2">AI Automation</h4>
+              <p class="text-gray-300">Zero burden tracking. Users finish instead of quitting on day 4.</p>
+            </div>
+            <div>
+              <div class="text-4xl mb-3">👥</div>
+              <h4 class="font-bold text-white mb-2">Social Proof</h4>
+              <p class="text-gray-300">Cohort + leaderboards drive behavior. Not alone.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three Ways to Run Challenges -->
+    <section class="py-16 bg-dark">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-4">
+          Three Ways to Run 6-Week Challenges
+        </h2>
+        <p class="text-center text-gray-300 mb-12 text-lg">
+          Choose the model that fits your business. All three use the same powerful automation.
+        </p>
+
+        <div class="space-y-8">
+          <!-- Model 1: Make Money Server - Paid Challenges -->
+          <div class="bg-secondary rounded-lg p-8 border-l-4 border-orange-500">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-2xl">1</div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold text-white mb-4">Make Money Server - Paid Challenges</h3>
+                <p class="text-gray-300 mb-4">
+                  <strong>For:</strong> Community servers, fitness influencers, content creators
+                </p>
+                <p class="text-gray-300 mb-6">
+                  Charge one-time fees ($97-297) for challenge access. Users pay once, get 6 weeks of access. Server owner keeps 60% of revenue via Stripe Connect.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                  <div class="bg-dark/50 rounded-lg p-4">
+                    <h4 class="font-bold text-orange-400 mb-2">How It Works</h4>
+                    <ul class="text-gray-300 text-sm space-y-1">
+                      <li>• Create challenge in /setup dashboard</li>
+                      <li>• Set pricing tier (Low/Mid/High)</li>
+                      <li>• Challenge appears in /subscription command</li>
+                      <li>• Users purchase via Stripe checkout</li>
+                      <li>• Bot auto-enrolls on payment success</li>
+                      <li>• Access auto-revokes after 6 weeks</li>
+                    </ul>
+                  </div>
+                  <div class="bg-dark/50 rounded-lg p-4">
+                    <h4 class="font-bold text-green-400 mb-2">Revenue Example</h4>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span class="text-gray-300">30 participants × $197</span>
+                        <span class="text-white font-bold">$5,910</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-300">Your 60% split</span>
+                        <span class="text-green-400 font-bold">$3,546</span>
+                      </div>
+                      <div class="border-t border-gray-600 pt-2 mt-2">
+                        <p class="text-gray-400">Run quarterly = $14,184/year from challenges alone</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
+                  <p class="text-green-300 text-sm">
+                    <strong>Conversion Path:</strong> Challenge finishers often convert to $19.99/month long-term memberships. Natural upsell.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Model 2: Free Challenges for Monthly Members -->
+          <div class="bg-secondary rounded-lg p-8 border-l-4 border-blue-500">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 bg-discord rounded-full flex items-center justify-center text-white font-bold text-2xl">2</div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold text-white mb-4">Free Opt-In Challenges for Existing Members</h3>
+                <p class="text-gray-300 mb-4">
+                  <strong>For:</strong> Servers with monthly subscription base ($19.99/month members)
+                </p>
+                <p class="text-gray-300 mb-6">
+                  Run free challenges for existing monthly members. Creates massive engagement spikes, improves retention, and adds value to monthly membership.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                  <div class="bg-dark/50 rounded-lg p-4">
+                    <h4 class="font-bold text-blue-400 mb-2">How It Works</h4>
+                    <ul class="text-gray-300 text-sm space-y-1">
+                      <li>• Announce challenge in #updates channel</li>
+                      <li>• Monthly members opt in (no payment needed)</li>
+                      <li>• Bot auto-enrolls opted-in members</li>
+                      <li>• Same automation as paid challenges</li>
+                      <li>• Members keep access after (already paying monthly)</li>
+                    </ul>
+                  </div>
+                  <div class="bg-dark/50 rounded-lg p-4">
+                    <h4 class="font-bold text-green-400 mb-2">Retention Benefits</h4>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                      <li>✓ Members see value in monthly subscription</li>
+                      <li>✓ Creates cohort bonds (less likely to cancel)</li>
+                      <li>✓ Quarterly challenges = continuous engagement</li>
+                      <li>✓ Free to run, massive retention improvement</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+                  <p class="text-blue-300 text-sm">
+                    <strong>Added Value:</strong> "Join monthly membership for $19.99 and get free access to quarterly 6-week challenges ($200+ value)."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Model 3: Premium Coach Challenges -->
+          <div class="bg-secondary rounded-lg p-8 border-l-4 border-purple-500">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-2xl">3</div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold text-white mb-4">Premium Coach Challenges (Private Servers)</h3>
+                <p class="text-gray-300 mb-4">
+                  <strong>For:</strong> Personal trainers, nutrition coaches, fitness consultants
+                </p>
+                <p class="text-gray-300 mb-6">
+                  Run premium-priced challenges ($200-500+) with full automation. You handle sales and pricing, CalorieBot provides the complete digital studio infrastructure.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                  <div class="bg-dark/50 rounded-lg p-4">
+                    <h4 class="font-bold text-purple-400 mb-2">How It Works</h4>
+                    <ul class="text-gray-300 text-sm space-y-1">
+                      <li>• Buy seats wholesale ($20 + $12 each)</li>
+                      <li>• Charge clients $200-500 per challenge</li>
+                      <li>• Manually enroll paid clients in /setup</li>
+                      <li>• Bot runs entire 6-week automation</li>
+                      <li>• You provide coaching, bot handles tracking</li>
+                    </ul>
+                  </div>
+                  <div class="bg-dark/50 rounded-lg p-4">
+                    <h4 class="font-bold text-green-400 mb-2">Coaching Revenue</h4>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span class="text-gray-300">20 clients × $350</span>
+                        <span class="text-white font-bold">$7,000</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-300">CalorieBot cost (20 seats)</span>
+                        <span class="text-red-400">-$248</span>
+                      </div>
+                      <div class="border-t border-gray-600 pt-2 mt-2 flex justify-between">
+                        <span class="text-gray-300">Your profit per challenge</span>
+                        <span class="text-green-400 font-bold text-lg">$6,752</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
+                  <p class="text-purple-300 text-sm">
+                    <strong>Complete Recreation:</strong> This is the full personal training studio experience. You provide coaching, CalorieBot provides infrastructure.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's Included - The 6-Week Journey -->
+    <section class="py-16 bg-secondary">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-12">
+          The Complete 6-Week Journey (Fully Automated)
+        </h2>
+
+        <div class="space-y-6">
+          <!-- Prep Period -->
+          <div class="bg-dark rounded-lg p-6 border-l-4 border-orange-500">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center text-white font-bold">📅</div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-white mb-2">Prep Period (1-2 weeks before start)</h3>
+                <p class="text-gray-300 mb-3">Early purchasers get prep access. Build habits before Day 1. More prep time = better results.</p>
+                <ul class="text-gray-300 text-sm space-y-1">
+                  <li>• Welcome DM sent automatically on enrollment</li>
+                  <li>• Daily threads open immediately for food tracking</li>
+                  <li>• Log baseline weight and progress photo</li>
+                  <li>• Practice using Quick Workout feature</li>
+                  <li>• Final verification DM sent Sunday before start</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Week 1-5 -->
+          <div class="bg-dark rounded-lg p-6 border-l-4 border-blue-500">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-discord rounded-lg flex items-center justify-center text-white font-bold">🔁</div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-white mb-2">Weeks 1-5: Core Rhythm</h3>
+                <p class="text-gray-300 mb-3">Consistent structure builds habits. Bot handles everything automatically.</p>
+
+                <div class="grid md:grid-cols-3 gap-4 mt-4">
+                  <div class="bg-secondary rounded-lg p-4">
+                    <h4 class="font-bold text-blue-400 mb-2">Every Day</h4>
+                    <ul class="text-gray-300 text-sm space-y-1">
+                      <li>• Daily thread opens at midnight</li>
+                      <li>• Users post meals → AI tracks</li>
+                      <li>• Quick Actions menu for workouts</li>
+                      <li>• Weight/steps/photos tracked</li>
+                    </ul>
+                  </div>
+                  <div class="bg-secondary rounded-lg p-4">
+                    <h4 class="font-bold text-blue-400 mb-2">Monday 8 AM</h4>
+                    <ul class="text-gray-300 text-sm space-y-1">
+                      <li>• New weekly challenge thread</li>
+                      <li>• Last week's Big Wins recap</li>
+                      <li>• Participant mentions</li>
+                      <li>• Cohort motivation</li>
+                    </ul>
+                  </div>
+                  <div class="bg-secondary rounded-lg p-4">
+                    <h4 class="font-bold text-blue-400 mb-2">Mon/Fri Check-ins</h4>
+                    <ul class="text-gray-300 text-sm space-y-1">
+                      <li>• Dashboard appears in daily thread</li>
+                      <li>• Weight input modal</li>
+                      <li>• Mood/energy/stress ratings</li>
+                      <li>• 2-minute completion</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Week 6 -->
+          <div class="bg-dark rounded-lg p-6 border-l-4 border-green-500">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold">🏆</div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-white mb-2">Week 6: Grand Finale</h3>
+                <p class="text-gray-300 mb-3">Celebration of results. Complete transformation summary.</p>
+                <ul class="text-gray-300 text-sm space-y-1">
+                  <li>• Final weigh-in Friday (automatic check-in)</li>
+                  <li>• Submit final progress photo reminder</li>
+                  <li>• Grand Finale post Friday 7 PM (weight lost, BF% change, cohort totals)</li>
+                  <li>• Before/after photo gallery (opt-in)</li>
+                  <li>• Complete 6-week results summary per user</li>
+                  <li>• Conversion offer to monthly membership (paid challenges only)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What Makes This Special -->
+        <div class="mt-12 bg-gradient-to-r from-orange-900/20 to-orange-800/20 rounded-lg p-8 border border-orange-500/30">
+          <h3 class="text-2xl font-bold text-white text-center mb-6">What Makes This Special</h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-bold text-orange-400 mb-3">For Users: Why They Finish</h4>
+              <ul class="text-gray-300 space-y-2 text-sm">
+                <li>✓ 5 seconds per meal (photo → done) vs. 10+ min in MyFitnessPal</li>
+                <li>✓ AI generates workouts (no paralysis, just follow it)</li>
+                <li>✓ Cohort started together (not alone)</li>
+                <li>✓ Weekly leaderboards (social proof drives behavior)</li>
+                <li>✓ 6 weeks feels achievable (not "forever")</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-orange-400 mb-3">For You: Zero Admin Work</h4>
+              <ul class="text-gray-300 space-y-2 text-sm">
+                <li>✓ Create challenge once in /setup dashboard</li>
+                <li>✓ Bot handles 6 weeks of automation</li>
+                <li>✓ Weekly threads auto-created</li>
+                <li>✓ Check-ins appear automatically</li>
+                <li>✓ Leaderboards calculated from tracked data</li>
+                <li>✓ Access auto-granted and auto-revoked</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Creates Maximum "Glue" -->
+    <section class="py-16 bg-dark">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-6">
+          Creates Maximum "Glue" Between Members
+        </h2>
+        <p class="text-center text-gray-300 mb-12 text-lg max-w-3xl mx-auto">
+          6-week challenges create the strongest bonds between server members you've ever seen. This "glue" benefits your entire server, not just the challenge.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="bg-secondary rounded-lg p-6 text-center">
+            <div class="text-4xl mb-4">🤝</div>
+            <h3 class="text-xl font-bold text-white mb-3">Shared Journey</h3>
+            <p class="text-gray-300 text-sm">
+              Cohort starts together on the same day. Everyone goes through the same 6-week timeline. Creates "we're in this together" mentality.
+            </p>
+          </div>
+
+          <div class="bg-secondary rounded-lg p-6 text-center">
+            <div class="text-4xl mb-4">🏆</div>
+            <h3 class="text-xl font-bold text-white mb-3">Friendly Competition</h3>
+            <p class="text-gray-300 text-sm">
+              Weekly leaderboards in dedicated challenge threads. Weight loss, consistency, steps, workouts. Social proof drives everyone forward.
+            </p>
+          </div>
+
+          <div class="bg-secondary rounded-lg p-6 text-center">
+            <div class="text-4xl mb-4">🎉</div>
+            <h3 class="text-xl font-bold text-white mb-3">Shared Victories</h3>
+            <p class="text-gray-300 text-sm">
+              Monday Big Wins posts, Friday celebrations, Grand Finale. Everyone sees everyone's progress. Builds genuine community.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-purple-900/20 to-purple-800/20 rounded-lg p-8 border border-purple-500/30">
+          <h3 class="text-2xl font-bold text-white text-center mb-6">The Ripple Effect</h3>
+          <p class="text-gray-300 text-center mb-6">
+            Members who complete challenges together form lasting bonds. They stay active in your server long after the challenge ends. This benefits everything else happening in your community.
+          </p>
+          <div class="grid md:grid-cols-4 gap-4 text-center">
+            <div>
+              <div class="text-3xl mb-2">📈</div>
+              <p class="text-sm text-gray-300">Higher retention rates</p>
+            </div>
+            <div>
+              <div class="text-3xl mb-2">💬</div>
+              <p class="text-sm text-gray-300">More active discussions</p>
+            </div>
+            <div>
+              <div class="text-3xl mb-2">🔗</div>
+              <p class="text-sm text-gray-300">Stronger member connections</p>
+            </div>
+            <div>
+              <div class="text-3xl mb-2">⭐</div>
+              <p class="text-sm text-gray-300">Better server reputation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Numbers: Revenue Potential -->
+    <section class="py-16 bg-secondary">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-12">
+          Real Revenue Potential
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <!-- Community Server -->
+          <div class="bg-dark rounded-lg p-6">
+            <h3 class="text-xl font-bold text-orange-400 mb-4 text-center">Community Server</h3>
+            <div class="text-center mb-4">
+              <div class="text-sm text-gray-400 mb-2">Paid Challenge Model</div>
+              <div class="text-3xl font-bold text-white">$197</div>
+              <div class="text-sm text-gray-400">per participant</div>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="bg-secondary rounded p-3">
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-300">25 participants</span>
+                  <span class="text-white font-bold">$4,925</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-400">Your 60% cut</span>
+                  <span class="text-green-400 font-bold">$2,955</span>
+                </div>
+              </div>
+              <div class="bg-secondary rounded p-3">
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-300">50 participants</span>
+                  <span class="text-white font-bold">$9,850</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-400">Your 60% cut</span>
+                  <span class="text-green-400 font-bold">$5,910</span>
+                </div>
+              </div>
+              <div class="bg-green-900/20 border border-green-500/30 rounded p-3">
+                <p class="text-green-300 text-xs text-center">
+                  Run quarterly = $11,820 - $23,640/year
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Membership Server -->
+          <div class="bg-dark rounded-lg p-6">
+            <h3 class="text-xl font-bold text-blue-400 mb-4 text-center">Membership Server</h3>
+            <div class="text-center mb-4">
+              <div class="text-sm text-gray-400 mb-2">Free Opt-In for Members</div>
+              <div class="text-3xl font-bold text-white">$0</div>
+              <div class="text-sm text-gray-400">per challenge (retention tool)</div>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="bg-secondary rounded p-3">
+                <div class="text-gray-300 mb-2 font-semibold">Retention Benefits</div>
+                <ul class="space-y-1 text-gray-400">
+                  <li>• Members see ongoing value</li>
+                  <li>• Quarterly challenges = continuous engagement</li>
+                  <li>• Cohort bonds reduce churn</li>
+                </ul>
+              </div>
+              <div class="bg-secondary rounded p-3">
+                <div class="text-gray-300 mb-2 font-semibold">Example Impact</div>
+                <div class="space-y-1">
+                  <div class="flex justify-between">
+                    <span class="text-gray-400">200 monthly members</span>
+                    <span class="text-white">$3,998/mo</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-400">5% churn prevented</span>
+                    <span class="text-green-400">+$200/mo saved</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-blue-900/20 border border-blue-500/30 rounded p-3">
+                <p class="text-blue-300 text-xs text-center">
+                  Free challenges improve LTV of monthly members
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coach Server -->
+          <div class="bg-dark rounded-lg p-6">
+            <h3 class="text-xl font-bold text-purple-400 mb-4 text-center">Coach/Trainer Server</h3>
+            <div class="text-center mb-4">
+              <div class="text-sm text-gray-400 mb-2">Premium Coach Pricing</div>
+              <div class="text-3xl font-bold text-white">$350</div>
+              <div class="text-sm text-gray-400">per client (you set price)</div>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="bg-secondary rounded p-3">
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-300">15 clients × $350</span>
+                  <span class="text-white font-bold">$5,250</span>
+                </div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-400">CalorieBot cost</span>
+                  <span class="text-red-400">-$188</span>
+                </div>
+                <div class="flex justify-between pt-2 border-t border-gray-600">
+                  <span class="text-gray-300">Your profit</span>
+                  <span class="text-green-400 font-bold">$5,062</span>
+                </div>
+              </div>
+              <div class="bg-secondary rounded p-3">
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-300">25 clients × $350</span>
+                  <span class="text-white font-bold">$8,750</span>
+                </div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-400">CalorieBot cost</span>
+                  <span class="text-red-400">-$308</span>
+                </div>
+                <div class="flex justify-between pt-2 border-t border-gray-600">
+                  <span class="text-gray-300">Your profit</span>
+                  <span class="text-green-400 font-bold">$8,442</span>
+                </div>
+              </div>
+              <div class="bg-purple-900/20 border border-purple-500/30 rounded p-3">
+                <p class="text-purple-300 text-xs text-center">
+                  Run 4-6 challenges/year = $20k-50k revenue
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Annual Projection -->
+        <div class="bg-gradient-to-r from-green-900/20 to-green-800/20 rounded-lg p-8 border border-green-500/30">
+          <h3 class="text-2xl font-bold text-white text-center mb-6">Annual Revenue Potential</h3>
+          <p class="text-center text-gray-300 mb-8">Run challenges quarterly (Jan, Apr, Jul, Oct) or more frequently</p>
+          <div class="grid md:grid-cols-3 gap-6 text-center">
+            <div>
+              <div class="text-sm text-gray-400 mb-2">Community Server (Paid)</div>
+              <div class="text-3xl font-bold text-green-400 mb-2">$12k-$24k</div>
+              <div class="text-xs text-gray-400">4 challenges × 25-50 participants</div>
+            </div>
+            <div>
+              <div class="text-sm text-gray-400 mb-2">Membership Server (Retention)</div>
+              <div class="text-3xl font-bold text-green-400 mb-2">$48k+</div>
+              <div class="text-xs text-gray-400">200 members × $19.99/mo (improved retention)</div>
+            </div>
+            <div>
+              <div class="text-sm text-gray-400 mb-2">Coach Server (Premium)</div>
+              <div class="text-3xl font-bold text-green-400 mb-2">$30k-$60k</div>
+              <div class="text-xs text-gray-400">6 challenges × 15-25 clients at $350</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Get Started -->
+    <section class="py-16 bg-dark">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-12">
+          How to Get Started
+        </h2>
+
+        <div class="space-y-6 mb-12">
+          <div class="bg-secondary rounded-lg p-6 flex items-start gap-4">
+            <div class="flex-shrink-0">
+              <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold">1</div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">Add CalorieBot to Your Server</h3>
+              <p class="text-gray-300">Install the bot and complete setup in minutes. No technical knowledge required.</p>
+            </div>
+          </div>
+
+          <div class="bg-secondary rounded-lg p-6 flex items-start gap-4">
+            <div class="flex-shrink-0">
+              <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold">2</div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">Choose Your Challenge Model</h3>
+              <p class="text-gray-300">Paid challenges for revenue, free opt-in for retention, or premium coach pricing. Pick what fits your business.</p>
+            </div>
+          </div>
+
+          <div class="bg-secondary rounded-lg p-6 flex items-start gap-4">
+            <div class="flex-shrink-0">
+              <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold">3</div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">Create Challenge in /setup</h3>
+              <p class="text-gray-300">Set start date, length, enrollment type. Takes 2 minutes. Bot handles everything else.</p>
+            </div>
+          </div>
+
+          <div class="bg-secondary rounded-lg p-6 flex items-start gap-4">
+            <div class="flex-shrink-0">
+              <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold">4</div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">Enroll Participants & Launch</h3>
+              <p class="text-gray-300">Users purchase/opt-in, bot auto-enrolls. Challenge runs automatically for 6 weeks. You watch the results.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center bg-gradient-to-r from-orange-900/20 to-orange-800/20 rounded-lg p-12 border border-orange-500/30">
+          <h3 class="text-3xl font-bold text-white mb-4">
+            Turn Your Discord Server Into a Digital Fitness Studio
+          </h3>
+          <p class="text-xl text-gray-300 mb-8">
+            Start running profitable 6-week challenges. Zero admin overhead. Maximum engagement.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+              class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-full transition-colors text-lg"
+            >
+              Add CalorieBot to Server
+            </a>
+            <a
+              href="/for-coaches/"
+              class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-full transition-colors text-lg"
+            >
+              Learn More About Coaching
+            </a>
+          </div>
+          <p class="text-gray-400 text-sm mt-6">
+            Free to add • First challenge can be scheduled today
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<script>
+  // TypeScript declarations for gtag
+  declare global {
+    function gtag(command: string, targetId: string, parameters?: Record<string, any>): void;
+  }
+
+  // Track page view for analytics
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'page_view', {
+      page_title: '6-Week Challenge System',
+      page_location: window.location.href,
+      content_group: 'challenges'
+    });
+  }
+</script>
+
