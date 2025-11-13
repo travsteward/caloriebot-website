@@ -5,9 +5,9 @@ description: "After 15 years running a personal training studio, I've found the 
 publishedDate: "2024-11-12"
 author: "CalorieBot Team"
 authorImage: "/authors/team.svg"
-coverImage: "/blog/covers/six_week_challenge.svg"
+coverImage: "/blog/covers/6-week-challenge-blog.png"
 coverImageAlt: "A diverse group celebrating their fitness transformation after completing a 6-week challenge"
-tags: ["6-Week Challenges", "Community Building", "Fitness Business"]
+tags: ["Community", "Business", "Fitness"]
 prerender: true
 ---
 

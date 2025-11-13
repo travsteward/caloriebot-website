@@ -7,7 +7,7 @@ author: "CalorieBot Team"
 authorImage: "/authors/team.svg"
 coverImage: "/blog/covers/thriving_community.png"
 coverImageAlt: "A thriving fitness community sharing their progress and supporting each other"
-tags: ["Community Building", "Discord Tips", "Engagement"]
+tags: ["Community"]
 prerender: true
 ---
 

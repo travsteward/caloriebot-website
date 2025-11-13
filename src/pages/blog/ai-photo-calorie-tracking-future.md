@@ -7,7 +7,7 @@ author: "CalorieBot Team"
 authorImage: "/authors/team.svg"
 coverImage: "/blog/covers/ai_photo_tracking.png"
 coverImageAlt: "AI analyzing a food photo to calculate calories and nutrition information"
-tags: ["AI Technology", "Nutrition", "Innovation"]
+tags: ["Technology", "Fitness"]
 prerender: true
 ---
 

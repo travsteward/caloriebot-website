@@ -7,7 +7,7 @@ author: "CalorieBot Team"
 authorImage: "/authors/team.svg"
 coverImage: "/blog/covers/monetize_discord.png"
 coverImageAlt: "Discord server monetization dashboard showing revenue streams and member engagement"
-tags: ["Monetization", "Business", "Community"]
+tags: ["Business", "Community"]
 prerender: true
 ---
 
