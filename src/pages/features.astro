@@ -305,87 +305,212 @@ const startingPrice = "19.99";
             🏋️ Complete Fitness System
           </h2>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            AI-powered workouts, exercise tracking, PR management, and progressive overload—all built into Discord.
+            AI-powered workouts that learn your preferences, equipment, and history. Generate perfect workouts in seconds—no expertise required.
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <!-- AI Workout Generation -->
+          <!-- Quick Workout Generation -->
           <div class="bg-secondary rounded-xl p-6 border border-orange-500/20">
             <div class="text-orange-400 font-semibold mb-2 text-sm">AI-Powered</div>
-            <h3 class="text-xl font-bold text-white mb-3">Personalized Workouts</h3>
-            <p class="text-gray-300 text-sm mb-4">Tell AI your equipment, goals, and time available. Get perfectly tailored workout routines instantly.</p>
+            <h3 class="text-xl font-bold text-white mb-3">Quick Workout Generation</h3>
+            <p class="text-gray-300 text-sm mb-4">Generate personalized workouts instantly based on your <strong class="text-white">preferences</strong>, <strong class="text-white">equipment availability</strong>, and <strong class="text-white">recent workout history</strong>. AI optimizes every workout to minimize fatigue and maximize results.</p>
             <ul class="space-y-2 text-gray-400 text-sm">
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Equipment-based recommendations</span>
+                <span>3-tier preference system (local → global → defaults)</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Goal-oriented routines (weight loss, muscle gain)</span>
+                <span>Workout history analysis prevents overtraining</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Progressive overload suggestions</span>
+                <span>Customizable duration, split, sets, and rep ranges</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Exercise substitution options</span>
+                <span>Instant generation in seconds</span>
               </li>
             </ul>
           </div>
 
-          <!-- Workout Tracking -->
+          <!-- Equipment & Location Management -->
+          <div class="bg-secondary rounded-xl p-6 border border-orange-500/20">
+            <div class="text-orange-400 font-semibold mb-2 text-sm">Smart Setup</div>
+            <h3 class="text-xl font-bold text-white mb-3">Equipment & Location Management</h3>
+            <p class="text-gray-300 text-sm mb-4">Manage multiple gym locations with different equipment profiles. <strong class="text-white">AI photo analysis</strong> extracts equipment details from gym photos—perfect for non-experts who don't know what equipment they have.</p>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span><strong class="text-white">AI photo analysis</strong> - Upload gym photos, AI identifies equipment</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Multi-location support (gym, home, office, bodyweight)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>AI auto-populate from gym name</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Equipment constraints ensure feasible exercises only</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Workout Preferences System -->
+          <div class="bg-secondary rounded-xl p-6 border border-orange-500/20">
+            <div class="text-orange-400 font-semibold mb-2 text-sm">Personalization</div>
+            <h3 class="text-xl font-bold text-white mb-3">Workout Preferences System</h3>
+            <p class="text-gray-300 text-sm mb-4">Set your preferred equipment types, exclude exercises you don't like, and save workout defaults. AI respects your preferences while ensuring effective training.</p>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Equipment preferences (barbells, dumbbells, machines, cables, etc.)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Exercise exclusions - never include exercises you hate</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Workout defaults (duration, split, sets, reps) pre-fill selectors</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Override per-workout without changing saved defaults</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Programs & Routines -->
+          <div class="bg-secondary rounded-xl p-6 border border-orange-500/20">
+            <div class="text-orange-400 font-semibold mb-2 text-sm">Structured Training</div>
+            <h3 class="text-xl font-bold text-white mb-3">Programs & Routines System</h3>
+            <p class="text-gray-300 text-sm mb-4">Follow structured multi-week programs or create custom routines. Track progress automatically through program sequences with automatic progression.</p>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Global, Server, and User workout libraries</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Automatic routine progression based on completion</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Routine builder - create and save custom workouts</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Preserve progress when restarting programs</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Active Workout Tracking -->
+          <div class="bg-secondary rounded-xl p-6 border border-orange-500/20">
+            <div class="text-orange-400 font-semibold mb-2 text-sm">Live Tracking</div>
+            <h3 class="text-xl font-bold text-white mb-3">Active Workout Threads</h3>
+            <p class="text-gray-300 text-sm mb-4">Dedicated workout threads with exercise navigation, set logging, rest timers, and exercise substitution. See your previous sets and PRs as you train.</p>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Previous/Next exercise navigation</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Flexible set logging: "225x8" or "8" (uses previous weight)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Built-in rest timer with customizable periods</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Exercise history shows last 3 workouts with best set highlighting</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Exercise Substitution -->
+          <div class="bg-secondary rounded-xl p-6 border border-orange-500/20">
+            <div class="text-orange-400 font-semibold mb-2 text-sm">Intelligent Assistance</div>
+            <h3 class="text-xl font-bold text-white mb-3">AI Exercise Substitution</h3>
+            <p class="text-gray-300 text-sm mb-4">Need to swap an exercise? AI suggests alternatives based on movement patterns, equipment availability, injuries, and your preferences. Perfect replacements that maintain workout structure.</p>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Movement-pattern matching for similar exercises</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Equipment-aware suggestions</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Considers injuries and limitations</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span>Preserves sets, reps, and rest periods</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Smart Progress Tracking -->
           <div class="bg-secondary rounded-xl p-6 border border-orange-500/20">
             <div class="text-orange-400 font-semibold mb-2 text-sm">Progress Tracking</div>
-            <h3 class="text-xl font-bold text-white mb-3">Workout Logging & PRs</h3>
-            <p class="text-gray-300 text-sm mb-4">Log sets, reps, and weights. Track personal records automatically. Build your workout history.</p>
+            <h3 class="text-xl font-bold text-white mb-3">PRs & Workout Statistics</h3>
+            <p class="text-gray-300 text-sm mb-4">Automatic PR detection, volume tracking (weight × reps), and comprehensive workout statistics. Track progress across exercises, programs, and time periods.</p>
             <ul class="space-y-2 text-gray-400 text-sm">
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Set and rep logging</span>
+                <span>Automatic personal record (PR) detection</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Automatic PR detection</span>
+                <span>Volume calculations (weight × reps) for all sets</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Rest timer integration</span>
+                <span>Workout summaries with total exercises, sets, and volume</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Detailed workout history</span>
+                <span>Historical analysis and trend tracking</span>
               </li>
             </ul>
           </div>
 
-          <!-- Exercise Guidance -->
+          <!-- Form Guidance -->
           <div class="bg-secondary rounded-xl p-6 border border-orange-500/20">
             <div class="text-orange-400 font-semibold mb-2 text-sm">Education</div>
             <h3 class="text-xl font-bold text-white mb-3">Form Guidance & Instructions</h3>
-            <p class="text-gray-300 text-sm mb-4">AI-powered exercise instructions with form tips, muscle groups targeted, and proper technique guidance.</p>
+            <p class="text-gray-300 text-sm mb-4">AI-powered exercise instructions with step-by-step form tips, muscle groups targeted, and proper technique guidance. Perfect for beginners and form refinement.</p>
             <ul class="space-y-2 text-gray-400 text-sm">
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Step-by-step instructions</span>
+                <span>Step-by-step exercise instructions</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Form tips and safety</span>
+                <span>Form tips and safety guidelines</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
-                <span>Muscle groups targeted</span>
+                <span>Muscle groups targeted for each exercise</span>
               </li>
             </ul>
           </div>
 
-          <!-- Weight Tracking -->
+          <!-- Weight & Body Tracking -->
           <div class="bg-secondary rounded-xl p-6 border border-orange-500/20">
             <div class="text-orange-400 font-semibold mb-2 text-sm">Body Metrics</div>
             <h3 class="text-xl font-bold text-white mb-3">Weight & Body Tracking</h3>
-            <p class="text-gray-300 text-sm mb-4">Track weight changes over time with manual entry or AI-powered scale photo recognition.</p>
+            <p class="text-gray-300 text-sm mb-4">Track weight changes over time with manual entry or AI-powered scale photo recognition. Trend analysis and goal visualization included.</p>
             <ul class="space-y-2 text-gray-400 text-sm">
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
@@ -410,8 +535,12 @@ const startingPrice = "19.99";
           <div class="bg-secondary rounded-xl p-6 border border-orange-500/20">
             <div class="text-orange-400 font-semibold mb-2 text-sm">Visual Progress</div>
             <h3 class="text-xl font-bold text-white mb-3">Progress Photo Tracking</h3>
-            <p class="text-gray-300 text-sm mb-4">Upload before/after photos. Compare transformations side-by-side. Track visual progress over time.</p>
+            <p class="text-gray-300 text-sm mb-4">Upload progress photos in your daily log threads. Get <strong class="text-white">super accurate body fat % analysis</strong> through AI body composition detection. Compare transformations side-by-side and track visual progress over time.</p>
             <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-orange-400">✓</span>
+                <span><strong class="text-white">AI body fat % analysis</strong> - Super accurate body composition detection</span>
+              </li>
               <li class="flex items-start gap-2">
                 <span class="text-orange-400">✓</span>
                 <span>Before/after comparisons</span>
@@ -609,7 +738,7 @@ const startingPrice = "19.99";
           <div class="bg-dark rounded-xl p-6 border border-green-500/20">
             <div class="text-green-400 font-semibold mb-2 text-sm">Social Connection</div>
             <h3 class="text-xl font-bold text-white mb-3">Progress Sharing & Celebration</h3>
-            <p class="text-gray-300 text-sm mb-4">Share daily tallies, meal photos, workout completions, and milestones. Celebrate wins together.</p>
+            <p class="text-gray-300 text-sm mb-4">Share daily tallies, meal photos, workout completions, progress photos with body fat analysis, and milestones. Celebrate wins together.</p>
             <ul class="space-y-2 text-gray-400 text-sm">
               <li class="flex items-start gap-2">
                 <span class="text-green-400">✓</span>
@@ -618,6 +747,10 @@ const startingPrice = "19.99";
               <li class="flex items-start gap-2">
                 <span class="text-green-400">✓</span>
                 <span>Meal photo sharing</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-400">✓</span>
+                <span>Progress photos with body fat % analysis</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-green-400">✓</span>
