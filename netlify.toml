@@ -7,6 +7,8 @@
   node_bundler = "esbuild"
 
 # HTML pages - optimized cache headers for static site
+# Changed max-age from 0 to 3600 to allow browser caching and reduce server-side processing
+# CDN still caches for 1 year (s-maxage), but browsers cache for 1 hour
 [[headers]]
   for = "/*.html"
   [headers.values]
@@ -16,7 +18,7 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "upgrade-insecure-requests"
     X-Robots-Tag = "all"
-    Cache-Control = "public, max-age=0, s-maxage=31536000, must-revalidate"
+    Cache-Control = "public, max-age=3600, s-maxage=31536000"
 
 # Default security headers for all other files
 [[headers]]
