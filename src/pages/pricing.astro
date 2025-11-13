@@ -167,59 +167,122 @@ const priceRange = {
 
         <!-- Affiliate Commission Model -->
         <div id="affiliate-model">
-          <div class="text-center mb-8">
-            <h2 class="text-4xl font-bold text-white mb-4">Make Money Server</h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Add CalorieBot to any Discord community (anime, sports, trading, gaming, or any niche). Members subscribe individually and you earn $12/month (60% commission) per subscriber. Connect Stripe for automatic payouts while CalorieBot handles everything else. Add health tracking to boost engagement and monetize your community.</p>
+          <div class="text-center mb-12">
+            <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-xl p-8 border-2 border-orange-500/50 mb-6 max-w-4xl mx-auto">
+              <h2 class="text-5xl md:text-6xl font-bold text-white mb-2">
+                <span class="text-orange-400">💰</span> Make Money Server
+              </h2>
+            </div>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Add CalorieBot to any Discord community (anime, sports, trading, gaming, or any niche). Run profitable 6-week challenges, then build ongoing memberships. 40% of challenge users convert to long-term subscriptions. Earn 60% commission on all revenue.</p>
           </div>
           <div class="grid gap-6 mx-auto mb-16">
             {/* Commission Structure */}
             <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-8 border border-orange-500/30">
               <div class="text-center mb-8">
                 <h3 class="text-3xl font-bold text-white mb-4">Commission Structure</h3>
-                <p class="text-xl text-gray-300">Users pay $20/month • You earn $12/month • We keep $8/month</p>
+                <p class="text-xl text-gray-300">Earn 60% commission on all revenue • Challenges & Memberships</p>
               </div>
 
-              <div class="grid md:grid-cols-3 gap-6 text-center">
+              <div class="grid md:grid-cols-3 gap-6 text-center mb-6">
                 <div class="bg-gray-800/50 rounded-lg p-6">
-                  <div class="text-2xl font-bold text-orange-400 mb-2">$20</div>
-                  <div class="text-gray-300">User pays monthly</div>
+                  <div class="text-2xl font-bold text-orange-400 mb-2">$47-147</div>
+                  <div class="text-gray-300">Challenge pricing</div>
+                  <div class="text-sm text-gray-400 mt-2">You choose tier</div>
                 </div>
                 <div class="bg-gray-800/50 rounded-lg p-6">
-                  <div class="text-2xl font-bold text-green-400 mb-2">$12</div>
-                  <div class="text-gray-300">You earn (60%)</div>
+                  <div class="text-2xl font-bold text-green-400 mb-2">60%</div>
+                  <div class="text-gray-300">You earn</div>
+                  <div class="text-sm text-gray-400 mt-2">On all revenue</div>
                 </div>
                 <div class="bg-gray-800/50 rounded-lg p-6">
-                  <div class="text-2xl font-bold text-blue-400 mb-2">$8</div>
-                  <div class="text-gray-300">We keep (40%)</div>
+                  <div class="text-2xl font-bold text-blue-400 mb-2">$19.99</div>
+                  <div class="text-gray-300">Membership price</div>
+                  <div class="text-sm text-gray-400 mt-2">$12/mo you earn</div>
                 </div>
               </div>
             </div>
 
-            {/* Earnings Examples */}
-            <div class="bg-secondary rounded-lg p-8">
-              <h3 class="text-2xl font-bold text-white mb-6 text-center">Monthly Earnings Examples</h3>
-              <div class="grid md:grid-cols-4 gap-6">
-                <div class="text-center">
-                  <div class="text-3xl font-bold text-orange-400 mb-2">$300</div>
-                  <div class="text-gray-300 mb-2">25 subscribers</div>
-                  <div class="text-sm text-gray-400">$12 × 25 users</div>
+            {/* 6-Week Challenge Revenue */}
+            <div class="bg-gradient-to-r from-blue-900/20 to-purple-800/20 rounded-lg p-8 border border-blue-500/30">
+              <h3 class="text-2xl font-bold text-white mb-6 text-center">6-Week Challenge Revenue</h3>
+              <p class="text-gray-300 text-center mb-6">Run time-limited challenges that generate big one-time revenue. Choose pricing based on your community exclusivity.</p>
+              <div class="grid md:grid-cols-3 gap-6 mb-6">
+                <div class="bg-dark/50 rounded-lg p-6 text-center border border-blue-500/20">
+                  <div class="text-3xl font-bold text-blue-400 mb-2">50 Participants</div>
+                  <div class="text-2xl font-bold text-white mb-2">$1,410</div>
+                  <div class="text-gray-300 text-sm mb-3">Per challenge (60% of $47)</div>
+                  <div class="text-green-400 font-semibold">$5,640/year (4 challenges)</div>
                 </div>
-                <div class="text-center">
-                  <div class="text-3xl font-bold text-orange-400 mb-2">$600</div>
-                  <div class="text-gray-300 mb-2">50 subscribers</div>
-                  <div class="text-sm text-gray-400">$12 × 50 users</div>
+                <div class="bg-dark/50 rounded-lg p-6 text-center border-2 border-orange-500">
+                  <div class="text-3xl font-bold text-orange-400 mb-2">250 Participants</div>
+                  <div class="text-2xl font-bold text-white mb-2">$7,050</div>
+                  <div class="text-gray-300 text-sm mb-3">Per challenge (60% of $47)</div>
+                  <div class="text-green-400 font-semibold">$28,200/year (4 challenges)</div>
                 </div>
-                <div class="text-center">
-                  <div class="text-3xl font-bold text-orange-400 mb-2">$1,200</div>
-                  <div class="text-gray-300 mb-2">100 subscribers</div>
-                  <div class="text-sm text-gray-400">$12 × 100 users</div>
-                </div>
-                <div class="text-center">
-                  <div class="text-3xl font-bold text-orange-400 mb-2">$2,400</div>
-                  <div class="text-gray-300 mb-2">200 subscribers</div>
-                  <div class="text-sm text-gray-400">$12 × 200 users</div>
+                <div class="bg-dark/50 rounded-lg p-6 text-center border border-blue-500/20">
+                  <div class="text-3xl font-bold text-blue-400 mb-2">1,000 Participants</div>
+                  <div class="text-2xl font-bold text-white mb-2">$28,200</div>
+                  <div class="text-gray-300 text-sm mb-3">Per challenge (60% of $47)</div>
+                  <div class="text-green-400 font-semibold">$112,800/year (4 challenges)</div>
                 </div>
               </div>
+              <div class="bg-dark/50 rounded-lg p-4 border border-blue-500/20">
+                <p class="text-gray-300 text-center text-sm">
+                  <strong class="text-white">Pricing flexibility:</strong> Choose $47 (accessible), $97 (mid-tier), or $147 (premium) based on your community exclusivity
+                </p>
+              </div>
+            </div>
+
+            {/* Membership Conversion Revenue */}
+            <div class="bg-gradient-to-r from-green-900/20 to-blue-800/20 rounded-lg p-8 border border-green-500/30">
+              <h3 class="text-2xl font-bold text-white mb-6 text-center">Membership Conversion Revenue</h3>
+              <p class="text-gray-300 text-center mb-6">40% of challenge participants convert to $19.99/month memberships, creating recurring revenue.</p>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-dark/50 rounded-lg p-6 text-center border border-green-500/20">
+                  <div class="text-xl font-bold text-green-400 mb-2">20 Converts</div>
+                  <div class="text-2xl font-bold text-white mb-2">$240</div>
+                  <div class="text-gray-300 text-sm mb-3">Monthly (60% of $19.99)</div>
+                  <div class="text-green-400 font-semibold">$2,880/year</div>
+                </div>
+                <div class="bg-dark/50 rounded-lg p-6 text-center border-2 border-orange-500">
+                  <div class="text-xl font-bold text-orange-400 mb-2">100 Converts</div>
+                  <div class="text-2xl font-bold text-white mb-2">$1,199</div>
+                  <div class="text-gray-300 text-sm mb-3">Monthly (60% of $19.99)</div>
+                  <div class="text-green-400 font-semibold">$14,393/year</div>
+                </div>
+                <div class="bg-dark/50 rounded-lg p-6 text-center border border-green-500/20">
+                  <div class="text-xl font-bold text-green-400 mb-2">400 Converts</div>
+                  <div class="text-2xl font-bold text-white mb-2">$4,797</div>
+                  <div class="text-gray-300 text-sm mb-3">Monthly (60% of $19.99)</div>
+                  <div class="text-green-400 font-semibold">$57,571/year</div>
+                </div>
+              </div>
+              <p class="text-gray-400 text-center text-sm mt-4">From 50, 250, and 1,000 participant challenges respectively</p>
+            </div>
+
+            {/* Combined Annual Revenue */}
+            <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-8 border border-orange-500/30">
+              <h3 class="text-2xl font-bold text-white mb-6 text-center">Combined Annual Revenue</h3>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-dark/50 rounded-lg p-6 text-center border border-orange-500/20">
+                  <div class="text-3xl font-bold text-green-400 mb-2">$8,520</div>
+                  <div class="text-gray-300 mb-2">50 participants</div>
+                  <div class="text-sm text-gray-400">Challenges + Memberships</div>
+                </div>
+                <div class="bg-dark/50 rounded-lg p-6 text-center border-2 border-orange-500">
+                  <div class="text-3xl font-bold text-green-400 mb-2">$42,593</div>
+                  <div class="text-gray-300 mb-2">250 participants</div>
+                  <div class="text-sm text-gray-400">Challenges + Memberships</div>
+                </div>
+                <div class="bg-dark/50 rounded-lg p-6 text-center border border-orange-500/20">
+                  <div class="text-3xl font-bold text-green-400 mb-2">$170,371</div>
+                  <div class="text-gray-300 mb-2">1,000 participants</div>
+                  <div class="text-sm text-gray-400">Challenges + Memberships</div>
+                </div>
+              </div>
+              <p class="text-gray-300 text-center mt-6">
+                <strong class="text-white">Two-path revenue model:</strong> Big one-time challenge payments + recurring membership revenue from converts
+              </p>
             </div>
 
             {/* Setup Process */}
@@ -258,9 +321,13 @@ const priceRange = {
         </div>
 
         <!-- Private Coaching Server Model -->
-        <div id="private-model">
-          <div class="text-center mb-8">
-            <h2 class="text-4xl font-bold text-white mb-4">Private Coaching Server</h2>
+        <div id="private-model" class="mt-20">
+          <div class="text-center mb-12">
+            <div class="bg-gradient-to-r from-discord/40 to-blue-900/30 rounded-xl p-8 border-2 border-discord/50 mb-6 max-w-4xl mx-auto">
+              <h2 class="text-5xl md:text-6xl font-bold text-white mb-2">
+                <span class="text-discord">🏠</span> Private Coaching Server
+              </h2>
+            </div>
             <p class="text-xl text-gray-300 max-w-3xl mx-auto">Build a premium coaching business where you set your own prices and keep 90%+ of revenue. Buy seats from CalorieBot at wholesale rates ($20 first + $12 each additional), then charge clients premium rates ($80-250/month). Perfect for personal trainers, nutrition coaches, and fitness entrepreneurs.</p>
           </div>
           <div class="grid gap-6 mx-auto">
