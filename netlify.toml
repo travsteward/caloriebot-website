@@ -107,13 +107,9 @@
   status = 301
   force = true
 
-# Handle trailing slashes consistently
-[[redirects]]
-  from = "/:page"
-  to = "/:page/"
-  status = 301
-  force = true
-  conditions = {Path = {match = "^/[^.]+$"}}
+# Trailing slash redirect removed - Astro already outputs trailing slashes
+# This redirect was causing 900-1100ms TTFB overhead due to server-side processing
+# All pages are built with trailing slashes, so redirect is unnecessary
 
 # Exclude specific paths from trailing slash redirect
 [[redirects]]

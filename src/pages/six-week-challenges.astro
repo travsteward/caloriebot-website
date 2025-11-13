@@ -9,7 +9,7 @@ import ContactModal from '../components/ContactModal.astro';
 const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
 
 const pageTitle = "6-Week Challenge System | Digital Fitness Studio for Discord";
-const pageDescription = "Transform a corner of your Discord server into an exclusive personal training studio. Run profitable 6-week fitness challenges that drive engagement and generate revenue.";
+const pageDescription = "Transform your Discord server into an exclusive fitness studio. Run profitable 6-week challenges that drive engagement and generate revenue.";
 
 // Add structured data properties
 const ratingValue = 4.8;
@@ -24,20 +24,26 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "How do 6-week challenges generate revenue?",
-      "@type": "Answer",
-      "text": "Server owners can run challenges three ways: charge one-time fees ($97-297) directly to participants, offer free challenges to monthly members for retention, or coaches can run premium challenges ($200-500+) with full automation. The short commitment period makes sales easier while the structure drives results."
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Server owners can run challenges three ways: charge one-time fees ($97-297) directly to participants, offer free challenges to monthly members for retention, or coaches can run premium challenges ($200-500+) with full automation. The short commitment period makes sales easier while the structure drives results."
+      }
     },
     {
       "@type": "Question",
       "name": "What makes the 6-week challenge system special?",
-      "@type": "Answer",
-      "text": "Zero burden tracking - AI food photo analysis, automatic workout logging, progress tracking, and leaderboards all happen automatically. Users just post photos and follow workouts. The bot handles everything else. This is why participants finish instead of quitting."
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zero burden tracking - AI food photo analysis, automatic workout logging, progress tracking, and leaderboards all happen automatically. Users just post photos and follow workouts. The bot handles everything else. This is why participants finish instead of quitting."
+      }
     },
     {
       "@type": "Question",
       "name": "Can I run multiple challenges per year?",
-      "@type": "Answer",
-      "text": "Yes! Run challenges quarterly (Jan, Apr, Jul, Oct) or even monthly. Each cohort starts together, creating recurring revenue streams and continuous community engagement. Many users join multiple challenges throughout the year."
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Run challenges quarterly (Jan, Apr, Jul, Oct) or even monthly. Each cohort starts together, creating recurring revenue streams and continuous community engagement. Many users join multiple challenges throughout the year."
+      }
     }
   ]
 };
