@@ -94,6 +94,41 @@ const startingPrice = "19.99";
             Members can snap photos of meals for instant calorie calculations, track workouts, and participate in fitness challenges - all within Discord.
             <span class="text-orange-400 font-semibold">Monetize your server</span> with CalorieBot and earn 60% commission on subscriptions.
           </p>
+          <!-- VSL Video Showcase -->
+          <div class="mt-12 mb-10 w-full max-w-5xl mx-auto">
+            <div class="relative">
+              <!-- Decorative background glow -->
+              <div class="absolute -inset-4 bg-gradient-to-r from-orange-600/20 via-indigo-600/20 to-orange-600/20 rounded-2xl blur-2xl opacity-75 animate-pulse"></div>
+
+              <!-- Video container with border glow -->
+              <div class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-1 rounded-2xl shadow-2xl border border-orange-500/30 video-showcase-wrapper">
+                <div class="relative bg-black rounded-xl overflow-hidden" style="padding-bottom: 56.25%;">
+                  <iframe
+                    class="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/aVk4ZzIw6pk"
+                    title="CalorieBot VSL Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+
+              <!-- Call-to-action text -->
+              <div class="mt-6 text-center">
+                <p class="text-lg md:text-xl text-orange-400 font-semibold mb-2 flex items-center justify-center gap-2">
+                  <svg class="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  Watch CalorieBot in action
+                </p>
+                <p class="text-base md:text-lg text-white font-semibold mb-1">
+                  (Yes, you can upload foods rapidly with Discord mobile!)
+                </p>
+                <p class="text-sm md:text-base text-gray-400">2 minutes to see how our powerful daily calorie threads work</p>
+              </div>
+            </div>
+          </div>
           <div class="mt-10">
             <a
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
@@ -1162,6 +1197,57 @@ const startingPrice = "19.99";
 
   .image-glow:hover {
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+
+  .video-showcase-wrapper {
+    transition: all 0.3s ease;
+    box-shadow:
+      0 0 30px rgba(251, 146, 60, 0.2),
+      0 0 60px rgba(99, 102, 241, 0.1),
+      inset 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .video-showcase-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 40px rgba(251, 146, 60, 0.4),
+      0 0 80px rgba(99, 102, 241, 0.2),
+      inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(251, 146, 60, 0.5);
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .video-showcase-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(251, 146, 60, 0.3) 50%,
+      transparent 70%
+    );
+    background-size: 200% 200%;
+    border-radius: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .video-showcase-wrapper:hover::before {
+    opacity: 1;
+    animation: shimmer 3s infinite;
   }
 
   .section-spacing {
