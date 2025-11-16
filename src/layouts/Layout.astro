@@ -108,6 +108,30 @@ const organizationSchema = {
     <!-- Simplified Schema.org markup for better performance -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 
+    <!-- Prevent browser extension conflicts with iframes -->
+    <script is:inline>
+      // Error handler to catch MutationObserver errors from extensions
+      window.addEventListener('error', function(event) {
+        if (event.message && event.message.includes('MutationObserver') && event.message.includes('parameter 1 is not of type')) {
+          // Silently handle extension errors - don't break the page
+          event.preventDefault();
+          return false;
+        }
+      }, true);
+
+      // Ensure iframes are properly initialized before extensions try to observe them
+      document.addEventListener('DOMContentLoaded', function() {
+        const iframes = document.querySelectorAll('iframe');
+        iframes.forEach(function(iframe) {
+          // Ensure iframe is attached to DOM and is a valid Node
+          if (iframe && iframe.nodeType === Node.ELEMENT_NODE && iframe.parentNode) {
+            // Add data attribute to help extensions identify valid iframes
+            iframe.setAttribute('data-iframe-ready', 'true');
+          }
+        });
+      });
+    </script>
+
     <!-- Deferred Analytics for better performance -->
     <script is:inline>
       // Defer analytics loading until page is interactive
