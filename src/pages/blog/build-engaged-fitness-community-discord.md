@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: "How to Build an Engaged Fitness Community on Discord"
 description: "Learn the key strategies to create, grow, and maintain an active fitness community on Discord. From setting up channels to organizing challenges."
-publishedDate: "2025-01-20"
+publishedDate: "2025-10-29"
 author: "CalorieBot Team"
 authorImage: "/authors/team.svg"
 coverImage: "/blog/covers/thriving_community.png"

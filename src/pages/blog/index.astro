@@ -6,53 +6,26 @@ import Layout from "../../layouts/Layout.astro";
 const pageTitle = "CalorieBot Blog - AI Fitness & Discord Community Tips";
 const pageDescription = "Expert insights on building fitness communities, AI nutrition tracking, and maximizing Discord server engagement for fitness coaches and community leaders.";
 
-// Blog posts array
-const posts = [
-  {
-    title: "The 6-Week Challenge Revolution: Bringing the Personal Training Studio to Discord",
-    slug: "six-week-challenge-revolution",
-    description: "After 15 years running a personal training studio, I've found the perfect way to recreate that magic digitally. Here's why 6-week challenges are the most powerful community-building tool you've never used.",
-    publishedDate: "2025-02-15",
-    author: "CalorieBot Team",
-    authorImage: "/authors/team.svg",
-    coverImage: "/blog/covers/6-week-challenge-blog.png",
-    coverImageAlt: "A diverse group celebrating their fitness transformation after completing a 6-week challenge",
-    tags: ["Community", "Business", "Fitness"]
-  },
-  {
-    title: "How to Build an Engaged Fitness Community on Discord",
-    slug: "build-engaged-fitness-community-discord",
-    description: "Learn the key strategies to create, grow, and maintain an active fitness community on Discord. From setting up channels to organizing challenges.",
-    publishedDate: "2025-01-20",
-    author: "CalorieBot Team",
-    authorImage: "/authors/team.svg",
-    coverImage: "/blog/covers/thriving_community.png",
-    coverImageAlt: "A thriving fitness community sharing their progress and supporting each other",
-    tags: ["Community"]
-  },
-  {
-    title: "AI Photo Calorie Tracking: The Future of Nutrition Logging",
-    slug: "ai-photo-calorie-tracking-future",
-    description: "Discover how AI is revolutionizing nutrition tracking through photo recognition technology and why it's becoming the preferred method for fitness enthusiasts.",
-    publishedDate: "2025-01-18",
-    author: "CalorieBot Team",
-    authorImage: "/authors/team.svg",
-    coverImage: "/blog/covers/ai_photo_tracking.png",
-    coverImageAlt: "AI analyzing a food photo to calculate calories and nutrition information",
-    tags: ["Technology", "Fitness"]
-  },
-  {
-    title: "Complete Guide to Monetizing Your Fitness Community",
-    slug: "monetizing-fitness-community-guide",
-    description: "Learn how to turn your fitness community into a sustainable business with proven monetization strategies.",
-    publishedDate: "2025-01-22",
-    author: "CalorieBot Team",
-    authorImage: "/authors/team.svg",
-    coverImage: "/blog/covers/monetize_discord.png",
-    coverImageAlt: "Discord server monetization dashboard showing revenue streams and member engagement",
-    tags: ["Business", "Community"]
-  }
-];
+// Import all markdown blog posts
+const allPosts = await import.meta.glob('./*.md', { eager: true });
+
+// Transform imported posts into the format we need
+const posts = Object.entries(allPosts).map(([path, post]) => {
+  const slug = path.replace('./', '').replace('.md', '');
+  const frontmatter = post.frontmatter || {};
+
+  return {
+    title: frontmatter.title || 'Untitled',
+    slug: slug,
+    description: frontmatter.description || '',
+    publishedDate: frontmatter.publishedDate || '2024-01-01',
+    author: frontmatter.author || 'CalorieBot Team',
+    authorImage: frontmatter.authorImage || '/authors/team.svg',
+    coverImage: frontmatter.coverImage || '/blog/covers/thriving_community.png',
+    coverImageAlt: frontmatter.coverImageAlt || frontmatter.title || '',
+    tags: frontmatter.tags || []
+  };
+});
 
 // Sort posts by date (newest first)
 const sortedPosts = [...posts].sort((a, b) =>

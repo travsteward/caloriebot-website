@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPost.astro
 title: "Complete Guide to Monetizing Your Fitness Community"
 description: "Learn how to turn your fitness community into a sustainable business with proven monetization strategies."
-publishedDate: "2025-01-22"
+publishedDate: "2025-11-05"
 author: "CalorieBot Team"
 authorImage: "/authors/team.svg"
 coverImage: "/blog/covers/monetize_discord.png"
