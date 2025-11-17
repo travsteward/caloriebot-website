@@ -21,6 +21,14 @@ That's why I built CalorieBot—to recreate that entire experience digitally, wi
 
 Every feature in CalorieBot exists because of a specific pain point I experienced over 15 years of running challenges. This is the story of what those challenges taught me, and how I built the perfect digital version.
 
+## TL;DR: What This 6-Week System Actually Does
+
+- **Who this is for**: Discord server owners, coaches, and community builders who want **real transformation**, not just another channel.
+- **What it does**: Turns your server into a **digital gym + nutrition coach + accountability system**, fully automated.
+- **Why it works**: Uses the same 6-week structure that drove my studio's business—cohorts, rituals, leaderboards, and constant social proof.
+- **Proof**: Servers routinely see **activity spike, retention improve, and revenue increase** when they run their first challenge.
+- **How to start**: Add CalorieBot, run `/setup`, launch a 6-week challenge, and let the automation do the heavy lifting.
+
 ## Why the 6-Week Model Dominated Our Studio
 
 Let me be honest about what made our studio successful: it wasn't the fancy equipment or even my coaching expertise (though I'd like to think that helped). It was the 6-week challenge structure.
@@ -325,6 +333,8 @@ Marcus's next challenge had 67 participants.
 
 **The challenge didn't just generate revenue. It transformed his entire community.**
 
+If you already know you want this kind of transformation in your own server, you don't have to wait until the end of this article: [add CalorieBot to your server now →](https://discord.com/api/oauth2/authorize?client_id=${import.meta.env.DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands).
+
 ## Three Ways to Run Challenges (Pick Your Model)
 
 When I built CalorieBot, I designed it to be flexible. The same automation works for three different business models—you pick what fits your goals:
@@ -485,6 +495,8 @@ The bot knows what to do. I built it to be the expert so you don't have to be.
 You're not becoming a personal trainer. You're giving your community access to one—a digital one that never sleeps, never gets tired, and scales to handle 100+ people simultaneously.
 
 **This is the future of community fitness. And it's available right now.**
+
+If you're currently using more traditional coaching apps (or evaluating them) and want a deeper feature-by-feature breakdown, read: [CalorieBot vs Trainerize: Honest Comparison →](/blog/caloriebot-vs-trainerize/).
 
 ---
 

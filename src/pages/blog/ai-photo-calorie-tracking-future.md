@@ -50,6 +50,49 @@ AI photo tracking simplifies the process by using advanced computer vision and m
 - Better understanding of meal composition
 - Immediate feedback on nutritional content
 
+## How CalorieBot's AI Tracking Works in Real Life
+
+Here's what AI photo tracking actually looks like inside a CalorieBot-powered Discord server:
+
+1. **Post food in your daily thread**
+   - Snap a photo or type what you ate in plain English.
+   - No commands or special syntax required.
+
+2. **Instant AI analysis**
+   - CalorieBot identifies the food, estimates portions, and calculates calories/macros.
+   - If your food scale is visible, it reads the **exact number from the scale display** and adjusts everything to match.
+
+3. **Automatic daily tallies**
+   - Your running totals for calories, protein, carbs, and fats update automatically.
+   - Color-coded feedback shows whether you're under, on target, or over.
+
+4. **Saved foods and templates**
+   - Frequently used meals can be saved as **favorites, recipes, or full-day templates**, so repeating a good day takes seconds.
+
+5. **Everything stays in Discord**
+   - No extra app to manage. Your entire nutrition log lives right where your community already hangs out.
+
+## CalorieBot vs Traditional Food Logging
+
+To understand the difference, it helps to compare the actual workflow.
+
+**Traditional app (MFP-style):**
+
+- Search for `"chicken breast"`
+- Sort through 10+ similar entries
+- Guess which one matches your portion
+- Adjust grams/ounces
+- Repeat for every side dish and condiment
+- Hope the total is close enough
+
+**CalorieBot:**
+
+- Post a photo of your plate **or** type `"200g chicken breast, rice, broccoli"`
+- AI handles the recognition, portioning, and math
+- Daily tallies update automatically in your log thread
+
+Both approaches can work—but only one is designed for **long-term consistency for normal humans**, not just spreadsheet enthusiasts.
+
 ## The Future of Nutrition Tracking
 
 As AI technology continues to advance, we can expect:
@@ -81,4 +124,4 @@ For optimal results:
 
 AI photo tracking is more than just a convenience—it's a paradigm shift in how we approach nutrition monitoring. By removing barriers to consistent tracking while improving accuracy, it's helping more people achieve their fitness goals with less friction.
 
-Ready to experience the future of nutrition tracking? [Add CalorieBot to your Discord server](/pricing) and start tracking your meals with AI today. Learn how to [build an engaged fitness community](/blog/build-engaged-fitness-community-discord/) and [monetize it effectively](/blog/monetizing-fitness-community-guide/).
+Ready to experience the future of nutrition tracking? [Add CalorieBot to your Discord server](/pricing) and start tracking your meals with AI today. Learn how to [build an engaged fitness community](/blog/build-engaged-fitness-community-discord/), [monetize it effectively](/blog/monetizing-fitness-community-guide/), and see how CalorieBot compares to traditional coaching apps in [CalorieBot vs Trainerize](/blog/caloriebot-vs-trainerize/).
