@@ -1,58 +1,33 @@
 ---
 const currentYear = new Date().getFullYear();
 
-// Blog posts data (same as in blog/index.astro)
-const posts = [
-  {
-    title: "The 6-Week Challenge Revolution: Bringing the Personal Training Studio to Discord",
-    slug: "six-week-challenge-revolution",
-    description: "After 15 years running a personal training studio, I've found the perfect way to recreate that magic digitally. Here's why 6-week challenges are the most powerful community-building tool you've never used.",
-    publishedDate: "2025-02-15",
-    author: "CalorieBot Team",
-    authorImage: "/authors/team.svg",
-    coverImage: "/blog/covers/6-week-challenge-blog.png",
-    coverImageAlt: "A diverse group celebrating their fitness transformation after completing a 6-week challenge",
-    tags: ["Community", "Business", "Fitness"]
-  },
-  {
-    title: "Complete Guide to Monetizing Your Fitness Community",
-    slug: "monetizing-fitness-community-guide",
-    description: "Learn how to turn your fitness community into a sustainable business with proven monetization strategies.",
-    publishedDate: "2025-01-22",
-    author: "CalorieBot Team",
-    authorImage: "/authors/team.svg",
-    coverImage: "/blog/covers/monetize_discord.png",
-    coverImageAlt: "Discord server monetization dashboard showing revenue streams and member engagement",
-    tags: ["Business", "Community"]
-  },
-  {
-    title: "How to Build an Engaged Fitness Community on Discord",
-    slug: "build-engaged-fitness-community-discord",
-    description: "Learn the key strategies to create, grow, and maintain an active fitness community on Discord. From setting up channels to organizing challenges.",
-    publishedDate: "2025-01-20",
-    author: "CalorieBot Team",
-    authorImage: "/authors/team.svg",
-    coverImage: "/blog/covers/thriving_community.png",
-    coverImageAlt: "A thriving fitness community sharing their progress and supporting each other",
-    tags: ["Community"]
-  },
-  {
-    title: "AI Photo Calorie Tracking: The Future of Nutrition Logging",
-    slug: "ai-photo-calorie-tracking-future",
-    description: "Discover how AI is revolutionizing nutrition tracking through photo recognition technology and why it's becoming the preferred method for fitness enthusiasts.",
-    publishedDate: "2025-01-18",
-    author: "CalorieBot Team",
-    authorImage: "/authors/team.svg",
-    coverImage: "/blog/covers/ai_photo_tracking.png",
-    coverImageAlt: "AI analyzing a food photo to calculate calories and nutrition information",
-    tags: ["Technology", "Fitness"]
-  }
-];
+// Import all markdown blog posts (same source of truth as blog index)
+const allPosts = await import.meta.glob('../pages/blog/*.md', { eager: true });
+
+const posts = Object.entries(allPosts).map(([path, post]) => {
+  const slug = path.split('/').pop()?.replace('.md', '') ?? '';
+  const frontmatter = (post as any).frontmatter || {};
+
+  return {
+    title: frontmatter.title || 'Untitled',
+    slug,
+    description: frontmatter.description || '',
+    publishedDate: frontmatter.publishedDate || '2024-01-01',
+    author: frontmatter.author || 'CalorieBot Team',
+    authorImage: frontmatter.authorImage || '/authors/team.svg',
+    coverImage: frontmatter.coverImage || '/blog/default-cover.svg',
+    coverImageAlt: frontmatter.coverImageAlt || frontmatter.title || '',
+    tags: frontmatter.tags || []
+  };
+});
 
 // Sort posts by date (newest first) and get latest 3
-const latestPosts = [...posts].sort((a, b) =>
-  new Date(`${b.publishedDate}T12:00:00Z`).getTime() - new Date(`${a.publishedDate}T12:00:00Z`).getTime()
-).slice(0, 3);
+const latestPosts = [...posts]
+  .sort((a, b) =>
+    new Date(`${b.publishedDate}T12:00:00Z`).getTime() -
+    new Date(`${a.publishedDate}T12:00:00Z`).getTime()
+  )
+  .slice(0, 3);
 ---
 
 <footer class="bg-secondary py-12 mt-16">
