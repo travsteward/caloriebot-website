@@ -108,6 +108,36 @@ const organizationSchema = {
     <!-- Simplified Schema.org markup for better performance -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 
+    <!-- Ensure scroll-blocking event listeners are passive by default -->
+    <script is:inline>
+      // List of scroll-blocking events that should be passive by default
+      const scrollBlockingEvents = ['touchstart', 'touchmove', 'wheel', 'mousewheel'];
+
+      // Store original addEventListener
+      const originalAddEventListener = EventTarget.prototype.addEventListener;
+
+      // Override addEventListener to make scroll-blocking events passive by default
+      EventTarget.prototype.addEventListener = function(type, listener, options) {
+        // Check if this is a scroll-blocking event
+        if (scrollBlockingEvents.includes(type.toLowerCase())) {
+          // If options is a boolean (useCapture), convert to object
+          if (typeof options === 'boolean') {
+            options = { capture: options };
+          } else if (!options || typeof options !== 'object') {
+            options = {};
+          }
+
+          // Only set passive to true if not explicitly set to false
+          if (options.passive === undefined) {
+            options.passive = true;
+          }
+        }
+
+        // Call original addEventListener with potentially modified options
+        return originalAddEventListener.call(this, type, listener, options);
+      };
+    </script>
+
     <!-- Prevent browser extension conflicts with iframes -->
     <script is:inline>
       // Error handler to catch MutationObserver errors from extensions
