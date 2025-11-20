@@ -6,8 +6,9 @@
 [functions]
   node_bundler = "esbuild"
 
-# HTML pages - no cache to ensure fresh content
+# HTML pages - always fresh with CDN-friendly headers
 # Best practice: HTML should always be fresh so users see updates immediately
+# Using public with max-age=0 ensures CDN can cache but browsers always revalidate
 [[headers]]
   for = "/*.html"
   [headers.values]
@@ -17,7 +18,7 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "upgrade-insecure-requests"
     X-Robots-Tag = "all"
-    Cache-Control = "no-cache, must-revalidate"
+    Cache-Control = "public, max-age=0, s-maxage=0, must-revalidate"
 
 # Default security headers for all other files
 [[headers]]
@@ -56,36 +57,45 @@
     Content-Type = "text/plain"
     Cache-Control = "public, max-age=86400"
 
-# Static assets - reasonable cache (1 week) for performance without aggressive caching
+# Astro-generated assets with content hashing - long cache with immutable
+# Best practice: Content-hashed files can be cached indefinitely since hash changes on update
+# This provides optimal performance while ensuring no stale content
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Static assets - long cache with immutable for optimal performance
+# Content-hashed assets get new filenames on change, so long cache is safe
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.png"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.jpg"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.svg"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 # Force all traffic to HTTPS first
 [[redirects]]

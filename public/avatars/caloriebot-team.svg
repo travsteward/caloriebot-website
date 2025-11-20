@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with CalorieBot orange -->
+  <circle cx="100" cy="100" r="100" fill="#F97316"/>
+  
+  <!-- Team icon - multiple people representing a team -->
+  <g transform="translate(50, 50)">
+    <!-- Person 1 (left) -->
+    <circle cx="25" cy="40" r="18" fill="white"/>
+    <path d="M7 85C7 75.6112 14.6112 68 24 68H26C35.3888 68 43 75.6112 43 85" stroke="white" stroke-width="10" stroke-linecap="round"/>
+    
+    <!-- Person 2 (center) -->
+    <circle cx="50" cy="25" r="18" fill="white"/>
+    <path d="M32 70C32 60.6112 39.6112 53 49 53H51C60.3888 53 68 60.6112 68 70" stroke="white" stroke-width="10" stroke-linecap="round"/>
+    
+    <!-- Person 3 (right) -->
+    <circle cx="75" cy="40" r="18" fill="white"/>
+    <path d="M57 85C57 75.6112 64.6112 68 74 68H76C85.3888 68 93 75.6112 93 85" stroke="white" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>
+

@@ -3,8 +3,8 @@ layout: ../../layouts/BlogPost.astro
 title: "How Telehealth Brands Turn Quiet GLP-1 Discords Into Daily Habit Engines With CalorieBot"
 description: "Most GLP-1 telehealth Discords go quiet after onboarding. See how CalorieBot adds fitness, nutrition, and accountability systems that create daily engagement, better outcomes, and higher LTV."
 publishedDate: "2025-11-20"
-author: "Travis"
-authorImage: "/avatars/metatrav.png"
+author: "CalorieBot Team"
+authorImage: "/avatars/caloriebot-team.svg"
 coverImage: "/blog/covers/telehealth_glp1.png"
 coverImageAlt: "Telehealth GLP-1 patients engaging together inside a Discord community"
 tags: ["Telehealth", "Community", "Business"]

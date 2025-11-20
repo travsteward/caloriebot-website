@@ -24,8 +24,8 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
       slug: slug,
       description: frontmatter.description || '',
       publishedDate: frontmatter.publishedDate || '2024-01-01',
-      author: frontmatter.author || 'Travis',
-      authorImage: frontmatter.authorImage || '/avatars/metatrav.png',
+      author: frontmatter.author || 'CalorieBot Team',
+      authorImage: frontmatter.authorImage || '/avatars/caloriebot-team.svg',
       coverImage: frontmatter.coverImage || '/blog/covers/thriving_community.png',
       coverImageAlt: frontmatter.coverImageAlt || frontmatter.title || '',
       tags: frontmatter.tags || []

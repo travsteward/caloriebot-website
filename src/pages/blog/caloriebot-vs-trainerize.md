@@ -3,8 +3,8 @@ layout: ../../layouts/BlogPost.astro
 title: "CalorieBot vs Trainerize: Honest Comparison for Nutrition, Workouts & Accountability"
 description: "A transparent look at how CalorieBot stacks up against Trainerize across nutrition tracking, workout programming, and accountability — with clear ratings for each."
 publishedDate: "2025-11-16"
-author: "Travis"
-authorImage: "/avatars/metatrav.png"
+author: "CalorieBot Team"
+authorImage: "/avatars/caloriebot-team.svg"
 coverImage: "/blog/covers/caloriebot_vs_trainerize.svg"
 coverImageAlt: "CalorieBot vs Trainerize comparison cover image"
 tags: ["Comparisons", "Business", "Fitness"]
