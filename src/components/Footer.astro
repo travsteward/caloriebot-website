@@ -13,7 +13,7 @@ const posts = Object.entries(allPosts).map(([path, post]) => {
     slug,
     description: frontmatter.description || '',
     publishedDate: frontmatter.publishedDate || '2024-01-01',
-    author: frontmatter.author || 'Travis Steward',
+    author: frontmatter.author || 'Travis',
     authorImage: frontmatter.authorImage || '/avatars/metatrav.png',
     coverImage: frontmatter.coverImage || '/blog/default-cover.svg',
     coverImageAlt: frontmatter.coverImageAlt || frontmatter.title || '',

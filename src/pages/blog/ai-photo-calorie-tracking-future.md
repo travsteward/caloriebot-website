@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: "AI Photo Calorie Tracking: The Future of Nutrition Logging"
 description: "Discover how AI is revolutionizing nutrition tracking through photo recognition technology and why it's becoming the preferred method for fitness enthusiasts."
 publishedDate: "2025-10-22"
-author: "Travis Steward"
+author: "Travis"
 authorImage: "/avatars/metatrav.png"
 coverImage: "/blog/covers/ai_photo_tracking.png"
 coverImageAlt: "AI analyzing a food photo to calculate calories and nutrition information"
