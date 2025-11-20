@@ -6,9 +6,7 @@
 [functions]
   node_bundler = "esbuild"
 
-# HTML pages - always fresh with CDN-friendly headers
-# Best practice: HTML should always be fresh so users see updates immediately
-# Using public with max-age=0 ensures CDN can cache but browsers always revalidate
+# HTML pages - NO CACHE - always fetch fresh
 [[headers]]
   for = "/*.html"
   [headers.values]
@@ -18,9 +16,11 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "upgrade-insecure-requests"
     X-Robots-Tag = "all"
-    Cache-Control = "public, max-age=0, s-maxage=0, must-revalidate"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
 
-# Default security headers for all other files
+# Default security headers for all other files - NO CACHE
 [[headers]]
   for = "/*"
   [headers.values]
@@ -30,6 +30,9 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "upgrade-insecure-requests"
     X-Robots-Tag = "all"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
 
 # Noindex for utility endpoints only
 
@@ -48,54 +51,67 @@
   for = "/blog/"
   [headers.values]
     X-Robots-Tag = "noindex"
-    Cache-Control = "no-cache, must-revalidate"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
 
 # IndexNow key file
 [[headers]]
   for = "/indexnow-key.txt"
   [headers.values]
     Content-Type = "text/plain"
-    Cache-Control = "public, max-age=86400"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
 
-# Astro-generated assets with content hashing - long cache with immutable
-# Best practice: Content-hashed files can be cached indefinitely since hash changes on update
-# This provides optimal performance while ensuring no stale content
+# Astro-generated assets - NO CACHE
 [[headers]]
   for = "/_astro/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
 
-# Static assets - long cache with immutable for optimal performance
-# Content-hashed assets get new filenames on change, so long cache is safe
+# Static assets - NO CACHE - always fetch fresh
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
 
 [[headers]]
   for = "/*.png"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
 
 [[headers]]
   for = "/*.jpg"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
 
 [[headers]]
   for = "/*.svg"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Pragma = "no-cache"
+    Expires = "0"
 
 # Force all traffic to HTTPS first
 [[redirects]]

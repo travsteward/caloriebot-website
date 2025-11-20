@@ -19,9 +19,9 @@ export default defineConfig({
     remotePatterns: [{ protocol: 'https' }],
   },
   build: {
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'never', // Disable inline stylesheets to prevent caching issues
   },
-  compressHTML: true,
+  compressHTML: false, // Disable HTML compression to ensure fresh content
   markdown: {
     shikiConfig: {
       theme: 'dracula',

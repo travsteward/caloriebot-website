@@ -207,9 +207,9 @@ export const GET: APIRoute = async () => {
   return new Response(sitemap, {
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600',
-      'ETag': `"${etag}"`,
-      'Last-Modified': new Date().toUTCString()
+      'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0',
+      'Pragma': 'no-cache',
+      'Expires': '0'
     }
   });
 };
