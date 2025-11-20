@@ -207,7 +207,7 @@ export const GET: APIRoute = async () => {
   return new Response(sitemap, {
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
+      'Cache-Control': 'public, max-age=3600',
       'ETag': `"${etag}"`,
       'Last-Modified': new Date().toUTCString()
     }

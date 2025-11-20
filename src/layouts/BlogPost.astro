@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import BlogCover from '../components/BlogCover.astro';
+import { getAllBlogPosts, getRelatedPosts } from '../utils/blogPosts';
 
 // Access frontmatter from the markdown/mdx file
 const { frontmatter } = Astro.props;
@@ -9,12 +10,22 @@ const {
   title = "Untitled",
   description = "No description available",
   publishedDate = "2024-01-01",
-  author = "CalorieBot Team",
-  authorImage = "/authors/default-avatar.svg",
+  author = "Travis Steward",
+  authorImage = "/avatars/metatrav.png",
   coverImage = "/blog/covers/thriving_community.png",
   coverImageAlt = "",
   tags = []
 } = frontmatter || {};
+
+// Get current slug from URL (e.g., /blog/post-name/ -> post-name)
+const currentSlug = Astro.url.pathname
+  .split('/')
+  .filter(Boolean)
+  .find((segment, index, arr) => arr[index - 1] === 'blog') || '';
+
+// Get all posts for related posts
+const allPosts = await getAllBlogPosts();
+const relatedPosts = getRelatedPosts(currentSlug, allPosts, 3);
 
 // Ensure date is parsed correctly by creating a new Date object with the time set to noon UTC
 const formattedDate = (() => {
@@ -41,68 +52,138 @@ const formattedDate = (() => {
   type="article"
   publishedDate={publishedDate}
 >
-  <article class="max-w-4xl mx-auto px-4 py-12">
-    <header class="mb-8">
-      <div class="mb-6">
-        {tags.map(tag => (
-          <span class="inline-block bg-orange-600/10 text-orange-500 rounded-full px-3 py-1 text-sm mr-2 mb-2">
-            {tag}
-          </span>
-        ))}
-      </div>
-      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
-      <div class="flex items-center gap-4 text-gray-400">
-        <img
-          src={authorImage}
-          alt={`${author}'s profile picture`}
-          class="w-12 h-12 rounded-full object-cover bg-gray-800"
-          onerror="this.src='/authors/default-avatar.svg'"
-        />
-        <div>
-          <div class="font-medium text-white">{author}</div>
-          <time datetime={publishedDate} class="text-gray-400">{formattedDate}</time>
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress" class="fixed top-0 left-0 w-0 h-1 bg-orange-500 z-50 transition-all duration-150"></div>
+
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <article>
+      <header class="mb-8">
+        <div class="mb-6">
+          {tags.map(tag => (
+            <span class="inline-block bg-orange-600/10 text-orange-500 rounded-full px-3 py-1 text-sm mr-2 mb-2">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">{title}</h1>
+
+        <!-- Enhanced Metadata -->
+        <div class="flex flex-wrap items-center gap-6 text-gray-400 mb-6">
+          <div class="flex items-center gap-3">
+            <img
+              src={authorImage}
+              alt={`${author}'s profile picture`}
+              class="w-12 h-12 rounded-full object-cover bg-gray-800"
+              onerror="this.src='/avatars/metatrav.png'"
+            />
+            <div>
+              <div class="font-medium text-white">{author}</div>
+              <time datetime={publishedDate} class="text-sm">{formattedDate}</time>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span id="read-time" class="text-gray-400">Calculating...</span>
+          </div>
+        </div>
+      </header>
+
+      {coverImage && (
+        <BlogCover src={coverImage} alt={coverImageAlt || title} />
+      )}
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none">
+        <div class="prose-headings:text-white prose-a:text-orange-400 hover:prose-a:text-orange-300 prose-strong:text-white prose-code:text-orange-300 prose-blockquote:border-orange-500">
+          <slot />
         </div>
       </div>
-    </header>
 
-    {coverImage && (
-      <BlogCover src={coverImage} alt={coverImageAlt || title} />
-    )}
+      <!-- Share Section -->
+      <footer class="mt-12 pt-8 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-4">Share this article</h2>
+            <div class="flex gap-4">
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-twitter transition-colors"
+                aria-label="Share on Twitter"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                </svg>
+              </a>
+              <a
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(Astro.url.href)}&title=${encodeURIComponent(title)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-linkedin transition-colors"
+                aria-label="Share on LinkedIn"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <a
+            href="/blog/"
+            class="text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-2"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Blog
+          </a>
+        </div>
+      </footer>
 
-    <div class="prose prose-invert prose-lg max-w-none">
-      <div class="prose-headings:text-white prose-a:text-orange-400 hover:prose-a:text-orange-300 prose-strong:text-white prose-code:text-orange-300 prose-blockquote:border-orange-500">
-        <slot />
-      </div>
-    </div>
-
-    <footer class="mt-12 pt-8 border-t border-gray-800">
-      <h2 class="text-2xl font-bold text-white mb-4">Share this article</h2>
-      <div class="flex gap-4">
-        <a
-          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-gray-400 hover:text-twitter"
-          aria-label="Share on Twitter"
-        >
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-          </svg>
-        </a>
-        <a
-          href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(Astro.url.href)}&title=${encodeURIComponent(title)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-gray-400 hover:text-linkedin"
-          aria-label="Share on LinkedIn"
-        >
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
-          </svg>
-        </a>
-      </div>
-    </footer>
-  </article>
+      <!-- Related Posts -->
+      {relatedPosts.length > 0 && (
+        <section class="mt-16 pt-12 border-t border-gray-800">
+          <h2 class="text-2xl font-bold text-white mb-8">Related Articles</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            {relatedPosts.map((post) => (
+              <a
+                href={`/blog/${post.slug}/`}
+                class="group bg-secondary rounded-lg overflow-hidden hover:transform hover:scale-[1.02] transition-all"
+              >
+                {post.coverImage && (
+                  <img
+                    src={post.coverImage}
+                    alt={post.coverImageAlt || post.title}
+                    class="w-full h-40 object-cover"
+                  />
+                )}
+                <div class="p-4">
+                  <h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p class="text-gray-400 text-sm line-clamp-2 mb-3">
+                    {post.description}
+                  </p>
+                  <div class="flex items-center gap-2 text-xs text-gray-500">
+                    <time datetime={post.publishedDate}>
+                      {new Date(`${post.publishedDate}T12:00:00Z`).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+    </article>
+  </div>
 </Layout>
 
 <style is:global>
@@ -166,4 +247,77 @@ const formattedDate = (() => {
   .hover\:text-linkedin:hover {
     color: #0A66C2;
   }
+
+  /* Smooth scroll for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Add scroll offset for fixed header */
+  article h2[id],
+  article h3[id] {
+    scroll-margin-top: 6rem;
+  }
 </style>
+
+<script>
+  // Calculate and display read time
+  document.addEventListener('DOMContentLoaded', () => {
+    const article = document.querySelector('article');
+    if (!article) return;
+
+    // Get text content from article (excluding code blocks and other non-readable content)
+    const textContent = Array.from(article.querySelectorAll('p, li, h2, h3, h4'))
+      .map(el => el.textContent || '')
+      .join(' ')
+      .trim();
+
+    // Average reading speed: 200-250 words per minute (using 225 as middle ground)
+    const wordsPerMinute = 225;
+    const wordCount = textContent.split(/\s+/).filter(word => word.length > 0).length;
+    const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+
+    const readTimeElement = document.getElementById('read-time');
+    if (readTimeElement) {
+      readTimeElement.textContent = `${readTimeMinutes} min read`;
+    }
+
+    // Reading progress bar
+    const progressBar = document.getElementById('reading-progress');
+    if (!progressBar) return;
+
+    const updateProgress = () => {
+      const articleTop = article.offsetTop;
+      const articleHeight = article.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      // Calculate how much of the article has been scrolled past
+      const articleBottom = articleTop + articleHeight;
+      const viewportTop = scrollTop;
+      const viewportBottom = scrollTop + windowHeight;
+
+      // Calculate progress
+      let progress = 0;
+      if (viewportTop < articleTop) {
+        // Haven't reached article yet
+        progress = 0;
+      } else if (viewportBottom > articleBottom) {
+        // Scrolled past article
+        progress = 100;
+      } else {
+        // In the middle of the article
+        const scrolled = viewportTop - articleTop;
+        const total = articleHeight - windowHeight;
+        progress = Math.min(100, Math.max(0, (scrolled / total) * 100));
+      }
+
+      progressBar.style.width = `${progress}%`;
+    };
+
+    // Update on scroll and resize
+    window.addEventListener('scroll', updateProgress);
+    window.addEventListener('resize', updateProgress);
+    updateProgress(); // Initial calculation
+  });
+</script>

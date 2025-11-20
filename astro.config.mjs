@@ -22,10 +22,6 @@ export default defineConfig({
     inlineStylesheets: 'auto',
   },
   compressHTML: true,
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: 'viewport',
-  },
   markdown: {
     shikiConfig: {
       theme: 'dracula',

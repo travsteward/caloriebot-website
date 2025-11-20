@@ -3,8 +3,8 @@ layout: ../../layouts/BlogPost.astro
 title: "The 6-Week Challenge Revolution: Bringing the Personal Training Studio to Discord"
 description: "After 15 years running a personal training studio, I've found the perfect way to recreate that magic digitally. Here's why 6-week challenges are the most powerful community-building tool you've never used."
 publishedDate: "2025-11-12"
-author: "CalorieBot Team"
-authorImage: "/authors/team.svg"
+author: "Travis Steward"
+authorImage: "/avatars/metatrav.png"
 coverImage: "/blog/covers/6-week-challenge-blog.png"
 coverImageAlt: "A diverse group celebrating their fitness transformation after completing a 6-week challenge"
 tags: ["Community", "Business", "Fitness"]

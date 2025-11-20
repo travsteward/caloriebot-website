@@ -1,4 +1,7 @@
 ---
+const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
+const inviteUrl = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`;
+
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/features/', label: 'Features' },
@@ -13,56 +16,68 @@ const navItems = [
 
 <nav class="bg-dark py-4 fixed w-full top-0 z-50">
   <div class="container mx-auto px-4 flex justify-between items-center">
-    <a href="/" class="text-2xl font-bold text-white flex items-center">
-      <span class="text-discord">Calorie</span>
-      <span>Bot</span>
-    </a>
+    <div class="flex-none">
+      <a href="/" class="text-2xl font-bold text-white flex items-center">
+        <span class="text-discord">Calorie</span>
+        <span>Bot</span>
+      </a>
+    </div>
 
     {/* Desktop Navigation */}
-    <div class="hidden md:flex gap-8">
+    <div class="hidden lg:flex flex-1 justify-center gap-6 xl:gap-8 px-4">
       {navItems.map(item => (
         <a
           href={item.href}
-          class="text-gray-300 hover:text-white transition-colors"
+          class="text-gray-300 hover:text-white transition-colors whitespace-nowrap"
         >
           {item.label}
         </a>
       ))}
     </div>
 
-    {/* Mobile Menu Button */}
-    <button
-      id="mobile-menu-button"
-      class="md:hidden text-gray-300 hover:text-white focus:outline-none"
-      aria-label="Toggle menu"
-    >
-      <svg
-        class="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
+    {/* Right Side Actions */}
+    <div class="flex items-center gap-4 flex-none">
+      <a
+        href={inviteUrl}
+        class="hidden sm:inline-flex bg-discord hover:bg-opacity-90 text-white font-medium py-2 px-4 rounded-lg transition-colors whitespace-nowrap text-sm"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"
-          class="menu-icon"
-        ></path>
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"
-          class="close-icon hidden"
-        ></path>
-      </svg>
-    </button>
+        Add to Server
+      </a>
+
+      {/* Mobile Menu Button */}
+      <button
+        id="mobile-menu-button"
+        class="lg:hidden text-gray-300 hover:text-white focus:outline-none"
+        aria-label="Toggle menu"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+            class="menu-icon"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+            class="close-icon hidden"
+          ></path>
+        </svg>
+      </button>
+    </div>
 
     {/* Mobile Navigation */}
     <div
       id="mobile-menu"
-      class="hidden fixed top-[60px] left-0 right-0 bg-dark md:hidden"
+      class="hidden fixed top-[72px] left-0 right-0 bg-dark lg:hidden shadow-lg"
     >
       <div class="px-4 py-2 space-y-2">
         {navItems.map(item => (
@@ -73,6 +88,14 @@ const navItems = [
             {item.label}
           </a>
         ))}
+        {/* Add to Server in mobile menu only on very small screens where header button might be hidden,
+            or just duplicate it for ease of access */}
+        <a
+          href={inviteUrl}
+          class="block py-2 text-discord hover:text-white transition-colors sm:hidden font-medium"
+        >
+          Add to Server
+        </a>
       </div>
     </div>
   </div>

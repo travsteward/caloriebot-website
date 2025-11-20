@@ -1,0 +1,97 @@
+---
+// Table of Contents component
+// Will be populated by client-side JavaScript from rendered headings
+---
+
+<nav
+  id="table-of-contents"
+  class="toc-container bg-secondary/50 border border-gray-800 rounded-lg p-6 mb-8 lg:sticky lg:top-4 hidden"
+  aria-label="Table of contents"
+>
+  <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+    Table of Contents
+  </h2>
+  <ol id="toc-list" class="space-y-2"></ol>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const article = document.querySelector('article');
+    if (!article) return;
+
+    // Find the prose/content area (exclude footer and related posts)
+    const proseArea = article.querySelector('.prose');
+    if (!proseArea) return;
+
+    // Find all h2 and h3 headings only in the main content area
+    const headings = Array.from(proseArea.querySelectorAll('h2, h3'));
+
+    // Only show TOC if there are at least 2 headings
+    if (headings.length < 2) return;
+
+    const tocContainer = document.getElementById('table-of-contents');
+    const tocList = document.getElementById('toc-list');
+    if (!tocContainer || !tocList) return;
+
+    // Add IDs to headings and build TOC
+    headings.forEach((heading) => {
+      const text = heading.textContent || '';
+      const id = text
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim();
+      heading.id = id;
+
+      // Create TOC item
+      const li = document.createElement('li');
+      li.className = `toc-item ${heading.tagName === 'H3' ? 'ml-4' : ''}`;
+      li.setAttribute('data-heading-id', id);
+
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.className = 'text-gray-400 hover:text-orange-400 transition-colors text-sm block py-1';
+      a.textContent = text;
+
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    // Show TOC
+    tocContainer.classList.remove('hidden');
+
+    // Highlight active TOC item on scroll
+    const tocItems = document.querySelectorAll('.toc-item a');
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Remove active class from all items
+          tocItems.forEach((item) => item.classList.remove('text-orange-400', 'font-medium'));
+
+          // Add active class to current item
+          const activeLink = document.querySelector(`.toc-item a[href="#${entry.target.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('text-orange-400', 'font-medium');
+          }
+        }
+      });
+    }, observerOptions);
+
+    headings.forEach((heading) => observer.observe(heading));
+  });
+</script>
+
+<style>
+  /* TOC displays full length without scrolling */
+</style>
+
