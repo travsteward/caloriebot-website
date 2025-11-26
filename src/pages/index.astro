@@ -1458,6 +1458,17 @@ const startingPrice = "19.99";
         });
 
         const discordUrl = `https://discord.com/api/oauth2/authorize?${params}`;
+
+        // Track subscription start (Discord OAuth for subscription)
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'subscription_start', {
+            page_location: window.location.href,
+            price_id: priceId,
+            intended_action: 'subscription',
+            timestamp: new Date().toISOString()
+          });
+        }
+
         window.location.href = discordUrl;
       });
     });

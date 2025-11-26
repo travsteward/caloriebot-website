@@ -35,7 +35,7 @@ export const prerender = true;
               <li>• Return to Discord and tap the "Verify Connection" button to access your Make Money dashboard</li>
               <li>• Invite users to your server to start earning commissions</li>
               <li>• Monitor your earnings in the CalorieBot dashboard</li>
-              <li>• Manage your Stripe account at <a href="https://dashboard.stripe.com" class="text-blue-400 hover:underline" target="_blank">dashboard.stripe.com</a></li>
+              <li>• Manage your Stripe account at <a href="https://dashboard.stripe.com" class="text-blue-400 hover:underline" target="_blank" onclick="if(typeof trackOutboundClick === 'function') trackOutboundClick('stripe_dashboard_text_link', 'stripe_success_page');">dashboard.stripe.com</a></li>
             </ul>
           </div>
 
@@ -54,6 +54,7 @@ export const prerender = true;
             href="https://dashboard.stripe.com"
             class="block bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
             target="_blank"
+            onclick="if(typeof trackOutboundClick === 'function') trackOutboundClick('stripe_dashboard_button', 'stripe_success_page');"
           >
             Open Stripe Dashboard
           </a>
@@ -68,8 +69,41 @@ export const prerender = true;
 </Layout>
 
 <script>
+  // Declare gtag for TypeScript
+  declare global {
+    function gtag(command: string, targetId: string, parameters?: Record<string, any>): void;
+  }
+
   // Track successful Stripe connection
+  const urlParams = new URLSearchParams(window.location.search);
+  const guildId = urlParams.get('guild_id');
+
+  // Simple Analytics tracking (existing)
   sa_event("stripe_connect_success", {
-    guild_id: new URLSearchParams(window.location.search).get('guild_id')
+    guild_id: guildId
   });
+
+  // Global function for tracking outbound clicks
+  window.trackOutboundClick = function(linkLocation: string, pageContext: string) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'outbound_link_click', {
+        link_url: event?.target?.href || 'https://dashboard.stripe.com',
+        link_location: linkLocation,
+        page_context: pageContext,
+        page_location: window.location.href,
+        timestamp: new Date().toISOString()
+      });
+    }
+  };
+
+  // GA4 tracking
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'stripe_connect_success', {
+      page_location: window.location.href,
+      referrer: document.referrer,
+      guild_id: guildId || 'unknown',
+      connection_type: 'stripe_connect',
+      timestamp: new Date().toISOString()
+    });
+  }
 </script>

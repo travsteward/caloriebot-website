@@ -23,6 +23,7 @@ const BOT_INVITE_URL = `https://discord.com/api/oauth2/authorize?` + new URLSear
         <a
           href={BOT_INVITE_URL}
           class="block bg-discord hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors"
+          onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('success_page_after_payment', 'bot_addition');"
         >
           Add to Server
         </a>
@@ -32,6 +33,24 @@ const BOT_INVITE_URL = `https://discord.com/api/oauth2/authorize?` + new URLSear
 </Layout>
 
 <script>
+  // Declare gtag for TypeScript
+  declare global {
+    function gtag(command: string, targetId: string, parameters?: Record<string, any>): void;
+  }
+
+  // Global function for tracking Discord OAuth start (available on all pages)
+  window.trackDiscordOAuthStart = function(location: string, intendedAction: string) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'discord_oauth_start', {
+        page_location: window.location.href,
+        intended_action: intendedAction,
+        button_location: location,
+        referrer: document.referrer,
+        timestamp: new Date().toISOString()
+      });
+    }
+  };
+
   const urlParams = new URLSearchParams(window.location.search);
   const sessionId = urlParams.get('session_id');
 
@@ -39,4 +58,13 @@ const BOT_INVITE_URL = `https://discord.com/api/oauth2/authorize?` + new URLSear
   sa_event("payment_success", {
     session_id: sessionId
   });
+
+  // Track subscription_start event (user completed payment, now adding bot)
+  if (typeof gtag !== 'undefined' && sessionId) {
+    gtag('event', 'subscription_start', {
+      page_location: window.location.href,
+      session_id: sessionId,
+      timestamp: new Date().toISOString()
+    });
+  }
 </script>

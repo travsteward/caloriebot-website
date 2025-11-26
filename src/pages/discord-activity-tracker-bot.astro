@@ -88,6 +88,7 @@ const startingPrice = "19.99";
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
               class="group inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
               aria-label="Add CalorieBot Discord activity tracker bot to your server"
+              onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('discord_activity_tracker_bot_hero', 'bot_addition');"
             >
               Add Activity Tracker Free
               <svg
@@ -472,6 +473,7 @@ const startingPrice = "19.99";
           <a
             href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
             class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
+            onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('discord_activity_tracker_bot_cta', 'bot_addition');"
           >
             Add CalorieBot Free
             <svg

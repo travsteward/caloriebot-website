@@ -832,6 +832,7 @@ const faqSchema = {
             <a
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
               class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-full transition-colors text-lg"
+              onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('six_week_challenges_page_cta', 'bot_addition');"
             >
               Add CalorieBot to Server
             </a>

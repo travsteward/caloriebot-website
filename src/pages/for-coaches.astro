@@ -178,7 +178,7 @@ const faqSchema = {
         <div class="bg-gradient-to-r from-green-900/20 to-blue-800/20 rounded-lg p-8 border border-green-500/30 mb-12">
           <h2 class="text-3xl font-bold text-white text-center mb-6">Total Freedom with PayBot</h2>
           <p class="text-gray-300 text-center mb-8 text-lg max-w-3xl mx-auto">
-            Use <a href="https://www.paybotapp.com" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 underline font-semibold">PayBot</a> to create memberships and challenges right in Discord. Set your own pricing, create subscription tiers, run 6-week challenges, and manage everything without leaving Discord.
+            Use <a href="https://www.paybotapp.com" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 underline font-semibold" onclick="if(typeof trackOutboundClick === 'function') trackOutboundClick('paybot_text_link', 'for_coaches_page');">PayBot</a> to create memberships and challenges right in Discord. Set your own pricing, create subscription tiers, run 6-week challenges, and manage everything without leaving Discord.
           </p>
           <div class="grid md:grid-cols-3 gap-6">
             <div class="bg-dark/50 rounded-lg p-6 text-center">
@@ -203,6 +203,7 @@ const faqSchema = {
               target="_blank"
               rel="noopener noreferrer"
               class="inline-block bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-8 rounded-full transition-colors"
+              onclick="if(typeof trackOutboundClick === 'function') trackOutboundClick('paybot_cta_button', 'for_coaches_page');"
             >
               Learn About PayBot →
             </a>
@@ -338,6 +339,7 @@ const faqSchema = {
               <a
                 href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
                 class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+                onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('for_coaches_page_cta', 'bot_addition');"
               >
                 Add CalorieBot Free
               </a>
@@ -346,6 +348,7 @@ const faqSchema = {
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-block bg-green-600 hover:bg-green-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+                onclick="if(typeof trackOutboundClick === 'function') trackOutboundClick('paybot_final_cta', 'for_coaches_page');"
               >
                 Learn About PayBot
               </a>
@@ -356,3 +359,37 @@ const faqSchema = {
     </section>
   </main>
 </Layout>
+
+<script>
+  // Declare gtag for TypeScript
+  declare global {
+    function gtag(command: string, targetId: string, parameters?: Record<string, any>): void;
+  }
+
+  // Global function for tracking outbound clicks
+  window.trackOutboundClick = function(linkLocation: string, pageContext: string) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'outbound_link_click', {
+        link_url: event?.target?.href || 'https://www.paybotapp.com',
+        link_location: linkLocation,
+        page_context: pageContext,
+        page_location: window.location.href,
+        timestamp: new Date().toISOString()
+      });
+    }
+  };
+
+  // Track revenue model interest on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'revenue_model_interest', {
+        model_type: 'private_coaching_server',
+        source: 'page_view',
+        page_location: window.location.href,
+        page_title: 'For Coaches - Private Coaching Server',
+        referrer: document.referrer,
+        timestamp: new Date().toISOString()
+      });
+    }
+  });
+</script>

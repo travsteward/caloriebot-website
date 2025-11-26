@@ -40,6 +40,7 @@ const navItems = [
       <a
         href={inviteUrl}
         class="hidden sm:inline-flex bg-discord hover:bg-opacity-90 text-white font-medium py-2 px-4 rounded-lg transition-colors whitespace-nowrap text-sm"
+        onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('navigation_header', 'bot_addition');"
       >
         Add to Server
       </a>
@@ -93,6 +94,7 @@ const navItems = [
         <a
           href={inviteUrl}
           class="block py-2 text-discord hover:text-white transition-colors sm:hidden font-medium"
+          onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('navigation_mobile', 'bot_addition');"
         >
           Add to Server
         </a>
@@ -102,6 +104,24 @@ const navItems = [
 </nav>
 
 <script>
+  // Declare gtag for TypeScript
+  declare global {
+    function gtag(command: string, targetId: string, parameters?: Record<string, any>): void;
+  }
+
+  // Global function for tracking Discord OAuth start (available on all pages)
+  window.trackDiscordOAuthStart = function(location: string, intendedAction: string) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'discord_oauth_start', {
+        page_location: window.location.href,
+        intended_action: intendedAction,
+        button_location: location,
+        referrer: document.referrer,
+        timestamp: new Date().toISOString()
+      });
+    }
+  };
+
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
   const menuIcon = document.querySelector('.menu-icon');

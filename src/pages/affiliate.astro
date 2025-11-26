@@ -756,6 +756,41 @@ const faqSchema = {
     }).format(value);
   }
 
+  // Track calculator interactions (debounced)
+  let calculatorInteractionTimeout: ReturnType<typeof setTimeout> | null = null;
+  let hasTrackedCalculatorEngagement = false;
+
+  function trackCalculatorInteraction(interactionType: 'participants_change' | 'pricing_change', value: string | number) {
+    if (typeof gtag !== 'undefined') {
+      // Track first engagement
+      if (!hasTrackedCalculatorEngagement) {
+        hasTrackedCalculatorEngagement = true;
+        gtag('event', 'calculator_engagement', {
+          page_location: window.location.href,
+          calculator_type: 'revenue_calculator',
+          interaction_type: 'first_interaction'
+        });
+      }
+
+      // Debounce value change tracking (only track after user stops typing for 1 second)
+      if (calculatorInteractionTimeout) {
+        clearTimeout(calculatorInteractionTimeout);
+      }
+
+      calculatorInteractionTimeout = setTimeout(() => {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'calculator_interaction', {
+            page_location: window.location.href,
+            calculator_type: 'revenue_calculator',
+            interaction_type: interactionType,
+            value: value.toString(),
+            timestamp: new Date().toISOString()
+          });
+        }
+      }, 1000); // 1 second debounce
+    }
+  }
+
   function calculateRevenue() {
     const participants = parseInt((document.getElementById('participants') as HTMLInputElement)?.value || '250', 10);
     const pricing = parseInt((document.querySelector('input[name="pricing"]:checked') as HTMLInputElement)?.value || '47', 10);
@@ -817,27 +852,46 @@ const faqSchema = {
   // Initialize calculator and tracking on page load
   document.addEventListener('DOMContentLoaded', function() {
     // Initialize calculator
-    const participantsInput = document.getElementById('participants');
-    const pricingInputs = document.querySelectorAll('input[name="pricing"]');
+    const participantsInput = document.getElementById('participants') as HTMLInputElement;
+    const pricingInputs = document.querySelectorAll('input[name="pricing"]') as NodeListOf<HTMLInputElement>;
 
     if (participantsInput) {
-      participantsInput.addEventListener('input', calculateRevenue);
-      participantsInput.addEventListener('change', calculateRevenue);
+      participantsInput.addEventListener('input', function() {
+        calculateRevenue();
+        trackCalculatorInteraction('participants_change', participantsInput.value);
+      });
+      participantsInput.addEventListener('change', function() {
+        calculateRevenue();
+        trackCalculatorInteraction('participants_change', participantsInput.value);
+      });
     }
 
     pricingInputs.forEach(input => {
-      input.addEventListener('change', calculateRevenue);
+      input.addEventListener('change', function() {
+        calculateRevenue();
+        trackCalculatorInteraction('pricing_change', input.value);
+      });
     });
 
     // Initial calculation
     calculateRevenue();
 
-    // Track affiliate page view
+    // Track affiliate page view and revenue model interest
     if (typeof gtag !== 'undefined') {
       gtag('event', 'page_view', {
         page_title: 'CalorieBot Affiliate Program',
         page_location: window.location.href,
         content_group: 'affiliate_program'
+      });
+
+      // Track revenue model interest (Make Money Server)
+      gtag('event', 'revenue_model_interest', {
+        model_type: 'make_money_server',
+        source: 'page_view',
+        page_location: window.location.href,
+        page_title: 'CalorieBot Affiliate Program',
+        referrer: document.referrer,
+        timestamp: new Date().toISOString()
       });
     }
   });

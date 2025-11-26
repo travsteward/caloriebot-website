@@ -262,6 +262,7 @@ const faqSchema = {
               <a
                 href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
                 class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+                onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('monetize_page_cta', 'bot_addition');"
               >
                 Add CalorieBot Free
               </a>
@@ -278,3 +279,24 @@ const faqSchema = {
     </section>
   </main>
 </Layout>
+
+<script>
+  // Declare gtag for TypeScript
+  declare global {
+    function gtag(command: string, targetId: string, parameters?: Record<string, any>): void;
+  }
+
+  // Track revenue model interest on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'revenue_model_interest', {
+        model_type: 'make_money_server',
+        source: 'page_view',
+        page_location: window.location.href,
+        page_title: 'Monetize Your Discord Server',
+        referrer: document.referrer,
+        timestamp: new Date().toISOString()
+      });
+    }
+  });
+</script>
