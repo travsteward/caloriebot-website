@@ -138,28 +138,79 @@ const organizationSchema = {
       };
     </script>
 
-    <!-- Prevent browser extension conflicts with iframes -->
+    <!-- Suppress browser extension errors and warnings -->
     <script is:inline>
-      // Error handler to catch MutationObserver errors from extensions
-      window.addEventListener('error', function(event) {
-        if (event.message && event.message.includes('MutationObserver') && event.message.includes('parameter 1 is not of type')) {
-          // Silently handle extension errors - don't break the page
-          event.preventDefault();
-          return false;
-        }
-      }, true);
+      (function() {
+        // Suppress console warnings from browser extensions
+        const originalWarn = console.warn;
+        const originalError = console.error;
 
-      // Ensure iframes are properly initialized before extensions try to observe them
-      document.addEventListener('DOMContentLoaded', function() {
-        const iframes = document.querySelectorAll('iframe');
-        iframes.forEach(function(iframe) {
-          // Ensure iframe is attached to DOM and is a valid Node
-          if (iframe && iframe.nodeType === Node.ELEMENT_NODE && iframe.parentNode) {
-            // Add data attribute to help extensions identify valid iframes
-            iframe.setAttribute('data-iframe-ready', 'true');
+        const extensionPatterns = [
+          /markdownToSafeHTML.*should not be imported on the client side/i,
+          /\[DEPRECATED\].*zustand/i,
+          /react-i18next.*You will need to pass in an i18next instance/i,
+          /QuickAvailabilityCheck feature enabled/i,
+          /Ignoring Event: localhost/i,
+          /web-client-content-script/i,
+          /installHook/i
+        ];
+
+        console.warn = function(...args) {
+          const message = args.join(' ');
+          if (!extensionPatterns.some(pattern => pattern.test(message))) {
+            originalWarn.apply(console, args);
+          }
+        };
+
+        console.error = function(...args) {
+          const message = args.join(' ');
+          if (!extensionPatterns.some(pattern => pattern.test(message))) {
+            originalError.apply(console, args);
+          }
+        };
+
+        // Error handler to catch MutationObserver errors from extensions
+        window.addEventListener('error', function(event) {
+          const errorMessage = event.message || '';
+          const errorSource = event.filename || '';
+
+          // Suppress extension-related errors
+          if (
+            (errorMessage.includes('MutationObserver') && errorMessage.includes('parameter 1 is not of type')) ||
+            errorSource.includes('web-client-content-script') ||
+            errorSource.includes('installHook') ||
+            errorSource.includes('extension')
+          ) {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+          }
+        }, true);
+
+        // Suppress unhandled promise rejections from extensions
+        window.addEventListener('unhandledrejection', function(event) {
+          const reason = event.reason?.message || event.reason?.toString() || '';
+          if (
+            reason.includes('MutationObserver') ||
+            reason.includes('web-client-content-script') ||
+            reason.includes('extension')
+          ) {
+            event.preventDefault();
           }
         });
-      });
+
+        // Ensure iframes are properly initialized before extensions try to observe them
+        document.addEventListener('DOMContentLoaded', function() {
+          const iframes = document.querySelectorAll('iframe');
+          iframes.forEach(function(iframe) {
+            // Ensure iframe is attached to DOM and is a valid Node
+            if (iframe && iframe.nodeType === Node.ELEMENT_NODE && iframe.parentNode) {
+              // Add data attribute to help extensions identify valid iframes
+              iframe.setAttribute('data-iframe-ready', 'true');
+            }
+          });
+        });
+      })();
     </script>
 
     <!-- Deferred Analytics for better performance -->
