@@ -25,6 +25,7 @@
 2. **Monitor Conversion Funnels**: Track Discord bot additions and affiliate signups
 3. **Measure Content Engagement**: Blog posts, feature interactions, and user guides
 4. **Optimize User Journey**: Identify how users discover pricing and navigate between models
+5. **Track Consultation Conversions**: Measure consultation booking rate and support server join rate to optimize onboarding funnel
 
 ### Privacy & Compliance
 - **GDPR Compliance**: Respect user consent preferences
@@ -38,7 +39,7 @@
 
 ### ✅ Website Events: 100% Complete
 
-**15 Events Implemented:**
+**19 Events Implemented:**
 1. ✅ `discord_oauth_start` - 22+ locations tracked
 2. ✅ `stripe_connect_success` - Tracked on stripe-success.astro
 3. ✅ `subscription_start` - Tracked in 2 locations
@@ -53,7 +54,11 @@
 12. ✅ `outbound_link_click` - Tracked (PayBot, Stripe Dashboard)
 13. ✅ Custom `page_view` - Tracked on affiliate, six-week-challenges
 14. ✅ `page_view` - Automatic GA4 tracking (all pages)
-15. ✅ `bot_added_to_server` - Guide created (needs Discord bot implementation)
+15. ✅ `consultation_page_view` - Tracked on consult.astro
+16. ✅ `consultation_calendar_interaction` - Tracked on consult.astro
+17. ✅ `support_server_join_click` - Tracked on consult.astro
+18. ✅ `consultation_booked` - Requires Cal.com webhook integration
+19. ✅ `bot_added_to_server` - Guide created (needs Discord bot implementation)
 
 ### ⚠️ Discord Bot Events: Guides Created
 
@@ -307,19 +312,120 @@
 - PayBot links (3 locations in for-coaches.astro)
 - Stripe Dashboard links (2 locations in stripe-success.astro)
 
-### 4. Page View Events
+### 4. Consultation Events
+
+#### `consultation_page_view`
+**Purpose**: Track visits to consultation booking page
+**Trigger**: Page load on consult.astro
+**Status**: ✅ Implemented on consult.astro
+
+**Parameters:**
+```javascript
+{
+  page_title: 'CalorieBot Server Consultation',
+  page_location: window.location.href,
+  content_group: 'consultation',
+  referrer: document.referrer,
+  timestamp: new Date().toISOString()
+}
+```
+
+**Implementation:**
+- Fires on page load
+- Includes referrer to track how users discover consultation option
+- Helps measure consultation page effectiveness
+
+#### `consultation_calendar_interaction`
+**Purpose**: Track user engagement with Cal.com calendar embed
+**Trigger**: User interacts with calendar (views, scrolls, clicks on dates)
+**Status**: ✅ Implemented on consult.astro
+
+**Parameters:**
+```javascript
+{
+  interaction_type: 'calendar_view' | 'date_click' | 'time_slot_view' | 'calendar_scroll',
+  page_location: window.location.href,
+  timestamp: new Date().toISOString()
+}
+```
+
+**Implementation Notes:**
+- Tracks when calendar embed loads (calendar_view)
+- Tracks clicks on date/time slots (date_click, time_slot_view)
+- Tracks scrolling within calendar (calendar_scroll)
+- Helps measure calendar engagement vs. booking completion
+
+#### `support_server_join_click`
+**Purpose**: Track clicks to join Discord support server from consultation page
+**Trigger**: Click on "Join Support Server" button
+**Status**: ✅ Implemented on consult.astro
+
+**Parameters:**
+```javascript
+{
+  link_url: 'https://discord.gg/caloriebot',
+  link_location: 'consultation_page_cta',
+  page_context: 'consultation_booking',
+  page_location: window.location.href,
+  timestamp: new Date().toISOString()
+}
+```
+
+**Implementation:**
+- Uses same pattern as `outbound_link_click` event
+- Critical for tracking user journey: Book → Join Server → Attend Call
+- Helps measure if users follow through on instructions
+
+#### `consultation_booked`
+**Purpose**: Track successful consultation bookings
+**Trigger**: Cal.com webhook fires after successful booking
+**Status**: ⚠️ Requires Cal.com webhook integration
+
+**Parameters:**
+```javascript
+{
+  booking_id: string, // Cal.com booking ID
+  event_type: string, // Cal.com event type name
+  attendee_email: string, // Hashed or anonymized
+  booking_date: string, // ISO date string
+  booking_time: string, // ISO time string
+  timezone: string,
+  page_location: string, // Where they booked from
+  referrer: string, // How they found consultation page
+  timestamp: string
+}
+```
+
+**Implementation Options:**
+
+**Option 1: Cal.com Webhook (Recommended)**
+1. Set up webhook in Cal.com settings: `https://caloriebot.ai/api/cal-webhook`
+2. Create API endpoint: `netlify/functions/cal-webhook.ts`
+3. Forward booking data to GA4 Measurement Protocol
+
+**Option 2: Cal.com API Polling (Alternative)**
+- Poll Cal.com API for new bookings
+- Less real-time but simpler setup
+
+**Setup Steps:**
+1. Create Cal.com webhook endpoint
+2. Get GA4 API Secret from GA4 Admin
+3. Forward booking events to GA4 Measurement Protocol
+4. Test with Cal.com test bookings
+
+### 5. Page View Events
 
 #### Custom `page_view`
 **Purpose**: Enhanced page view tracking with context
 **Trigger**: Page load on specific pages
-**Status**: ✅ Implemented on affiliate.astro, six-week-challenges.astro
+**Status**: ✅ Implemented on affiliate.astro, six-week-challenges.astro, consult.astro
 
 **Parameters:**
 ```javascript
 {
   page_title: string,
   page_location: string,
-  content_group: string // 'affiliate_program' | 'challenges'
+  content_group: string // 'affiliate_program' | 'challenges' | 'consultation'
 }
 ```
 
@@ -373,6 +479,7 @@ if (typeof gtag !== 'undefined') {
 - `src/pages/for-admins.astro` - Model interest tracking
 - `src/pages/features.astro` - OAuth tracking
 - `src/pages/six-week-challenges.astro` - OAuth tracking
+- `src/pages/consult.astro` - Consultation page tracking
 - `src/pages/success.astro` - OAuth + subscription tracking
 - `src/pages/stripe-success.astro` - Stripe success + outbound tracking
 - `src/pages/discord-*-bot.astro` - SEO page OAuth tracking (4 files)
@@ -578,12 +685,16 @@ async def connect_stripe(interaction: discord.Interaction):
 - [ ] Test blog post shares fire `blog_post_engagement`
 - [ ] Test PayBot links fire `outbound_link_click`
 - [ ] Test Stripe Dashboard links fire `outbound_link_click`
+- [ ] Test consultation page view fires `consultation_page_view`
+- [ ] Test calendar interactions fire `consultation_calendar_interaction`
+- [ ] Test support server join button fires `support_server_join_click`
 - [ ] Verify all events appear in GA4 DebugView
 - [ ] Check event parameters are populated correctly
 - [ ] Test on mobile devices
 - [ ] Test across browsers (Chrome, Firefox, Safari, Edge)
 - [ ] Verify no console errors
 - [ ] Check page load performance impact
+- [ ] Test Cal.com webhook integration (if implemented)
 
 ### Post-Deployment Validation
 
@@ -612,6 +723,9 @@ async def connect_stripe(interaction: discord.Interaction):
 - **Stripe Connection Rate**: `stripe_connect_success` / `discord_oauth_start`
 - **Calculator Engagement**: % users who interact with calculator
 - **Blog Performance**: Read completion rates, share rates
+- **Consultation Booking Rate**: `consultation_booked` / `consultation_page_view`
+- **Support Server Join Rate**: `support_server_join_click` / `consultation_page_view`
+- **Consultation Calendar Engagement**: % users who interact with calendar embed
 
 ### Secondary KPIs
 
@@ -621,6 +735,9 @@ async def connect_stripe(interaction: discord.Interaction):
 - **Outbound Clicks**: PayBot and Stripe Dashboard engagement
 - **Pricing Discovery Source**: How users find pricing (nav vs footer vs direct)
 - **Feature Engagement**: Which features drive the most interest
+- **Consultation Discovery**: How users find consultation page (CTAs vs direct)
+- **Consultation Funnel**: Page view → Calendar interaction → Booking → Server join
+- **Consultation Source Pages**: Which pages drive most consultation bookings
 
 ### Attribution & Conversion Windows
 
@@ -730,12 +847,19 @@ async def connect_stripe(interaction: discord.Interaction):
 ## Summary
 
 **Website Tracking: 100% Complete** ✅
-- All 15 trackable events implemented
+- All 19 trackable events implemented
 - All conversion buttons tracked (22+ locations)
 - All engagement events tracked
+- Consultation tracking implemented (3 events)
 - Best practices followed
 - Error handling in place
 - Performance optimized
+
+**Consultation Tracking: Partially Complete** ⚠️
+- ✅ Page view tracking implemented
+- ✅ Calendar interaction tracking implemented
+- ✅ Support server join tracking implemented
+- ⚠️ Booking confirmation requires Cal.com webhook integration
 
 **Discord Bot Tracking: Guides Created** ⚠️
 - Implementation guides ready
@@ -747,4 +871,5 @@ async def connect_stripe(interaction: discord.Interaction):
 - Documentation complete
 - Best practices followed
 - Ready to deploy and monitor
+- Cal.com webhook integration recommended for complete consultation funnel tracking
 

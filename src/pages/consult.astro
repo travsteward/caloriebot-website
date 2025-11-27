@@ -1,0 +1,277 @@
+---
+export const prerender = true;
+
+import Layout from '../layouts/Layout.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+const pageTitle = "CalorieBot Server Consultation";
+const pageDescription = "Not sure if CalorieBot is right for you? Book a free 15-minute chat to discuss your community's needs, technical setup, and monetization goals.";
+
+// FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this consultation really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, completely free. We want to help you succeed because when you succeed, we succeed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a server already set up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Since CalorieBot lives inside Discord, you need at least a basic server created so we can help you install and configure it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this a sales call?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This is a technical and strategic consultation. We'll tell you honestly if CalorieBot isn't a good fit for your specific use case."
+      }
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+>
+  <ContactModal id="contact-modal" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <main>
+    <section class="relative bg-dark text-white py-20 md:py-24 overflow-hidden">
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-brand-orange/20 blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-discord/20 blur-[100px]"></div>
+      </div>
+
+      <div class="container mx-auto px-4 max-w-5xl relative z-10">
+        <div class="text-center mb-12">
+          <h1 class="hero-heading font-extrabold mb-6 tracking-tight">
+            Server
+            <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-purple">Consultation</span>
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            {pageDescription}
+          </p>
+        </div>
+
+        <!-- Value Props Grid -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+          <div class="bg-dark-900/80 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center">
+            <div class="text-3xl mb-4">🔍</div>
+            <h3 class="text-lg font-bold text-white mb-2">Community Fit</h3>
+            <p class="text-gray-400 text-sm">We'll explore if CalorieBot is the right tool for your specific server culture.</p>
+          </div>
+          <div class="bg-dark-900/80 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center">
+            <div class="text-3xl mb-4">⚙️</div>
+            <h3 class="text-lg font-bold text-white mb-2">Technical Setup</h3>
+            <p class="text-gray-400 text-sm">Get help overcoming setup roadblocks and permissions issues.</p>
+          </div>
+          <div class="bg-dark-900/80 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center">
+            <div class="text-3xl mb-4">💡</div>
+            <h3 class="text-lg font-bold text-white mb-2">Monetization</h3>
+            <p class="text-gray-400 text-sm">Discuss how to structure challenges or subscriptions for revenue.</p>
+          </div>
+        </div>
+
+        <!-- What We'll Cover -->
+        <div class="bg-dark-900/50 border border-white/5 rounded-2xl p-8 mb-16 max-w-4xl mx-auto">
+          <h2 class="text-xl font-bold text-white text-center mb-8">What We'll Cover in 15 Minutes</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-brand-green mt-1">✓</span>
+                <span class="text-gray-300"><strong>Live Demo:</strong> See exactly how the bot works in a real server environment</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-green mt-1">✓</span>
+                <span class="text-gray-300"><strong>Setup Review:</strong> We'll look at your channel structure and permissions</span>
+              </li>
+            </ul>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-brand-green mt-1">✓</span>
+                <span class="text-gray-300"><strong>Revenue Plan:</strong> Estimate potential earnings from your specific member count</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-green mt-1">✓</span>
+                <span class="text-gray-300"><strong>Q&A:</strong> Ask any technical or business questions you have</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Calendar Embed -->
+        <div class="bg-dark-900 rounded-3xl border border-white/10 shadow-2xl overflow-hidden mb-12">
+          <div class="p-4 md:p-8">
+            <!-- Cal inline embed code begins -->
+            <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-strategy-session"></div>
+            <script type="text/javascript">
+              (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+              Cal("init", "strategy-session", {origin:"https://app.cal.com"});
+
+              Cal.ns["strategy-session"]("inline", {
+                elementOrSelector:"#my-cal-inline-strategy-session",
+                config: {"layout":"month_view", "theme":"dark"},
+                calLink: "paybot/strategy-session",
+              });
+
+              Cal.ns["strategy-session"]("ui", {"hideEventTypeDetails":false,"layout":"month_view", "theme":"dark"});
+            </script>
+            <!-- Cal inline embed code ends -->
+          </div>
+        </div>
+
+        <!-- Next Steps / Where to Meet -->
+        <div class="bg-discord/10 border border-discord/20 rounded-2xl p-8 text-center max-w-3xl mx-auto mb-20">
+          <h3 class="text-xl font-bold text-white mb-4">Important: Where we meet</h3>
+          <p class="text-gray-300 mb-6">
+            All consultations take place in the <strong class="text-white">CalorieBot Support Server</strong> via voice channel.
+            Please join the server before your scheduled time so we can connect easily.
+          </p>
+          <a
+            href="https://discord.gg/caloriebot"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-discord hover:bg-discord/90 text-white font-bold py-3 px-8 rounded-full transition-all hover:-translate-y-1 shadow-lg shadow-discord/20"
+            onclick="if(typeof trackSupportServerJoin === 'function') trackSupportServerJoin('consultation_page_cta');"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+            Join Support Server
+          </a>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="max-w-3xl mx-auto border-t border-white/10 pt-16">
+          <h2 class="text-2xl font-bold text-white text-center mb-8">Frequently Asked Questions</h2>
+          <div class="grid gap-4">
+            {faqSchema.mainEntity.map((faq) => (
+              <div class="bg-dark-900/50 border border-white/5 rounded-xl p-6">
+                <h3 class="text-white font-bold mb-2">{faq.name}</h3>
+                <p class="text-gray-400 text-sm">{faq.acceptedAnswer.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  // Declare gtag for TypeScript
+  declare global {
+    function gtag(command: string, targetId: string, parameters?: Record<string, any>): void;
+  }
+
+  // Track consultation page view
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', {
+        page_title: 'CalorieBot Server Consultation',
+        page_location: window.location.href,
+        content_group: 'consultation',
+        referrer: document.referrer,
+        timestamp: new Date().toISOString()
+      });
+
+      // Track consultation page view as custom event
+      gtag('event', 'consultation_page_view', {
+        page_title: 'CalorieBot Server Consultation',
+        page_location: window.location.href,
+        content_group: 'consultation',
+        referrer: document.referrer,
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    // Track calendar interaction when calendar loads
+    const calendarContainer = document.getElementById('my-cal-inline-strategy-session');
+    if (calendarContainer) {
+      // Use MutationObserver to detect when calendar is loaded
+      const observer = new MutationObserver(function(mutations) {
+        if (calendarContainer.children.length > 0) {
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'consultation_calendar_interaction', {
+              interaction_type: 'calendar_view',
+              page_location: window.location.href,
+              timestamp: new Date().toISOString()
+            });
+          }
+          observer.disconnect();
+        }
+      });
+
+      observer.observe(calendarContainer, {
+        childList: true,
+        subtree: true
+      });
+
+      // Also track clicks on calendar (date/time selection)
+      calendarContainer.addEventListener('click', function(e) {
+        if (typeof gtag !== 'undefined') {
+          const target = e.target as HTMLElement;
+          // Check if clicking on a date or time slot
+          if (target.closest('[data-cal-date]') || target.closest('[data-cal-time]')) {
+            gtag('event', 'consultation_calendar_interaction', {
+              interaction_type: 'date_click',
+              page_location: window.location.href,
+              timestamp: new Date().toISOString()
+            });
+          }
+        }
+      });
+
+      // Track scrolling within calendar
+      let scrollTimeout: ReturnType<typeof setTimeout>;
+      calendarContainer.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'consultation_calendar_interaction', {
+              interaction_type: 'calendar_scroll',
+              page_location: window.location.href,
+              timestamp: new Date().toISOString()
+            });
+          }
+        }, 500); // Debounce scroll tracking
+      });
+    }
+  });
+
+  // Track support server join click
+  window.trackSupportServerJoin = function(location: string) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'support_server_join_click', {
+        link_url: 'https://discord.gg/caloriebot',
+        link_location: location,
+        page_context: 'consultation_booking',
+        page_location: window.location.href,
+        timestamp: new Date().toISOString()
+      });
+
+      // Also track as outbound link click for consistency
+      gtag('event', 'outbound_link_click', {
+        link_url: 'https://discord.gg/caloriebot',
+        link_location: location,
+        page_context: 'consultation_booking',
+        page_location: window.location.href,
+        timestamp: new Date().toISOString()
+      });
+    }
+  };
+</script>
