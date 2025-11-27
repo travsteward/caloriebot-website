@@ -103,166 +103,178 @@ const faqSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <ContactModal id="contact-modal" />
   <main>
-    <section class="relative bg-dark text-white py-16 overflow-hidden">
+    <section class="relative bg-dark text-white py-20 md:py-32 overflow-hidden">
       <!-- Subtle decorative elements that match the theme -->
       <div class="absolute inset-0" aria-hidden="true">
-        <div class="absolute top-0 right-0 w-1/3 h-48 bg-orange-600/5 blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-1/3 h-48 bg-discord/5 blur-3xl"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-brand-orange/20 blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-discord/20 blur-[100px]"></div>
       </div>
 
-      <div class="container mx-auto px-4 max-w-5xl relative">
-        <div class="text-center mb-12">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+      <div class="container mx-auto px-4 max-w-5xl relative z-10">
+        <div class="text-center mb-16">
+          <h1 class="hero-heading font-extrabold mb-6 tracking-tight">
             CalorieBot
             <br />
-            <span class="text-orange-500">Affiliate Program</span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-purple">Affiliate Program</span>
           </h1>
-          <div class="bg-gradient-to-r from-blue-900/20 to-purple-800/20 rounded-lg p-6 border border-blue-500/30 mb-8 max-w-3xl mx-auto">
-            <h2 class="text-2xl font-bold text-white mb-4">How It Works</h2>
-            <div class="grid md:grid-cols-4 gap-4 text-left">
-              <div class="text-center">
-                <div class="text-3xl mb-2">🤖</div>
-                <p class="text-gray-300 text-sm font-semibold">1. Invite CalorieBot</p>
+          <div class="bg-dark-900/80 backdrop-blur-md rounded-2xl p-8 border border-brand-blue/30 mb-10 max-w-3xl mx-auto shadow-xl">
+            <h2 class="text-2xl font-bold text-white mb-6">How It Works</h2>
+            <div class="grid md:grid-cols-4 gap-6 text-left">
+              <div class="text-center group">
+                <div class="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">🤖</div>
+                <p class="text-white font-bold text-sm">1. Invite CalorieBot</p>
                 <p class="text-gray-400 text-xs mt-1">Add to your server</p>
               </div>
-              <div class="text-center">
-                <div class="text-3xl mb-2">💳</div>
-                <p class="text-gray-300 text-sm font-semibold">2. Connect Stripe</p>
+              <div class="text-center group">
+                <div class="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">💳</div>
+                <p class="text-white font-bold text-sm">2. Connect Stripe</p>
                 <p class="text-gray-400 text-xs mt-1">Link your account</p>
               </div>
-              <div class="text-center">
-                <div class="text-3xl mb-2">🎯</div>
-                <p class="text-gray-300 text-sm font-semibold">3. Offer Challenges</p>
+              <div class="text-center group">
+                <div class="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">🎯</div>
+                <p class="text-white font-bold text-sm">3. Offer Challenges</p>
                 <p class="text-gray-400 text-xs mt-1">6-week challenges & memberships</p>
               </div>
-              <div class="text-center">
-                <div class="text-3xl mb-2">⚡</div>
-                <p class="text-gray-300 text-sm font-semibold">4. All Automated</p>
+              <div class="text-center group">
+                <div class="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">⚡</div>
+                <p class="text-white font-bold text-sm">4. All Automated</p>
                 <p class="text-gray-400 text-xs mt-1">CalorieBot manages everything</p>
               </div>
             </div>
           </div>
-          <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+          <p class="text-xl md:text-2xl mb-12 text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Make big money on 6-week challenge cycles, then build ongoing memberships. 40% of challenge users convert to long-term subscriptions. Earn 60% commission on all revenue.
           </p>
 
           <!-- Interactive Revenue Calculator -->
-          <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 p-8 rounded-lg border border-orange-500/30 mb-12">
-            <div class="text-center mb-6">
-              <p class="text-2xl text-orange-400 font-semibold mb-2">Discord Revenue Calculator</p>
-              <p class="text-gray-300 mb-2">Calculate your potential earnings from Discord challenges and memberships</p>
-              <p class="text-discord text-sm font-semibold">💰 Built exclusively for Discord servers</p>
-            </div>
-
-            <div class="bg-dark/50 rounded-lg p-6 mb-6">
-              <div class="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label class="block text-white font-semibold mb-3">Discord Participants in Your Server</label>
-                  <input
-                    type="number"
-                    id="participants"
-                    value="250"
-                    min="1"
-                    max="10000"
-                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white text-lg font-bold focus:outline-none focus:border-orange-500"
-                  />
-                  <p class="text-gray-400 text-xs mt-2">Number of Discord members who will join your challenge</p>
-                </div>
-                <div>
-                  <label class="block text-white font-semibold mb-3">Challenge Pricing</label>
-                  <div class="flex gap-3">
-                    <label class="flex-1 cursor-pointer">
-                      <input type="radio" name="pricing" value="47" checked class="sr-only peer" />
-                      <div class="bg-gray-800 border-2 border-gray-600 rounded-lg p-3 text-center peer-checked:border-orange-500 peer-checked:bg-orange-900/30 transition-all">
-                        <div class="text-white font-bold text-lg">$47</div>
-                        <div class="text-gray-400 text-xs">Accessible</div>
-                      </div>
-                    </label>
-                    <label class="flex-1 cursor-pointer">
-                      <input type="radio" name="pricing" value="97" class="sr-only peer" />
-                      <div class="bg-gray-800 border-2 border-gray-600 rounded-lg p-3 text-center peer-checked:border-orange-500 peer-checked:bg-orange-900/30 transition-all">
-                        <div class="text-white font-bold text-lg">$97</div>
-                        <div class="text-gray-400 text-xs">Mid-Tier</div>
-                      </div>
-                    </label>
-                    <label class="flex-1 cursor-pointer">
-                      <input type="radio" name="pricing" value="147" class="sr-only peer" />
-                      <div class="bg-gray-800 border-2 border-gray-600 rounded-lg p-3 text-center peer-checked:border-orange-500 peer-checked:bg-orange-900/30 transition-all">
-                        <div class="text-white font-bold text-lg">$147</div>
-                        <div class="text-gray-400 text-xs">Premium</div>
-                      </div>
-                    </label>
-                  </div>
+          <div class="bg-dark-900 rounded-3xl border border-brand-orange/30 mb-16 overflow-hidden shadow-2xl relative">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+            <div class="p-8 md:p-10 relative z-10">
+              <div class="text-center mb-8">
+                <p class="text-2xl text-brand-orange font-bold mb-2">Discord Revenue Calculator</p>
+                <p class="text-gray-400 mb-3">Calculate your potential earnings from Discord challenges and memberships</p>
+                <div class="inline-flex items-center gap-2 bg-dark-800 px-3 py-1 rounded-full border border-white/10">
+                  <span class="text-discord text-sm font-semibold">💰 Built exclusively for Discord servers</span>
                 </div>
               </div>
-            </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="bg-dark/50 rounded-lg p-6 border border-orange-500/30">
-                <h3 class="text-xl font-bold text-orange-400 mb-4">💰 Discord Challenge Revenue</h3>
-                <div class="space-y-3">
-                  <div class="flex justify-between items-center">
-                    <span class="text-gray-300 text-sm">Total from Discord Participants</span>
-                    <span class="text-white font-bold text-lg" id="total-revenue">$11,750</span>
+              <div class="bg-dark-800 rounded-2xl p-6 mb-8 border border-white/5">
+                <div class="grid md:grid-cols-2 gap-8 mb-2">
+                  <div>
+                    <label class="block text-white font-semibold mb-3 text-left">Discord Participants in Your Server</label>
+                    <div class="relative">
+                      <input
+                        type="number"
+                        id="participants"
+                        value="250"
+                        min="1"
+                        max="10000"
+                        class="w-full px-4 py-3 bg-dark-950 border border-white/10 rounded-xl text-white text-lg font-bold focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all"
+                      />
+                      <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-500 text-sm font-medium">users</div>
+                    </div>
+                    <p class="text-gray-500 text-xs mt-2 text-left">Number of Discord members who will join your challenge</p>
                   </div>
-                  <div class="flex justify-between items-center pt-2 border-t border-gray-600">
-                    <span class="text-gray-300">Your 60% Commission</span>
-                    <span class="text-green-400 font-bold text-2xl" id="challenge-commission">$7,050</span>
-                  </div>
-                  <div class="pt-3 border-t border-gray-600">
-                    <div class="flex justify-between items-center mb-1">
-                      <span class="text-gray-400 text-xs">4 Discord challenges/year</span>
-                      <span class="text-green-400 font-semibold" id="annual-challenges">$28,200</span>
+                  <div>
+                    <label class="block text-white font-semibold mb-3 text-left">Challenge Pricing</label>
+                    <div class="flex gap-3">
+                      <label class="flex-1 cursor-pointer group">
+                        <input type="radio" name="pricing" value="47" checked class="sr-only peer" />
+                        <div class="bg-dark-950 border border-white/10 rounded-xl p-3 text-center peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 transition-all h-full group-hover:border-white/20">
+                          <div class="text-white font-bold text-lg">$47</div>
+                          <div class="text-gray-500 text-xs peer-checked:text-brand-orange">Accessible</div>
+                        </div>
+                      </label>
+                      <label class="flex-1 cursor-pointer group">
+                        <input type="radio" name="pricing" value="97" class="sr-only peer" />
+                        <div class="bg-dark-950 border border-white/10 rounded-xl p-3 text-center peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 transition-all h-full group-hover:border-white/20">
+                          <div class="text-white font-bold text-lg">$97</div>
+                          <div class="text-gray-500 text-xs peer-checked:text-brand-orange">Mid-Tier</div>
+                        </div>
+                      </label>
+                      <label class="flex-1 cursor-pointer group">
+                        <input type="radio" name="pricing" value="147" class="sr-only peer" />
+                        <div class="bg-dark-950 border border-white/10 rounded-xl p-3 text-center peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 transition-all h-full group-hover:border-white/20">
+                          <div class="text-white font-bold text-lg">$147</div>
+                          <div class="text-gray-500 text-xs peer-checked:text-brand-orange">Premium</div>
+                        </div>
+                      </label>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="bg-dark/50 rounded-lg p-6 border border-blue-500/30">
-                <h3 class="text-xl font-bold text-blue-400 mb-4">📈 Discord Membership Revenue</h3>
-                <div class="space-y-3">
-                  <div class="flex justify-between items-center">
-                    <span class="text-gray-300 text-sm">Discord Members (40% convert)</span>
-                    <span class="text-white font-bold" id="converts">100 Discord members</span>
-                  </div>
-                  <div class="flex justify-between items-center">
-                    <span class="text-gray-300 text-sm">Monthly from Discord</span>
-                    <span class="text-white font-bold text-lg" id="monthly-memberships">$1,999</span>
-                  </div>
-                  <div class="flex justify-between items-center pt-2 border-t border-gray-600">
-                    <span class="text-gray-300">Your 60% Monthly</span>
-                    <span class="text-blue-400 font-bold text-xl" id="monthly-commission">$1,199</span>
-                  </div>
-                  <div class="pt-3 border-t border-gray-600">
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-dark-800 rounded-2xl p-6 border border-brand-orange/30 shadow-lg shadow-brand-orange/5">
+                  <h3 class="text-xl font-bold text-brand-orange mb-6 flex items-center gap-2">
+                    <span>💰</span> Discord Challenge Revenue
+                  </h3>
+                  <div class="space-y-4">
                     <div class="flex justify-between items-center">
-                      <span class="text-gray-400 text-xs">Annual Recurring from Discord</span>
-                      <span class="text-green-400 font-semibold" id="annual-memberships">$14,393</span>
+                      <span class="text-gray-400 text-sm">Total from Discord Participants</span>
+                      <span class="text-white font-bold text-lg" id="total-revenue">$11,750</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-4 border-t border-white/5">
+                      <span class="text-gray-300 font-medium">Your 60% Commission</span>
+                      <span class="text-brand-green font-bold text-2xl" id="challenge-commission">$7,050</span>
+                    </div>
+                    <div class="pt-4 border-t border-white/5">
+                      <div class="flex justify-between items-center mb-1">
+                        <span class="text-gray-500 text-xs uppercase tracking-wider font-bold">4 Discord challenges/year</span>
+                        <span class="text-brand-green font-semibold" id="annual-challenges">$28,200</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-dark-800 rounded-2xl p-6 border border-brand-blue/30 shadow-lg shadow-brand-blue/5">
+                  <h3 class="text-xl font-bold text-brand-blue mb-6 flex items-center gap-2">
+                    <span>📈</span> Discord Membership Revenue
+                  </h3>
+                  <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                      <span class="text-gray-400 text-sm">Discord Members (40% convert)</span>
+                      <span class="text-white font-bold" id="converts">100 Discord members</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="text-gray-400 text-sm">Monthly from Discord</span>
+                      <span class="text-white font-bold text-lg" id="monthly-memberships">$1,999</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-4 border-t border-white/5">
+                      <span class="text-gray-300 font-medium">Your 60% Monthly</span>
+                      <span class="text-brand-blue font-bold text-xl" id="monthly-commission">$1,199</span>
+                    </div>
+                    <div class="pt-4 border-t border-white/5">
+                      <div class="flex justify-between items-center">
+                        <span class="text-gray-500 text-xs uppercase tracking-wider font-bold">Annual Recurring from Discord</span>
+                        <span class="text-brand-green font-semibold" id="annual-memberships">$14,393</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="mt-6 pt-6 border-t border-orange-500/30">
-              <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
-                <div class="grid md:grid-cols-3 gap-4 text-center">
-                  <div>
-                    <p class="text-gray-400 text-sm mb-1">One Discord Challenge</p>
-                    <p class="text-green-400 font-bold text-xl" id="one-challenge-total">$21,443</p>
-                    <p class="text-gray-400 text-xs">first year from your Discord server</p>
+              <div class="mt-8 pt-8 border-t border-white/10">
+                <div class="bg-brand-green/10 border border-brand-green/20 rounded-2xl p-6">
+                  <div class="grid md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-brand-green/20">
+                    <div class="pb-4 md:pb-0">
+                      <p class="text-gray-400 text-sm mb-2">One Discord Challenge</p>
+                      <p class="text-brand-green font-bold text-2xl mb-1" id="one-challenge-total">$21,443</p>
+                      <p class="text-gray-500 text-xs">first year from your server</p>
+                    </div>
+                    <div class="py-4 md:py-0">
+                      <p class="text-gray-400 text-sm mb-2">4 Challenges/Year</p>
+                      <p class="text-brand-green font-bold text-3xl mb-1" id="annual-total">$42,593</p>
+                      <p class="text-gray-500 text-xs">year 1 total from Discord</p>
+                    </div>
+                    <div class="pt-4 md:pt-0">
+                      <p class="text-gray-400 text-sm mb-2">Year 2 (Recurring)</p>
+                      <p class="text-brand-green font-bold text-2xl mb-1" id="year-two-total">$85,771</p>
+                      <p class="text-gray-500 text-xs">with accumulated members</p>
+                    </div>
                   </div>
-                  <div>
-                    <p class="text-gray-400 text-sm mb-1">4 Discord Challenges/Year</p>
-                    <p class="text-green-400 font-bold text-2xl" id="annual-total">$42,593</p>
-                    <p class="text-gray-400 text-xs">year 1 total from Discord</p>
+                  <div class="mt-6 pt-4 border-t border-brand-green/20 text-center">
+                    <p class="text-brand-green text-sm font-semibold">💬 All revenue generated directly from your Discord server members</p>
                   </div>
-                  <div>
-                    <p class="text-gray-400 text-sm mb-1">Year 2 (Recurring)</p>
-                    <p class="text-green-400 font-bold text-xl" id="year-two-total">$85,771</p>
-                    <p class="text-gray-400 text-xs">with 400 Discord members</p>
-                  </div>
-                </div>
-                <div class="mt-4 pt-4 border-t border-green-500/30 text-center">
-                  <p class="text-discord text-sm font-semibold">💬 All revenue generated directly from your Discord server members</p>
                 </div>
               </div>
             </div>
@@ -270,259 +282,266 @@ const faqSchema = {
         </div>
 
         {/* 6-Week Challenges Section - Prominently Featured */}
-        <div class="mb-16">
-          <div class="text-center mb-8">
-            <h2 class="text-4xl font-bold mb-4">Start with 6-Week Challenges</h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        <div class="mb-20">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4 text-white">Start with 6-Week Challenges</h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
               The fastest path to big revenue. Run profitable challenges that drive engagement and generate serious income.
             </p>
-            <a href="/six-week-challenges/" class="inline-block mt-4 text-orange-400 hover:text-orange-300 underline text-lg">
-              Learn all about 6-week challenges →
+            <a href="/six-week-challenges/" class="inline-flex items-center mt-6 text-brand-orange hover:text-brand-orange/80 font-medium text-lg group">
+              Learn all about 6-week challenges
+              <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </a>
           </div>
 
-          <div class="bg-gradient-to-br from-orange-900/20 to-orange-800/20 rounded-lg p-8 border border-orange-500/30 mb-8">
-            <h3 class="text-2xl font-bold text-white text-center mb-6">Why Challenges Work So Well</h3>
-            <div class="grid md:grid-cols-3 gap-6 mb-6">
-              <div class="bg-dark/50 rounded-lg p-6 text-center">
-                <div class="text-4xl mb-3">💰</div>
-                <h4 class="font-bold text-orange-400 mb-2">Big One-Time Revenue</h4>
-                <p class="text-gray-300 text-sm">$47+ per participant (you set pricing). 250 participants = $7,050 commission in 6 weeks.</p>
+          <div class="bg-dark-900 rounded-3xl p-8 md:p-10 border border-white/10 mb-12 shadow-xl">
+            <h3 class="text-2xl font-bold text-white text-center mb-10">Why Challenges Work So Well</h3>
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+              <div class="bg-dark-800 rounded-2xl p-8 text-center border border-white/5 hover:border-white/10 transition-colors">
+                <div class="text-4xl mb-6">💰</div>
+                <h4 class="text-xl font-bold text-brand-orange mb-3">Big One-Time Revenue</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">$47+ per participant (you set pricing). 250 participants = $7,050 commission in 6 weeks.</p>
               </div>
-              <div class="bg-dark/50 rounded-lg p-6 text-center">
-                <div class="text-4xl mb-3">🔄</div>
-                <h4 class="font-bold text-orange-400 mb-2">Recurring Cycles</h4>
-                <p class="text-gray-300 text-sm">Run quarterly (Jan, Apr, Jul, Oct). Each cycle = new revenue opportunity.</p>
+              <div class="bg-dark-800 rounded-2xl p-8 text-center border border-white/5 hover:border-white/10 transition-colors">
+                <div class="text-4xl mb-6">🔄</div>
+                <h4 class="text-xl font-bold text-brand-orange mb-3">Recurring Cycles</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Run quarterly (Jan, Apr, Jul, Oct). Each cycle = new revenue opportunity.</p>
               </div>
-              <div class="bg-dark/50 rounded-lg p-6 text-center">
-                <div class="text-4xl mb-3">📈</div>
-                <h4 class="font-bold text-orange-400 mb-2">40% Convert to Memberships</h4>
-                <p class="text-gray-300 text-sm">Challenge finishers naturally upgrade to $19.99/mo subscriptions.</p>
+              <div class="bg-dark-800 rounded-2xl p-8 text-center border border-white/5 hover:border-white/10 transition-colors">
+                <div class="text-4xl mb-6">📈</div>
+                <h4 class="text-xl font-bold text-brand-orange mb-3">40% Convert to Memberships</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Challenge finishers naturally upgrade to $19.99/mo subscriptions.</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-secondary rounded-lg p-8">
-            <h3 class="text-2xl font-bold text-white text-center mb-4">Challenge Revenue Examples</h3>
-            <p class="text-center text-gray-400 text-sm mb-6">
-              Pricing shown at $47 per participant. <strong class="text-orange-400">You decide what to charge</strong> based on how exclusive your community is.
+          <div class="bg-dark-900 rounded-3xl p-8 md:p-10 border border-white/10">
+            <h3 class="text-2xl font-bold text-white text-center mb-6">Challenge Revenue Examples</h3>
+            <p class="text-center text-gray-400 text-sm mb-10 max-w-2xl mx-auto">
+              Pricing shown at $47 per participant. <strong class="text-brand-orange">You decide what to charge</strong> based on how exclusive your community is.
             </p>
             <div class="grid md:grid-cols-3 gap-6">
-              <div class="bg-dark rounded-lg p-6">
-                <h4 class="text-lg font-bold text-orange-400 mb-4 text-center">Small Challenge</h4>
-                <div class="space-y-2 text-sm mb-4">
-                  <div class="flex justify-between">
-                    <span class="text-gray-300">50 participants × $47</span>
-                    <span class="text-white">$2,350</span>
+              <div class="bg-dark-800 rounded-2xl p-6 border border-white/5">
+                <h4 class="text-lg font-bold text-brand-orange mb-6 text-center">Small Challenge</h4>
+                <div class="space-y-3 text-sm mb-6">
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-400">50 participants × $47</span>
+                    <span class="text-white font-medium">$2,350</span>
                   </div>
-                  <div class="flex justify-between pt-2 border-t border-gray-600">
+                  <div class="flex justify-between items-center pt-3 border-t border-white/5">
                     <span class="text-gray-300">Your 60%</span>
-                    <span class="text-green-400 font-bold">$1,410</span>
+                    <span class="text-brand-green font-bold">$1,410</span>
                   </div>
                 </div>
-                <div class="pt-4 border-t border-gray-600">
-                  <p class="text-xs text-gray-400 mb-2">40% convert (20 members)</p>
-                  <p class="text-xs text-blue-400">+$2,879/year recurring</p>
+                <div class="pt-4 border-t border-white/5 bg-white/5 -mx-6 -mb-6 p-6 rounded-b-2xl">
+                  <p class="text-xs text-gray-400 mb-2 text-center">40% convert (20 members)</p>
+                  <p class="text-sm text-brand-blue font-bold text-center">+$2,879/year recurring</p>
                 </div>
               </div>
-              <div class="bg-dark rounded-lg p-6 border-2 border-orange-500">
-                <h4 class="text-lg font-bold text-orange-400 mb-4 text-center">Medium Challenge</h4>
-                <div class="space-y-2 text-sm mb-4">
-                  <div class="flex justify-between">
-                    <span class="text-gray-300">250 participants × $47</span>
-                    <span class="text-white">$11,750</span>
+              <div class="bg-dark-800 rounded-2xl p-6 border-2 border-brand-orange shadow-lg shadow-brand-orange/10 transform md:-translate-y-4">
+                <div class="text-center mb-4"><span class="bg-brand-orange text-white text-xs font-bold px-3 py-1 rounded-full">POPULAR</span></div>
+                <h4 class="text-lg font-bold text-brand-orange mb-6 text-center">Medium Challenge</h4>
+                <div class="space-y-3 text-sm mb-6">
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-400">250 participants × $47</span>
+                    <span class="text-white font-medium">$11,750</span>
                   </div>
-                  <div class="flex justify-between pt-2 border-t border-gray-600">
+                  <div class="flex justify-between items-center pt-3 border-t border-white/5">
                     <span class="text-gray-300">Your 60%</span>
-                    <span class="text-green-400 font-bold text-lg">$7,050</span>
+                    <span class="text-brand-green font-bold text-lg">$7,050</span>
                   </div>
                 </div>
-                <div class="pt-4 border-t border-gray-600">
-                  <p class="text-xs text-gray-400 mb-2">40% convert (100 members)</p>
-                  <p class="text-xs text-blue-400">+$14,393/year recurring</p>
+                <div class="pt-4 border-t border-white/5 bg-white/5 -mx-6 -mb-6 p-6 rounded-b-2xl">
+                  <p class="text-xs text-gray-400 mb-2 text-center">40% convert (100 members)</p>
+                  <p class="text-sm text-brand-blue font-bold text-center">+$14,393/year recurring</p>
                 </div>
               </div>
-              <div class="bg-dark rounded-lg p-6">
-                <h4 class="text-lg font-bold text-orange-400 mb-4 text-center">Large Challenge</h4>
-                <div class="space-y-2 text-sm mb-4">
-                  <div class="flex justify-between">
-                    <span class="text-gray-300">1,000 participants × $47</span>
-                    <span class="text-white">$47,000</span>
+              <div class="bg-dark-800 rounded-2xl p-6 border border-white/5">
+                <h4 class="text-lg font-bold text-brand-orange mb-6 text-center">Large Challenge</h4>
+                <div class="space-y-3 text-sm mb-6">
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-400">1,000 participants × $47</span>
+                    <span class="text-white font-medium">$47,000</span>
                   </div>
-                  <div class="flex justify-between pt-2 border-t border-gray-600">
+                  <div class="flex justify-between items-center pt-3 border-t border-white/5">
                     <span class="text-gray-300">Your 60%</span>
-                    <span class="text-green-400 font-bold">$28,200</span>
+                    <span class="text-brand-green font-bold">$28,200</span>
                   </div>
                 </div>
-                <div class="pt-4 border-t border-gray-600">
-                  <p class="text-xs text-gray-400 mb-2">40% convert (400 members)</p>
-                  <p class="text-xs text-blue-400">+$57,571/year recurring</p>
+                <div class="pt-4 border-t border-white/5 bg-white/5 -mx-6 -mb-6 p-6 rounded-b-2xl">
+                  <p class="text-xs text-gray-400 mb-2 text-center">40% convert (400 members)</p>
+                  <p class="text-sm text-brand-blue font-bold text-center">+$57,571/year recurring</p>
                 </div>
               </div>
             </div>
-            <div class="mt-6 pt-6 border-t border-gray-600">
-              <div class="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4 mb-4">
-                <p class="text-orange-300 text-sm text-center">
+            <div class="mt-10 pt-8 border-t border-white/10 text-center">
+              <div class="bg-brand-orange/10 border border-brand-orange/20 rounded-xl p-4 mb-6 inline-block">
+                <p class="text-brand-orange text-sm">
                   <strong>You Control Pricing:</strong> Charge $47 for accessible communities, $97 for mid-tier, or $147 for exclusive premium communities. Higher pricing = higher commissions.
                 </p>
               </div>
-              <p class="text-gray-300 text-center">
-                Run 4 challenges per year = <span class="text-green-400 font-bold">$5,640 - $112,800/year</span> from challenges alone (at $47 pricing)
+              <p class="text-gray-300">
+                Run 4 challenges per year = <span class="text-brand-green font-bold">$5,640 - $112,800/year</span> from challenges alone (at $47 pricing)
               </p>
             </div>
           </div>
         </div>
 
         {/* The Conversion Path */}
-        <div class="mb-16">
-          <div class="bg-gradient-to-r from-blue-900/20 to-purple-800/20 rounded-lg p-8 border border-blue-500/30">
-            <h2 class="text-3xl font-bold text-white text-center mb-6">The Conversion Path: Challenges → Memberships</h2>
-            <p class="text-center text-gray-300 mb-8 text-lg max-w-3xl mx-auto">
+        <div class="mb-20">
+          <div class="bg-dark-900 rounded-3xl p-8 md:p-10 border border-white/10 shadow-xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-brand-blue/5 to-brand-purple/5 pointer-events-none"></div>
+            <h2 class="text-3xl font-bold text-white text-center mb-6 relative z-10">The Conversion Path: Challenges → Memberships</h2>
+            <p class="text-center text-gray-400 mb-10 text-lg max-w-3xl mx-auto leading-relaxed relative z-10">
               40% of challenge participants convert to long-term $19.99/month memberships. This is where the real recurring revenue builds.
             </p>
 
-            <div class="grid md:grid-cols-3 gap-6 mb-8">
-              <div class="bg-dark rounded-lg p-6 text-center">
-                <div class="text-4xl mb-3">🎯</div>
-                <h3 class="text-xl font-bold text-orange-400 mb-3">Challenge Completion</h3>
-                <p class="text-gray-300 text-sm mb-4">Users finish 6-week challenge. They've built habits, seen results, and bonded with the community.</p>
-                <div class="bg-secondary rounded p-3">
+            <div class="grid md:grid-cols-3 gap-8 mb-10 relative z-10">
+              <div class="bg-dark-800 rounded-2xl p-8 text-center border border-white/5 hover:border-white/10 transition-colors">
+                <div class="text-4xl mb-6">🎯</div>
+                <h3 class="text-xl font-bold text-brand-orange mb-3">Challenge Completion</h3>
+                <p class="text-gray-400 text-sm mb-6">Users finish 6-week challenge. They've built habits, seen results, and bonded with the community.</p>
+                <div class="bg-dark-950 rounded-xl p-4 border border-white/5">
                   <p class="text-sm text-gray-300">250 participants complete challenge</p>
                 </div>
               </div>
-              <div class="bg-dark rounded-lg p-6 text-center border-2 border-blue-500">
-                <div class="text-4xl mb-3">📊</div>
-                <h3 class="text-xl font-bold text-blue-400 mb-3">40% Conversion Rate</h3>
-                <p class="text-gray-300 text-sm mb-4">100 out of 250 challenge finishers convert to monthly memberships. Natural progression.</p>
-                <div class="bg-secondary rounded p-3">
-                  <p class="text-sm text-gray-300">100 converts × $19.99/mo = $1,999/mo</p>
-                  <p class="text-green-400 font-bold mt-2">Your 60% = $1,199.40/mo</p>
+              <div class="bg-dark-800 rounded-2xl p-8 text-center border-2 border-brand-blue shadow-lg shadow-brand-blue/10">
+                <div class="text-4xl mb-6">📊</div>
+                <h3 class="text-xl font-bold text-brand-blue mb-3">40% Conversion Rate</h3>
+                <p class="text-gray-400 text-sm mb-6">100 out of 250 challenge finishers convert to monthly memberships. Natural progression.</p>
+                <div class="bg-dark-950 rounded-xl p-4 border border-white/5">
+                  <p class="text-sm text-gray-300 mb-1">100 converts × $19.99/mo = $1,999/mo</p>
+                  <p class="text-brand-green font-bold">Your 60% = $1,199.40/mo</p>
                 </div>
               </div>
-              <div class="bg-dark rounded-lg p-6 text-center">
-                <div class="text-4xl mb-3">💎</div>
-                <h3 class="text-xl font-bold text-purple-400 mb-3">Recurring Revenue</h3>
-                <p class="text-gray-300 text-sm mb-4">Memberships continue month after month. Plus, you run new challenges quarterly to add more converts.</p>
-                <div class="bg-secondary rounded p-3">
-                  <p class="text-sm text-gray-300">$14,393/year recurring from one challenge</p>
-                  <p class="text-green-400 font-bold mt-2">+ $7,050 from challenge = $21,443 total</p>
+              <div class="bg-dark-800 rounded-2xl p-8 text-center border border-white/5 hover:border-white/10 transition-colors">
+                <div class="text-4xl mb-6">💎</div>
+                <h3 class="text-xl font-bold text-brand-purple mb-3">Recurring Revenue</h3>
+                <p class="text-gray-400 text-sm mb-6">Memberships continue month after month. Plus, you run new challenges quarterly to add more converts.</p>
+                <div class="bg-dark-950 rounded-xl p-4 border border-white/5">
+                  <p class="text-sm text-gray-300 mb-1">$14,393/year recurring from one challenge</p>
+                  <p class="text-brand-green font-bold">+ $7,050 from challenge = $21,443 total</p>
                 </div>
               </div>
             </div>
 
-            <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-6">
-              <h3 class="text-xl font-bold text-white text-center mb-4">The Compound Effect (250-Participant Challenges at $47)</h3>
-              <div class="grid md:grid-cols-4 gap-4 text-center text-sm">
-                <div>
-                  <div class="text-2xl font-bold text-green-400 mb-1">Q1</div>
-                  <p class="text-gray-300">Challenge: $7,050</p>
-                  <p class="text-gray-300">100 converts</p>
+            <div class="bg-dark-800 border border-brand-green/20 rounded-2xl p-8 relative z-10">
+              <h3 class="text-xl font-bold text-white text-center mb-6">The Compound Effect (250-Participant Challenges at $47)</h3>
+              <div class="grid md:grid-cols-4 gap-6 text-center text-sm">
+                <div class="p-4 bg-dark-950 rounded-xl border border-white/5">
+                  <div class="text-2xl font-bold text-brand-green mb-2">Q1</div>
+                  <p class="text-gray-400 mb-1">Challenge: $7,050</p>
+                  <p class="text-gray-400">100 converts</p>
                 </div>
-                <div>
-                  <div class="text-2xl font-bold text-green-400 mb-1">Q2</div>
-                  <p class="text-gray-300">Challenge: $7,050</p>
-                  <p class="text-gray-300">+100 converts</p>
-                  <p class="text-orange-400 font-semibold mt-1">200 total members</p>
+                <div class="p-4 bg-dark-950 rounded-xl border border-white/5">
+                  <div class="text-2xl font-bold text-brand-green mb-2">Q2</div>
+                  <p class="text-gray-400 mb-1">Challenge: $7,050</p>
+                  <p class="text-gray-400 mb-1">+100 converts</p>
+                  <p class="text-brand-orange font-semibold">200 total members</p>
                 </div>
-                <div>
-                  <div class="text-2xl font-bold text-green-400 mb-1">Q3</div>
-                  <p class="text-gray-300">Challenge: $7,050</p>
-                  <p class="text-gray-300">+100 converts</p>
-                  <p class="text-orange-400 font-semibold mt-1">300 total members</p>
+                <div class="p-4 bg-dark-950 rounded-xl border border-white/5">
+                  <div class="text-2xl font-bold text-brand-green mb-2">Q3</div>
+                  <p class="text-gray-400 mb-1">Challenge: $7,050</p>
+                  <p class="text-gray-400 mb-1">+100 converts</p>
+                  <p class="text-brand-orange font-semibold">300 total members</p>
                 </div>
-                <div>
-                  <div class="text-2xl font-bold text-green-400 mb-1">Q4</div>
-                  <p class="text-gray-300">Challenge: $7,050</p>
-                  <p class="text-gray-300">+100 converts</p>
-                  <p class="text-orange-400 font-semibold mt-1">400 total members</p>
+                <div class="p-4 bg-dark-950 rounded-xl border border-white/5">
+                  <div class="text-2xl font-bold text-brand-green mb-2">Q4</div>
+                  <p class="text-gray-400 mb-1">Challenge: $7,050</p>
+                  <p class="text-gray-400 mb-1">+100 converts</p>
+                  <p class="text-brand-orange font-semibold">400 total members</p>
                 </div>
               </div>
-              <div class="mt-6 pt-6 border-t border-green-500/30 text-center">
-                <p class="text-gray-300">
-                  <strong class="text-white">Year 1 Total:</strong> $28,200 (challenges) + $14,393 (memberships) = <span class="text-green-400 font-bold text-xl">$42,593</span>
+              <div class="mt-8 pt-6 border-t border-white/10 text-center">
+                <p class="text-gray-300 text-lg mb-2">
+                  <strong class="text-white">Year 1 Total:</strong> $28,200 (challenges) + $14,393 (memberships) = <span class="text-brand-green font-bold text-xl">$42,593</span>
                 </p>
-                <p class="text-gray-400 text-sm mt-2">Year 2: $28,200 (challenges) + $57,571 (400 members) = $85,771</p>
-                <p class="text-orange-300 text-xs mt-3 italic">*Charge $97 or $147 for exclusive communities to increase revenue 2-3x</p>
+                <p class="text-gray-400 text-sm">Year 2: $28,200 (challenges) + $57,571 (400 members) = $85,771</p>
+                <p class="text-brand-orange text-xs mt-3 italic">*Charge $97 or $147 for exclusive communities to increase revenue 2-3x</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Earnings Calculator - Updated */}
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-8 text-center">Complete Earnings Calculator</h2>
-          <div class="bg-secondary rounded-lg p-8">
-            <div class="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4 mb-6">
-              <p class="text-orange-300 text-sm text-center">
+        <div class="mb-20">
+          <h2 class="text-3xl font-bold mb-10 text-center text-white">Complete Earnings Calculator</h2>
+          <div class="bg-dark-900 rounded-3xl p-8 md:p-10 border border-white/10">
+            <div class="bg-brand-orange/10 border border-brand-orange/20 rounded-xl p-4 mb-8">
+              <p class="text-brand-orange text-sm text-center">
                 <strong>Pricing Flexibility:</strong> Examples shown at $47 per participant. You decide pricing based on your community's exclusivity level. Choose from $47 (accessible), $97 (mid-tier), or $147 (premium).
               </p>
             </div>
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
               <div>
-                <h3 class="text-xl font-bold mb-4 text-orange-400">Challenge Revenue (One-Time at $47)</h3>
+                <h3 class="text-xl font-bold mb-6 text-brand-orange flex items-center gap-2">
+                  <span class="text-2xl">💰</span> Challenge Revenue (One-Time at $47)
+                </h3>
                 <div class="space-y-4">
-                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                  <div class="flex justify-between items-center p-5 bg-dark-800 rounded-xl border border-white/5">
                     <span class="text-gray-300">50 participants</span>
-                    <span class="text-2xl font-bold text-orange-400">$1,410</span>
+                    <span class="text-2xl font-bold text-brand-orange">$1,410</span>
                   </div>
-                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg border-2 border-orange-500">
+                  <div class="flex justify-between items-center p-5 bg-dark-800 rounded-xl border-2 border-brand-orange shadow-lg shadow-brand-orange/5">
                     <span class="text-gray-300">250 participants</span>
-                    <span class="text-2xl font-bold text-orange-400">$7,050</span>
+                    <span class="text-2xl font-bold text-brand-orange">$7,050</span>
                   </div>
-                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                  <div class="flex justify-between items-center p-5 bg-dark-800 rounded-xl border border-white/5">
                     <span class="text-gray-300">1,000 participants</span>
-                    <span class="text-2xl font-bold text-orange-400">$28,200</span>
+                    <span class="text-2xl font-bold text-brand-orange">$28,200</span>
                   </div>
                 </div>
-                <p class="text-gray-400 text-sm mt-4">Run 4 challenges/year = multiply by 4</p>
-                <p class="text-orange-300 text-xs mt-2 italic">Charge $97 = 2x revenue, $147 = 3x revenue</p>
+                <p class="text-gray-500 text-sm mt-4 pl-2">Run 4 challenges/year = multiply by 4</p>
+                <p class="text-brand-orange/80 text-xs mt-1 pl-2 italic">Charge $97 = 2x revenue, $147 = 3x revenue</p>
               </div>
               <div>
-                <h3 class="text-xl font-bold mb-4 text-blue-400">Membership Revenue (Recurring)</h3>
+                <h3 class="text-xl font-bold mb-6 text-brand-blue flex items-center gap-2">
+                  <span class="text-2xl">📈</span> Membership Revenue (Recurring)
+                </h3>
                 <div class="space-y-4">
-                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                  <div class="flex justify-between items-center p-5 bg-dark-800 rounded-xl border border-white/5">
                     <span class="text-gray-300">20 members (40% of 50)</span>
-                    <span class="text-2xl font-bold text-blue-400">$240/mo</span>
+                    <span class="text-2xl font-bold text-brand-blue">$240/mo</span>
                   </div>
-                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg border-2 border-blue-500">
+                  <div class="flex justify-between items-center p-5 bg-dark-800 rounded-xl border-2 border-brand-blue shadow-lg shadow-brand-blue/5">
                     <span class="text-gray-300">100 members (40% of 250)</span>
-                    <span class="text-2xl font-bold text-blue-400">$1,199/mo</span>
+                    <span class="text-2xl font-bold text-brand-blue">$1,199/mo</span>
                   </div>
-                  <div class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg">
+                  <div class="flex justify-between items-center p-5 bg-dark-800 rounded-xl border border-white/5">
                     <span class="text-gray-300">400 members (40% of 1,000)</span>
-                    <span class="text-2xl font-bold text-blue-400">$4,798/mo</span>
+                    <span class="text-2xl font-bold text-brand-blue">$4,798/mo</span>
                   </div>
                 </div>
-                <p class="text-gray-400 text-sm mt-4">Annual recurring: multiply monthly by 12</p>
+                <p class="text-gray-500 text-sm mt-4 pl-2">Annual recurring: multiply monthly by 12</p>
               </div>
             </div>
-            <div class="bg-gradient-to-r from-green-900/20 to-green-800/20 rounded-lg p-6 border border-green-500/30 mb-6">
-              <h3 class="text-xl font-bold text-white text-center mb-4">Combined Annual Revenue Examples (at $47 pricing)</h3>
-              <div class="grid md:grid-cols-3 gap-4 mb-6">
-                <div class="bg-dark/50 rounded-lg p-4">
+            <div class="bg-dark-800 border border-brand-green/20 rounded-2xl p-8">
+              <h3 class="text-xl font-bold text-white text-center mb-6">Combined Annual Revenue Examples (at $47 pricing)</h3>
+              <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-dark-950 rounded-xl p-5 border border-white/5 text-center">
                   <p class="text-sm text-gray-400 mb-2">4 Challenges (50 each)</p>
-                  <p class="text-2xl font-bold text-green-400 mb-2">$5,640</p>
-                  <p class="text-xs text-gray-400 mb-2">80 Members (recurring)</p>
-                  <p class="text-xl font-bold text-blue-400">$2,880</p>
-                  <p class="text-sm text-white font-semibold mt-2">Total: $8,520</p>
+                  <p class="text-2xl font-bold text-brand-green mb-2">$5,640</p>
+                  <p class="text-xs text-gray-500 mb-2">80 Members (recurring)</p>
+                  <p class="text-xl font-bold text-brand-blue">$2,880</p>
+                  <p class="text-sm text-white font-semibold mt-3 pt-3 border-t border-white/10">Total: $8,520</p>
                 </div>
-                <div class="bg-dark/50 rounded-lg p-4 border-2 border-green-500">
+                <div class="bg-dark-950 rounded-xl p-5 border-2 border-brand-green shadow-lg shadow-brand-green/5 text-center transform md:-translate-y-2">
                   <p class="text-sm text-gray-400 mb-2">4 Challenges (250 each)</p>
-                  <p class="text-2xl font-bold text-green-400 mb-2">$28,200</p>
-                  <p class="text-xs text-gray-400 mb-2">400 Members (recurring)</p>
-                  <p class="text-xl font-bold text-blue-400">$14,388</p>
-                  <p class="text-sm text-white font-semibold mt-2">Total: $42,588</p>
+                  <p class="text-2xl font-bold text-brand-green mb-2">$28,200</p>
+                  <p class="text-xs text-gray-500 mb-2">400 Members (recurring)</p>
+                  <p class="text-xl font-bold text-brand-blue">$14,388</p>
+                  <p class="text-sm text-white font-semibold mt-3 pt-3 border-t border-white/10">Total: $42,588</p>
                 </div>
-                <div class="bg-dark/50 rounded-lg p-4">
+                <div class="bg-dark-950 rounded-xl p-5 border border-white/5 text-center">
                   <p class="text-sm text-gray-400 mb-2">4 Challenges (1,000 each)</p>
-                  <p class="text-2xl font-bold text-green-400 mb-2">$112,800</p>
-                  <p class="text-xs text-gray-400 mb-2">1,600 Members (recurring)</p>
-                  <p class="text-xl font-bold text-blue-400">$57,576</p>
-                  <p class="text-sm text-white font-semibold mt-2">Total: $170,376</p>
+                  <p class="text-2xl font-bold text-brand-green mb-2">$112,800</p>
+                  <p class="text-xs text-gray-500 mb-2">1,600 Members (recurring)</p>
+                  <p class="text-xl font-bold text-brand-blue">$57,576</p>
+                  <p class="text-sm text-white font-semibold mt-3 pt-3 border-t border-white/10">Total: $170,376</p>
                 </div>
               </div>
-              <div class="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4">
-                <p class="text-orange-300 text-sm text-center">
+              <div class="bg-brand-orange/10 border border-brand-orange/20 rounded-xl p-4 text-center">
+                <p class="text-brand-orange text-sm">
                   <strong>Premium Pricing Example:</strong> Charge $147 instead of $47 → 250 participants = $22,050 per challenge (3x revenue). Annual: $88,200 + $14,388 memberships = $102,588.
                 </p>
               </div>
@@ -531,8 +550,8 @@ const faqSchema = {
         </div>
 
         {/* How It Works */}
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-8 text-center">How It Works</h2>
+        <div class="mb-20">
+          <h2 class="text-3xl font-bold mb-10 text-center text-white">How It Works</h2>
           <div class="grid md:grid-cols-4 gap-6">
             <FeatureCard
               title="1. Add Bot Free"
@@ -546,7 +565,7 @@ const faqSchema = {
             />
             <FeatureCard
               title="3. Run Challenges"
-              description="Create 6-week challenges in /setup. You decide pricing ($47+ per participant based on community exclusivity). Earn 60% commission on every sale."
+              description="Create 6-week challenges in /setup. You decide pricing ($47+ per participant). Earn 60% commission on every sale."
               icon="🎯"
             />
             <FeatureCard
@@ -555,56 +574,56 @@ const faqSchema = {
               icon="📈"
             />
           </div>
-          <div class="mt-8 bg-gradient-to-r from-orange-900/20 to-blue-800/20 rounded-lg p-6 border border-orange-500/30">
-            <p class="text-center text-gray-300">
+          <div class="mt-8 bg-dark-900 rounded-2xl p-6 border border-brand-orange/30 text-center">
+            <p class="text-gray-300">
               <strong class="text-white">The Strategy:</strong> Start with quarterly challenges for big revenue, then watch memberships grow as challenge participants convert.
-              <a href="/six-week-challenges/" class="text-orange-400 hover:text-orange-300 underline ml-2">Learn more about challenges →</a>
+              <a href="/six-week-challenges/" class="text-brand-orange hover:text-brand-orange/80 underline ml-2 font-medium">Learn more about challenges →</a>
             </p>
           </div>
         </div>
 
         {/* Requirements */}
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-8 text-center">Requirements</h2>
+        <div class="mb-20">
+          <h2 class="text-3xl font-bold mb-10 text-center text-white">Requirements</h2>
           <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-secondary rounded-lg p-8">
-              <h3 class="text-2xl font-bold mb-6 text-orange-400">Server Requirements</h3>
+            <div class="bg-dark-900 rounded-2xl p-8 border border-white/10">
+              <h3 class="text-2xl font-bold mb-6 text-brand-orange">Server Requirements</h3>
               <ul class="space-y-4 text-gray-300">
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>Discord server with 50+ active members</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>Server owner or administrator permissions</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>Active community interested in fitness/health</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>Ability to promote new features to members</span>
                 </li>
               </ul>
             </div>
-            <div class="bg-secondary rounded-lg p-8">
-              <h3 class="text-2xl font-bold mb-6 text-orange-400">Account Requirements</h3>
+            <div class="bg-dark-900 rounded-2xl p-8 border border-white/10">
+              <h3 class="text-2xl font-bold mb-6 text-brand-orange">Account Requirements</h3>
               <ul class="space-y-4 text-gray-300">
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>Valid Stripe account for commission payments</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>Completed Stripe Connect onboarding</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>Valid payment method for receiving funds</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>Compliance with Discord Terms of Service</span>
                 </li>
               </ul>
@@ -613,55 +632,55 @@ const faqSchema = {
         </div>
 
         {/* Benefits */}
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-8 text-center">Why Join Our Affiliate Program?</h2>
+        <div class="mb-20">
+          <h2 class="text-3xl font-bold mb-10 text-center text-white">Why Join Our Affiliate Program?</h2>
           <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-secondary rounded-lg p-8">
-              <h3 class="text-2xl font-bold mb-6 text-orange-400">Revenue Opportunities</h3>
+            <div class="bg-dark-900 rounded-2xl p-8 border border-white/10">
+              <h3 class="text-2xl font-bold mb-6 text-brand-orange">Revenue Opportunities</h3>
               <ul class="space-y-4 text-gray-300">
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span><strong class="text-white">6-week challenges:</strong> Earn $3,546+ per challenge (30 participants)</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span><strong class="text-white">40% conversion:</strong> Challenge finishers convert to $19.99/mo memberships</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span><strong class="text-white">60% commission</strong> on all revenue (challenges + memberships)</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span><strong class="text-white">Recurring cycles:</strong> Run quarterly challenges for consistent income</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span><strong class="text-white">No upfront costs:</strong> Bot is free to add, earn from day one</span>
                 </li>
               </ul>
             </div>
-            <div class="bg-secondary rounded-lg p-8">
-              <h3 class="text-2xl font-bold mb-6 text-orange-400">For Your Community</h3>
+            <div class="bg-dark-900 rounded-2xl p-8 border border-white/10">
+              <h3 class="text-2xl font-bold mb-6 text-brand-orange">For Your Community</h3>
               <ul class="space-y-4 text-gray-300">
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>AI-powered photo calorie tracking (5 seconds per meal)</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>AI workout generation based on available equipment</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>6-week challenge system with weekly leaderboards</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>Progress tracking, analytics, and community engagement</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-orange-400 mr-3 text-xl">✓</span>
+                  <span class="text-brand-orange mr-3 text-xl">✓</span>
                   <span>Zero tracking burden - everything automated</span>
                 </li>
               </ul>
@@ -670,74 +689,57 @@ const faqSchema = {
         </div>
 
         {/* FAQ */}
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
-          <div class="space-y-6">
-            <div class="bg-secondary rounded-lg p-6">
+        <div class="mb-20">
+          <h2 class="text-3xl font-bold mb-10 text-center text-white">Frequently Asked Questions</h2>
+          <div class="space-y-6 max-w-3xl mx-auto">
+            <div class="bg-dark-900 rounded-2xl p-8 border border-white/10 hover:border-brand-orange/30 transition-colors">
               <h3 class="text-xl font-bold text-white mb-3">Should I start with challenges or memberships?</h3>
-              <p class="text-gray-300 mb-2"><strong class="text-orange-400">Start with 6-week challenges.</strong> They generate big one-time revenue ($1,410+ per challenge with 50 participants at $47, up to $28,200 with 1,000 participants) and 40% of participants convert to long-term memberships. <strong class="text-orange-400">You decide what to charge</strong> - choose from $47 (accessible), $97 (mid-tier), or $147 (premium) for 2-3x higher revenue. This gives you immediate income while building recurring revenue.</p>
-              <p class="text-gray-300"><a href="/six-week-challenges/" class="text-orange-400 hover:text-orange-300 underline">Learn more about running challenges →</a></p>
+              <p class="text-gray-400 mb-3 leading-relaxed"><strong class="text-white">Start with 6-week challenges.</strong> They generate big one-time revenue ($1,410+ per challenge with 50 participants at $47, up to $28,200 with 1,000 participants) and 40% of participants convert to long-term memberships. <strong class="text-white">You decide what to charge</strong> - choose from $47 (accessible), $97 (mid-tier), or $147 (premium) for 2-3x higher revenue. This gives you immediate income while building recurring revenue.</p>
+              <p class="text-brand-orange"><a href="/six-week-challenges/" class="hover:underline font-medium">Learn more about running challenges →</a></p>
             </div>
-            <div class="bg-secondary rounded-lg p-6">
+            <div class="bg-dark-900 rounded-2xl p-8 border border-white/10 hover:border-brand-orange/30 transition-colors">
               <h3 class="text-xl font-bold text-white mb-3">How much can I make from challenges?</h3>
-              <p class="text-gray-300">With 250 participants at $47 each, you earn $7,050 per challenge (60% commission). Run 4 challenges per year = $28,200/year. Plus, 40% of participants (100 people) convert to $19.99/mo memberships, adding $14,393/year in recurring revenue. <strong class="text-orange-400">You decide what to charge</strong> - choose from $47 (accessible), $97 (mid-tier), or $147 (premium) per participant for 2-3x higher commissions. Large challenges with 1,000 participants at $47 generate $28,200 per challenge.</p>
+              <p class="text-gray-400 leading-relaxed">With 250 participants at $47 each, you earn $7,050 per challenge (60% commission). Run 4 challenges per year = $28,200/year. Plus, 40% of participants (100 people) convert to $19.99/mo memberships, adding $14,393/year in recurring revenue. <strong class="text-white">You decide what to charge</strong> - choose from $47, $97, or $147 per participant for higher commissions.</p>
             </div>
-            <div class="bg-secondary rounded-lg p-6">
+            <div class="bg-dark-900 rounded-2xl p-8 border border-white/10 hover:border-brand-orange/30 transition-colors">
               <h3 class="text-xl font-bold text-white mb-3">How does the 40% conversion rate work?</h3>
-              <p class="text-gray-300">After completing a 6-week challenge, users have built habits, seen results, and bonded with your community. 40% naturally convert to $19.99/month memberships. From a 250-person challenge, expect 100 converts = $1,199/month recurring ($14,393/year). From a 1,000-person challenge, expect 400 converts = $4,798/month recurring ($57,571/year).</p>
+              <p class="text-gray-400 leading-relaxed">After completing a 6-week challenge, users have built habits, seen results, and bonded with your community. 40% naturally convert to $19.99/month memberships. From a 250-person challenge, expect 100 converts = $1,199/month recurring ($14,393/year).</p>
             </div>
-            <div class="bg-secondary rounded-lg p-6">
-              <h3 class="text-xl font-bold text-white mb-3">How do I decide what to charge for challenges?</h3>
-              <p class="text-gray-300">You choose from three pricing tiers based on your community's exclusivity level. Accessible communities charge $47. Mid-tier communities charge $97. Exclusive premium communities charge $147. Higher pricing = higher commissions per participant. The 40% conversion rate to memberships remains consistent regardless of challenge pricing.</p>
-            </div>
-            <div class="bg-secondary rounded-lg p-6">
+            <div class="bg-dark-900 rounded-2xl p-8 border border-white/10 hover:border-brand-orange/30 transition-colors">
               <h3 class="text-xl font-bold text-white mb-3">When do I get paid my commissions?</h3>
-              <p class="text-gray-300 mb-3">CalorieBot processes all purchases through Stripe. When a user purchases a challenge or membership through Stripe, Stripe automatically splits the payment and sends your 60% commission directly to your connected Stripe account immediately. We do not hold funds or distribute payments - Stripe handles everything automatically.</p>
-              <p class="text-gray-300"><strong class="text-orange-400">Challenge commissions:</strong> Paid immediately when each participant purchases through Stripe checkout.</p>
-              <p class="text-gray-300"><strong class="text-orange-400">Membership commissions:</strong> Paid monthly through Stripe Connect as users renew their subscriptions.</p>
+              <p class="text-gray-400 mb-3 leading-relaxed">CalorieBot processes all purchases through Stripe. When a user purchases a challenge or membership, Stripe automatically splits the payment and sends your 60% commission directly to your connected Stripe account immediately.</p>
+              <p class="text-gray-400 text-sm"><strong class="text-white">Challenge commissions:</strong> Paid immediately upon purchase.<br /><strong class="text-white">Membership commissions:</strong> Paid monthly as users renew.</p>
             </div>
-            <div class="bg-secondary rounded-lg p-6">
+            <div class="bg-dark-900 rounded-2xl p-8 border border-white/10 hover:border-brand-orange/30 transition-colors">
               <h3 class="text-xl font-bold text-white mb-3">How do I create a challenge?</h3>
-              <p class="text-gray-300">Use the /setup command in your Discord server to create a challenge. Set the start date, pricing (choose from $47, $97, or $147 based on your community's exclusivity level), and enrollment type. The bot handles everything else automatically for 6 weeks. <a href="/six-week-challenges/" class="text-orange-400 hover:text-orange-300 underline">See full challenge details →</a></p>
-            </div>
-            <div class="bg-secondary rounded-lg p-6">
-              <h3 class="text-xl font-bold text-white mb-3">Can I run challenges and memberships at the same time?</h3>
-              <p class="text-gray-300">Absolutely! Many affiliates run quarterly challenges while maintaining monthly memberships. Challenges bring in new participants, and 40% convert to memberships. This creates a sustainable revenue cycle.</p>
-            </div>
-            <div class="bg-secondary rounded-lg p-6">
-              <h3 class="text-xl font-bold text-white mb-3">Is there a minimum payout threshold?</h3>
-              <p class="text-gray-300">No minimum payout threshold. You'll receive commissions for every challenge purchase and membership subscription, regardless of the amount.</p>
-            </div>
-            <div class="bg-secondary rounded-lg p-6">
-              <h3 class="text-xl font-bold text-white mb-3">Can I be an affiliate for multiple Discord servers?</h3>
-              <p class="text-gray-300">Yes! You can earn commissions from multiple Discord servers you own or administer. Each server is treated separately for commission tracking.</p>
+              <p class="text-gray-400 leading-relaxed">Use the /setup command in your Discord server to create a challenge. Set the start date, pricing, and enrollment type. The bot handles everything else automatically for 6 weeks. <a href="/six-week-challenges/" class="text-brand-orange hover:underline font-medium">See full challenge details →</a></p>
             </div>
           </div>
         </div>
 
         {/* Final CTA */}
-        <div class="text-center">
-          <div class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-10 border border-orange-500/30">
-            <h2 class="text-3xl font-bold mb-6">Ready to Start Earning?</h2>
-            <p class="text-xl text-orange-400 mb-6">Start with 6-week challenges for big revenue, then build recurring memberships as participants convert.</p>
-            <p class="text-gray-300 mb-4 text-lg">Join thousands of Discord server owners earning $28k+ per year from challenges alone (at $47 pricing).</p>
-            <p class="text-orange-300 text-sm mb-10">Premium communities charging $147 can earn $88k+ annually from challenges.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <div class="text-center mb-16">
+          <div class="bg-dark-900 rounded-3xl p-10 border border-brand-orange/30 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-brand-orange/5 to-transparent pointer-events-none"></div>
+            <h2 class="text-3xl font-bold mb-6 text-white relative z-10">Ready to Start Earning?</h2>
+            <p class="text-xl text-brand-orange mb-6 relative z-10">Start with 6-week challenges for big revenue, then build recurring memberships.</p>
+            <p class="text-gray-400 mb-10 text-lg relative z-10">Join thousands of Discord server owners earning $28k+ per year from challenges alone.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
               <a
                 href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-                class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+                class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orange/90 text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg shadow-brand-orange/20 hover:shadow-brand-orange/40 hover:-translate-y-1"
                 onclick="trackDiscordOAuthStart('affiliate_page_final_cta', 'affiliate')"
               >
                 Become an Affiliate Today
               </a>
               <a
                 href="/six-week-challenges/"
-                class="inline-block bg-discord hover:bg-blue-600 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+                class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-10 rounded-full transition-all border border-white/10 hover:border-white/20 hover:-translate-y-1"
               >
                 Learn About Challenges
               </a>
             </div>
-            <p class="text-gray-400 text-sm">Free to add • First challenge can be scheduled today</p>
+            <p class="text-gray-500 text-sm mt-6 relative z-10">Free to add • First challenge can be scheduled today</p>
           </div>
         </div>
       </div>

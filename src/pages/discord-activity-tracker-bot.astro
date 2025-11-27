@@ -66,27 +66,27 @@ const startingPrice = "19.99";
   <ContactModal id="contact-modal" />
   <main>
     <!-- Hero Section -->
-    <section class="relative bg-dark text-white py-8 md:py-12 overflow-hidden">
+    <section class="relative bg-dark text-white py-16 md:py-24 overflow-hidden">
       <div class="absolute inset-0" aria-hidden="true">
         <div class="absolute top-0 right-0 w-1/3 h-48 bg-orange-600/5 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 w-1/3 h-48 bg-discord/5 blur-3xl"></div>
       </div>
 
-      <div class="container mx-auto px-4 max-w-4xl text-center relative">
+      <div class="container mx-auto px-4 max-w-4xl text-center relative z-10">
         <div class="space-y-8">
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            <span class="inline-block">The Ultimate</span>
-            <span class="text-orange-500 inline-block">Discord Activity Tracker Bot</span>
-            <span class="inline-block">for Fitness Monitoring</span>
+          <h1 class="hero-heading font-extrabold mb-6 tracking-tight">
+            The Ultimate
+            <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-purple">Discord Activity Tracker Bot</span>
           </h1>
-          <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300">
+          <p class="text-lg md:text-xl lg:text-2xl mb-10 text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Transform your Discord server into a comprehensive fitness monitoring hub with activity tracking,
             health metrics, progress monitoring, and wellness challenges. Perfect for fitness communities, health groups, and wellness-focused servers.
           </p>
           <div class="mt-10">
             <a
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-              class="group inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
+              class="group inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-4 px-10 rounded-full transition-all duration-200 shadow-xl shadow-orange-600/20 hover:-translate-y-1"
               aria-label="Add CalorieBot Discord activity tracker bot to your server"
               onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('discord_activity_tracker_bot_hero', 'bot_addition');"
             >
@@ -110,142 +110,100 @@ const startingPrice = "19.99";
     </section>
 
     <!-- Why Choose CalorieBot as Your Discord Activity Tracker -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-secondary">
+    <section class="py-20 bg-dark-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+        <div class="text-center mb-16">
+          <h2 class="section-heading font-bold text-white mb-6">
             Why CalorieBot is the Best Discord Activity Tracker Bot
           </h2>
-          <p class="text-lg text-gray-300 mt-4 max-w-3xl mx-auto">
+          <p class="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
             Unlike basic activity tracker bots, CalorieBot provides comprehensive fitness monitoring with AI-powered analysis,
             making it the complete solution for Discord fitness communities and health-focused servers.
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
-            <div class="text-4xl mb-4">📊</div>
-            <h3 class="text-xl font-bold text-white mb-3">Comprehensive Tracking</h3>
-            <p class="text-gray-300">
-              Track workouts, calories, steps, sleep, weight, and nutrition -
-              everything your Discord fitness community needs in one activity tracker bot.
-            </p>
-          </div>
-
-          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
-            <div class="text-4xl mb-4">🤖</div>
-            <h3 class="text-xl font-bold text-white mb-3">AI-Powered Analysis</h3>
-            <p class="text-gray-300">
-              Advanced AI analyzes food photos, workout data, and health metrics
-              to provide insights and recommendations for your Discord community.
-            </p>
-          </div>
-
-          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
-            <div class="text-4xl mb-4">📈</div>
-            <h3 class="text-xl font-bold text-white mb-3">Progress Monitoring</h3>
-            <p class="text-gray-300">
-              Detailed progress tracking with photos, measurements, analytics,
-              and visual charts for your Discord activity tracker community.
-            </p>
-          </div>
-
-          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
-            <div class="text-4xl mb-4">🏃‍♂️</div>
-            <h3 class="text-xl font-bold text-white mb-3">Workout Tracking</h3>
-            <p class="text-gray-300">
-              Log exercises, track sets and reps, monitor personal records,
-              and share workout achievements with your Discord fitness community.
-            </p>
-          </div>
-
-          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
-            <div class="text-4xl mb-4">🍎</div>
-            <h3 class="text-xl font-bold text-white mb-3">Nutrition Monitoring</h3>
-            <p class="text-gray-300">
-              Track calories, macros, vitamins, and minerals with AI photo analysis
-              and detailed nutrition logging for your Discord health community.
-            </p>
-          </div>
-
-          <div class="bg-gray-800/50 rounded-xl p-6 text-center">
-            <div class="text-4xl mb-4">🏆</div>
-            <h3 class="text-xl font-bold text-white mb-3">Community Challenges</h3>
-            <p class="text-gray-300">
-              Automated challenges, leaderboards, and progress sharing keep your
-              Discord activity tracker community engaged and motivated.
-            </p>
-          </div>
+          {[
+            { icon: "📊", title: "Comprehensive Tracking", desc: "Track workouts, calories, steps, sleep, weight, and nutrition - everything your Discord fitness community needs in one activity tracker bot." },
+            { icon: "🤖", title: "AI-Powered Analysis", desc: "Advanced AI analyzes food photos, workout data, and health metrics to provide insights and recommendations for your Discord community." },
+            { icon: "📈", title: "Progress Monitoring", desc: "Detailed progress tracking with photos, measurements, analytics, and visual charts for your Discord activity tracker community." },
+            { icon: "🏃‍♂️", title: "Workout Tracking", desc: "Log exercises, track sets and reps, monitor personal records, and share workout achievements with your Discord fitness community." },
+            { icon: "🍎", title: "Nutrition Monitoring", desc: "Track calories, macros, vitamins, and minerals with AI photo analysis and detailed nutrition logging for your Discord health community." },
+            { icon: "🏆", title: "Community Challenges", desc: "Automated challenges, leaderboards, and progress sharing keep your Discord activity tracker community engaged and motivated." }
+          ].map(feature => (
+            <div class="bg-secondary rounded-2xl p-8 border border-white/5 hover:border-white/10 transition-all hover:-translate-y-1 shadow-lg group">
+              <div class="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300 inline-block">{feature.icon}</div>
+              <h3 class="text-xl font-bold text-white mb-4">{feature.title}</h3>
+              <p class="text-gray-400 leading-relaxed">
+                {feature.desc}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
     <!-- Activity Tracking Features -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-dark">
+    <section class="py-20 bg-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+        <div class="text-center mb-16">
+          <h2 class="section-heading font-bold text-white mb-4">
             Comprehensive Activity Tracking for Discord Communities
           </h2>
         </div>
         <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
           <div class="w-full md:flex-[0.5]">
-            <div class="text-indigo-400 font-semibold mb-2">Complete Fitness Monitoring</div>
-            <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
+            <div class="text-indigo-400 font-semibold mb-2 uppercase tracking-wider text-sm">Complete Fitness Monitoring</div>
+            <h2 class="section-heading font-bold text-white mb-6">
               Track Everything<br />Monitor Progress
             </h2>
-            <p class="text-base md:text-lg text-gray-300 mb-6">
+            <p class="text-lg text-gray-300 mb-8 leading-relaxed">
               Your Discord activity tracker bot members can monitor all aspects of their fitness journey.
               From workouts and nutrition to sleep and recovery - track everything in one place.
             </p>
-            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Workout Logging: Track exercises, sets, reps, and personal records</span>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start gap-3">
+                <div class="p-1 rounded bg-indigo-500/10 text-indigo-400 mt-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span><strong>Workout Logging:</strong> Track exercises, sets, reps, and personal records</span>
               </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Nutrition Tracking: Monitor calories, macros, and micronutrients</span>
+              <li class="flex items-start gap-3">
+                <div class="p-1 rounded bg-indigo-500/10 text-indigo-400 mt-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span><strong>Nutrition Tracking:</strong> Monitor calories, macros, and micronutrients</span>
               </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Progress Photos: Track visual changes with photo comparisons</span>
+              <li class="flex items-start gap-3">
+                <div class="p-1 rounded bg-indigo-500/10 text-indigo-400 mt-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span><strong>Progress Photos:</strong> Track visual changes with photo comparisons</span>
               </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Health Metrics: Monitor weight, measurements, and body composition</span>
+              <li class="flex items-start gap-3">
+                <div class="p-1 rounded bg-indigo-500/10 text-indigo-400 mt-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span><strong>Health Metrics:</strong> Monitor weight, measurements, and body composition</span>
               </li>
             </ul>
           </div>
-          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/barbell_workout.png"
-                    alt="Workout Tracking for Discord Activity Tracker Bot"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0 relative">
+            <div class="absolute -inset-4 bg-indigo-500/20 blur-3xl rounded-full opacity-20"></div>
+            <div class="grid grid-cols-2 gap-4 relative z-10">
+              <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl">
+                <img
+                  src="/images/barbell_workout.png"
+                  alt="Workout Tracking for Discord Activity Tracker Bot"
+                  class="rounded-xl w-full h-auto shadow-lg"
+                />
               </div>
-              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/steak.png"
-                    alt="Nutrition Tracking for Discord Activity Tracker Communities"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
+              <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl translate-y-8">
+                <img
+                  src="/images/steak.png"
+                  alt="Nutrition Tracking for Discord Activity Tracker Communities"
+                  class="rounded-xl w-full h-auto shadow-lg"
+                />
               </div>
             </div>
           </div>
@@ -254,59 +212,61 @@ const startingPrice = "19.99";
     </section>
 
     <!-- AI-Powered Activity Analysis -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-secondary">
+    <section class="py-20 bg-dark-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
           <div class="w-full md:flex-[0.5]">
-            <div class="text-indigo-400 font-semibold mb-2">AI-Powered Insights</div>
-            <h2 class="text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-white leading-tight">
+            <div class="text-indigo-400 font-semibold mb-2 uppercase tracking-wider text-sm">AI-Powered Insights</div>
+            <h2 class="section-heading font-bold text-white mb-6">
               Smart Activity<br />Analysis & Recommendations
             </h2>
-            <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
+            <p class="text-lg text-gray-300 mb-8 leading-relaxed">
               Your Discord activity tracker bot uses AI to analyze food photos, workout data, and health metrics.
               Get instant insights, recommendations, and personalized guidance for your fitness community.
             </p>
-            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Food Photo Analysis: Instant calorie and nutrition calculations</span>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start gap-3">
+                <div class="p-1 rounded bg-indigo-500/10 text-indigo-400 mt-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span><strong>Food Photo Analysis:</strong> Instant calorie and nutrition calculations</span>
               </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Workout Optimization: AI-powered exercise recommendations</span>
+              <li class="flex items-start gap-3">
+                <div class="p-1 rounded bg-indigo-500/10 text-indigo-400 mt-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span><strong>Workout Optimization:</strong> AI-powered exercise recommendations</span>
               </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Progress Insights: Detailed analytics and trend analysis</span>
+              <li class="flex items-start gap-3">
+                <div class="p-1 rounded bg-indigo-500/10 text-indigo-400 mt-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span><strong>Progress Insights:</strong> Detailed analytics and trend analysis</span>
               </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Personalized Guidance: Custom recommendations based on your data</span>
+              <li class="flex items-start gap-3">
+                <div class="p-1 rounded bg-indigo-500/10 text-indigo-400 mt-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span><strong>Personalized Guidance:</strong> Custom recommendations based on your data</span>
               </li>
             </ul>
           </div>
           <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-            <div class="bg-gray-800 rounded-xl p-6 shadow-xl h-[290px] md:h-[375px] flex flex-col">
-              <div class="flex-1 mb-4 flex items-end">
-                <div class="w-full p-4 bg-gray-700/50 rounded-lg text-gray-300 font-mono">
-                  <span class="typing-text"></span>
-                  <span class="typing-cursor">|</span>
+            <div class="bg-dark-800 rounded-2xl p-6 shadow-xl border border-white/5 h-[350px] flex flex-col relative overflow-hidden">
+              <div class="absolute -inset-4 bg-indigo-500/10 blur-3xl rounded-full opacity-20"></div>
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="flex-1 mb-4 flex items-end">
+                  <div class="w-full p-4 bg-dark-900 rounded-xl text-gray-300 font-mono border border-white/5">
+                    <span class="typing-text"></span>
+                    <span class="typing-cursor">|</span>
+                  </div>
                 </div>
-              </div>
-              <div class="bg-gray-700/50 p-4 rounded-lg flex items-center gap-3">
-                <div class="flex-1 h-6 bg-gray-600/50 rounded"></div>
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
-                </svg>
+                <div class="bg-dark-900 p-4 rounded-xl flex items-center gap-3 border border-white/5">
+                  <div class="flex-1 h-6 bg-gray-700 rounded animate-pulse"></div>
+                  <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
@@ -315,70 +275,59 @@ const startingPrice = "19.99";
     </section>
 
     <!-- Progress Monitoring & Analytics -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-dark">
+    <section class="py-20 bg-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+        <div class="text-center mb-16">
+          <h2 class="section-heading font-bold text-white mb-4">
             Progress Monitoring & Analytics
           </h2>
         </div>
+
         <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
           <div class="w-full md:flex-[0.5]">
-            <div class="text-indigo-400 font-semibold mb-2">Detailed Analytics</div>
-            <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white leading-tight">
+            <div class="text-indigo-400 font-semibold mb-2 uppercase tracking-wider text-sm">Detailed Analytics</div>
+            <h2 class="section-heading font-bold text-white mb-6">
               Track Your Journey<br />Monitor Your Progress
             </h2>
-            <p class="text-base md:text-lg text-gray-300 mb-6">
+            <p class="text-lg text-gray-300 mb-8 leading-relaxed">
               Your Discord activity tracker bot provides comprehensive progress monitoring with detailed analytics,
               visual charts, and trend analysis. Members can track their fitness journey and share achievements with their community.
             </p>
-            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Progress Photos: Visual tracking with photo comparisons</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Weight Tracking: Monitor body weight and composition changes</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Workout Analytics: Track strength gains and performance improvements</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Nutrition Trends: Monitor eating patterns and macro balance</span>
-              </li>
+            <ul class="space-y-4 text-gray-300">
+              {[
+                { title: "Progress Photos", desc: "Visual tracking with photo comparisons" },
+                { title: "Weight Tracking", desc: "Monitor body weight and composition changes" },
+                { title: "Workout Analytics", desc: "Track strength gains and performance improvements" },
+                { title: "Nutrition Trends", desc: "Monitor eating patterns and macro balance" }
+              ].map(item => (
+                <li class="flex items-start gap-3">
+                  <div class="p-1 rounded bg-indigo-500/10 text-indigo-400 mt-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <div>
+                    <strong class="block text-white">{item.title}</strong>
+                    <span class="text-sm">{item.desc}</span>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
-          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/tally_sharing.png"
-                    alt="Progress Tracking for Discord Activity Tracker Bot"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0 relative">
+            <div class="absolute -inset-4 bg-indigo-500/20 blur-3xl rounded-full opacity-20"></div>
+            <div class="grid grid-cols-2 gap-4 relative z-10">
+              <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl">
+                <img
+                  src="/images/tally_sharing.png"
+                  alt="Progress Tracking for Discord Activity Tracker Bot"
+                  class="rounded-xl w-full h-auto shadow-lg"
+                />
               </div>
-              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/food_sharing.png"
-                    alt="Activity Sharing for Discord Activity Tracker Communities"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
+              <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl translate-y-8">
+                <img
+                  src="/images/food_sharing.png"
+                  alt="Activity Sharing for Discord Activity Tracker Communities"
+                  class="rounded-xl w-full h-auto shadow-lg"
+                />
               </div>
             </div>
           </div>
@@ -387,70 +336,53 @@ const startingPrice = "19.99";
     </section>
 
     <!-- Community Challenges & Engagement -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-secondary">
+    <section class="py-20 bg-dark-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+        <div class="text-center mb-16">
+          <h2 class="section-heading font-bold text-white mb-6">
             Community Challenges & Engagement
           </h2>
         </div>
         <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
           <div class="w-full md:flex-[0.5]">
-            <div class="text-indigo-400 font-semibold mb-2">Gamified Fitness</div>
-            <h2 class="text-3xl md:text-4xl font-semibold mb-3 text-white leading-tight">
+            <div class="text-indigo-400 font-semibold mb-2 uppercase tracking-wider text-sm">Gamified Fitness</div>
+            <h2 class="section-heading font-bold text-white mb-6">
               Weekly Challenges<br />Built for Discord Communities
             </h2>
-            <p class="text-base md:text-lg text-gray-300 mb-3">
+            <p class="text-lg text-gray-300 mb-8 leading-relaxed">
               Keep your Discord activity tracker community motivated through friendly competition and accountability.
               Set weekly goals, track progress, and celebrate wins together - all seamlessly integrated with your Discord server.
             </p>
-            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Auto-Pull Progress: Challenges automatically track all activity data</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Daily Targets: Track calories, workouts, steps, and nutrition</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Redemption Challenges: Miss a target? Complete community-approved tasks</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Leaderboards: Friendly competition to keep everyone motivated</span>
-              </li>
-            </ul>
+            <div class="space-y-4">
+              {[
+                { title: "Auto-Pull Progress", desc: "Challenges automatically track all activity data" },
+                { title: "Daily Targets", desc: "Track calories, workouts, steps, and nutrition" },
+                { title: "Redemption Tasks", desc: "Miss a target? Complete community-approved tasks" },
+                { title: "Leaderboards", desc: "Friendly competition to keep everyone motivated" }
+              ].map(item => (
+                <div class="bg-secondary p-4 rounded-xl border border-white/5">
+                  <h4 class="font-bold text-white mb-1">{item.title}</h4>
+                  <p class="text-sm text-gray-400">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/challenge_embed.png"
-                    alt="Challenge System for Discord Activity Tracker Bot"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
+          <div class="w-full md:flex-[0.5] mt-3 md:mt-0 relative">
+            <div class="absolute -inset-4 bg-indigo-500/20 blur-3xl rounded-full opacity-20"></div>
+            <div class="grid grid-cols-2 gap-4 relative z-10">
+              <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl translate-y-8">
+                <img
+                  src="/images/challenge_embed.png"
+                  alt="Challenge System for Discord Activity Tracker Bot"
+                  class="rounded-xl w-full h-auto shadow-lg"
+                />
               </div>
-              <div class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full">
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/results_embed.png"
-                    alt="Challenge Results for Discord Activity Tracker Communities"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
+              <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl">
+                <img
+                  src="/images/results_embed.png"
+                  alt="Challenge Results for Discord Activity Tracker Communities"
+                  class="rounded-xl w-full h-auto shadow-lg"
+                />
               </div>
             </div>
           </div>
@@ -459,41 +391,31 @@ const startingPrice = "19.99";
     </section>
 
     <!-- CTA Section -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-dark">
+    <section class="py-20 bg-dark">
       <div class="container mx-auto px-4 max-w-4xl text-center">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-          Ready to Transform Your Discord Community?
-        </h2>
-        <p class="text-lg md:text-xl text-gray-300 mb-8">
-          Join thousands of Discord communities using CalorieBot as their activity tracker bot.
-          Add it free today and start building a healthier, more engaged community.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-            class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
-            onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('discord_activity_tracker_bot_cta', 'bot_addition');"
-          >
-            Add CalorieBot Free
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+        <div class="bg-gradient-to-br from-secondary to-dark-800 p-10 rounded-3xl border border-white/5 shadow-2xl">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to Transform Your Discord Community?
+          </h2>
+          <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+            Join thousands of Discord communities using CalorieBot as their activity tracker bot.
+            Add it free today and start building a healthier, more engaged community.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
+              class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-4 px-10 rounded-full transition-all duration-200 hover:-translate-y-1 shadow-lg"
+              onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('discord_activity_tracker_bot_cta', 'bot_addition');"
             >
-              <path
-                fill-rule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </a>
-          <a
-            href="/pricing/"
-            class="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
-          >
-            View Pricing
-          </a>
+              Add CalorieBot Free
+            </a>
+            <a
+              href="/pricing/"
+              class="inline-flex items-center gap-2 bg-dark-700 hover:bg-dark-600 text-white text-lg font-bold py-4 px-10 rounded-full transition-all duration-200 border border-white/10 hover:border-white/20 hover:-translate-y-1"
+            >
+              View Pricing
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -546,26 +468,12 @@ const startingPrice = "19.99";
 
 <style>
   .image-glow {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
     transition: box-shadow 0.3s ease;
   }
 
   .image-glow:hover {
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-  }
-
-  .section-divider {
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.05) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1200px;
-    opacity: 0.7;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
   }
 
   @keyframes blink {

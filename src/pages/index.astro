@@ -69,253 +69,128 @@ const startingPrice = "19.99";
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <ContactModal id="contact-modal" />
-  <main>
+  <main class="overflow-x-hidden">
     <!-- Hero Section -->
-    <section class="relative bg-dark text-white py-8 md:py-12 overflow-hidden">
-      <!-- Subtle decorative elements that match the theme -->
-      <div class="absolute inset-0" aria-hidden="true">
-        <div class="absolute top-0 right-0 w-1/3 h-48 bg-orange-600/5 blur-3xl">
-        </div>
-        <div class="absolute bottom-0 left-0 w-1/3 h-48 bg-discord/5 blur-3xl">
-        </div>
+    <section class="relative py-20 lg:py-32 overflow-hidden">
+      <!-- Hero Background Glow -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-discord/20 blur-[100px]"></div>
+        <div class="absolute top-[10%] right-[-5%] w-[30%] h-[30%] rounded-full bg-brand-orange/20 blur-[100px]"></div>
       </div>
 
-      <div class="container mx-auto px-4 max-w-4xl text-center relative">
+      <div class="container mx-auto px-4 max-w-5xl text-center relative z-10">
         <div class="space-y-8">
-          <h1
-            class="hero-heading font-bold mb-6 text-white"
-          >
-            <span>CalorieBot - The Ultimate</span>
-            <span class="text-orange-500">Discord Fitness Bot</span>
-            <span>for Your Community</span>
-          </h1>
-          <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300">
-            Transform your Discord server with AI-powered calorie tracking, guided workouts, challenges, and community features.
-            Members can snap photos of meals for instant calorie calculations, track workouts, and participate in fitness challenges - all within Discord.
-            <span class="text-orange-400 font-semibold">Monetize your server</span> with CalorieBot and earn 60% commission on subscriptions.
-          </p>
-          <!-- VSL Video Showcase -->
-          <div class="mt-12 mb-10 w-full max-w-5xl mx-auto">
-            <div class="relative">
-              <!-- Decorative background glow -->
-              <div class="absolute -inset-4 bg-gradient-to-r from-orange-600/20 via-indigo-600/20 to-orange-600/20 rounded-2xl blur-2xl opacity-75 animate-pulse"></div>
-
-              <!-- Video container with border glow -->
-              <div class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-1 rounded-2xl shadow-2xl border border-orange-500/30 video-showcase-wrapper">
-                <div class="relative bg-black rounded-xl overflow-hidden" style="padding-bottom: 56.25%;">
-                  <iframe
-                    class="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/aVk4ZzIw6pk"
-                    title="CalorieBot VSL Video"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              </div>
-
-              <!-- Call-to-action text -->
-              <div class="mt-6 text-center">
-                <p class="text-lg md:text-xl text-orange-400 font-semibold mb-2 flex items-center justify-center gap-2">
-                  <svg class="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                  Watch CalorieBot in action
-                </p>
-                <p class="text-base md:text-lg text-white font-semibold mb-1">
-                  (Yes, you can upload foods rapidly with Discord mobile!)
-                </p>
-                <p class="text-sm md:text-base text-gray-400">2 minutes to see how our powerful daily calorie threads work</p>
-              </div>
-            </div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 backdrop-blur-sm mb-4 animate-fade-in-up">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
+            </span>
+            Trusted by 1,000+ Discord Communities
           </div>
-          <div class="mt-10">
+
+          <h1 class="hero-heading font-extrabold mb-6 text-white tracking-tight">
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-400">The Ultimate Fitness Bot</span>
+            <span class="block text-discord mt-2">for Your Community</span>
+          </h1>
+
+          <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Transform your server with AI-powered calorie tracking, workouts, and challenges.
+            <span class="text-white font-medium">Engage your members</span> and <span class="text-brand-orange font-medium">earn 60% commission</span>.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
             <a
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-              class="group inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold py-3 px-8 rounded-full transition-all duration-200"
-              aria-label="Add CalorieBot Discord fitness bot to your server"
+              class="group flex items-center gap-3 bg-discord hover:bg-discord/90 text-white text-lg font-semibold py-4 px-8 rounded-full transition-all shadow-lg shadow-discord/25 hover:shadow-discord/40 hover:-translate-y-1"
               onclick="trackDiscordOAuthStart('homepage_hero', 'affiliate')"
             >
-              Add CalorieBot Free
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
+              Add to Discord
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </a>
+            <a href="#features" class="px-8 py-4 rounded-full text-white font-medium hover:bg-white/5 border border-white/10 transition-all hover:border-white/20">
+              View Features
+            </a>
+          </div>
+
+          <!-- VSL Video Showcase -->
+          <div class="mt-20 relative w-full max-w-5xl mx-auto group">
+            <div class="relative rounded-2xl overflow-hidden bg-dark-900 border border-white/10 shadow-2xl shadow-discord/10">
+              <div class="aspect-video">
+                <iframe
+                  class="w-full h-full"
+                  src="https://www.youtube.com/embed/aVk4ZzIw6pk"
+                  title="CalorieBot VSL Video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+             <div class="mt-6 text-center">
+                <p class="text-base md:text-lg text-gray-400">
+                  See how our powerful daily calorie threads work in <span class="text-white font-medium">under 2 minutes</span>
+                </p>
+              </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- AI-Powered Nutrition Section -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-secondary">
+    <section id="features" class="py-24 bg-dark-900 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2
-            class="section-heading font-bold text-white"
-          >
+        <div class="text-center mb-16">
+          <span class="text-discord font-semibold tracking-wider uppercase text-sm">Powered by AI</span>
+          <h2 class="section-heading font-bold text-white mt-2">
             AI-Powered Nutrition in Discord
           </h2>
         </div>
+
         <!-- AI Photo Calorie Counting Section -->
-        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <!-- Text content -->
-          <div class="w-full md:flex-[0.5]">
-            <div class="text-indigo-400 font-semibold mb-2">
-              Smart Food Analysis
+          <div class="order-2 lg:order-1">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="p-2 rounded-lg bg-discord/10 text-discord">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-white">Smart Food Analysis</h3>
             </div>
-            <h2
-              class="section-heading font-semibold mb-3 md:mb-4 text-white"
-            >
-              AI Photo Calorie<br />Counting
-            </h2>
-            <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
-              Simply snap a photo of your meal and let our advanced AI instantly
-              calculate the calories. Our technology recognizes food items,
-              portions, and provides accurate nutritional information in
-              seconds, making food logging effortless and precise.
+
+            <p class="text-lg text-gray-400 mb-8 leading-relaxed">
+              Simply snap a photo of your meal and let our advanced AI instantly calculate the calories. Our technology recognizes food items, portions, and provides accurate nutritional information in seconds.
             </p>
-            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Instant Analysis: Get detailed nutritional breakdown in
-                  seconds</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Smart Adjustments: Fine-tune entries with one-tap editing</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Enhanced Context: Add notes, ingredients, and meal details</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Scale Integration: Achieve precise measurements for accuracy</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Label Reading: Scan nutrition labels for accurate tracking</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Real-time Tracking: Monitor progress throughout your day</span
-                >
-              </li>
+
+            <ul class="space-y-4">
+              {[
+                "Instant Analysis: Get detailed nutritional breakdown in seconds",
+                "Smart Adjustments: Fine-tune entries with one-tap editing",
+                "Enhanced Context: Add notes, ingredients, and meal details",
+                "Scale Integration: Achieve precise measurements for accuracy",
+                "Label Reading: Scan nutrition labels for accurate tracking",
+                "Real-time Tracking: Monitor progress throughout your day"
+              ].map(item => (
+                <li class="flex items-start gap-3 text-gray-300">
+                  <svg class="w-5 h-5 text-brand-green mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
+
           <!-- Image grid -->
-          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-              <!-- Left image -->
-              <div
-                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
-              >
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/steak.png"
-                    alt="AI Food Analysis Demo"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
+          <div class="order-1 lg:order-2 relative group">
+            <div class="absolute -inset-4 bg-discord/20 blur-3xl rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+            <div class="grid grid-cols-2 gap-4 relative">
+              <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl rotate-[-2deg] translate-y-4 transition-transform hover:rotate-0 hover:translate-y-0 duration-300">
+                <img src="/images/steak.png" alt="AI Food Analysis Demo" class="rounded-xl w-full h-auto shadow-inner" />
               </div>
-              <!-- Right image -->
-              <div
-                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
-              >
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/scale.png"
-                    alt="Food Logging Demo"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
+              <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl rotate-[2deg] transition-transform hover:rotate-0 duration-300">
+                <img src="/images/scale.png" alt="Food Logging Demo" class="rounded-xl w-full h-auto shadow-inner" />
               </div>
             </div>
           </div>
@@ -324,121 +199,91 @@ const startingPrice = "19.99";
     </section>
 
     <!-- Conversational AI Calorie Tracking Section -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-secondary">
+    <section class="py-24 bg-dark-950 relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
-          <!-- Text content -->
-          <div class="w-full md:flex-[0.5]">
-            <div class="text-indigo-400 font-semibold mb-2">
-              Natural Language Input
-            </div>
-            <h2
-              class="section-heading font-semibold mb-3 md:mb-4 text-white"
-            >
-              Chat-Based<br />Calorie Tracking
-            </h2>
-            <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
-              Skip the manual data entry and complicated food searches. Simply
-              type what you ate in natural language, and our AI instantly
-              calculates the nutritional information.
-            </p>
-            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Natural language understanding for quick entries</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Instant calorie and macro calculations</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Smart portion size interpretation</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>No more scrolling through endless food databases</span>
-              </li>
-            </ul>
-          </div>
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <!-- Chat demo box -->
-          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-            <div
-              class="bg-gray-800 rounded-xl p-6 shadow-xl h-[290px] md:h-[375px] flex flex-col"
-            >
-              <!-- Chat interface -->
-              <div class="flex-1 mb-4 flex items-end">
-                <div
-                  id="typing-demo"
-                  class="w-full p-4 bg-gray-700/50 rounded-lg text-gray-300 font-mono"
-                >
-                  <span class="typing-text"></span>
-                  <span class="typing-cursor">|</span>
+          <div class="order-2 relative">
+            <div class="absolute -inset-4 bg-brand-purple/20 blur-3xl rounded-full opacity-20"></div>
+            <div class="bg-dark-800 rounded-2xl p-6 border border-white/5 shadow-2xl relative z-10">
+              <!-- Chat interface header -->
+              <div class="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
+                <div class="w-10 h-10 rounded-full bg-discord flex items-center justify-center">
+                  <span class="text-white font-bold text-lg">CB</span>
+                </div>
+                <div>
+                  <div class="font-bold text-white">CalorieBot</div>
+                  <div class="text-xs text-green-400 flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                    Online
+                  </div>
                 </div>
               </div>
+
+              <!-- Messages -->
+              <div class="space-y-4 mb-6 h-[250px] overflow-hidden relative">
+                 <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gray-600 flex-shrink-0"></div>
+                    <div class="bg-dark-700 rounded-2xl rounded-tl-none p-3 text-gray-200 text-sm max-w-[85%]">
+                       2 eggs and 3 strips of bacon
+                    </div>
+                 </div>
+                 <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-full bg-discord flex-shrink-0 flex items-center justify-center text-white text-xs">CB</div>
+                    <div class="bg-discord/10 border border-discord/20 rounded-2xl rounded-tl-none p-3 text-gray-200 text-sm max-w-[85%]">
+                       <div class="font-bold text-discord mb-1">Breakfast Logged!</div>
+                       <div>🥚 2 Large Eggs (143 cal)</div>
+                       <div>🥓 3 Strips Bacon (129 cal)</div>
+                       <div class="mt-2 text-xs text-gray-400 border-t border-white/5 pt-2">Total: 272 kcal | 19g Protein</div>
+                    </div>
+                 </div>
+              </div>
+
               <!-- Input box design -->
-              <div
-                class="bg-gray-700/50 p-4 rounded-lg flex items-center gap-3"
-              >
-                <div class="flex-1 h-6 bg-gray-600/50 rounded"></div>
-                <svg
-                  class="w-5 h-5 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+              <div class="bg-dark-900 p-4 rounded-xl flex items-center gap-3 border border-white/5">
+                <div class="w-6 h-6 rounded-full bg-gray-700 flex items-center justify-center text-gray-400">
+                   <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <div id="typing-demo" class="flex-1 text-gray-300 font-mono text-sm">
+                  <span class="typing-text"></span><span class="typing-cursor">|</span>
+                </div>
+                <svg class="w-5 h-5 text-discord" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                 </svg>
               </div>
+            </div>
+          </div>
+
+          <!-- Text content -->
+          <div class="order-1">
+             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-purple/10 text-brand-purple text-sm font-medium mb-4 border border-brand-purple/20">
+              <span class="w-2 h-2 rounded-full bg-brand-purple animate-pulse"></span>
+              Natural Language Input
+            </div>
+            <h2 class="section-heading font-bold text-white mb-6">
+              Chat-Based<br />Calorie Tracking
+            </h2>
+            <p class="text-lg text-gray-400 mb-8 leading-relaxed">
+              Skip the manual data entry and complicated food searches. Simply type what you ate in natural language, and our AI instantly calculates the nutritional information.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+              {[
+                { title: "Natural Language", desc: "Just type what you ate naturally" },
+                { title: "Instant Calc", desc: "Calories & macros in seconds" },
+                { title: "Smart Portions", desc: "AI interprets vague sizes" },
+                { title: "Database Free", desc: "No searching required" }
+              ].map(item => (
+                <div class="flex gap-3">
+                   <div class="w-10 h-10 rounded-lg bg-dark-800 border border-white/5 flex items-center justify-center flex-shrink-0 text-brand-purple">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                   </div>
+                   <div>
+                      <div class="font-bold text-white">{item.title}</div>
+                      <div class="text-sm text-gray-400">{item.desc}</div>
+                   </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -446,130 +291,59 @@ const startingPrice = "19.99";
     </section>
 
     <!-- Social Sharing Section -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-dark">
+    <section class="py-24 bg-dark-900 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2
-            class="section-heading font-bold text-white"
-          >
+        <div class="text-center mb-16">
+          <h2 class="section-heading font-bold text-white">
             Social Sharing & Community Engagement
           </h2>
+          <p class="text-xl text-gray-400 mt-4 max-w-2xl mx-auto">
+             Keep your community engaged with automatic sharing, leaderboards, and progress celebration.
+          </p>
         </div>
-        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <!-- Text content -->
-          <div class="w-full md:flex-[0.5]">
-            <div class="text-indigo-400 font-semibold mb-2">
-              Community Connection
-            </div>
-            <h2
-              class="section-heading font-semibold mb-4 text-white"
-            >
-              Share Your Progress<br />Celebrate Together
+          <div>
+            <div class="text-brand-blue font-bold mb-2 tracking-wider uppercase text-sm">Community Connection</div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+              Share Progress,<br />Celebrate Together
             </h2>
-            <p class="text-base md:text-lg text-gray-300 mb-6">
+            <p class="text-lg text-gray-400 mb-8 leading-relaxed">
               Our social sharing features make it easy to celebrate wins, share
               progress, and stay motivated together. From daily tallies to meal
               photos, keep your community engaged and inspired.
             </p>
-            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Daily Progress Sharing: Automatically share your daily totals</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Meal Inspiration: Share your food photos for community ideas</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Milestone Celebrations: Automatically highlight big
-                  achievements</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Community Support: Get encouragement from your fitness family</span
-                >
-              </li>
-            </ul>
+
+            <div class="grid gap-6">
+              {[
+                { title: "Daily Progress", desc: "Automatically share daily calorie & macro totals" },
+                { title: "Meal Inspiration", desc: "Share food photos for community ideas" },
+                { title: "Milestones", desc: "Celebrate streaks and weight goals" },
+                { title: "Support", desc: "Get encouragement from your fitness family" }
+              ].map(item => (
+                <div class="flex items-start gap-4 p-4 rounded-xl bg-dark-800 border border-white/5 hover:border-brand-blue/30 transition-colors">
+                   <div class="mt-1">
+                      <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                   </div>
+                   <div>
+                      <h4 class="font-bold text-white text-base">{item.title}</h4>
+                      <p class="text-sm text-gray-400">{item.desc}</p>
+                   </div>
+                </div>
+              ))}
+            </div>
           </div>
+
           <!-- Image grid -->
-          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-              <!-- Left image -->
-              <div
-                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
-              >
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/tally_sharing.png"
-                    alt="Daily Tally Sharing Demo"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
+          <div class="relative">
+            <div class="absolute -inset-4 bg-brand-blue/20 blur-3xl rounded-full opacity-20"></div>
+            <div class="grid grid-cols-2 gap-4 relative z-10">
+              <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl translate-y-8">
+                <img src="/images/tally_sharing.png" alt="Daily Tally Sharing Demo" class="rounded-xl w-full h-auto shadow-lg" />
               </div>
-              <!-- Right image -->
-              <div
-                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
-              >
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/food_sharing.png"
-                    alt="Food Sharing Demo"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
+              <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl">
+                <img src="/images/food_sharing.png" alt="Food Sharing Demo" class="rounded-xl w-full h-auto shadow-lg" />
               </div>
             </div>
           </div>
@@ -578,121 +352,52 @@ const startingPrice = "19.99";
     </section>
 
     <!-- Workout Features Section -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-dark">
+    <section class="py-24 bg-dark-950 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2
-            class="section-heading font-bold text-white"
-          >
-            Built-In Workout Functionality
-          </h2>
-        </div>
-        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <!-- Image grid -->
+          <div class="order-2 lg:order-1 relative">
+             <div class="absolute -inset-4 bg-brand-orange/10 blur-3xl rounded-full opacity-20"></div>
+            <div class="grid grid-cols-2 gap-4 relative z-10">
+              <div class="bg-dark-900 p-2 rounded-2xl border border-white/5 shadow-2xl">
+                <img src="/images/barbell_workout.png" alt="Barbell Workout Demo" class="rounded-xl w-full h-auto shadow-lg" />
+              </div>
+              <div class="bg-dark-900 p-2 rounded-2xl border border-white/5 shadow-2xl translate-y-8">
+                <img src="/images/workouts_start.png" alt="Workout Start Demo" class="rounded-xl w-full h-auto shadow-lg" />
+              </div>
+            </div>
+          </div>
+
           <!-- Text content -->
-          <div class="w-full md:flex-[0.5]">
-            <div class="text-indigo-400 font-semibold mb-2">Guided Fitness</div>
-            <h2
-              class="section-heading font-semibold mb-4 text-white"
-            >
+          <div class="order-1 lg:order-2">
+            <div class="text-brand-orange font-bold mb-2 tracking-wider uppercase text-sm">Guided Fitness</div>
+            <h2 class="section-heading font-bold text-white mb-6">
               AI-Powered Workouts<br />in Discord
             </h2>
-            <p class="text-base md:text-lg text-gray-300 mb-6">
+            <p class="text-lg text-gray-400 mb-8 leading-relaxed">
               Our built-in workout system provides guided exercises, progress
               tracking, and community sharing - all within your Discord server.
               Get step-by-step instructions, track your PRs, and celebrate your
-              fitness journey with your community.
+              fitness journey.
             </p>
-            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Guided Workouts: Step-by-step exercise instructions</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>PR Tracking: Log and compare personal records</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Workout Sharing: Celebrate completed workouts</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Progress Tracking: Monitor your fitness journey</span>
-              </li>
-            </ul>
-          </div>
-          <!-- Image grid -->
-          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-              <!-- Left image -->
-              <div
-                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
-              >
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/barbell_workout.png"
-                    alt="Barbell Workout Demo"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
-              </div>
-              <!-- Right image -->
-              <div
-                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
-              >
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/workouts_start.png"
-                    alt="Workout Start Demo"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
-              </div>
+
+            <div class="space-y-4">
+               {[
+                  { title: "Guided Workouts", desc: "Step-by-step exercise instructions with GIFs" },
+                  { title: "PR Tracking", desc: "Log and compare personal records automatically" },
+                  { title: "Workout Sharing", desc: "Share completed workouts to the community feed" },
+                  { title: "Progress Analytics", desc: "Visualize your strength gains over time" }
+               ].map(item => (
+                  <div class="flex gap-4">
+                     <div class="w-8 h-8 rounded-full bg-brand-orange/10 flex items-center justify-center flex-shrink-0 text-brand-orange mt-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                     </div>
+                     <div>
+                        <h4 class="font-bold text-white">{item.title}</h4>
+                        <p class="text-sm text-gray-400">{item.desc}</p>
+                     </div>
+                  </div>
+               ))}
             </div>
           </div>
         </div>
@@ -700,117 +405,48 @@ const startingPrice = "19.99";
     </section>
 
     <!-- AI Workout Builder Section -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-dark">
+    <section class="py-24 bg-dark-900 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2
-            class="section-heading font-bold text-white"
-          >
-            Build Your Perfect Workout
-          </h2>
-        </div>
-        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <!-- Text content -->
-          <div class="w-full md:flex-[0.5]">
-            <div class="text-indigo-400 font-semibold mb-2">
-              AI-Powered Customization
-            </div>
-            <h2
-              class="section-heading font-semibold mb-4 text-white"
-            >
+          <div>
+            <div class="text-brand-purple font-bold mb-2 tracking-wider uppercase text-sm">AI-Powered Customization</div>
+            <h2 class="section-heading font-bold text-white mb-6">
               Personalized Workouts<br />On Demand
             </h2>
-            <p class="text-base md:text-lg text-gray-300 mb-6">
+            <p class="text-lg text-gray-400 mb-8 leading-relaxed">
               Simply tell our AI what equipment you have, your fitness goals,
               and how much time you have. We'll generate the perfect workout
-              tailored to your needs - whether you're at a fully-equipped gym,
-              traveling with limited equipment, or working out at home.
+              tailored to your needs.
             </p>
-            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Equipment-Based: Works with any setup, from full gyms to
-                  bodyweight only</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Time-Efficient: Get workouts tailored to your available time</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Goal-Oriented: Focus on strength, endurance, or specific
-                  muscle groups</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Travel-Friendly: Perfect for hotel rooms, parks, or on-the-go
-                  workouts</span
-                >
-              </li>
-            </ul>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+               {[
+                  { title: "Equipment-Based", desc: "Works with any setup, from full gyms to bodyweight only" },
+                  { title: "Time-Efficient", desc: "Get workouts tailored to your available time slot" },
+                  { title: "Goal-Oriented", desc: "Focus on strength, endurance, or specific muscle groups" },
+                  { title: "Travel-Friendly", desc: "Perfect for hotel rooms, parks, or on-the-go workouts" }
+               ].map(item => (
+                  <div class="bg-dark-800 p-4 rounded-xl border border-white/5 hover:border-brand-purple/30 transition-colors group">
+                     <div class="mb-2 text-brand-purple group-hover:scale-110 transition-transform origin-left">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                     </div>
+                     <h4 class="font-bold text-white mb-1">{item.title}</h4>
+                     <p class="text-sm text-gray-400">{item.desc}</p>
+                  </div>
+               ))}
+            </div>
           </div>
+
           <!-- Single image box -->
-          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-            <div
-              class="bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-[400px] md:h-[500px]"
-            >
-              <div class="w-full h-full relative p-4">
+          <div class="relative">
+             <div class="absolute -inset-4 bg-brand-purple/20 blur-3xl rounded-full opacity-20"></div>
+            <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl relative z-10 rotate-1 hover:rotate-0 transition-transform duration-500">
+              <div class="w-full h-full relative p-2">
                 <img
                   src="/images/build_workout.png"
                   alt="AI Workout Builder Demo"
-                  class="rounded-lg w-full h-full object-contain bg-gray-800"
+                  class="rounded-xl w-full h-full object-contain bg-dark-900 shadow-inner"
                 />
               </div>
             </div>
@@ -820,133 +456,58 @@ const startingPrice = "19.99";
     </section>
 
     <!-- Accountability System Section -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-secondary">
+    <section class="py-24 bg-dark-950 relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2
-            class="section-heading font-bold text-white"
-          >
-            Accountability System
-          </h2>
-        </div>
-        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
-          <!-- Text content -->
-          <div class="w-full md:flex-[0.5]">
-            <div class="text-indigo-400 font-semibold mb-2">
-              Gamified Fitness
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <!-- Image grid -->
+          <div class="order-2 lg:order-1 relative">
+             <div class="absolute -inset-4 bg-brand-green/10 blur-3xl rounded-full opacity-20"></div>
+            <div class="grid grid-cols-2 gap-4 relative z-10">
+              <div class="bg-dark-900 p-2 rounded-2xl border border-white/5 shadow-2xl translate-y-8">
+                <img src="/images/challenge_embed.png" alt="Challenge Embed Demo" class="rounded-xl w-full h-auto shadow-lg" />
+              </div>
+              <div class="bg-dark-900 p-2 rounded-2xl border border-white/5 shadow-2xl">
+                <img src="/images/results_embed.png" alt="Results Embed Demo" class="rounded-xl w-full h-auto shadow-lg" />
+              </div>
             </div>
-            <h2
-              class="section-heading font-semibold mb-3 text-white"
-            >
+          </div>
+
+          <!-- Text content -->
+          <div class="order-1 lg:order-2">
+            <div class="text-brand-green font-bold mb-2 tracking-wider uppercase text-sm">Gamified Fitness</div>
+            <h2 class="section-heading font-bold text-white mb-6">
               Weekly Accountability<br />Built for Engagement
             </h2>
-            <p class="text-base md:text-lg text-gray-300 mb-3">
+            <p class="text-lg text-gray-400 mb-8 leading-relaxed">
               Our accountability system keeps your community motivated through
               friendly competition and social accountability. Set weekly goals, track
-              progress, and celebrate wins together - all seamlessly integrated
-              with your Discord server. Learn more about <a href="/blog/build-engaged-fitness-community-discord/" class="text-orange-400 hover:text-orange-300 underline">building engaged fitness communities</a>.
+              progress, and celebrate wins together.
             </p>
-            <ul class="space-y-2 md:space-y-3 text-gray-300 mb-3 md:mb-0">
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Auto-Pull Progress: The system automatically tracks nutrition
-                  and workout data for accountability</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Daily Targets: Track calories, workouts, steps, and protein for accountability</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Redemption Tasks: Miss a target? Complete
-                  community-approved accountability tasks</span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-indigo-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Leaderboards: Friendly competition and social accountability to keep everyone motivated</span
-                >
-              </li>
-            </ul>
-          </div>
-          <!-- Image grid -->
-          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
-            <div class="grid grid-cols-2 gap-3 h-[400px] md:h-[500px]">
-              <!-- Left image -->
-              <div
-                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
-              >
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/challenge_embed.png"
-                    alt="Challenge Embed Demo"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
-              </div>
-              <!-- Right image -->
-              <div
-                class="image-glow bg-gray-800 p-2 md:p-3 rounded-xl shadow-xl h-full"
-              >
-                <div class="w-full h-full relative">
-                  <img
-                    src="/images/results_embed.png"
-                    alt="Results Embed Demo"
-                    class="rounded-lg absolute inset-0 w-full h-full object-cover object-top bg-gray-800"
-                  />
-                </div>
-              </div>
+
+            <div class="space-y-6">
+               {[
+                  { title: "Auto-Pull Progress", desc: "Automatically tracks nutrition and workout data from user logs" },
+                  { title: "Daily Targets", desc: "Track calories, workouts, steps, and protein against goals" },
+                  { title: "Redemption Tasks", desc: "Miss a target? Complete community-approved tasks to stay in the game" },
+                  { title: "Leaderboards", desc: "Live rankings to drive friendly competition and engagement" }
+               ].map(item => (
+                  <div class="flex items-start gap-4">
+                     <div class="mt-1 p-1 rounded bg-brand-green/10 text-brand-green">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                     </div>
+                     <div>
+                        <h4 class="font-bold text-white">{item.title}</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+                     </div>
+                  </div>
+               ))}
+            </div>
+
+            <div class="mt-8">
+               <a href="/blog/build-engaged-fitness-community-discord/" class="text-brand-green hover:text-brand-green/80 font-medium inline-flex items-center gap-1 transition-colors">
+                  Learn about building engaged communities
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+               </a>
             </div>
           </div>
         </div>
@@ -954,7 +515,6 @@ const startingPrice = "19.99";
     </section>
 
     <!-- 6-Week Challenges Section -->
-    <div class="section-divider"></div>
     <section class="py-12 md:py-20 bg-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8 md:mb-16">
@@ -967,9 +527,9 @@ const startingPrice = "19.99";
             Transform your Discord server into a digital fitness studio. Run profitable 6-week challenges that drive engagement and generate serious revenue.
           </p>
         </div>
-        <div class="flex flex-col md:flex-row items-start gap-4 md:gap-12">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <!-- Text content -->
-          <div class="w-full md:flex-[0.5]">
+          <div class="lg:col-span-7">
             <div class="text-orange-400 font-semibold mb-2">
               Revenue Generation
             </div>
@@ -1065,7 +625,7 @@ const startingPrice = "19.99";
             </div>
           </div>
           <!-- Stats/Features Grid -->
-          <div class="w-full md:flex-[0.5] mt-3 md:mt-0">
+          <div class="lg:col-span-5">
             <div class="grid grid-cols-2 gap-4">
               <div class="bg-gradient-to-br from-orange-900/20 to-orange-800/20 rounded-lg p-6 border border-orange-500/30">
                 <div class="text-3xl font-bold text-orange-400 mb-2">$7,050+</div>
@@ -1090,186 +650,126 @@ const startingPrice = "19.99";
     </section>
 
     <!-- Device Integrations Section -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-secondary">
+    <section class="py-24 bg-dark-900 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2
-            class="section-heading font-bold text-white"
-          >
+        <div class="text-center mb-16">
+          <h2 class="section-heading font-bold text-white">
             Device Integrations
           </h2>
-          <p class="text-lg md:text-xl text-gray-300 mt-4 max-w-3xl mx-auto">
-            Connect your fitness devices for <strong class="text-white">live steps</strong> and <strong class="text-white">accurate daily calorie burn</strong>. Your activity syncs automatically, giving you real-time data without manual entry.
+          <p class="text-xl text-gray-400 mt-4 max-w-2xl mx-auto">
+            Connect your fitness devices for live steps and accurate daily calorie burn.
           </p>
         </div>
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-8">
-          <div class="bg-dark rounded-xl p-8 border border-green-500/30">
-            <div class="text-center mb-6">
-              <div class="text-5xl mb-4">ðŸŽ</div>
-              <h3 class="text-2xl font-bold text-white mb-3">Apple Health</h3>
-              <p class="text-gray-300 mb-4">Connect your iPhone, Apple Watch, or any Apple Health compatible device</p>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+          <!-- Apple Health -->
+          <div class="bg-dark-800 rounded-3xl p-8 border border-white/5 hover:border-green-500/30 transition-all group">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                 <span class="text-4xl">🍎</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">Apple Health</h3>
+              <p class="text-gray-400 mb-6">Connect your iPhone or Apple Watch</p>
+
+              <ul class="space-y-3 text-left w-full">
+                 {[
+                    "Live step tracking",
+                    "Accurate calorie burn",
+                    "Automatic sync"
+                 ].map(item => (
+                    <li class="flex items-center gap-3 text-gray-300 bg-dark-900/50 p-3 rounded-lg">
+                       <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                       <span>{item}</span>
+                    </li>
+                 ))}
+              </ul>
             </div>
-            <ul class="space-y-3 text-gray-300">
-              <li class="flex items-start gap-3">
-                <svg
-                  class="w-5 h-5 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span><strong class="text-white">Live step tracking</strong> - Real-time step counts synced automatically</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg
-                  class="w-5 h-5 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span><strong class="text-white">Accurate daily calorie burn</strong> - Precise activity-based calorie calculations</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg
-                  class="w-5 h-5 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span><strong class="text-white">Automatic sync</strong> - No manual entry required</span>
-              </li>
-            </ul>
           </div>
-          <div class="bg-dark rounded-xl p-8 border border-green-500/30">
-            <div class="text-center mb-6">
-              <div class="text-5xl mb-4">âŒš</div>
-              <h3 class="text-2xl font-bold text-white mb-3">FitBit</h3>
-              <p class="text-gray-300 mb-4">Connect your FitBit device for seamless activity tracking</p>
+
+          <!-- Fitbit -->
+          <div class="bg-dark-800 rounded-3xl p-8 border border-white/5 hover:border-blue-500/30 transition-all group">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                 <span class="text-4xl">⌚</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">FitBit</h3>
+              <p class="text-gray-400 mb-6">Connect any FitBit device</p>
+
+              <ul class="space-y-3 text-left w-full">
+                 {[
+                    "Live step tracking",
+                    "Accurate calorie burn",
+                    "Automatic sync"
+                 ].map(item => (
+                    <li class="flex items-center gap-3 text-gray-300 bg-dark-900/50 p-3 rounded-lg">
+                       <svg class="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                       <span>{item}</span>
+                    </li>
+                 ))}
+              </ul>
             </div>
-            <ul class="space-y-3 text-gray-300">
-              <li class="flex items-start gap-3">
-                <svg
-                  class="w-5 h-5 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span><strong class="text-white">Live step tracking</strong> - Real-time step counts synced automatically</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg
-                  class="w-5 h-5 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span><strong class="text-white">Accurate daily calorie burn</strong> - Precise activity-based calorie calculations</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg
-                  class="w-5 h-5 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span><strong class="text-white">Automatic sync</strong> - No manual entry required</span>
-              </li>
-            </ul>
           </div>
         </div>
+
         <div class="text-center">
-          <div class="bg-dark/50 rounded-lg p-4 border border-green-500/20 inline-block">
-            <p class="text-gray-300">
-              <strong class="text-white">More integrations coming soon:</strong> Garmin, Samsung Health, Google Fit, and more fitness platforms
-            </p>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800 border border-white/5 text-gray-400 text-sm">
+            <span class="w-2 h-2 rounded-full bg-gray-500 animate-pulse"></span>
+            Coming Soon: Garmin, Samsung Health, Google Fit
           </div>
         </div>
       </div>
     </section>
 
     <!-- Social Proof Section -->
-    <div class="section-divider"></div>
-    <section class="py-12 md:py-20 bg-dark">
+    <section class="py-24 bg-dark-950">
       <div class="container mx-auto px-4 max-w-7xl">
-        <h2
-          class="section-heading font-bold text-white text-center mb-6 md:mb-12"
-        >
-          What Our Users Are Saying
-        </h2>
+        <div class="text-center mb-16">
+           <h2 class="section-heading font-bold text-white">
+             Loved by Fitness Communities
+           </h2>
+           <div class="flex items-center justify-center gap-2 mt-4">
+              <div class="flex text-yellow-400">
+                 {[1,2,3,4,5].map(() => <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+              </div>
+              <span class="text-gray-400 font-medium">4.8/5 Average Rating</span>
+           </div>
+        </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {
             testimonials.map((post) => (
-              <div class="bg-secondary rounded-xl p-4 md:p-6 text-white">
-                <div class="flex items-start gap-3">
+              <div class="bg-dark-800 rounded-2xl p-6 text-white border border-white/5 hover:border-white/10 transition-colors shadow-lg">
+                <div class="flex items-start gap-4 mb-4">
                   <img
                     src={post.avatar}
                     alt={`${post.author}'s avatar`}
                     width="48"
                     height="48"
-                    class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover bg-gray-600 flex-shrink-0"
+                    class="w-12 h-12 rounded-full object-cover bg-dark-700 flex-shrink-0 border border-white/10"
                   />
                   <div class="flex-1 min-w-0">
-                    <div class="flex items-center gap-1 md:gap-2 flex-wrap">
-                      <span class="font-bold text-base md:text-lg">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                      <span class="font-bold text-white truncate">
                         {post.author}
                       </span>
                       {post.verified && (
                         <svg
-                          class="w-4 h-4 md:w-5 md:h-5 text-discord"
+                          class="w-4 h-4 text-discord"
                           viewBox="0 0 24 24"
+                          fill="currentColor"
                         >
-                          <path
-                            fill="currentColor"
-                            d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"
-                          />
+                          <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z" />
                         </svg>
                       )}
-                      <span class="text-gray-400 text-sm md:text-base truncate">
-                        {post.handle}
-                      </span>
                     </div>
-                    <p class="mt-1 text-base text-gray-300 break-words">
-                      {post.content}
-                    </p>
+                    <div class="text-sm text-gray-500 truncate">
+                        {post.handle}
+                    </div>
                   </div>
                 </div>
+                <p class="text-gray-300 leading-relaxed text-sm">
+                  {post.content}
+                </p>
               </div>
             ))
           }
@@ -1278,163 +778,115 @@ const startingPrice = "19.99";
     </section>
 
     <!-- Affiliate Commission Section -->
-    <div class="section-divider"></div>
-    <section id="affiliate" class="pt-12 md:pt-20 pb-0 bg-dark">
-      <div class="container mx-auto px-4 max-w-5xl -mb-6">
-        <h2
-          class="section-heading font-bold text-white text-center mb-6 md:mb-12"
-        >
-          How Affiliate Commissions Work
-        </h2>
+    <section id="affiliate" class="py-24 bg-dark-950 relative">
+      <!-- Background decoration -->
+      <div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
 
-        <div class="grid gap-6 mx-auto">
-          <!-- Two-Path Revenue Model -->
-          <div
-            class="bg-gradient-to-r from-orange-900/40 to-orange-800/30 rounded-lg p-8 border border-orange-500/30"
-          >
-            <div class="text-center mb-8">
-              <h3 class="text-3xl font-bold text-white mb-4">Two-Path Revenue Model</h3>
-              <p class="text-xl text-gray-300">Start with 6-week challenges for big revenue, then build recurring memberships</p>
-            </div>
+      <div class="container mx-auto px-4 max-w-6xl relative z-10">
+        <div class="text-center mb-16">
+           <div class="inline-block p-2 rounded-2xl bg-gradient-to-br from-brand-orange/20 to-brand-purple/20 border border-brand-orange/20 mb-6">
+              <span class="text-brand-orange font-bold px-4 py-1 rounded-lg bg-dark-900">Partner Program</span>
+           </div>
+          <h2 class="section-heading font-bold text-white mb-6">
+            How Affiliate Commissions Work
+          </h2>
+          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            Start with high-ticket challenges, then build recurring monthly income.
+          </p>
+        </div>
 
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-              <div class="bg-gray-800/50 rounded-lg p-6">
-                <div class="text-orange-400 font-bold text-lg mb-3">ðŸ’° 6-Week Challenges</div>
-                <div class="text-2xl font-bold text-white mb-2">$7,050+</div>
-                <div class="text-gray-300 text-sm mb-3">Per challenge (250 participants at $47)</div>
-                <div class="text-gray-400 text-xs">Run quarterly = $28,200/year</div>
-              </div>
-              <div class="bg-gray-800/50 rounded-lg p-6">
-                <div class="text-blue-400 font-bold text-lg mb-3">ðŸ“ˆ Long-Term Memberships</div>
-                <div class="text-2xl font-bold text-white mb-2">$12/month</div>
-                <div class="text-gray-300 text-sm mb-3">Per subscriber (60% commission)</div>
-                <div class="text-gray-400 text-xs">40% of challenge users convert</div>
-              </div>
-            </div>
-            <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 text-center">
-              <p class="text-green-300 text-sm">
-                <strong>Total from one challenge:</strong> $7,050 (challenge) + $14,393/year (memberships) = <strong>$21,443 first year</strong>
-              </p>
-            </div>
-          </div>
+        <!-- Two-Path Model Cards -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+           <!-- Path 1 -->
+           <div class="bg-dark-900 rounded-3xl p-8 border border-white/5 hover:border-brand-orange/30 transition-all group relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-64 h-64 bg-brand-orange/5 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-brand-orange/10 transition-all"></div>
+              <div class="relative z-10">
+                 <div class="w-12 h-12 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center mb-6 text-2xl">💰</div>
+                 <h3 class="text-2xl font-bold text-white mb-2">6-Week Challenges</h3>
+                 <div class="text-4xl font-bold text-white mb-1">$7,050<span class="text-lg text-brand-orange font-normal">+</span></div>
+                 <div class="text-sm text-gray-400 mb-6">Est. per challenge (250 users)</div>
 
-          <!-- Commission Structure -->
-          <div class="bg-secondary rounded-lg p-8">
-            <h3 class="text-2xl font-bold text-white mb-6 text-center">Commission Structure</h3>
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <h4 class="text-lg font-bold text-orange-400 mb-4 text-center">Challenge Commissions</h4>
-                <div class="space-y-3">
-                  <div class="bg-gray-800/50 rounded-lg p-4 text-center">
-                    <div class="text-xl font-bold text-white mb-1">60% Commission</div>
-                    <div class="text-gray-300 text-sm">On all challenge purchases</div>
-                  </div>
-                  <div class="bg-gray-800/50 rounded-lg p-4 text-center">
-                    <div class="text-xl font-bold text-green-400 mb-1">Paid Immediately</div>
-                    <div class="text-gray-300 text-sm">Via Stripe Connect</div>
-                  </div>
-                </div>
+                 <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/5">
+                       <span class="text-gray-300">Commission</span>
+                       <span class="font-bold text-white">60%</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/5">
+                       <span class="text-gray-300">Frequency</span>
+                       <span class="font-bold text-white">Quarterly</span>
+                    </div>
+                 </div>
               </div>
-              <div>
-                <h4 class="text-lg font-bold text-blue-400 mb-4 text-center">Membership Commissions</h4>
-                <div class="space-y-3">
-                  <div class="bg-gray-800/50 rounded-lg p-4 text-center">
-                    <div class="text-xl font-bold text-white mb-1">$12/month</div>
-                    <div class="text-gray-300 text-sm">Per subscriber (60% of $19.99)</div>
-                  </div>
-                  <div class="bg-gray-800/50 rounded-lg p-4 text-center">
-                    <div class="text-xl font-bold text-green-400 mb-1">Monthly Payouts</div>
-                    <div class="text-gray-300 text-sm">Automatic via Stripe</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+           </div>
 
-          <!-- Earnings Examples -->
-          <div class="bg-secondary rounded-lg p-8">
-            <h3 class="text-2xl font-bold text-white mb-6 text-center">Revenue Examples</h3>
-            <p class="text-gray-300 text-center mb-6">Learn more about <a href="/affiliate/" class="text-orange-400 hover:text-orange-300 underline">our affiliate program</a> and <a href="/six-week-challenges/" class="text-orange-400 hover:text-orange-300 underline">6-week challenges</a>.</p>
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-              <div class="bg-gray-800/50 rounded-lg p-6">
-                <h4 class="text-lg font-bold text-orange-400 mb-4 text-center">Challenge Revenue</h4>
-                <div class="space-y-3">
-                  <div class="flex justify-between">
-                    <span class="text-gray-300">250 participants Ã— $47</span>
-                    <span class="text-white font-bold">$7,050</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span class="text-gray-300">4 challenges/year</span>
-                    <span class="text-green-400 font-bold">$28,200</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bg-gray-800/50 rounded-lg p-6">
-                <h4 class="text-lg font-bold text-blue-400 mb-4 text-center">Membership Revenue</h4>
-                <div class="space-y-3">
-                  <div class="flex justify-between">
-                    <span class="text-gray-300">100 members (from challenges)</span>
-                    <span class="text-white font-bold">$1,200/mo</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span class="text-gray-300">Annual recurring</span>
-                    <span class="text-green-400 font-bold">$14,400</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 text-center">
-              <p class="text-green-300 text-sm">
-                <strong>Combined Annual:</strong> $28,200 (challenges) + $14,400 (memberships) = <strong>$42,600+</strong>
-              </p>
-            </div>
-          </div>
+           <!-- Path 2 -->
+           <div class="bg-dark-900 rounded-3xl p-8 border border-white/5 hover:border-brand-blue/30 transition-all group relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-64 h-64 bg-brand-blue/5 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-brand-blue/10 transition-all"></div>
+              <div class="relative z-10">
+                 <div class="w-12 h-12 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-6 text-2xl">📈</div>
+                 <h3 class="text-2xl font-bold text-white mb-2">Recurring Memberships</h3>
+                 <div class="text-4xl font-bold text-white mb-1">$14,400<span class="text-lg text-brand-blue font-normal">+</span></div>
+                 <div class="text-sm text-gray-400 mb-6">Est. annual recurring revenue</div>
 
-          <!-- Setup Process -->
-          <div class="bg-secondary rounded-lg p-8">
-            <h3 class="text-2xl font-bold text-white mb-6 text-center">Easy Setup Process</h3>
-            <div class="grid md:grid-cols-4 gap-6">
-              <div class="text-center">
-                <div class="text-4xl mb-4">ðŸ¤–</div>
-                <h4 class="text-lg font-bold text-white mb-2">1. Add Bot Free</h4>
-                <p class="text-gray-300 text-sm">Add CalorieBot to your Discord server at no cost</p>
+                 <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/5">
+                       <span class="text-gray-300">Commission</span>
+                       <span class="font-bold text-white">$12/user/mo</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/5">
+                       <span class="text-gray-300">Conversion</span>
+                       <span class="font-bold text-white">~40% from Challenges</span>
+                    </div>
+                 </div>
               </div>
-              <div class="text-center">
-                <div class="text-4xl mb-4">ðŸ’³</div>
-                <h4 class="text-lg font-bold text-white mb-2">2. Connect Stripe</h4>
-                <p class="text-gray-300 text-sm">Link your Stripe account for automatic payouts</p>
-              </div>
-              <div class="text-center">
-                <div class="text-4xl mb-4">ðŸŽ¯</div>
-                <h4 class="text-lg font-bold text-white mb-2">3. Run Challenges</h4>
-                <p class="text-gray-300 text-sm">Create 6-week challenges and earn big commissions</p>
-              </div>
-              <div class="text-center">
-                <div class="text-4xl mb-4">ðŸ“ˆ</div>
-                <h4 class="text-lg font-bold text-white mb-2">4. Build Memberships</h4>
-                <p class="text-gray-300 text-sm">40% convert to recurring $12/month subscriptions</p>
-              </div>
-            </div>
-          </div>
+           </div>
+        </div>
 
-          <!-- CTA -->
-          <div class="text-center space-y-4">
+        <!-- Combined Potential Banner -->
+        <div class="bg-gradient-to-r from-dark-800 to-dark-900 rounded-2xl p-8 border border-white/5 text-center mb-16 relative overflow-hidden">
+           <div class="absolute inset-0 bg-gradient-to-r from-brand-green/5 to-transparent opacity-50"></div>
+           <div class="relative z-10">
+              <p class="text-gray-300 mb-2 uppercase tracking-wider text-xs font-bold">Total First Year Potential</p>
+              <div class="text-4xl md:text-5xl font-bold text-white mb-2">
+                 $42,600<span class="text-brand-green">+</span>
+              </div>
+              <p class="text-sm text-gray-400">Based on 4 quarterly challenges and resulting memberships</p>
+           </div>
+        </div>
+
+        <!-- Setup Steps -->
+        <div class="grid md:grid-cols-4 gap-6">
+           {[
+              { icon: "🤖", title: "1. Add Bot", desc: "Add CalorieBot to your Discord server for free" },
+              { icon: "💳", title: "2. Connect Stripe", desc: "Link your account for automatic payouts" },
+              { icon: "🎯", title: "3. Run Challenge", desc: "Launch a 6-week challenge for big impact" },
+              { icon: "📈", title: "4. Earn Recurring", desc: "Convert users to monthly subscribers" }
+           ].map((step, i) => (
+              <div class="text-center relative group">
+                 <div class="w-16 h-16 mx-auto bg-dark-800 rounded-2xl border border-white/5 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform shadow-xl shadow-black/20">
+                    {step.icon}
+                 </div>
+                 <h4 class="font-bold text-white mb-2">{step.title}</h4>
+                 <p class="text-sm text-gray-400 leading-relaxed">{step.desc}</p>
+                 {i < 3 && <div class="hidden md:block absolute top-8 left-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent -z-10"></div>}
+              </div>
+           ))}
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-16 text-center">
             <a
               href={`https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&permissions=395137251392&scope=bot%20applications.commands`}
-              class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-full transition-colors text-lg"
+              class="inline-flex items-center gap-2 bg-white text-dark-950 hover:bg-gray-100 font-bold py-4 px-10 rounded-full transition-all shadow-xl shadow-white/5 hover:shadow-white/10 hover:-translate-y-1"
               onclick="trackDiscordOAuthStart('homepage_monetization_section', 'affiliate')"
             >
               Start Earning Today
             </a>
-            <div>
-              <a
-                href="/affiliate/"
-                class="text-orange-400 hover:text-orange-300 underline text-sm"
-              >
-                Learn more about the affiliate program â†’
+            <div class="mt-4">
+              <a href="/affiliate/" class="text-sm text-gray-400 hover:text-white transition-colors border-b border-gray-700 hover:border-white pb-0.5">
+                Learn more about the affiliate program
               </a>
             </div>
-          </div>
         </div>
       </div>
     </section>
@@ -1538,102 +990,6 @@ const startingPrice = "19.99";
 </script>
 
 <style>
-  .hero-heading {
-    font-size: clamp(2.25rem, 6vw, 3.5rem);
-    line-height: 1.15;
-    text-wrap: balance;
-  }
-
-  .section-heading {
-    font-size: clamp(1.75rem, 5vw, 2.75rem);
-    line-height: 1.2;
-    text-wrap: balance;
-  }
-
-  .image-glow {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    transition: box-shadow 0.3s ease;
-  }
-
-  .image-glow:hover {
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-  }
-
-  .video-showcase-wrapper {
-    transition: all 0.3s ease;
-    box-shadow:
-      0 0 30px rgba(251, 146, 60, 0.2),
-      0 0 60px rgba(99, 102, 241, 0.1),
-      inset 0 0 20px rgba(0, 0, 0, 0.3);
-  }
-
-  .video-showcase-wrapper:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 0 40px rgba(251, 146, 60, 0.4),
-      0 0 80px rgba(99, 102, 241, 0.2),
-      inset 0 0 20px rgba(0, 0, 0, 0.3);
-    border-color: rgba(251, 146, 60, 0.5);
-  }
-
-  @keyframes shimmer {
-    0% {
-      background-position: -1000px 0;
-    }
-    100% {
-      background-position: 1000px 0;
-    }
-  }
-
-  .video-showcase-wrapper::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(
-      45deg,
-      transparent 30%,
-      rgba(251, 146, 60, 0.3) 50%,
-      transparent 70%
-    );
-    background-size: 200% 200%;
-    border-radius: 1rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  .video-showcase-wrapper:hover::before {
-    opacity: 1;
-    animation: shimmer 3s infinite;
-  }
-
-  .section-spacing {
-    padding: 6rem 0;
-  }
-
-  .section-divider {
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.05) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1200px;
-    opacity: 0.7;
-  }
-
-  @media (max-width: 768px) {
-    .section-spacing {
-      padding: 4rem 0;
-    }
-  }
-
   @keyframes blink {
     0%,
     100% {

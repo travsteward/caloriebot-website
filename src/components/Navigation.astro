@@ -14,23 +14,24 @@ const navItems = [
 ];
 ---
 
-<nav class="bg-dark py-4 fixed w-full top-0 z-50">
-  <div class="container mx-auto px-4 flex justify-between items-center">
+<nav class="fixed w-full top-0 z-50 transition-all duration-300 bg-dark/80 backdrop-blur-lg border-b border-white/5">
+  <div class="container mx-auto px-4 flex justify-between items-center h-16">
     <div class="flex-none">
-      <a href="/" class="text-2xl font-bold text-white flex items-center">
-        <span class="text-discord">Calorie</span>
-        <span>Bot</span>
+      <a href="/" class="text-2xl font-bold text-white flex items-center gap-2 hover:opacity-90 transition-opacity">
+        <span class="w-8 h-8 rounded-lg bg-discord flex items-center justify-center text-white text-sm">CB</span>
+        <span>CalorieBot</span>
       </a>
     </div>
 
     {/* Desktop Navigation */}
-    <div class="hidden lg:flex flex-1 justify-center gap-6 xl:gap-8 px-4">
+    <div class="hidden xl:flex flex-1 justify-center gap-6 2xl:gap-8 px-4">
       {navItems.map(item => (
         <a
           href={item.href}
-          class="text-gray-300 hover:text-white transition-colors whitespace-nowrap"
+          class="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group whitespace-nowrap"
         >
           {item.label}
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-discord transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100"></span>
         </a>
       ))}
     </div>
@@ -39,7 +40,7 @@ const navItems = [
     <div class="flex items-center gap-4 flex-none">
       <a
         href={inviteUrl}
-        class="hidden sm:inline-flex bg-discord hover:bg-opacity-90 text-white font-medium py-2 px-4 rounded-lg transition-colors whitespace-nowrap text-sm"
+        class="hidden sm:inline-flex items-center justify-center bg-discord hover:bg-discord/90 text-white text-sm font-semibold py-2 px-4 rounded-full transition-all shadow-lg shadow-discord/20 hover:shadow-discord/40 hover:-translate-y-0.5"
         onclick="if(typeof trackDiscordOAuthStart === 'function') trackDiscordOAuthStart('navigation_header', 'bot_addition');"
       >
         Add to Server
@@ -48,7 +49,7 @@ const navItems = [
       {/* Mobile Menu Button */}
       <button
         id="mobile-menu-button"
-        class="lg:hidden text-gray-300 hover:text-white focus:outline-none"
+        class="xl:hidden text-gray-300 hover:text-white focus:outline-none p-2 rounded-md hover:bg-white/5 transition-colors"
         aria-label="Toggle menu"
       >
         <svg
@@ -78,13 +79,13 @@ const navItems = [
     {/* Mobile Navigation */}
     <div
       id="mobile-menu"
-      class="hidden fixed top-[72px] left-0 right-0 bg-dark lg:hidden shadow-lg"
+      class="hidden fixed top-[64px] left-0 right-0 bg-dark/95 backdrop-blur-xl xl:hidden shadow-xl border-t border-white/5"
     >
-      <div class="px-4 py-2 space-y-2">
+      <div class="px-4 py-4 space-y-2">
         {navItems.map(item => (
           <a
             href={item.href}
-            class="block py-2 text-gray-300 hover:text-white transition-colors"
+            class="block py-3 px-4 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all font-medium"
           >
             {item.label}
           </a>
