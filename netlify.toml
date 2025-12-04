@@ -113,17 +113,135 @@
     Pragma = "no-cache"
     Expires = "0"
 
-# Force all traffic to HTTPS first
+# Force HTTP to HTTPS (apex domain)
 [[redirects]]
-  from = "http://*.caloriebot.ai/*"
-  to = "https://:splat"
+  from = "http://caloriebot.ai/*"
+  to = "https://caloriebot.ai/:splat"
   status = 301
   force = true
 
-# Then force www to non-www
+# Force HTTP to HTTPS (www subdomain)
+[[redirects]]
+  from = "http://www.caloriebot.ai/*"
+  to = "https://caloriebot.ai/:splat"
+  status = 301
+  force = true
+
+# Force www to non-www (HTTPS)
 [[redirects]]
   from = "https://www.caloriebot.ai/*"
   to = "https://caloriebot.ai/:splat"
+  status = 301
+  force = true
+
+# Enforce trailing slashes for HTML pages (exclude assets and special files)
+[[redirects]]
+  from = "/:page"
+  to = "/:page/"
+  status = 301
+  force = true
+  conditions = {Language = ["en"]}
+
+# More specific trailing slash redirects for known pages
+[[redirects]]
+  from = "/pricing"
+  to = "/pricing/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/for-admins"
+  to = "/for-admins/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/for-creators"
+  to = "/for-creators/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/for-coaches"
+  to = "/for-coaches/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide"
+  to = "/user-guide/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/discord-food-bot"
+  to = "/discord-food-bot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/discord-fitness-bot"
+  to = "/discord-fitness-bot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/discord-activity-tracker-bot"
+  to = "/discord-activity-tracker-bot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fitness-bot"
+  to = "/fitness-bot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/features"
+  to = "/features/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/monetize"
+  to = "/monetize/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/affiliate"
+  to = "/affiliate/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/six-week-challenges"
+  to = "/six-week-challenges/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/consult"
+  to = "/consult/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog/"
   status = 301
   force = true
 
