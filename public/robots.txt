@@ -21,8 +21,8 @@ Disallow: /device-success/
 Disallow: /stripe-success/
 Disallow: /search/
 
-# Temporarily noindex blog until ready
-Disallow: /blog/
+# Blog is now indexed
+Allow: /blog/
 
 # Sitemap location
 Sitemap: https://caloriebot.ai/sitemap.xml
