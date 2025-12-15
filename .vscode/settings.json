@@ -1,0 +1,21 @@
+{
+  // Don't auto-save on focus change or window open (prevents unwanted saves on reload)
+  "files.autoSave": "off",
+
+  // Don't format on save
+  "editor.formatOnSave": false,
+
+  // Don't insert final newline automatically (let EditorConfig handle it)
+  "files.insertFinalNewline": false,
+
+  // Trim trailing whitespace
+  "files.trimTrailingWhitespace": true,
+
+  // Use LF line endings
+  "files.eol": "\n",
+
+  // Enable EditorConfig support (built into VS Code/Cursor)
+  "editorconfig.enable": true
+}
+
+
