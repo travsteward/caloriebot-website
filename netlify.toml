@@ -134,118 +134,21 @@
   status = 301
   force = true
 
-# Enforce trailing slashes for HTML pages (exclude assets and special files)
-# REMOVED: This catch-all redirect was causing infinite redirect loops
-# Astro already builds pages with trailing slashes (trailingSlash: 'always')
-# [[redirects]]
-#   from = "/:page"
-#   to = "/:page/"
-#   status = 301
-#   force = true
-#   conditions = {Language = ["en"]}
+# ============================================================================
+# TRAILING SLASH HANDLING
+# ============================================================================
+# Netlify's pretty_urls = true (line 291) automatically handles trailing slashes
+# It serves /page/index.html for both /page and /page/ requests
+# No manual redirects needed - Astro builds with trailingSlash: 'always'
+#
+# REMOVED: All trailing slash redirects (previously caused infinite loops)
+# - Catch-all /:page redirect with Language condition → infinite redirect loop
+# - Individual page redirects → redundant, already handled by pretty_urls
+# ============================================================================
 
-# More specific trailing slash redirects for known pages
-[[redirects]]
-  from = "/pricing"
-  to = "/pricing/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/for-admins"
-  to = "/for-admins/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/for-creators"
-  to = "/for-creators/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/for-coaches"
-  to = "/for-coaches/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/user-guide"
-  to = "/user-guide/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/discord-food-bot"
-  to = "/discord-food-bot/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/discord-fitness-bot"
-  to = "/discord-fitness-bot/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/discord-activity-tracker-bot"
-  to = "/discord-activity-tracker-bot/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/fitness-bot"
-  to = "/fitness-bot/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/features"
-  to = "/features/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/monetize"
-  to = "/monetize/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/affiliate"
-  to = "/affiliate/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/terms"
-  to = "/terms/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/privacy"
-  to = "/privacy/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/six-week-challenges"
-  to = "/six-week-challenges/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/consult"
-  to = "/consult/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog"
-  to = "/blog/"
-  status = 301
-  force = true
+# ============================================================================
+# SPECIAL REDIRECTS
+# ============================================================================
 
 # Redirect search URLs to homepage
 [[redirects]]
@@ -254,11 +157,8 @@
   status = 301
   force = true
 
-# Trailing slash redirect removed - Astro already outputs trailing slashes
-# This redirect was causing 900-1100ms TTFB overhead due to server-side processing
-# All pages are built with trailing slashes, so redirect is unnecessary
-
-# Exclude specific paths from trailing slash redirect
+# Trailing slash handling is automatic via pretty_urls = true
+# No manual redirects needed
 [[redirects]]
   from = "/sitemap.xml"
   to = "/sitemap.xml"
@@ -288,7 +188,7 @@
   skip_processing = false
 
 [build.processing.html]
-  pretty_urls = true
+  pretty_urls = true  # Automatically handles trailing slashes - serves /page/index.html for /page
 
 [build.processing.css]
   bundle = true
