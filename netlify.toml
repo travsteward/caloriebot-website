@@ -135,12 +135,14 @@
   force = true
 
 # Enforce trailing slashes for HTML pages (exclude assets and special files)
-[[redirects]]
-  from = "/:page"
-  to = "/:page/"
-  status = 301
-  force = true
-  conditions = {Language = ["en"]}
+# REMOVED: This catch-all redirect was causing infinite redirect loops
+# Astro already builds pages with trailing slashes (trailingSlash: 'always')
+# [[redirects]]
+#   from = "/:page"
+#   to = "/:page/"
+#   status = 301
+#   force = true
+#   conditions = {Language = ["en"]}
 
 # More specific trailing slash redirects for known pages
 [[redirects]]
