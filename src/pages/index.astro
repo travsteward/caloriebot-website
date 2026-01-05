@@ -117,10 +117,10 @@ const startingPrice = "19.99";
           <!-- VSL Video Showcase -->
           <div class="mt-20 relative w-full max-w-5xl mx-auto group">
             <div class="relative rounded-2xl overflow-hidden bg-dark-900 border border-white/10 shadow-2xl shadow-discord/10">
-              <div class="aspect-video">
+              <div style="width: 100%; max-width: 1080px; height: 608px; margin: 0 auto;">
                 <iframe
                   class="w-full h-full"
-                  src="https://www.youtube.com/embed/aVk4ZzIw6pk"
+                  src="https://www.youtube.com/embed/T4rP92StdcE"
                   title="CalorieBot VSL Video"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -160,7 +160,7 @@ const startingPrice = "19.99";
             </div>
 
             <p class="text-lg text-gray-400 mb-8 leading-relaxed">
-              Simply snap a photo of your meal and let our advanced AI instantly calculate the calories. Our technology recognizes food items, portions, and provides accurate nutritional information in seconds.
+              Simply snap a photo of your meal and let our advanced AI instantly calculate the calories. Our technology recognizes food items, portions, and provides accurate nutritional information in seconds. <span class="text-white font-medium">Every entry automatically flows into your daily log dashboard</span>—no manual data entry required.
             </p>
 
             <ul class="space-y-4">
@@ -170,7 +170,7 @@ const startingPrice = "19.99";
                 "Enhanced Context: Add notes, ingredients, and meal details",
                 "Scale Integration: Achieve precise measurements for accuracy",
                 "Label Reading: Scan nutrition labels for accurate tracking",
-                "Real-time Tracking: Monitor progress throughout your day"
+                "Auto-Aggregation: All data flows into your daily log automatically"
               ].map(item => (
                 <li class="flex items-start gap-3 text-gray-300">
                   <svg class="w-5 h-5 text-brand-green mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -284,6 +284,76 @@ const startingPrice = "19.99";
                    </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Log Thread Experience Section -->
+    <section class="py-24 bg-dark-900 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <!-- Text content -->
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-sm font-medium mb-4 border border-brand-green/20">
+              <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+              Automatic Data Aggregation
+            </div>
+            <h2 class="section-heading font-bold text-white mb-6">
+              Everything Auto-Populates<br />Zero Manual Entry
+            </h2>
+            <p class="text-lg text-gray-400 mb-6 leading-relaxed">
+              Your daily log thread automatically pulls in <span class="text-white font-semibold">every piece of data</span> from across the platform. Food photos, chat logs, workouts, device integrations—it all flows into one comprehensive dashboard. <span class="text-brand-green font-semibold">No spreadsheets. No manual tracking.</span>
+            </p>
+
+            <div class="bg-dark-800/50 border border-brand-green/20 rounded-xl p-4 mb-8">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-green/20 flex items-center justify-center flex-shrink-0 text-brand-green mt-0.5">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                  <div class="font-bold text-white mb-1">Auto-Aggregated Data Sources</div>
+                  <div class="text-sm text-gray-300 space-y-1">
+                    <div>• <span class="text-white">Food photos</span> → Calories & macros</div>
+                    <div>• <span class="text-white">Chat logs</span> → Natural language entries</div>
+                    <div>• <span class="text-white">Workout completions</span> → Exercise data</div>
+                    <div>• <span class="text-white">Device integrations</span> → Steps & calorie burn</div>
+                    <div>• <span class="text-white">Weight entries</span> → Implied change calculations</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              {[
+                { title: "Live Daily Targets", desc: "Maintenance calories, protein goals, and step targets calculated automatically" },
+                { title: "Real-Time Week Overview", desc: "Your deficit, protein progress, and implied weight change—all auto-calculated" },
+                { title: "Previous Week Comparison", desc: "Automatic week-over-week progress tracking" },
+                { title: "Zero Manual Work", desc: "Everything syncs automatically. Just log your food and workouts." }
+              ].map(item => (
+                <div class="flex gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-dark-800 border border-white/5 flex items-center justify-center flex-shrink-0 text-brand-green">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <div>
+                    <div class="font-bold text-white">{item.title}</div>
+                    <div class="text-sm text-gray-400">{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Daily Log Image -->
+          <div class="relative group">
+            <div class="absolute -inset-4 bg-brand-green/20 blur-3xl rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+            <div class="bg-dark-800 p-2 rounded-2xl border border-white/5 shadow-2xl relative z-10 hover:scale-[1.02] transition-transform duration-300">
+              <img
+                src="/images/Polished/daily_food_log_intial_embed.png"
+                alt="Daily Log Thread Embed - Progress Tracking Dashboard"
+                class="rounded-xl w-full h-auto shadow-inner"
+              />
             </div>
           </div>
         </div>
